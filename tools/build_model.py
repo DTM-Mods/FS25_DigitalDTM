@@ -1,4 +1,4 @@
-"""Builds the three Storage Monitor models in Blender, exports each with the GIANTS I3D exporter and renders
+"""Builds the Digital DTM monitor models in Blender, exports each with the GIANTS I3D exporter and renders
 their shop images.
 
     blender --background --factory-startup --python tools/build_model.py -- [variant ...]
@@ -38,6 +38,8 @@ except Exception:
 
 COL_BUILDING = ("0x1034", "0xfffffbff")
 COL_PLAYER_TRIGGER = ("0x20000000", "0x100000")
+SIZE_WIDTHS = [0.8, 1.2, 1.6, 2.0, 2.4, 3.0, 3.6, 4.2, 4.8, 6.0]     # = StorageMonitor.SIZE_WIDTHS
+SILO_BOTTOM = 2.0                                                  # silo mount: screen bottom edge above ground
 
 VARIANTS = {
     "kiosk": dict(width=1.20, center_y=1.40, tilt=-10.0, bezel=0.045, depth=0.06, housing=0.10,
@@ -46,6 +48,10 @@ VARIANTS = {
                  mount="posts", post=0.08, post_x=0.75, trigger=((0.0, 1.0, 1.5), (3.0, 2.0, 2.6)), clip=300),
     "billboard": dict(width=4.00, center_y=3.80, tilt=0.0, bezel=0.09, depth=0.10, housing=0.12,
                       mount="posts", post=0.14, post_x=1.30, trigger=((0.0, 1.0, 2.5), (5.0, 2.0, 4.6)), clip=500),
+    # silo mount: no posts; the screen hangs on a bracket whose back touches the silo wall, and the game
+    # scales the "mount" node to the screen size chosen in the monitor's settings (bottom edge at 2 m)
+    "wallMount": dict(width=2.40, center_y=2.846, lower_extent=0.846, tilt=0.0, bezel=0.06, depth=0.07, housing=0.08,
+                      mount="silo", arm=0.30, trigger=((0.0, 1.0, 1.6), (3.0, 2.0, 2.6)), clip=300),
 }
 
 MATERIALS = {   # name: (base colour, emission, roughness)
@@ -72,6 +78,8 @@ def make_materials(screen_image):
         if emission:
             bsdf.inputs["Emission Strength"].default_value = 1.0
         mat.diffuse_color = color + (1.0,)
+    # the screen: glowShader "staticLight" without emitColor glows with its own texture, so the panels can be
+    # read at night; the script sets the glow (lightControl, brightness setting) and swaps the texture (theme)
     mat = bpy.data.materials.new("monitor_screen")
     mat.use_nodes = True
     nodes, links = mat.node_tree.nodes, mat.node_tree.links
@@ -82,7 +90,29 @@ def make_materials(screen_image):
     tex.name = "screenTexture"
     tex.image = screen_image
     links.new(tex.outputs["Color"], bsdf.inputs["Base Color"])
+    mat["customShader"] = "$data/shaders/glowShader.xml"
+    mat["customShaderVariation"] = "staticLight"
+    mat["customParameter_lightControl"] = "0.25"
     mat.diffuse_color = (0.05, 0.08, 0.13, 1.0)
+
+    # live bars: the game's glowShader in "staticLight" mode, whose glow colour the script sets per copy
+    # (emitColor), like vehicle dashboard lights; a plain white texture, the colour comes from emitColor
+    mat = bpy.data.materials.new("monitor_bar")
+    mat.use_nodes = True
+    nodes, links = mat.node_tree.nodes, mat.node_tree.links
+    bsdf = nodes["Principled BSDF"]
+    bsdf.inputs["Emission Color"].default_value = (0.0, 0.0, 0.0, 1.0)
+    img = bpy.data.images.new("monitor_white_diffuse", 4, 4)
+    img.source = "FILE"
+    img.filepath = os.path.join(TEXTURES, "monitor_white_diffuse.dds")
+    tex = nodes.new("ShaderNodeTexImage")
+    tex.image = img
+    links.new(tex.outputs["Color"], bsdf.inputs["Base Color"])
+    mat["customShader"] = "$data/shaders/glowShader.xml"
+    mat["customShaderVariation"] = "staticLight"
+    mat["customParameter_lightControl"] = "1"
+    mat["customParameter_emitColor"] = "1 1 1 1"
+    mat.diffuse_color = (0.2, 0.8, 0.9, 1.0)
 
 
 class Mesh:
@@ -207,6 +237,15 @@ def mount(v):
             m.box((x - p * 2, 0.0, back_z - p * 3), (x + p * 2, 0.02, back_z + p * 1.2), "monitor_base", skip=("-y",))
         # cross bar under the screen
         m.box((-v["post_x"], bottom_y - p * 1.4, back_z - p * 0.8), (v["post_x"], bottom_y - p * 0.6, back_z - p * 0.2), "monitor_metal")
+    elif v["mount"] == "silo":   # in the mount node's space: screen centre at y = 0
+        arm, a = v["arm"], max(0.05, b * 0.9)
+        h2 = h / 2
+        for sx in (-1, 1):
+            x = sx * w * 0.3
+            for y in (h2 * 0.55, -h2 * 0.55):
+                m.box((x - a / 2, y - a / 2, back_z - arm), (x + a / 2, y + a / 2, back_z), "monitor_metal", skip=("+z",))
+            # wall plate the arms end on
+            m.box((x - a * 1.4, -h2 * 0.7, back_z - arm - 0.015), (x + a * 1.4, h2 * 0.7, back_z - arm), "monitor_base")
     else:   # pedestal
         m.box((-0.35, 0.0, -0.35), (0.35, 0.04, 0.25), "monitor_base", skip=("-y",))
         m.box((-0.08, 0.04, -0.18), (0.08, v["center_y"] - 0.15, -0.06), "monitor_metal", skip=("-y",))
@@ -220,28 +259,63 @@ def build(name, v):
     os.makedirs(os.path.dirname(blend), exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=blend)
 
-    img = bpy.data.images.new("monitor_screen_diffuse", 4, 4)
+    img = bpy.data.images.new("screen_night", 4, 4)
     img.source = "FILE"
-    img.filepath = os.path.join(TEXTURES, "monitor_screen_diffuse.dds")
+    img.filepath = os.path.join(TEXTURES, "screen_night.dds")
     make_materials(img)
 
     tilt = math.radians(v["tilt"])
-    cy = v["center_y"]
+    silo = v["mount"] == "silo"
+    cy = 0.0 if silo else v["center_y"]     # a silo mount's head is lifted by its mount node instead
 
     def place(p):      # head local -> model: tilt about x, then lift to the screen centre
         y = p.y * math.cos(tilt) - p.z * math.sin(tilt)
         z = p.y * math.sin(tilt) + p.z * math.cos(tilt)
         return Vector((p.x, y + cy, z))
 
+    # Everything visible hangs below "mount", which the script scales to the chosen screen size: a silo
+    # mount from its bottom edge (the node sits at the screen centre), a free-standing one from the ground.
     root = attrs(node("storageMonitor_" + name), clipDistance=float(v["clip"]))
+    parent = node("mount", root, (0.0, v["center_y"] if silo else 0.0, 0.0))
     body, glass, glass_z = head(v)
     full = body.transformed(place)
     full.extend(mount(v))
-    attrs(full.to_object("body", root), static=True, collisionFilterGroup=COL_BUILDING[0],
-          collisionFilterMask=COL_BUILDING[1], clipDistance=float(v["clip"]))
-    attrs(glass.transformed(place).to_object("screenGlass", root), castsShadows=False, receiveShadows=True,
+    attrs(full.to_object("body", parent), clipDistance=float(v["clip"]))      # visual only: it is resized
+    # Collision for every screen size (StorageMonitor.SIZE_WIDTHS), outside "mount": a static body cannot be
+    # scaled, so the script switches on the one that fits the chosen size and the others off. Without it the
+    # monitor cannot be selected (to sell it) in construction mode. Named by width in cm.
+    collisions = node("collisions", root)
+    for width in SIZE_WIDTHS:
+        s = width / v["width"]
+        if silo:     # grows upwards from its bottom edge, depth kept (as setStorageMonitorSize does)
+            lift = SILO_BOTTOM + v["lower_extent"] * s
+
+            def sized(p, s=s, lift=lift):
+                return Vector((p.x * s, p.y * s + lift, p.z))
+        else:        # grows from the ground
+            def sized(p, s=s):
+                return Vector((p.x * s, p.y * s, p.z * s))
+        attrs(full.transformed(sized).to_object("collision_%03d" % round(width * 100), collisions), static=True,
+              nonRenderable=True, castsShadows=False, receiveShadows=False,
+              collisionFilterGroup=COL_BUILDING[0], collisionFilterMask=COL_BUILDING[1])
+    attrs(glass.transformed(place).to_object("screenGlass", parent), castsShadows=False, receiveShadows=True,
           clipDistance=float(v["clip"]))
-    node("screen", root, tuple(place(Vector((0.0, 0.0, glass_z)))), rot_x=v["tilt"])
+    screen = node("screen", parent, tuple(place(Vector((0.0, 0.0, glass_z)))), rot_x=v["tilt"])
+    # 1 x 1 m rectangle, top-left corner at the node, spanning +x and -y, facing +z; hidden: the script
+    # copies it for every bar and sets each copy's place, size and colour
+    bar = Mesh()
+    bar.quad([(0.0, -1.0, 0.0), (1.0, -1.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 0.0)], "monitor_bar",
+             uv=((0.5, 0.5),) * 4)
+    template = attrs(bar.to_object("barTemplate", screen), castsShadows=False, receiveShadows=False,
+                     clipDistance=float(v["clip"]))
+    template["i3d_hidden"] = True
+    # the same with real UVs: product icons (the script puts each product's HUD icon on a copy)
+    icon = Mesh()
+    icon.quad([(0.0, -1.0, 0.0), (1.0, -1.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 0.0)], "monitor_bar",
+              uv=((0.001, 0.0), (1.0, 0.0), (1.0, 1.0), (0.001, 1.0)))
+    template = attrs(icon.to_object("iconTemplate", screen), castsShadows=False, receiveShadows=False,
+                     clipDistance=float(v["clip"]))
+    template["i3d_hidden"] = True
 
     (tc, ts) = v["trigger"]
     for tname in ("infoTrigger", "playerTrigger"):
@@ -289,9 +363,31 @@ def export(path):
 def render_store(name, v, out_png):
     """512 x 512 transparent shop image with the sample screen."""
     for obj in bpy.data.objects:
-        obj.hide_render = bool(obj.get("i3D_nonRenderable", False))
+        obj.hide_render = bool(obj.get("i3D_nonRenderable", False)) or bool(obj.get("i3d_hidden", False))
     preview = bpy.data.images.load(os.path.join(SRC, "textures", "monitor_preview_tex.png"))
     bpy.data.materials["monitor_screen"].node_tree.nodes["screenTexture"].image = preview
+
+    if v["mount"] == "silo":
+        # shop picture only (added after the export): a piece of corrugated silo wall behind the bracket,
+        # so the Silo Mount reads as "hangs on a silo"
+        wall = bpy.data.materials.new("render_siloWall")
+        wall.diffuse_color = (0.62, 0.64, 0.67, 1.0)
+        h = v["width"] / 1.6
+        plate_z = -v["depth"] / 2 - v["housing"] - v["arm"] - 0.015
+        radius, half = 6.0, 2.2
+        cz = plate_z - radius
+        y0, y1 = v["center_y"] - h * 0.95, v["center_y"] + h * 0.95
+        m = Mesh()
+        steps = 60
+        for i in range(steps):
+            a0 = -half / radius + (2 * half / radius) * i / steps
+            a1 = -half / radius + (2 * half / radius) * (i + 1) / steps
+            r0 = radius + (0.03 if i % 2 else 0.0)        # corrugation
+            r1 = radius + (0.0 if i % 2 else 0.03)
+            p0 = (math.sin(a0) * r0, math.cos(a0) * r0 + cz)
+            p1 = (math.sin(a1) * r1, math.cos(a1) * r1 + cz)
+            m.quad([(p0[0], y0, p0[1]), (p1[0], y0, p1[1]), (p1[0], y1, p1[1]), (p0[0], y1, p0[1])], "render_siloWall")
+        m.to_object("renderSiloWall", None).data.materials[0] = wall
 
     scene = bpy.context.scene
     scene.render.engine = "BLENDER_WORKBENCH"
@@ -312,11 +408,13 @@ def render_store(name, v, out_png):
     scene.collection.objects.link(cam)
     scene.camera = cam
     w = v["width"]
-    total_h = v["center_y"] + w / 3.2 + v["bezel"]
-    target = Vector(to_blender((0.0, total_h * 0.5, 0.0)))
+    hi = v["center_y"] + w / 3.2 + v["bezel"]
+    lo = v["center_y"] - w / 3.2 - v["bezel"] * 2 if v["mount"] == "silo" else 0.0
+    total_h = hi - lo
+    target = Vector(to_blender((0.0, lo + total_h * 0.5, 0.0)))
     dist = max(total_h, w) * 1.55
     yaw, pitch = math.radians(-28), math.radians(12)
-    pos = Vector(to_blender((dist * math.sin(-yaw), total_h * 0.5 + dist * math.sin(pitch), dist * math.cos(yaw))))
+    pos = Vector(to_blender((dist * math.sin(-yaw), lo + total_h * 0.5 + dist * math.sin(pitch), dist * math.cos(yaw))))
     cam.location = pos
     cam.rotation_euler = (target - pos).to_track_quat("-Z", "Y").to_euler()
     cam.data.type = "ORTHO"

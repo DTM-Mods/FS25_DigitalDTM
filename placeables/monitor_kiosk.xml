@@ -41,13 +41,20 @@
 
     <infoTrigger triggerNode="infoTrigger"/>
 
-    <storageMonitor screenNode="screen" width="1.20" drawDistance="30" searchRadius="250" playerTrigger="playerTrigger"/>
+    <storageMonitor screenNode="screen" width="1.20" drawDistance="30" searchRadius="40" playerTrigger="playerTrigger"
+                    barTemplate="barTemplate" iconTemplate="iconTemplate" glassNode="screenGlass" collisions="collisions">
+        <mount node="mount" mode="ground"/>
+    </storageMonitor>
 
     <i3dMappings>
-        <i3dMapping id="body" node="0>0"/>
-        <i3dMapping id="screenGlass" node="0>4"/>
-        <i3dMapping id="screen" node="0>3"/>
+        <i3dMapping id="body" node="0>2|0"/>
+        <i3dMapping id="screenGlass" node="0>2|2"/>
+        <i3dMapping id="screen" node="0>2|1"/>
+        <i3dMapping id="barTemplate" node="0>2|1|0"/>
+        <i3dMapping id="iconTemplate" node="0>2|1|1"/>
+        <i3dMapping id="collisions" node="0>0"/>
+        <i3dMapping id="mount" node="0>2"/>
         <i3dMapping id="infoTrigger" node="0>1"/>
-        <i3dMapping id="playerTrigger" node="0>2"/>
+        <i3dMapping id="playerTrigger" node="0>3"/>
     </i3dMappings>
 </placeable>

@@ -1,4 +1,4 @@
-# ModHub upload: Storage Monitor
+# ModHub upload: Digital DTM
 
 What to enter in the GIANTS ModHub upload form for this mod. Each text box below has a copy button on GitHub.
 
@@ -8,9 +8,9 @@ What to enter in the GIANTS ModHub upload form for this mod. Each text box below
 
 | Field | Value |
 |-------|-------|
-| Title English | Storage Monitor |
-| Title German | Lager-Monitor |
-| Title French | Moniteur de stockage |
+| Title English | Digital DTM |
+| Title German | Digital DTM |
+| Title French | Digital DTM |
 | Version | `1` `0` `0` `0` |
 | Author | DTM Mods, Fennell |
 | Manufacturer | Lizard |
@@ -20,17 +20,17 @@ What to enter in the GIANTS ModHub upload form for this mod. Each text box below
 
 ## Title English
 ```text
-Storage Monitor
+Digital DTM
 ```
 
 ## Title German
 ```text
-Lager-Monitor
+Digital DTM
 ```
 
 ## Title French
 ```text
-Moniteur de stockage
+Digital DTM
 ```
 
 ## Description English

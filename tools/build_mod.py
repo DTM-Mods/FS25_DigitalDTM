@@ -1,4 +1,4 @@
-"""Checks the mod and packs build/FS25_Monitor.zip.
+"""Checks the mod and packs build/FS25_DigitalDTM.zip.
 
     python tools/build_mod.py
 
@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-ZIP = os.path.join(ROOT, "build", "FS25_Monitor.zip")
+ZIP = os.path.join(ROOT, "build", "FS25_DigitalDTM.zip")
 SHIP_DIRS = {"scripts": (".lua",), "translations": (".xml",), "placeables": (".xml",), "i3d": (".i3d", ".shapes"),
              "textures": (".dds",), "store": (".dds",)}
 SHIP_FILES = ["modDesc.xml", "icon_storageMonitor.dds"]

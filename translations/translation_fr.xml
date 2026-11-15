@@ -2,17 +2,15 @@
 <l10n>
     <translationContributors>DTM Mods</translationContributors>
     <texts>
-        <text name="shopItem_storageMonitor_kiosk"     text="Moniteur de stockage (Kiosque)"/>
-        <text name="shopItem_storageMonitor_wall"      text="Moniteur de stockage (Mural)"/>
-        <text name="shopItem_storageMonitor_billboard" text="Moniteur de stockage (Panneau)"/>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kiosque)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Mural)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Panneau)"/>
         <text name="function_storageMonitor"           text="Écran couleur en direct pour le silo, la production ou le stockage animal le plus proche : capacité utilisée et libre, remplissage en pour cent et chaque produit avec sa quantité."/>
 
         <text name="storageMonitor_showing"    text="Affiche"/>
-        <text name="storageMonitor_switch"     text="Changer de stockage"/>
         <text name="storageMonitor_noStorage"  text="Aucun stockage à proximité"/>
         <text name="storageMonitor_searching"  text="Recherche d'un stockage..."/>
         <text name="storageMonitor_reading"    text="Lecture..."/>
-        <text name="storageMonitor_live"       text="DIRECT"/>
         <text name="storageMonitor_capacity"   text="CAPACITÉ"/>
         <text name="storageMonitor_used"       text="UTILISÉ"/>
         <text name="storageMonitor_total"      text="TOTAL"/>
@@ -23,5 +21,56 @@
         <text name="storageMonitor_colAmount"  text="QUANTITÉ"/>
         <text name="storageMonitor_empty"      text="Vide"/>
         <text name="storageMonitor_page"       text="PAGE %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Fixation silo)"/>
+        <text name="storageMonitor_settings" text="Réglages du moniteur"/>
+        <text name="storageMonitor_plusConnected" text="%s + %d reliés"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Affiche : %s"/>
+        <text name="storageMonitor_menuPick" text="Choisir le stockage (actuel : %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Afficher aussi les silos reliés"/>
+        <text name="storageMonitor_menuConnectedOff" text="Afficher seulement ce silo"/>
+        <text name="storageMonitor_pickTitle" text="Choisir le stockage"/>
+        <text name="storageMonitor_pickText" text="Stockages près de ce moniteur, le plus proche en premier :"/>
+        <text name="storageMonitor_pickNearest" text="Toujours le plus proche"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM : page précédente"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM : page suivante"/>
+        <text name="storageMonitor_menuSize" text="Taille de l'écran (actuelle : %.1f m de large)"/>
+        <text name="storageMonitor_sizeTitle" text="Taille de l'écran"/>
+        <text name="storageMonitor_sizeText" text="Taille de l'écran. Il grandit vers le haut depuis son bord inférieur."/>
+        <text name="storageMonitor_sizeOption" text="%.1f m de large, %.1f m de haut"/>
+        <text name="storageMonitor_menuBrightness" text="Luminosité (actuelle : %s)"/>
+        <text name="storageMonitor_menuTheme" text="Couleurs (actuelles : %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Titre (actuel : %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Titre : saisir le vôtre"/>
+        <text name="storageMonitor_brightnessTitle" text="Luminosité"/>
+        <text name="storageMonitor_brightnessText" text="Intensité de l'écran, de ses barres et de son texte :"/>
+        <text name="storageMonitor_themeTitle" text="Couleurs"/>
+        <text name="storageMonitor_themeText" text="Couleurs de l'écran :"/>
+        <text name="storageMonitor_titlePrompt" text="Titre à l'écran (vide : le nom du stockage)"/>
+        <text name="storageMonitor_sizeTextGround" text="Taille du moniteur. Il grandit depuis le sol."/>
+        <text name="storageMonitor_bright1" text="Très sombre"/>
+        <text name="storageMonitor_bright2" text="Sombre"/>
+        <text name="storageMonitor_bright3" text="Normale"/>
+        <text name="storageMonitor_bright4" text="Lumineuse"/>
+        <text name="storageMonitor_bright5" text="Très lumineuse"/>
+        <text name="storageMonitor_theme1" text="Bleu nuit"/>
+        <text name="storageMonitor_theme2" text="Vert DTM"/>
+        <text name="storageMonitor_theme3" text="Terminal ambre"/>
+        <text name="storageMonitor_theme4" text="Plein jour"/>
+        <text name="storageMonitor_farmAll" text="Tous les silos de ma ferme"/>
+        <text name="storageMonitor_linesRunning" text="EN MARCHE"/>
+        <text name="storageMonitor_line_running" text="En marche"/>
+        <text name="storageMonitor_line_missing" text="Intrants manquants"/>
+        <text name="storageMonitor_line_full" text="Sortie pleine"/>
+        <text name="storageMonitor_line_off" text="Arrêtée"/>
+        <text name="storageMonitor_more" text="+%d autres"/>
+        <text name="storageMonitor_animals" text="ANIMAUX"/>
+        <text name="storageMonitor_food" text="Nourriture"/>
+        <text name="storageMonitor_bunker_filling" text="Remplissage"/>
+        <text name="storageMonitor_bunker_fermenting" text="Fermentation"/>
+        <text name="storageMonitor_bunker_ready" text="Prêt"/>
+        <text name="storageMonitor_bunkerLevel" text="DANS LE SILO"/>
+        <text name="storageMonitor_objects" text="STOCKÉS  %d / %d"/>
     </texts>
 </l10n>

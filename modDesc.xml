@@ -1,80 +1,83 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="115" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>DTM Mods, Fennell</author>
-    <version>1.0.0.0</version>
+    <version>1.1.0.0</version>
     <title>
-        <en>Storage Monitor</en>
-        <de>Lager-Monitor</de>
-        <fr>Moniteur de stockage</fr>
+        <en>Digital DTM</en>
+        <de>Digital DTM</de>
+        <fr>Digital DTM</fr>
     </title>
     <description>
-        <en><![CDATA[A live screen for your silos, productions and animal storages.
+        <en><![CDATA[A live screen for your silos, productions, animal pens, bunker silos and bale or pallet sheds.
 
-Place it next to a silo and it shows that silo's contents in colour:
-- how full it is in percent, green, then amber from 75 % and red from 90 %
-- used, free and total capacity
-- one bar across the screen with every product in its own colour
-- every product with its amount, a fill bar and its percent, 7 per page; the pages turn by themselves
-- for productions: which products go in (IN) and which come out (OUT)
+Place it at a storage and it shows what is in it, in colour:
+- silos: how full in percent (green, amber from 75 %, red from 90 %), used, free and total capacity, one bar with every product in its own colour
+- productions: which lines run, which miss inputs or have a full output store; inputs (IN) and outputs (OUT), empty inputs in red
+- animal pens: number of animals, food, water, straw, productivity and the tanks, as the game's animal page shows them
+- bunker silos: filling, fermenting (in percent) or ready; several bunkers side by side
+- bale and pallet sheds: how many of how many, and every product with its number of bales or pallets
+- every product with its own icon, amount, fill bar and percent, all at once (up to 42, in up to 3 columns; more turn pages, also with Page Up / Page Down)
 - the in-game time
 
-Silos that share one capacity across all products are counted correctly (the capacity once, not once per product).
+Stand in front of it and press the activate key for its settings:
+- pick the storage from a list of everything within 40 m, or "all silos of my farm"
+- also show the silos connected to it
+- the screen size (0.8 to 6 m wide)
+- brightness (5 levels); the screen glows, so it can be read at night
+- colours: night blue, DTM green, amber terminal or daylight
+- your own title
+Everyone on the server sees the same settings and they are saved with the game.
 
-It shows the nearest storage within 250 m. Standing in front of it, press the action key to switch to the next nearest one; everyone on the server sees the same choice and it is saved with the game. Every player sees the stock of their own farm in silos that keep one stock per farm.
+Four models (Buildings > Tools): Kiosk 3,500, Wall 6,500, Billboard 12,000 and Silo Mount 6,000, which hangs on a silo wall.]]></en>
+        <de><![CDATA[Ein Live-Bildschirm für Silos, Produktionen, Tierställe, Fahrsilos sowie Ballen- und Palettenlager.
 
-Three sizes:
-- Kiosk: 1.2 m screen on a pedestal, 3,500
-- Wall: 2.4 m screen on two posts, to stand against a silo, 6,500
-- Billboard: 4 m screen on tall posts, readable from the tractor, 12,000
-
-Find them in the shop under Buildings > Tools.]]></en>
-        <de><![CDATA[Ein Live-Bildschirm für deine Silos, Produktionen und Tierlager.
-
-Neben ein Silo gestellt, zeigt er dessen Inhalt in Farbe:
-- wie voll es ist in Prozent, grün, ab 75 % gelb und ab 90 % rot
-- belegte, freie und gesamte Kapazität
-- einen Balken über den ganzen Bildschirm mit jedem Produkt in seiner Farbe
-- jedes Produkt mit Menge, Füllbalken und Prozent, 7 pro Seite; die Seiten blättern von selbst
-- bei Produktionen: welche Produkte hineingehen (IN) und welche herauskommen (OUT)
+An einem Lager aufgestellt, zeigt er dessen Inhalt in Farbe:
+- Silos: Füllstand in Prozent (grün, ab 75 % gelb, ab 90 % rot), belegte, freie und gesamte Kapazität, ein Balken mit jedem Produkt in seiner Farbe
+- Produktionen: welche Linien laufen, welchen Rohstoffe fehlen oder deren Lager voll ist; Rohstoffe (IN) und Erzeugnisse (OUT), fehlende Rohstoffe rot
+- Tierställe: Anzahl der Tiere, Futter, Wasser, Stroh, Produktivität und Tanks, wie auf der Tierseite des Spiels
+- Fahrsilos: Befüllen, Gären (in Prozent) oder fertig; mehrere Silos nebeneinander
+- Ballen- und Palettenlager: wie viele von wie vielen, und jedes Produkt mit seiner Anzahl
+- jedes Produkt mit eigenem Symbol, Menge, Füllbalken und Prozent, alle auf einmal (bis zu 42, in bis zu 3 Spalten; mehr blättern, auch mit Bild auf / Bild ab)
 - die Uhrzeit im Spiel
 
-Silos, deren Kapazität sich alle Produkte teilen, werden richtig gezählt (die Kapazität einmal, nicht einmal pro Produkt).
+Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen:
+- das Lager aus einer Liste aller Lager im Umkreis von 40 m wählen, oder "alle Silos meines Hofes"
+- auch die damit verbundenen Silos zeigen
+- die Bildschirmgröße (0,8 bis 6 m breit)
+- Helligkeit (5 Stufen); der Bildschirm leuchtet, also auch nachts lesbar
+- Farben: Nachtblau, DTM-Grün, Bernstein-Terminal oder Tageslicht
+- ein eigener Titel
+Alle Spieler auf dem Server sehen dieselben Einstellungen, und sie werden mit dem Spielstand gespeichert.
 
-Er zeigt das nächste Lager im Umkreis von 250 m. Wer davor steht, kann mit der Aktionstaste zum nächstnächsten wechseln; alle Spieler auf dem Server sehen dieselbe Auswahl und sie wird mit dem Spielstand gespeichert. In Silos mit einem Bestand pro Hof sieht jeder Spieler den Bestand seines Hofes.
+Vier Modelle (Gebäude > Werkzeuge): Kiosk 3.500, Wand 6.500, Großanzeige 12.000 und Silohalterung 6.000, die an einer Silowand hängt.]]></de>
+        <fr><![CDATA[Un écran en direct pour vos silos, productions, bâtiments d'élevage, silos couloirs et hangars à balles ou à palettes.
 
-Drei Größen:
-- Kiosk: 1,2-m-Bildschirm auf einem Standfuß, 3.500
-- Wand: 2,4-m-Bildschirm auf zwei Pfosten, zum Aufstellen an einem Silo, 6.500
-- Großanzeige: 4-m-Bildschirm auf hohen Pfosten, vom Traktor aus lesbar, 12.000
-
-Im Shop unter Gebäude > Werkzeuge.]]></de>
-        <fr><![CDATA[Un écran en direct pour vos silos, productions et stockages animaux.
-
-Placé à côté d'un silo, il affiche son contenu en couleur :
-- son remplissage en pour cent, en vert, puis orange à partir de 75 % et rouge à partir de 90 %
-- la capacité utilisée, libre et totale
-- une barre sur toute la largeur de l'écran avec chaque produit dans sa couleur
-- chaque produit avec sa quantité, une barre de remplissage et son pourcentage, 7 par page ; les pages tournent toutes seules
-- pour les productions : les produits qui entrent (IN) et ceux qui sortent (OUT)
+Placé près d'un stockage, il affiche son contenu en couleur :
+- silos : remplissage en pour cent (vert, orange dès 75 %, rouge dès 90 %), capacité utilisée, libre et totale, une barre avec chaque produit dans sa couleur
+- productions : les lignes en marche, celles sans intrants ou dont la sortie est pleine ; intrants (IN) et produits (OUT), intrants vides en rouge
+- élevages : nombre d'animaux, nourriture, eau, paille, productivité et réservoirs, comme la page animaux du jeu
+- silos couloirs : remplissage, fermentation (en pour cent) ou prêt ; plusieurs couloirs côte à côte
+- hangars à balles et palettes : combien sur combien, et chaque produit avec son nombre
+- chaque produit avec son icône, sa quantité, une barre et son pourcentage, tous en même temps (jusqu'à 42, sur 3 colonnes ; au-delà les pages tournent, aussi avec Page préc. / Page suiv.)
 - l'heure du jeu
 
-Les silos dont tous les produits partagent une même capacité sont comptés correctement (la capacité une seule fois, pas une fois par produit).
+Devant l'écran, la touche d'activation ouvre ses réglages :
+- choisir le stockage dans la liste de tout ce qui est à moins de 40 m, ou « tous les silos de ma ferme »
+- afficher aussi les silos reliés
+- la taille de l'écran (0,8 à 6 m de large)
+- la luminosité (5 niveaux) ; l'écran brille, lisible la nuit
+- les couleurs : bleu nuit, vert DTM, terminal ambre ou plein jour
+- votre propre titre
+Tous les joueurs du serveur voient les mêmes réglages, sauvegardés avec la partie.
 
-Il affiche le stockage le plus proche dans un rayon de 250 m. Devant l'écran, la touche d'action passe au stockage suivant le plus proche ; tous les joueurs du serveur voient le même choix et il est sauvegardé avec la partie. Dans les silos qui gardent un stock par ferme, chaque joueur voit le stock de sa propre ferme.
-
-Trois tailles :
-- Kiosque : écran de 1,2 m sur un pied, 3 500
-- Mural : écran de 2,4 m sur deux poteaux, à placer contre un silo, 6 500
-- Panneau : écran de 4 m sur de hauts poteaux, lisible depuis le tracteur, 12 000
-
-Dans la boutique sous Bâtiments > Outils.]]></fr>
+Quatre modèles (Bâtiments > Outils) : Kiosque 3 500, Mural 6 500, Panneau 12 000 et Fixation silo 6 000, accrochée à un silo.]]></fr>
     </description>
 
     <iconFilename>icon_storageMonitor.dds</iconFilename>
     <multiplayer supported="true"/>
 
     <extraSourceFiles>
-        <sourceFile filename="scripts/StorageMonitorOffsetEvent.lua"/>
+        <sourceFile filename="scripts/StorageMonitorSettingsEvent.lua"/>
     </extraSourceFiles>
 
     <placeableSpecializations>
@@ -88,10 +91,24 @@ Dans la boutique sous Bâtiments > Outils.]]></fr>
         </type>
     </placeableTypes>
 
+    <actions>
+        <action name="STORAGE_MONITOR_PAGE_UP" category="ONFOOT"/>
+        <action name="STORAGE_MONITOR_PAGE_DOWN" category="ONFOOT"/>
+    </actions>
+    <inputBinding>
+        <actionBinding action="STORAGE_MONITOR_PAGE_UP">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_pageup"/>
+        </actionBinding>
+        <actionBinding action="STORAGE_MONITOR_PAGE_DOWN">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_pagedown"/>
+        </actionBinding>
+    </inputBinding>
+
     <storeItems>
         <storeItem xmlFilename="placeables/monitor_kiosk.xml"/>
         <storeItem xmlFilename="placeables/monitor_wall.xml"/>
         <storeItem xmlFilename="placeables/monitor_billboard.xml"/>
+        <storeItem xmlFilename="placeables/monitor_wallMount.xml"/>
     </storeItems>
 
     <l10n filenamePrefix="translations/translation"/>

@@ -33,6 +33,9 @@ LAYOUT = {
     "footer": (0.000, 0.930, 1.600, 1.000),
     "listHeadV": 0.440,
     "listTopV": 0.468,
+    "listBottomV": 0.899,
+    "listInnerU": (0.065, 1.535),
+    "colGap": 0.050,
     "rowH": 0.062,
     "stackBar": (0.420, 0.235, 1.530, 0.285),
     "rowBarU": (0.700, 1.170),
@@ -41,16 +44,27 @@ LAYOUT = {
 }
 ROWS = 7
 
-BG_TOP = (9, 16, 29)
-BG_BOTTOM = (12, 22, 38)
-HEADER_TOP = (16, 38, 68)
-HEADER_BOTTOM = (13, 30, 54)
-PANEL = (14, 27, 47)
-PANEL_BORDER = (33, 62, 99)
-STRIPE = (17, 33, 56)
-ACCENT = (34, 211, 238)
-FOOTER = (10, 19, 33)
-DIM = (128, 148, 176)
+# Colour themes: one screen texture each (textures/screen_<id>.dds). The text and bar colours of each theme
+# are in StorageMonitor.THEMES (scripts/StorageMonitor.lua); keep the ids in the same order.
+THEMES = {
+    "night": dict(bg=((9, 16, 29), (12, 22, 38)), header=((16, 38, 68), (13, 30, 54)), panel=(14, 27, 47),
+                  border=(33, 62, 99), accent=(34, 211, 238), footer=(10, 19, 33), dim=(128, 148, 176),
+                  grid=(80, 130, 200, 10), scan=22),
+    "field": dict(bg=((15, 38, 28), (20, 51, 38)), header=((31, 77, 58), (24, 62, 46)), panel=(22, 54, 41),
+                  border=(46, 107, 79), accent=(217, 164, 65), footer=(13, 33, 25), dim=(127, 164, 138),
+                  grid=(127, 164, 138, 10), scan=18),
+    "amber": dict(bg=((8, 6, 2), (14, 10, 4)), header=((34, 22, 6), (24, 16, 4)), panel=(17, 12, 4),
+                  border=(96, 64, 14), accent=(255, 176, 0), footer=(10, 7, 2), dim=(160, 112, 36),
+                  grid=(255, 176, 0, 9), scan=40),
+    "light": dict(bg=((226, 232, 240), (210, 218, 229)), header=((38, 58, 88), (28, 45, 70)), panel=(242, 245, 249),
+                  border=(160, 176, 196), accent=(0, 120, 200), footer=(196, 205, 217), dim=(90, 106, 128),
+                  grid=(40, 70, 110, 12), scan=8, vignette=35),
+}
+THEME_ORDER = ["night", "field", "amber", "light"]
+
+T = THEMES["night"]                     # the preview with sample data uses the default theme
+ACCENT = T["accent"]
+DIM = T["dim"]
 
 
 def px(v):
@@ -88,49 +102,47 @@ def font(size, weight=None):
     return f
 
 
-def draw_background():
+def draw_background(theme="night"):
+    t = THEMES[theme]
+    accent, border = t["accent"], t["border"]
     w, h = px(DESIGN_W), PX
-    img = gradient((w, h), BG_TOP, BG_BOTTOM).convert("RGBA")
+    img = gradient((w, h), *t["bg"]).convert("RGBA")
     over = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     d = ImageDraw.Draw(over)
 
     # faint grid
     for x in range(0, w, 40):
-        d.line([(x, 0), (x, h)], fill=(80, 130, 200, 10))
+        d.line([(x, 0), (x, h)], fill=t["grid"])
     for y in range(0, h, 40):
-        d.line([(0, y), (w, y)], fill=(80, 130, 200, 10))
+        d.line([(0, y), (w, y)], fill=t["grid"])
 
     # header band with an accent line
     hb = box(LAYOUT["header"])
-    head = gradient((hb[2] - hb[0], hb[3] - hb[1]), HEADER_TOP, HEADER_BOTTOM).convert("RGBA")
+    head = gradient((hb[2] - hb[0], hb[3] - hb[1]), *t["header"]).convert("RGBA")
     over.alpha_composite(head, (hb[0], hb[1]))
-    d.line([(0, hb[3] - 2), (w, hb[3] - 2)], fill=ACCENT + (170,), width=3)
-    d.rectangle([px(0.050) - 22, px(0.035), px(0.050) - 14, px(0.075)], fill=ACCENT + (255,))   # title marker
+    d.line([(0, hb[3] - 2), (w, hb[3] - 2)], fill=accent + (170,), width=3)
+    d.rectangle([px(0.050) - 22, px(0.035), px(0.050) - 14, px(0.075)], fill=accent + (255,))   # title marker
 
     # panels
     for name in ("capPanel", "listPanel"):
         b = box(LAYOUT[name])
-        d.rounded_rectangle(b, radius=14, fill=PANEL + (235,), outline=PANEL_BORDER + (255,), width=2)
-        corner_brackets(d, LAYOUT[name], ACCENT + (200,))
+        d.rounded_rectangle(b, radius=14, fill=t["panel"] + (235,), outline=border + (255,), width=2)
+        corner_brackets(d, LAYOUT[name], accent + (200,))
 
-    # list: column header line and alternate row stripes
+    # list: column header line; no row stripes, the rows change with the number of products
     lp = LAYOUT["listPanel"]
     sep = px(LAYOUT["listHeadV"] + 0.015)
-    d.line([(px(lp[0]) + 18, sep), (px(lp[2]) - 18, sep)], fill=PANEL_BORDER + (255,), width=2)
-    for r in range(ROWS):
-        if r % 2 == 1:
-            v0 = LAYOUT["listTopV"] + LAYOUT["rowH"] * r
-            d.rectangle([px(lp[0]) + 10, px(v0), px(lp[2]) - 10, px(v0 + LAYOUT["rowH"])], fill=STRIPE + (200,))
+    d.line([(px(lp[0]) + 18, sep), (px(lp[2]) - 18, sep)], fill=border + (255,), width=2)
 
     # capacity panel: divider between the big number and the bar
     cp = LAYOUT["capPanel"]
-    d.line([(px(0.385), px(cp[1]) + 22), (px(0.385), px(cp[3]) - 22)], fill=PANEL_BORDER + (255,), width=2)
+    d.line([(px(0.385), px(cp[1]) + 22), (px(0.385), px(cp[3]) - 22)], fill=border + (255,), width=2)
 
     # footer band with a dim name
     fb = box(LAYOUT["footer"])
-    d.rectangle(fb, fill=FOOTER + (255,))
-    d.line([(0, fb[1]), (w, fb[1])], fill=PANEL_BORDER + (255,), width=2)
-    d.text((px(0.200), px(0.973)), "DTM  STORAGE MONITOR", font=font(26, 500), fill=DIM + (110,), anchor="ls")
+    d.rectangle(fb, fill=t["footer"] + (255,))
+    d.line([(0, fb[1]), (w, fb[1])], fill=border + (255,), width=2)
+    d.text((px(0.050), px(0.973)), "DIGITAL DTM", font=font(26, 500), fill=t["dim"] + (110,), anchor="ls")
 
     img.alpha_composite(over)
 
@@ -138,13 +150,13 @@ def draw_background():
     lines = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     ld = ImageDraw.Draw(lines)
     for y in range(0, h, 4):
-        ld.line([(0, y), (w, y)], fill=(0, 0, 0, 22))
+        ld.line([(0, y), (w, y)], fill=(0, 0, 0, t["scan"]))
     img.alpha_composite(lines)
     vignette = Image.new("L", (w, h), 0)
     vd = ImageDraw.Draw(vignette)
     vd.rectangle([60, 40, w - 60, h - 40], fill=255)
     vignette = vignette.filter(ImageFilter.GaussianBlur(90))
-    dark = Image.new("RGBA", (w, h), (0, 0, 0, 120))
+    dark = Image.new("RGBA", (w, h), (0, 0, 0, t.get("vignette", 120)))
     img = Image.composite(img, Image.alpha_composite(img, dark), vignette)
     return img.convert("RGB")
 
@@ -216,8 +228,6 @@ def draw_preview(bg):
         p = max(1, round(frac * 100)) if litres > 0 else 0
         d.text((px(1.535), px(vc + 0.014)), "%d%%" % p, font=pct_font, fill=rgb(col), anchor="rs")
 
-    d.rectangle([px(0.050), px(0.954), px(0.068), px(0.972)], fill=ok)
-    d.text((px(0.082), px(0.973)), "LIVE", font=small, fill=ok, anchor="ls")
     d.text((px(1.550), px(0.973)), "PAGE 1/2", font=small, fill=dim, anchor="rs")
     pb = L["pageBar"]
     d.rectangle(box(pb), fill=(18, 28, 46, 255))
@@ -228,22 +238,32 @@ def draw_preview(bg):
 def main():
     os.makedirs(SRC, exist_ok=True)
     os.makedirs(OUT, exist_ok=True)
-    bg = draw_background()
-    screen = os.path.join(SRC, "monitor_screen_diffuse.png")
-    bg.resize(TEX_SIZE, Image.LANCZOS).save(screen)
-    preview = draw_preview(bg)
-    preview.save(os.path.join(SRC, "monitor_preview.png"))
-    preview.resize(TEX_SIZE, Image.LANCZOS).save(os.path.join(SRC, "monitor_preview_tex.png"))
-    print("wrote", screen)
+    sources = []
+    for theme in THEME_ORDER:                # screen_night is the model's own; the game swaps in the others
+        bg = draw_background(theme)
+        screen = os.path.join(SRC, "screen_%s.png" % theme)
+        bg.resize(TEX_SIZE, Image.LANCZOS).save(screen)
+        sources.append(screen)
+        bg.save(os.path.join(SRC, "screen_%s_full.png" % theme))      # 1600 x 1000, for tools/render_screen.py
+        if theme == "night":
+            preview = draw_preview(bg)
+            preview.save(os.path.join(SRC, "monitor_preview.png"))
+            preview.resize(TEX_SIZE, Image.LANCZOS).save(os.path.join(SRC, "monitor_preview_tex.png"))
+        print("wrote", screen)
+
+    white = os.path.join(SRC, "monitor_white_diffuse.png")     # the live bars' texture (colour comes from the script)
+    Image.new("RGBA", (16, 16), (255, 255, 255, 255)).save(white)
+    sources.append(white)
 
     if "--no-dds" in sys.argv:
         return
-    target = os.path.join(OUT, "monitor_screen_diffuse.dds")
-    r = subprocess.run([TEXTURE_TOOL, "-inputs", screen, "-targetFile", target, "-ignoreTimestamp", "-silent"],
-                       capture_output=True, text=True)
-    if r.returncode != 0 or not os.path.exists(target):
-        sys.exit("textureTool failed:\n%s%s" % (r.stdout, r.stderr))
-    print("wrote", target, os.path.getsize(target))
+    for src in sources:
+        target = os.path.join(OUT, os.path.splitext(os.path.basename(src))[0] + ".dds")
+        r = subprocess.run([TEXTURE_TOOL, "-inputs", src, "-targetFile", target, "-ignoreTimestamp", "-silent"],
+                           capture_output=True, text=True)
+        if r.returncode != 0 or not os.path.exists(target):
+            sys.exit("textureTool failed:\n%s%s" % (r.stdout, r.stderr))
+        print("wrote", target, os.path.getsize(target))
 
 
 if __name__ == "__main__":

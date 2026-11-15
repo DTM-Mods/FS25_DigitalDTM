@@ -12,13 +12,16 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 TEXTURE_TOOL = r"C:\Program Files\GIANTS Software\GIANTS_Editor_10.0.14\tools\textureTool.exe"
 
-# name, screen width (m), draw distance (m), price, daily upkeep
+# name, screen width (m), draw distance (m), price, daily upkeep, silo mount (bottom edge height, centre to
+# bottom edge of the model at size 1) or None
 VARIANTS = [
-    ("kiosk", 1.20, 30, 3500, 2),
-    ("wall", 2.40, 50, 6500, 3),
-    ("billboard", 4.00, 90, 12000, 5),
+    ("kiosk", 1.20, 30, 3500, 2, None),
+    ("wall", 2.40, 50, 6500, 3, None),
+    ("billboard", 4.00, 90, 12000, 5, None),
+    ("wallMount", 2.40, 50, 6000, 3, (2.0, 0.846)),
 ]
-NODES = ("body", "screenGlass", "screen", "infoTrigger", "playerTrigger")
+NODES = ("body", "screenGlass", "screen", "barTemplate", "iconTemplate", "collisions", "mount", "infoTrigger",
+         "playerTrigger")
 
 TEMPLATE = """<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <placeable type="storageMonitor" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/placeable.xsd">
@@ -63,7 +66,9 @@ TEMPLATE = """<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 
     <infoTrigger triggerNode="infoTrigger"/>
 
-    <storageMonitor screenNode="screen" width="{width}" drawDistance="{draw}" searchRadius="250" playerTrigger="playerTrigger"/>
+    <storageMonitor screenNode="screen" width="{width}" drawDistance="{draw}" searchRadius="40" playerTrigger="playerTrigger"
+                    barTemplate="barTemplate" iconTemplate="iconTemplate" glassNode="screenGlass" collisions="collisions">{mount}
+    </storageMonitor>
 
     <i3dMappings>
 {mappings}
@@ -78,8 +83,13 @@ def mappings(i3d_path):
     if len(roots) != 1:
         sys.exit("%s: expected one root node" % i3d_path)
     out = {}
-    for i, child in enumerate(c for c in roots[0] if c.tag in ("TransformGroup", "Shape")):
-        out[child.get("name")] = "0>%d" % i
+
+    def walk(elem, path):
+        for i, child in enumerate(c for c in elem if c.tag in ("TransformGroup", "Shape")):
+            p = path + [str(i)]
+            out[child.get("name")] = "0>" + "|".join(p)
+            walk(child, p)
+    walk(roots[0], [])
     missing = [n for n in NODES if n not in out]
     if missing:
         sys.exit("%s: missing nodes %s" % (i3d_path, missing))
@@ -96,10 +106,15 @@ def to_dds(png, dds):
 def main():
     os.makedirs(os.path.join(ROOT, "placeables"), exist_ok=True)
     os.makedirs(os.path.join(ROOT, "store"), exist_ok=True)
-    for name, width, draw, price, upkeep in VARIANTS:
+    for name, width, draw, price, upkeep, silo in VARIANTS:
         m = mappings(os.path.join(ROOT, "i3d", "monitor_%s.i3d" % name))
         lines = "\n".join('        <i3dMapping id="%s" node="%s"/>' % (n, m[n]) for n in NODES)
-        xml = TEMPLATE.format(name=name, price=price, upkeep=upkeep, width="%.2f" % width, draw=draw, mappings=lines)
+        if silo:      # grows upwards from its bottom edge
+            mount = '\n        <mount node="mount" mode="silo" bottom="%.2f" lowerExtent="%.3f"/>' % silo
+        else:         # grows from the ground
+            mount = '\n        <mount node="mount" mode="ground"/>'
+        xml = TEMPLATE.format(name=name, price=price, upkeep=upkeep, width="%.2f" % width, draw=draw, mappings=lines,
+                              mount=mount)
         path = os.path.join(ROOT, "placeables", "monitor_%s.xml" % name)
         with open(path, "w", encoding="utf-8", newline="\n") as f:
             f.write(xml)
