@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Lager-Monitor (Kiosk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Lager-Monitor (Wand)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Lager-Monitor (Großanzeige)"/>
+        <text name="function_storageMonitor"           text="Farbiger Live-Bildschirm für das nächste Silo, die nächste Produktion oder das nächste Tierlager: belegte und freie Kapazität, Füllstand in Prozent und jedes Produkt mit seiner Menge."/>
+
+        <text name="storageMonitor_showing"    text="Zeigt"/>
+        <text name="storageMonitor_switch"     text="Lager wechseln"/>
+        <text name="storageMonitor_noStorage"  text="Kein Lager in der Nähe"/>
+        <text name="storageMonitor_searching"  text="Suche Lager..."/>
+        <text name="storageMonitor_reading"    text="Lese..."/>
+        <text name="storageMonitor_live"       text="LIVE"/>
+        <text name="storageMonitor_capacity"   text="KAPAZITÄT"/>
+        <text name="storageMonitor_used"       text="BELEGT"/>
+        <text name="storageMonitor_total"      text="GESAMT"/>
+        <text name="storageMonitor_free"       text="FREI"/>
+        <text name="storageMonitor_products"   text="%d PRODUKTE"/>
+        <text name="storageMonitor_colProduct" text="PRODUKT"/>
+        <text name="storageMonitor_colLevel"   text="FÜLLUNG"/>
+        <text name="storageMonitor_colAmount"  text="MENGE"/>
+        <text name="storageMonitor_empty"      text="Leer"/>
+        <text name="storageMonitor_page"       text="SEITE %d/%d"/>
+    </texts>
+</l10n>

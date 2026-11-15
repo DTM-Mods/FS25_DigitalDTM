@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="115" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
+    <author>DTM Mods, Fennell</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Storage Monitor</en>
+        <de>Lager-Monitor</de>
+        <fr>Moniteur de stockage</fr>
+    </title>
+    <description>
+        <en><![CDATA[A live screen for your silos, productions and animal storages.
+
+Place it next to a silo and it shows that silo's contents in colour:
+- how full it is in percent, green, then amber from 75 % and red from 90 %
+- used, free and total capacity
+- one bar across the screen with every product in its own colour
+- every product with its amount, a fill bar and its percent, 7 per page; the pages turn by themselves
+- for productions: which products go in (IN) and which come out (OUT)
+- the in-game time
+
+Silos that share one capacity across all products are counted correctly (the capacity once, not once per product).
+
+It shows the nearest storage within 250 m. Standing in front of it, press the action key to switch to the next nearest one; everyone on the server sees the same choice and it is saved with the game. Every player sees the stock of their own farm in silos that keep one stock per farm.
+
+Three sizes:
+- Kiosk: 1.2 m screen on a pedestal, 3,500
+- Wall: 2.4 m screen on two posts, to stand against a silo, 6,500
+- Billboard: 4 m screen on tall posts, readable from the tractor, 12,000
+
+Find them in the shop under Buildings > Tools.]]></en>
+        <de><![CDATA[Ein Live-Bildschirm für deine Silos, Produktionen und Tierlager.
+
+Neben ein Silo gestellt, zeigt er dessen Inhalt in Farbe:
+- wie voll es ist in Prozent, grün, ab 75 % gelb und ab 90 % rot
+- belegte, freie und gesamte Kapazität
+- einen Balken über den ganzen Bildschirm mit jedem Produkt in seiner Farbe
+- jedes Produkt mit Menge, Füllbalken und Prozent, 7 pro Seite; die Seiten blättern von selbst
+- bei Produktionen: welche Produkte hineingehen (IN) und welche herauskommen (OUT)
+- die Uhrzeit im Spiel
+
+Silos, deren Kapazität sich alle Produkte teilen, werden richtig gezählt (die Kapazität einmal, nicht einmal pro Produkt).
+
+Er zeigt das nächste Lager im Umkreis von 250 m. Wer davor steht, kann mit der Aktionstaste zum nächstnächsten wechseln; alle Spieler auf dem Server sehen dieselbe Auswahl und sie wird mit dem Spielstand gespeichert. In Silos mit einem Bestand pro Hof sieht jeder Spieler den Bestand seines Hofes.
+
+Drei Größen:
+- Kiosk: 1,2-m-Bildschirm auf einem Standfuß, 3.500
+- Wand: 2,4-m-Bildschirm auf zwei Pfosten, zum Aufstellen an einem Silo, 6.500
+- Großanzeige: 4-m-Bildschirm auf hohen Pfosten, vom Traktor aus lesbar, 12.000
+
+Im Shop unter Gebäude > Werkzeuge.]]></de>
+        <fr><![CDATA[Un écran en direct pour vos silos, productions et stockages animaux.
+
+Placé à côté d'un silo, il affiche son contenu en couleur :
+- son remplissage en pour cent, en vert, puis orange à partir de 75 % et rouge à partir de 90 %
+- la capacité utilisée, libre et totale
+- une barre sur toute la largeur de l'écran avec chaque produit dans sa couleur
+- chaque produit avec sa quantité, une barre de remplissage et son pourcentage, 7 par page ; les pages tournent toutes seules
+- pour les productions : les produits qui entrent (IN) et ceux qui sortent (OUT)
+- l'heure du jeu
+
+Les silos dont tous les produits partagent une même capacité sont comptés correctement (la capacité une seule fois, pas une fois par produit).
+
+Il affiche le stockage le plus proche dans un rayon de 250 m. Devant l'écran, la touche d'action passe au stockage suivant le plus proche ; tous les joueurs du serveur voient le même choix et il est sauvegardé avec la partie. Dans les silos qui gardent un stock par ferme, chaque joueur voit le stock de sa propre ferme.
+
+Trois tailles :
+- Kiosque : écran de 1,2 m sur un pied, 3 500
+- Mural : écran de 2,4 m sur deux poteaux, à placer contre un silo, 6 500
+- Panneau : écran de 4 m sur de hauts poteaux, lisible depuis le tracteur, 12 000
+
+Dans la boutique sous Bâtiments > Outils.]]></fr>
+    </description>
+
+    <iconFilename>icon_storageMonitor.dds</iconFilename>
+    <multiplayer supported="true"/>
+
+    <extraSourceFiles>
+        <sourceFile filename="scripts/StorageMonitorOffsetEvent.lua"/>
+    </extraSourceFiles>
+
+    <placeableSpecializations>
+        <specialization name="storageMonitor" className="StorageMonitor" filename="scripts/StorageMonitor.lua"/>
+    </placeableSpecializations>
+
+    <placeableTypes>
+        <type name="storageMonitor" parent="simplePlaceable" filename="$dataS/scripts/placeables/Placeable.lua">
+            <specialization name="storageMonitor"/>
+            <specialization name="infoTrigger"/>
+        </type>
+    </placeableTypes>
+
+    <storeItems>
+        <storeItem xmlFilename="placeables/monitor_kiosk.xml"/>
+        <storeItem xmlFilename="placeables/monitor_wall.xml"/>
+        <storeItem xmlFilename="placeables/monitor_billboard.xml"/>
+    </storeItems>
+
+    <l10n filenamePrefix="translations/translation"/>
+</modDesc>

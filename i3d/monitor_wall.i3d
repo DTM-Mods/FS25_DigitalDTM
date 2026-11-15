@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="monitor_wall" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="i3dConverter" version="1.0"/>
+  </Asset>
+
+  <Files>
+    <File fileId="11" filename="../textures/monitor_screen_diffuse.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="monitor_accent" materialId="3" diffuseColor="0.129412 0.8 0.929412 1" emissiveColor="0.0705882 0.45098 0.521569 1" specularColor="0.701961 1 0">
+    </Material>
+    <Material name="monitor_base" materialId="5" diffuseColor="0.101961 0.109804 0.121569 1" specularColor="0.4 1 0">
+    </Material>
+    <Material name="monitor_frame" materialId="1" diffuseColor="0.0352941 0.0392157 0.0431373 1" specularColor="0.54902 1 0">
+    </Material>
+    <Material name="monitor_led" materialId="2" diffuseColor="0.101961 0.901961 0.45098 1" emissiveColor="0.101961 0.901961 0.45098 1" specularColor="0.701961 1 0">
+    </Material>
+    <Material name="monitor_metal" materialId="4" diffuseColor="0.301961 0.321569 0.34902 1" specularColor="0.65098 1 0">
+    </Material>
+    <Material name="monitor_screen" materialId="6" specularColor="0.74902 1 0">
+      <Texture fileId="11"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="monitor_wall.i3d.shapes">
+  </Shapes>
+
+  <Scene>
+    <TransformGroup name="storageMonitor_wall" clipDistance="300" nodeId="12">
+      <Shape name="body" shapeId="1" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" clipDistance="300" nodeId="13" castsShadows="true" receiveShadows="true" materialIds="1,2,3,4,5"/>
+      <Shape name="infoTrigger" shapeId="2" static="true" trigger="true" collisionFilterGroup="0x20000000" collisionFilterMask="0x100000" nodeId="14" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1"/>
+      <Shape name="playerTrigger" shapeId="2" static="true" trigger="true" collisionFilterGroup="0x20000000" collisionFilterMask="0x100000" nodeId="15" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1"/>
+      <TransformGroup name="screen" translation="0 2.05 0.027" nodeId="16"/>
+      <Shape name="screenGlass" shapeId="3" clipDistance="300" nodeId="17" castsShadows="false" receiveShadows="true" materialIds="6"/>
+    </TransformGroup>
+  </Scene>
+
+</i3D>
