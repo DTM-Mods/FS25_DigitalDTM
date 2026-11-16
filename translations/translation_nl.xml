@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kiosk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Muur)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Reclamebord)"/>
+        <text name="function_storageMonitor"           text="Live kleurenscherm voor silo's, producties, dierenverblijven, sleufsilo's, loodsen, bijenkorven en het geld van de boerderij: capaciteit, elk product, snelheden, prijzen en meldingen."/>
+
+        <text name="storageMonitor_showing"    text="Toont"/>
+        <text name="storageMonitor_noStorage"  text="Geen opslag in de buurt"/>
+        <text name="storageMonitor_searching"  text="Opslag zoeken..."/>
+        <text name="storageMonitor_reading"    text="Lezen..."/>
+        <text name="storageMonitor_capacity"   text="CAPACITEIT"/>
+        <text name="storageMonitor_used"       text="GEBRUIKT"/>
+        <text name="storageMonitor_total"      text="TOTAAL"/>
+        <text name="storageMonitor_free"       text="VRIJ"/>
+        <text name="storageMonitor_products"   text="%d PRODUCTEN"/>
+        <text name="storageMonitor_colProduct" text="PRODUCT"/>
+        <text name="storageMonitor_colLevel"   text="VULLING"/>
+        <text name="storageMonitor_colAmount"  text="HOEVEELHEID"/>
+        <text name="storageMonitor_empty"      text="Leeg"/>
+        <text name="storageMonitor_page"       text="PAGINA %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Silohouder)"/>
+        <text name="storageMonitor_settings" text="Monitorinstellingen"/>
+        <text name="storageMonitor_plusConnected" text="%s + %d gekoppeld"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Toont: %s"/>
+        <text name="storageMonitor_menuPick" text="Opslag kiezen (nu: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Ook de gekoppelde silo's tonen"/>
+        <text name="storageMonitor_menuConnectedOff" text="Alleen deze silo tonen"/>
+        <text name="storageMonitor_pickTitle" text="Opslag kiezen"/>
+        <text name="storageMonitor_pickText" text="Opslag bij deze monitor, dichtstbijzijnde eerst, daarna je hele boerderij:"/>
+        <text name="storageMonitor_pickNearest" text="Altijd de dichtstbijzijnde"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: vorige pagina"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: volgende pagina"/>
+        <text name="storageMonitor_menuSize" text="Schermgrootte (nu: %.1f m breed)"/>
+        <text name="storageMonitor_sizeTitle" text="Schermgrootte"/>
+        <text name="storageMonitor_sizeText" text="Grootte van het scherm. Het groeit vanaf de onderrand omhoog."/>
+        <text name="storageMonitor_sizeOption" text="%.1f m breed, %.1f m hoog"/>
+        <text name="storageMonitor_menuBrightness" text="Helderheid (nu: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Kleuren (nu: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Titel (nu: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Titel: zelf invoeren"/>
+        <text name="storageMonitor_brightnessTitle" text="Helderheid"/>
+        <text name="storageMonitor_brightnessText" text="Hoe sterk het scherm, de balken en de tekst oplichten:"/>
+        <text name="storageMonitor_themeTitle" text="Kleuren"/>
+        <text name="storageMonitor_themeText" text="Kleuren van het scherm:"/>
+        <text name="storageMonitor_titlePrompt" text="Titel op het scherm (leeg: de naam van de opslag)"/>
+        <text name="storageMonitor_sizeTextGround" text="Grootte van de monitor. Hij groeit vanaf de grond."/>
+        <text name="storageMonitor_bright1" text="Zeer donker"/>
+        <text name="storageMonitor_bright2" text="Donker"/>
+        <text name="storageMonitor_bright3" text="Normaal"/>
+        <text name="storageMonitor_bright4" text="Helder"/>
+        <text name="storageMonitor_bright5" text="Zeer helder"/>
+        <text name="storageMonitor_theme1" text="Nachtblauw"/>
+        <text name="storageMonitor_theme2" text="DTM-groen"/>
+        <text name="storageMonitor_theme3" text="Amber terminal"/>
+        <text name="storageMonitor_theme4" text="Daglicht"/>
+        <text name="storageMonitor_farmAll" text="Alle silo's van mijn boerderij"/>
+        <text name="storageMonitor_linesRunning" text="ACTIEF"/>
+        <text name="storageMonitor_line_running" text="Actief"/>
+        <text name="storageMonitor_line_missing" text="Grondstoffen ontbreken"/>
+        <text name="storageMonitor_line_full" text="Uitvoer vol"/>
+        <text name="storageMonitor_line_off" text="Uit"/>
+        <text name="storageMonitor_more" text="+%d meer"/>
+        <text name="storageMonitor_animals" text="DIEREN"/>
+        <text name="storageMonitor_food" text="Voer"/>
+        <text name="storageMonitor_bunker_filling" text="Vullen"/>
+        <text name="storageMonitor_bunker_fermenting" text="Fermenteert"/>
+        <text name="storageMonitor_bunker_ready" text="Klaar"/>
+        <text name="storageMonitor_bunkerLevel" text="IN DE SILO"/>
+        <text name="storageMonitor_objects" text="OPGESLAGEN  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Opslag"/>
+        <text name="storageMonitor_mode2" text="Prijzen"/>
+        <text name="storageMonitor_menuMode" text="Scherm toont (nu: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Scherm toont"/>
+        <text name="storageMonitor_modeText" text="De opslag, de beste prijzen van vandaag voor de inhoud, of hoe vol het was tijdens de laatste speldag (kies &quot;Alle silo's van mijn boerderij&quot; voor de hele boerderij):"/>
+        <text name="storageMonitor_alerts1" text="Uit"/>
+        <text name="storageMonitor_alerts2" text="Op het scherm"/>
+        <text name="storageMonitor_alerts3" text="Op het scherm en als bericht"/>
+        <text name="storageMonitor_menuAlerts" text="Meldingen (nu: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Meldingen"/>
+        <text name="storageMonitor_alertsText" text="Waarschuwen als het bijna vol is, een grondstof op is, of de dieren bijna geen voer of water meer hebben:"/>
+        <text name="storageMonitor_alertFull" text="Vol"/>
+        <text name="storageMonitor_alertNearlyFull" text="Bijna vol: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s is leeg"/>
+        <text name="storageMonitor_alertItemFull" text="%s is vol"/>
+        <text name="storageMonitor_alertLow" text="Weinig %s: %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Geen water"/>
+        <text name="storageMonitor_alertNoSpawner" text="Geen plek voor honingpallets"/>
+        <text name="storageMonitor_alertPalletFull" text="Plek voor honingpallets is vol"/>
+        <text name="storageMonitor_alertOverdrawn" text="Rekening staat rood"/>
+        <text name="storageMonitor_minutes" text="%d min"/>
+        <text name="storageMonitor_hours" text="%s u"/>
+        <text name="storageMonitor_days" text="%s dagen"/>
+        <text name="storageMonitor_fullIn" text="VOL OVER %s"/>
+        <text name="storageMonitor_emptyIn" text="LEEG OVER %s"/>
+        <text name="storageMonitor_runsOut" text="%s: leeg over %s"/>
+        <text name="storageMonitor_foodFor" text="Voer voor %s"/>
+        <text name="storageMonitor_stockValue" text="WAARDE VOORRAAD"/>
+        <text name="storageMonitor_mostValuable" text="MEEST WAARDEVOL"/>
+        <text name="storageMonitor_bestMarket" text="BESTE VERKOOPPUNT"/>
+        <text name="storageMonitor_nextMonth" text="VOLGENDE MAAND"/>
+        <text name="storageMonitor_trendCount" text="%d stijgen  %d dalen"/>
+        <text name="storageMonitor_colBestAt" text="BESTE PRIJS BIJ"/>
+        <text name="storageMonitor_colPrice" text="PER 1000 L"/>
+        <text name="storageMonitor_colTrend" text="TREND"/>
+        <text name="storageMonitor_colValue" text="WAARDE"/>
+        <text name="storageMonitor_notSold" text="niemand koopt het"/>
+        <text name="storageMonitor_finance" text="Geld van mijn boerderij"/>
+        <text name="storageMonitor_balance" text="SALDO"/>
+        <text name="storageMonitor_loan" text="Lening"/>
+        <text name="storageMonitor_credit" text="Krediet over"/>
+        <text name="storageMonitor_incomeToday" text="Inkomsten vandaag"/>
+        <text name="storageMonitor_costsToday" text="Kosten vandaag"/>
+        <text name="storageMonitor_netToday" text="Vandaag"/>
+        <text name="storageMonitor_colToday" text="VANDAAG"/>
+        <text name="storageMonitor_colAmountMoney" text="BEDRAG"/>
+        <text name="storageMonitor_noMoneyToday" text="Vandaag nog geen inkomsten of kosten"/>
+        <text name="storageMonitor_beehives" text="Bijenkorven"/>
+        <text name="storageMonitor_beehivesCaps" text="BIJENKORVEN"/>
+        <text name="storageMonitor_honeyPerDay" text="Honing per dag"/>
+        <text name="storageMonitor_beesStatus" text="Status"/>
+        <text name="storageMonitor_beesProducing" text="Produceren"/>
+        <text name="storageMonitor_beesWinter" text="Winterrust"/>
+        <text name="storageMonitor_beesFlying" text="Bijen"/>
+        <text name="storageMonitor_beesOut" text="Vliegen"/>
+        <text name="storageMonitor_beesIn" text="Rusten"/>
+        <text name="storageMonitor_palletSpot" text="Palletplek"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Vol"/>
+        <text name="storageMonitor_spotNone" text="Geen"/>
+        <text name="storageMonitor_honeyHint" text="De honing komt op pallets bij de palletplek"/>
+        <text name="storageMonitor_honeyValue" text="Waarde per dag"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Wandhouder)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Hangend)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Dubbelzijdig reclamebord)"/>
+        <text name="storageMonitor_fields" text="Mijn velden"/>
+        <text name="storageMonitor_weather" text="Weer"/>
+        <text name="storageMonitor_fleet" text="Mijn voertuigen"/>
+        <text name="storageMonitor_contracts" text="Mijn contracten"/>
+        <text name="storageMonitor_allPens" text="Al mijn dierenverblijven"/>
+        <text name="storageMonitor_allProductions" text="Al mijn producties"/>
+        <text name="storageMonitor_mode3" text="Verloop (24 u)"/>
+        <text name="storageMonitor_needLime" text="Kalk"/>
+        <text name="storageMonitor_needPlow" text="Ploegen"/>
+        <text name="storageMonitor_needFertilizer" text="Bemesting %d%%"/>
+        <text name="storageMonitor_needRoll" text="Rollen"/>
+        <text name="storageMonitor_needWeeds" text="Onkruid"/>
+        <text name="storageMonitor_fieldNo" text="Veld %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s klaar om te oogsten"/>
+        <text name="storageMonitor_alertWithered" text="%s: het gewas is verdord"/>
+        <text name="storageMonitor_alertReadyMany" text="%d velden klaar om te oogsten"/>
+        <text name="storageMonitor_cropReady" text="Oogsten"/>
+        <text name="storageMonitor_cropPrepare" text="Voorbereiden"/>
+        <text name="storageMonitor_cropWithered" text="Verdord"/>
+        <text name="storageMonitor_cropCut" text="Geoogst"/>
+        <text name="storageMonitor_cropNone" text="Geen gewas"/>
+        <text name="storageMonitor_cropGrowing" text="Groeit"/>
+        <text name="storageMonitor_readyCaps" text="OOGSTKLAAR"/>
+        <text name="storageMonitor_fieldsCount" text="Velden"/>
+        <text name="storageMonitor_area" text="Oppervlakte"/>
+        <text name="storageMonitor_growing" text="Groeiend"/>
+        <text name="storageMonitor_toSow" text="Te zaaien"/>
+        <text name="storageMonitor_needWork" text="Werk nodig"/>
+        <text name="storageMonitor_colField" text="VELD"/>
+        <text name="storageMonitor_colNeeds" text="NODIG"/>
+        <text name="storageMonitor_colState" text="STAND"/>
+        <text name="storageMonitor_noFields" text="Je boerderij heeft geen velden"/>
+        <text name="storageMonitor_inHours" text="over %d u"/>
+        <text name="storageMonitor_tomorrow" text="Morgen"/>
+        <text name="storageMonitor_inDays" text="Over %d dagen"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s over %d u"/>
+        <text name="storageMonitor_wSun" text="Zonnig"/>
+        <text name="storageMonitor_wCloudy" text="Bewolkt"/>
+        <text name="storageMonitor_wRain" text="Regen"/>
+        <text name="storageMonitor_wSnow" text="Sneeuw"/>
+        <text name="storageMonitor_wFog" text="Mist"/>
+        <text name="storageMonitor_wHail" text="Hagel"/>
+        <text name="storageMonitor_wStorm" text="Storm"/>
+        <text name="storageMonitor_steady" text="Gelijk"/>
+        <text name="storageMonitor_rising" text="Stijgt"/>
+        <text name="storageMonitor_falling" text="Daalt"/>
+        <text name="storageMonitor_noChange" text="Vandaag geen verandering"/>
+        <text name="storageMonitor_fallNone" text="Geen"/>
+        <text name="storageMonitor_temperature" text="TEMPERATUUR"/>
+        <text name="storageMonitor_weatherNow" text="Nu"/>
+        <text name="storageMonitor_today" text="Vandaag"/>
+        <text name="storageMonitor_next" text="Hierna"/>
+        <text name="storageMonitor_tempTrend" text="Temperatuur"/>
+        <text name="storageMonitor_precipitation" text="Neerslag nu"/>
+        <text name="storageMonitor_crops" text="Gewassen"/>
+        <text name="storageMonitor_cropsWet" text="Nat"/>
+        <text name="storageMonitor_cropsDry" text="Droog"/>
+        <text name="storageMonitor_colWhen" text="WANNEER"/>
+        <text name="storageMonitor_colWeather" text="WEER"/>
+        <text name="storageMonitor_noForecast" text="Geen voorspelling"/>
+        <text name="storageMonitor_helperWorking" text="Helper aan het werk"/>
+        <text name="storageMonitor_inUse" text="In gebruik"/>
+        <text name="storageMonitor_engineOn" text="Motor aan"/>
+        <text name="storageMonitor_parked" text="Geparkeerd"/>
+        <text name="storageMonitor_alertFuel" text="%s: brandstof %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: schade %d%%"/>
+        <text name="storageMonitor_damage" text="schade %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="HELPERS AAN HET WERK"/>
+        <text name="storageMonitor_vehicles" text="Voertuigen"/>
+        <text name="storageMonitor_lowFuel" text="Weinig brandstof"/>
+        <text name="storageMonitor_needRepair" text="Reparatie nodig"/>
+        <text name="storageMonitor_leased" text="Geleased"/>
+        <text name="storageMonitor_colVehicle" text="VOERTUIG"/>
+        <text name="storageMonitor_colStatus" text="STATUS"/>
+        <text name="storageMonitor_colFuel" text="BRANDSTOF"/>
+        <text name="storageMonitor_noVehicles" text="Je boerderij heeft geen voertuigen"/>
+        <text name="storageMonitor_contractsCaps" text="LOPENDE CONTRACTEN"/>
+        <text name="storageMonitor_reward" text="Beloning"/>
+        <text name="storageMonitor_almostDone" text="Bijna klaar"/>
+        <text name="storageMonitor_average" text="Gemiddeld"/>
+        <text name="storageMonitor_colContract" text="CONTRACT"/>
+        <text name="storageMonitor_colWhere" text="WAAR  BELONING"/>
+        <text name="storageMonitor_colDone" text="KLAAR"/>
+        <text name="storageMonitor_noContracts" text="Geen lopende contracten"/>
+        <text name="storageMonitor_pens" text="Verblijven"/>
+        <text name="storageMonitor_places" text="Plaatsen"/>
+        <text name="storageMonitor_lowFood" text="Weinig voer"/>
+        <text name="storageMonitor_lowSupplies" text="Weinig water, stro"/>
+        <text name="storageMonitor_tanksFull" text="Tanks vol"/>
+        <text name="storageMonitor_foodLasts" text="Voer reikt"/>
+        <text name="storageMonitor_colPen" text="VERBLIJF"/>
+        <text name="storageMonitor_colSupplies" text="VOORRADEN"/>
+        <text name="storageMonitor_noPens" text="Je boerderij heeft geen dierenverblijven"/>
+        <text name="storageMonitor_missingList" text="Ontbreekt: %s"/>
+        <text name="storageMonitor_productions" text="Producties"/>
+        <text name="storageMonitor_idle" text="Stil"/>
+        <text name="storageMonitor_colProduction" text="PRODUCTIE"/>
+        <text name="storageMonitor_colLines" text="LIJNEN"/>
+        <text name="storageMonitor_noProductions" text="Je boerderij heeft geen producties"/>
+        <text name="storageMonitor_last24" text="LAATSTE 24 SPELUREN"/>
+        <text name="storageMonitor_nowValue" text="NU %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 u"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 u"/>
+        <text name="storageMonitor_now" text="nu"/>
+        <text name="storageMonitor_graphFilling" text="De grafiek vult zich tijdens de volgende speldag"/>
+        <text name="storageMonitor_alertPrice" text="%s levert %s op bij %s"/>
+        <text name="storageMonitor_menuFullAt" text="Bijna vol vanaf (nu: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Prijsmelding (nu: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Diavoorstelling (nu: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="De diavoorstelling staat aan: die toont eigen schermen. Opslag bij deze monitor, dichtstbijzijnde eerst, daarna je hele boerderij:"/>
+        <text name="storageMonitor_priceAbove" text="%s vanaf %s"/>
+        <text name="storageMonitor_slidesNow" text="%d schermen, elk %d s"/>
+        <text name="storageMonitor_fullAtTitle" text="Bijna vol vanaf"/>
+        <text name="storageMonitor_fullAtText" text="Vanaf welk niveau een silo, loods of hoop als bijna vol telt: de melding, en rood op het scherm (oranje vanaf 15 eronder):"/>
+        <text name="storageMonitor_priceNow" text="%s (nu %s bij %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Prijsmelding"/>
+        <text name="storageMonitor_priceAlertText" text="Meld het als een product meer opbrengt (prijs per 1000 l). Het product:"/>
+        <text name="storageMonitor_priceAlertNone" text="Niets hier wordt ergens gekocht. Kies eerst een opslag met producten."/>
+        <text name="storageMonitor_priceStep" text="Vanaf %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s levert nu %s per 1000 l op. Melden vanaf:"/>
+        <text name="storageMonitor_slideTimeNow" text="Tijd per scherm (nu: %d s)"/>
+        <text name="storageMonitor_slideTimeOff" text="Tijd per scherm (nu: uit)"/>
+        <text name="storageMonitor_done" text="Klaar"/>
+        <text name="storageMonitor_slideshowTitle" text="Diavoorstelling"/>
+        <text name="storageMonitor_slideshowText" text="Vink de schermen aan die de monitor om de beurt toont (tot %d):"/>
+        <text name="storageMonitor_slideOff" text="Uit: de gekozen opslag tonen"/>
+        <text name="storageMonitor_seconds" text="%d s"/>
+        <text name="storageMonitor_slideTimeText" text="Hoe lang elk scherm getoond wordt:"/>
+    </texts>
+</l10n>

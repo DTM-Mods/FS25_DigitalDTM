@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (키오스크)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (월)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (빌보드)"/>
+        <text name="function_storageMonitor"           text="사일로, 생산 시설, 축사, 벙커 사일로, 창고, 벌통, 농장 자금을 보여 주는 실시간 컬러 화면: 용량, 모든 제품, 증감 속도, 가격, 경고."/>
+
+        <text name="storageMonitor_showing"    text="표시 중"/>
+        <text name="storageMonitor_noStorage"  text="근처에 저장소 없음"/>
+        <text name="storageMonitor_searching"  text="저장소 검색 중..."/>
+        <text name="storageMonitor_reading"    text="읽는 중..."/>
+        <text name="storageMonitor_capacity"   text="용량"/>
+        <text name="storageMonitor_used"       text="사용"/>
+        <text name="storageMonitor_total"      text="전체"/>
+        <text name="storageMonitor_free"       text="여유"/>
+        <text name="storageMonitor_products"   text="제품 %d개"/>
+        <text name="storageMonitor_colProduct" text="제품"/>
+        <text name="storageMonitor_colLevel"   text="충전율"/>
+        <text name="storageMonitor_colAmount"  text="양"/>
+        <text name="storageMonitor_empty"      text="비어 있음"/>
+        <text name="storageMonitor_page"       text="페이지 %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (사일로 거치형)"/>
+        <text name="storageMonitor_settings" text="모니터 설정"/>
+        <text name="storageMonitor_plusConnected" text="%s + 연결 %d개"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="표시 중: %s"/>
+        <text name="storageMonitor_menuPick" text="저장소 선택 (현재: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="연결된 사일로도 표시"/>
+        <text name="storageMonitor_menuConnectedOff" text="이 사일로만 표시"/>
+        <text name="storageMonitor_pickTitle" text="저장소 선택"/>
+        <text name="storageMonitor_pickText" text="이 모니터 근처의 저장소(가까운 순), 그다음 농장 전체:"/>
+        <text name="storageMonitor_pickNearest" text="항상 가장 가까운 곳"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: 이전 페이지"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: 다음 페이지"/>
+        <text name="storageMonitor_menuSize" text="화면 크기 (현재: 너비 %.1f m)"/>
+        <text name="storageMonitor_sizeTitle" text="화면 크기"/>
+        <text name="storageMonitor_sizeText" text="화면 크기입니다. 아래쪽 가장자리에서 위로 커집니다."/>
+        <text name="storageMonitor_sizeOption" text="너비 %.1f m, 높이 %.1f m"/>
+        <text name="storageMonitor_menuBrightness" text="밝기 (현재: %s)"/>
+        <text name="storageMonitor_menuTheme" text="색상 (현재: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="제목 (현재: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="제목: 직접 입력"/>
+        <text name="storageMonitor_brightnessTitle" text="밝기"/>
+        <text name="storageMonitor_brightnessText" text="화면, 막대, 글자가 빛나는 정도:"/>
+        <text name="storageMonitor_themeTitle" text="색상"/>
+        <text name="storageMonitor_themeText" text="화면 색상:"/>
+        <text name="storageMonitor_titlePrompt" text="화면 제목 (비워 두면: 저장소 이름)"/>
+        <text name="storageMonitor_sizeTextGround" text="모니터 크기입니다. 지면에서부터 커집니다."/>
+        <text name="storageMonitor_bright1" text="매우 어둡게"/>
+        <text name="storageMonitor_bright2" text="어둡게"/>
+        <text name="storageMonitor_bright3" text="보통"/>
+        <text name="storageMonitor_bright4" text="밝게"/>
+        <text name="storageMonitor_bright5" text="매우 밝게"/>
+        <text name="storageMonitor_theme1" text="나이트 블루"/>
+        <text name="storageMonitor_theme2" text="DTM 그린"/>
+        <text name="storageMonitor_theme3" text="앰버 터미널"/>
+        <text name="storageMonitor_theme4" text="주광"/>
+        <text name="storageMonitor_farmAll" text="내 농장의 모든 사일로"/>
+        <text name="storageMonitor_linesRunning" text="가동 중"/>
+        <text name="storageMonitor_line_running" text="가동 중"/>
+        <text name="storageMonitor_line_missing" text="투입물 부족"/>
+        <text name="storageMonitor_line_full" text="산출물 가득 참"/>
+        <text name="storageMonitor_line_off" text="꺼짐"/>
+        <text name="storageMonitor_more" text="+%d개 더"/>
+        <text name="storageMonitor_animals" text="동물"/>
+        <text name="storageMonitor_food" text="사료"/>
+        <text name="storageMonitor_bunker_filling" text="채우는 중"/>
+        <text name="storageMonitor_bunker_fermenting" text="발효 중"/>
+        <text name="storageMonitor_bunker_ready" text="완료"/>
+        <text name="storageMonitor_bunkerLevel" text="사일로 내"/>
+        <text name="storageMonitor_objects" text="보관  %d / %d"/>
+        <text name="storageMonitor_mode1" text="저장소"/>
+        <text name="storageMonitor_mode2" text="가격"/>
+        <text name="storageMonitor_menuMode" text="화면 표시 (현재: %s)"/>
+        <text name="storageMonitor_modeTitle" text="화면 표시"/>
+        <text name="storageMonitor_modeText" text="저장소, 보관 중인 품목의 오늘 최고 가격, 또는 지난 게임 내 하루 동안의 저장량 (농장 전체는 &quot;내 농장의 모든 사일로&quot; 선택):"/>
+        <text name="storageMonitor_alerts1" text="꺼짐"/>
+        <text name="storageMonitor_alerts2" text="화면에 표시"/>
+        <text name="storageMonitor_alerts3" text="화면과 메시지로 표시"/>
+        <text name="storageMonitor_menuAlerts" text="경고 (현재: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="경고"/>
+        <text name="storageMonitor_alertsText" text="거의 가득 찼을 때, 투입물이 비었을 때, 동물의 사료나 물이 부족할 때 경고:"/>
+        <text name="storageMonitor_alertFull" text="가득 참"/>
+        <text name="storageMonitor_alertNearlyFull" text="거의 가득 참: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s 비어 있음"/>
+        <text name="storageMonitor_alertItemFull" text="%s 가득 참"/>
+        <text name="storageMonitor_alertLow" text="%s 부족: %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="물 없음"/>
+        <text name="storageMonitor_alertNoSpawner" text="꿀 팔레트 자리 없음"/>
+        <text name="storageMonitor_alertPalletFull" text="꿀 팔레트 자리가 가득 참"/>
+        <text name="storageMonitor_alertOverdrawn" text="잔액 마이너스"/>
+        <text name="storageMonitor_minutes" text="%d분"/>
+        <text name="storageMonitor_hours" text="%s시간"/>
+        <text name="storageMonitor_days" text="%s일"/>
+        <text name="storageMonitor_fullIn" text="%s 후 가득 참"/>
+        <text name="storageMonitor_emptyIn" text="%s 후 바닥남"/>
+        <text name="storageMonitor_runsOut" text="%s: %s 후 바닥남"/>
+        <text name="storageMonitor_foodFor" text="사료 %s 남음"/>
+        <text name="storageMonitor_stockValue" text="재고 가치"/>
+        <text name="storageMonitor_mostValuable" text="최고 가치"/>
+        <text name="storageMonitor_bestMarket" text="최고 판매처"/>
+        <text name="storageMonitor_nextMonth" text="다음 달"/>
+        <text name="storageMonitor_trendCount" text="상승 %d  하락 %d"/>
+        <text name="storageMonitor_colBestAt" text="최고가 판매처"/>
+        <text name="storageMonitor_colPrice" text="1000 L당"/>
+        <text name="storageMonitor_colTrend" text="추세"/>
+        <text name="storageMonitor_colValue" text="가치"/>
+        <text name="storageMonitor_notSold" text="구매처 없음"/>
+        <text name="storageMonitor_finance" text="내 농장 자금"/>
+        <text name="storageMonitor_balance" text="잔액"/>
+        <text name="storageMonitor_loan" text="대출"/>
+        <text name="storageMonitor_credit" text="대출 가능액"/>
+        <text name="storageMonitor_incomeToday" text="오늘 수입"/>
+        <text name="storageMonitor_costsToday" text="오늘 지출"/>
+        <text name="storageMonitor_netToday" text="오늘"/>
+        <text name="storageMonitor_colToday" text="오늘"/>
+        <text name="storageMonitor_colAmountMoney" text="금액"/>
+        <text name="storageMonitor_noMoneyToday" text="오늘은 아직 수입이나 지출이 없습니다"/>
+        <text name="storageMonitor_beehives" text="벌통"/>
+        <text name="storageMonitor_beehivesCaps" text="벌통"/>
+        <text name="storageMonitor_honeyPerDay" text="하루 꿀 생산량"/>
+        <text name="storageMonitor_beesStatus" text="상태"/>
+        <text name="storageMonitor_beesProducing" text="생산 중"/>
+        <text name="storageMonitor_beesWinter" text="겨울 휴식"/>
+        <text name="storageMonitor_beesFlying" text="벌"/>
+        <text name="storageMonitor_beesOut" text="비행 중"/>
+        <text name="storageMonitor_beesIn" text="휴식 중"/>
+        <text name="storageMonitor_palletSpot" text="팔레트 자리"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="가득 참"/>
+        <text name="storageMonitor_spotNone" text="없음"/>
+        <text name="storageMonitor_honeyHint" text="꿀은 팔레트 자리에서 팔레트에 담깁니다"/>
+        <text name="storageMonitor_honeyValue" text="하루 가치"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (벽걸이형)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (천장걸이형)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (양면 빌보드)"/>
+        <text name="storageMonitor_fields" text="내 밭"/>
+        <text name="storageMonitor_weather" text="날씨"/>
+        <text name="storageMonitor_fleet" text="내 차량"/>
+        <text name="storageMonitor_contracts" text="내 계약"/>
+        <text name="storageMonitor_allPens" text="내 모든 축사"/>
+        <text name="storageMonitor_allProductions" text="내 모든 생산 시설"/>
+        <text name="storageMonitor_mode3" text="기록 (24시간)"/>
+        <text name="storageMonitor_needLime" text="석회"/>
+        <text name="storageMonitor_needPlow" text="쟁기질"/>
+        <text name="storageMonitor_needFertilizer" text="비료 %d%%"/>
+        <text name="storageMonitor_needRoll" text="롤러"/>
+        <text name="storageMonitor_needWeeds" text="잡초"/>
+        <text name="storageMonitor_fieldNo" text="밭 %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s 수확 가능"/>
+        <text name="storageMonitor_alertWithered" text="%s: 작물이 시들었습니다"/>
+        <text name="storageMonitor_alertReadyMany" text="밭 %d곳 수확 가능"/>
+        <text name="storageMonitor_cropReady" text="수확"/>
+        <text name="storageMonitor_cropPrepare" text="준비"/>
+        <text name="storageMonitor_cropWithered" text="시듦"/>
+        <text name="storageMonitor_cropCut" text="수확됨"/>
+        <text name="storageMonitor_cropNone" text="작물 없음"/>
+        <text name="storageMonitor_cropGrowing" text="자라는 중"/>
+        <text name="storageMonitor_readyCaps" text="수확 가능"/>
+        <text name="storageMonitor_fieldsCount" text="밭"/>
+        <text name="storageMonitor_area" text="면적"/>
+        <text name="storageMonitor_growing" text="자라는 중"/>
+        <text name="storageMonitor_toSow" text="파종 필요"/>
+        <text name="storageMonitor_needWork" text="작업 필요"/>
+        <text name="storageMonitor_colField" text="밭"/>
+        <text name="storageMonitor_colNeeds" text="필요 작업"/>
+        <text name="storageMonitor_colState" text="상태"/>
+        <text name="storageMonitor_noFields" text="농장에 밭이 없습니다"/>
+        <text name="storageMonitor_inHours" text="%d시간 후"/>
+        <text name="storageMonitor_tomorrow" text="내일"/>
+        <text name="storageMonitor_inDays" text="%d일 후"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s, %d시간 후"/>
+        <text name="storageMonitor_wSun" text="맑음"/>
+        <text name="storageMonitor_wCloudy" text="흐림"/>
+        <text name="storageMonitor_wRain" text="비"/>
+        <text name="storageMonitor_wSnow" text="눈"/>
+        <text name="storageMonitor_wFog" text="안개"/>
+        <text name="storageMonitor_wHail" text="우박"/>
+        <text name="storageMonitor_wStorm" text="폭풍"/>
+        <text name="storageMonitor_steady" text="유지"/>
+        <text name="storageMonitor_rising" text="상승"/>
+        <text name="storageMonitor_falling" text="하락"/>
+        <text name="storageMonitor_noChange" text="오늘은 변화 없음"/>
+        <text name="storageMonitor_fallNone" text="없음"/>
+        <text name="storageMonitor_temperature" text="기온"/>
+        <text name="storageMonitor_weatherNow" text="현재"/>
+        <text name="storageMonitor_today" text="오늘"/>
+        <text name="storageMonitor_next" text="다음"/>
+        <text name="storageMonitor_tempTrend" text="기온"/>
+        <text name="storageMonitor_precipitation" text="현재 강수"/>
+        <text name="storageMonitor_crops" text="작물"/>
+        <text name="storageMonitor_cropsWet" text="젖음"/>
+        <text name="storageMonitor_cropsDry" text="건조"/>
+        <text name="storageMonitor_colWhen" text="시기"/>
+        <text name="storageMonitor_colWeather" text="날씨"/>
+        <text name="storageMonitor_noForecast" text="예보 없음"/>
+        <text name="storageMonitor_helperWorking" text="일꾼 작업 중"/>
+        <text name="storageMonitor_inUse" text="사용 중"/>
+        <text name="storageMonitor_engineOn" text="시동 켜짐"/>
+        <text name="storageMonitor_parked" text="주차됨"/>
+        <text name="storageMonitor_alertFuel" text="%s: 연료 %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: 손상 %d%%"/>
+        <text name="storageMonitor_damage" text="손상 %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="작업 중인 일꾼"/>
+        <text name="storageMonitor_vehicles" text="차량"/>
+        <text name="storageMonitor_lowFuel" text="연료 부족"/>
+        <text name="storageMonitor_needRepair" text="수리 필요"/>
+        <text name="storageMonitor_leased" text="임대"/>
+        <text name="storageMonitor_colVehicle" text="차량"/>
+        <text name="storageMonitor_colStatus" text="상태"/>
+        <text name="storageMonitor_colFuel" text="연료"/>
+        <text name="storageMonitor_noVehicles" text="농장에 차량이 없습니다"/>
+        <text name="storageMonitor_contractsCaps" text="진행 중인 계약"/>
+        <text name="storageMonitor_reward" text="보상"/>
+        <text name="storageMonitor_almostDone" text="거의 완료"/>
+        <text name="storageMonitor_average" text="평균"/>
+        <text name="storageMonitor_colContract" text="계약"/>
+        <text name="storageMonitor_colWhere" text="위치  보상"/>
+        <text name="storageMonitor_colDone" text="진행"/>
+        <text name="storageMonitor_noContracts" text="진행 중인 계약이 없습니다"/>
+        <text name="storageMonitor_pens" text="축사"/>
+        <text name="storageMonitor_places" text="수용 공간"/>
+        <text name="storageMonitor_lowFood" text="사료 부족"/>
+        <text name="storageMonitor_lowSupplies" text="물, 짚 부족"/>
+        <text name="storageMonitor_tanksFull" text="탱크 가득 참"/>
+        <text name="storageMonitor_foodLasts" text="사료 남은 기간"/>
+        <text name="storageMonitor_colPen" text="축사"/>
+        <text name="storageMonitor_colSupplies" text="보급품"/>
+        <text name="storageMonitor_noPens" text="농장에 축사가 없습니다"/>
+        <text name="storageMonitor_missingList" text="부족: %s"/>
+        <text name="storageMonitor_productions" text="생산 시설"/>
+        <text name="storageMonitor_idle" text="대기 중"/>
+        <text name="storageMonitor_colProduction" text="생산 시설"/>
+        <text name="storageMonitor_colLines" text="라인"/>
+        <text name="storageMonitor_noProductions" text="농장에 생산 시설이 없습니다"/>
+        <text name="storageMonitor_last24" text="지난 게임 내 24시간"/>
+        <text name="storageMonitor_nowValue" text="현재 %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24시간"/>
+        <text name="storageMonitor_hoursAgo12" text="-12시간"/>
+        <text name="storageMonitor_now" text="현재"/>
+        <text name="storageMonitor_graphFilling" text="그래프는 다음 게임 내 하루 동안 채워집니다"/>
+        <text name="storageMonitor_alertPrice" text="%s 판매가 %s (%s)"/>
+        <text name="storageMonitor_menuFullAt" text="거의 가득 참 기준 (현재: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="가격 알림 (현재: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="슬라이드쇼 (현재: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="슬라이드쇼가 켜져 있습니다: 자체 화면을 번갈아 표시합니다. 이 모니터 근처의 저장소(가까운 순), 그다음 농장 전체:"/>
+        <text name="storageMonitor_priceAbove" text="%s %s 이상"/>
+        <text name="storageMonitor_slidesNow" text="화면 %d개, 각 %d초"/>
+        <text name="storageMonitor_fullAtTitle" text="거의 가득 참 기준"/>
+        <text name="storageMonitor_fullAtText" text="사일로, 창고, 더미가 거의 가득 찬 것으로 간주되는 수준: 경고가 나오고 화면이 빨간색이 됩니다 (그보다 15 낮은 수준부터 주황색):"/>
+        <text name="storageMonitor_priceNow" text="%s (현재 %s, %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="가격 알림"/>
+        <text name="storageMonitor_priceAlertText" text="제품이 더 비싸게 팔리면 알려 줍니다 (1000 L당 가격). 제품:"/>
+        <text name="storageMonitor_priceAlertNone" text="이곳에 있는 것은 어디에서도 팔리지 않습니다. 먼저 제품이 있는 저장소를 선택하세요."/>
+        <text name="storageMonitor_priceStep" text="%s부터 (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s 현재 판매가는 1000 L당 %s입니다. 알림 기준:"/>
+        <text name="storageMonitor_slideTimeNow" text="화면당 시간 (현재: %d초)"/>
+        <text name="storageMonitor_slideTimeOff" text="화면당 시간 (현재: 꺼짐)"/>
+        <text name="storageMonitor_done" text="완료"/>
+        <text name="storageMonitor_slideshowTitle" text="슬라이드쇼"/>
+        <text name="storageMonitor_slideshowText" text="모니터가 번갈아 표시할 화면을 선택하세요 (최대 %d개):"/>
+        <text name="storageMonitor_slideOff" text="꺼짐: 선택한 저장소 표시"/>
+        <text name="storageMonitor_seconds" text="%d초"/>
+        <text name="storageMonitor_slideTimeText" text="각 화면을 표시할 시간:"/>
+    </texts>
+</l10n>

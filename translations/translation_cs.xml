@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM（信息亭）"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM（屏幕墙）"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM（广告牌）"/>
+        <text name="function_storageMonitor"           text="实时彩色屏幕，显示筒仓、生产设施、动物围栏、青贮窖、棚屋、蜂箱和农场资金：容量、所有产品、变化速率、价格和警报。"/>
+
+        <text name="storageMonitor_showing"    text="显示"/>
+        <text name="storageMonitor_noStorage"  text="附近没有仓储"/>
+        <text name="storageMonitor_searching"  text="正在搜索仓储..."/>
+        <text name="storageMonitor_reading"    text="读取中..."/>
+        <text name="storageMonitor_capacity"   text="容量"/>
+        <text name="storageMonitor_used"       text="已用"/>
+        <text name="storageMonitor_total"      text="总计"/>
+        <text name="storageMonitor_free"       text="剩余"/>
+        <text name="storageMonitor_products"   text="%d 种产品"/>
+        <text name="storageMonitor_colProduct" text="产品"/>
+        <text name="storageMonitor_colLevel"   text="填充"/>
+        <text name="storageMonitor_colAmount"  text="数量"/>
+        <text name="storageMonitor_empty"      text="空"/>
+        <text name="storageMonitor_page"       text="第 %d/%d 页"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM（筒仓挂装）"/>
+        <text name="storageMonitor_settings" text="显示屏设置"/>
+        <text name="storageMonitor_plusConnected" text="%s + %d 个相连"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="显示：%s"/>
+        <text name="storageMonitor_menuPick" text="选择仓储（当前：%s）"/>
+        <text name="storageMonitor_menuConnectedOn" text="同时显示与其相连的筒仓"/>
+        <text name="storageMonitor_menuConnectedOff" text="只显示此筒仓"/>
+        <text name="storageMonitor_pickTitle" text="选择仓储"/>
+        <text name="storageMonitor_pickText" text="此显示屏附近的仓储（由近到远），然后是整个农场："/>
+        <text name="storageMonitor_pickNearest" text="始终选最近的"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM：上一页"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM：下一页"/>
+        <text name="storageMonitor_menuSize" text="屏幕尺寸（当前：宽 %.1f 米）"/>
+        <text name="storageMonitor_sizeTitle" text="屏幕尺寸"/>
+        <text name="storageMonitor_sizeText" text="屏幕的尺寸。屏幕从底边向上扩展。"/>
+        <text name="storageMonitor_sizeOption" text="宽 %.1f 米，高 %.1f 米"/>
+        <text name="storageMonitor_menuBrightness" text="亮度（当前：%s）"/>
+        <text name="storageMonitor_menuTheme" text="配色（当前：%s）"/>
+        <text name="storageMonitor_menuTitleNow" text="标题（当前：%s）"/>
+        <text name="storageMonitor_menuTitleSet" text="标题：自行输入"/>
+        <text name="storageMonitor_brightnessTitle" text="亮度"/>
+        <text name="storageMonitor_brightnessText" text="屏幕、条形图和文字的发光强度："/>
+        <text name="storageMonitor_themeTitle" text="配色"/>
+        <text name="storageMonitor_themeText" text="屏幕配色："/>
+        <text name="storageMonitor_titlePrompt" text="屏幕标题（留空：仓储名称）"/>
+        <text name="storageMonitor_sizeTextGround" text="显示屏的尺寸。从地面向上扩展。"/>
+        <text name="storageMonitor_bright1" text="很暗"/>
+        <text name="storageMonitor_bright2" text="暗"/>
+        <text name="storageMonitor_bright3" text="正常"/>
+        <text name="storageMonitor_bright4" text="亮"/>
+        <text name="storageMonitor_bright5" text="很亮"/>
+        <text name="storageMonitor_theme1" text="夜蓝"/>
+        <text name="storageMonitor_theme2" text="DTM 绿"/>
+        <text name="storageMonitor_theme3" text="琥珀终端"/>
+        <text name="storageMonitor_theme4" text="日光"/>
+        <text name="storageMonitor_farmAll" text="我农场的所有筒仓"/>
+        <text name="storageMonitor_linesRunning" text="运行中"/>
+        <text name="storageMonitor_line_running" text="运行中"/>
+        <text name="storageMonitor_line_missing" text="缺少原料"/>
+        <text name="storageMonitor_line_full" text="产出已满"/>
+        <text name="storageMonitor_line_off" text="关闭"/>
+        <text name="storageMonitor_more" text="还有 %d 个"/>
+        <text name="storageMonitor_animals" text="动物"/>
+        <text name="storageMonitor_food" text="饲料"/>
+        <text name="storageMonitor_bunker_filling" text="填充中"/>
+        <text name="storageMonitor_bunker_fermenting" text="发酵中"/>
+        <text name="storageMonitor_bunker_ready" text="就绪"/>
+        <text name="storageMonitor_bunkerLevel" text="窖内"/>
+        <text name="storageMonitor_objects" text="已存  %d / %d"/>
+        <text name="storageMonitor_mode1" text="仓储"/>
+        <text name="storageMonitor_mode2" text="价格"/>
+        <text name="storageMonitor_menuMode" text="屏幕显示（当前：%s）"/>
+        <text name="storageMonitor_modeTitle" text="屏幕显示"/>
+        <text name="storageMonitor_modeText" text="仓储、其中物品今天的最高价格，或过去一个游戏日的存量变化（选择“我农场的所有筒仓”可查看整个农场）："/>
+        <text name="storageMonitor_alerts1" text="关闭"/>
+        <text name="storageMonitor_alerts2" text="在屏幕上"/>
+        <text name="storageMonitor_alerts3" text="在屏幕上并发送消息"/>
+        <text name="storageMonitor_menuAlerts" text="警报（当前：%s）"/>
+        <text name="storageMonitor_alertsTitle" text="警报"/>
+        <text name="storageMonitor_alertsText" text="在快满、原料耗尽或动物饲料、水不足时发出警告："/>
+        <text name="storageMonitor_alertFull" text="已满"/>
+        <text name="storageMonitor_alertNearlyFull" text="快满：%d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s 已空"/>
+        <text name="storageMonitor_alertItemFull" text="%s 已满"/>
+        <text name="storageMonitor_alertLow" text="%s 不足：%d%%"/>
+        <text name="storageMonitor_alertNoWater" text="没有水"/>
+        <text name="storageMonitor_alertNoSpawner" text="没有蜂蜜托盘位"/>
+        <text name="storageMonitor_alertPalletFull" text="蜂蜜托盘位已满"/>
+        <text name="storageMonitor_alertOverdrawn" text="账户透支"/>
+        <text name="storageMonitor_minutes" text="%d 分钟"/>
+        <text name="storageMonitor_hours" text="%s 小时"/>
+        <text name="storageMonitor_days" text="%s 天"/>
+        <text name="storageMonitor_fullIn" text="%s 后满"/>
+        <text name="storageMonitor_emptyIn" text="%s 后空"/>
+        <text name="storageMonitor_runsOut" text="%s：%s 后耗尽"/>
+        <text name="storageMonitor_foodFor" text="饲料可用 %s"/>
+        <text name="storageMonitor_stockValue" text="库存价值"/>
+        <text name="storageMonitor_mostValuable" text="最值钱"/>
+        <text name="storageMonitor_bestMarket" text="最佳市场"/>
+        <text name="storageMonitor_nextMonth" text="下个月"/>
+        <text name="storageMonitor_trendCount" text="上涨 %d  下跌 %d"/>
+        <text name="storageMonitor_colBestAt" text="最高价地点"/>
+        <text name="storageMonitor_colPrice" text="每 1000 升"/>
+        <text name="storageMonitor_colTrend" text="趋势"/>
+        <text name="storageMonitor_colValue" text="价值"/>
+        <text name="storageMonitor_notSold" text="无人收购"/>
+        <text name="storageMonitor_finance" text="我的农场资金"/>
+        <text name="storageMonitor_balance" text="余额"/>
+        <text name="storageMonitor_loan" text="贷款"/>
+        <text name="storageMonitor_credit" text="可贷额度"/>
+        <text name="storageMonitor_incomeToday" text="今日收入"/>
+        <text name="storageMonitor_costsToday" text="今日支出"/>
+        <text name="storageMonitor_netToday" text="今日"/>
+        <text name="storageMonitor_colToday" text="今日"/>
+        <text name="storageMonitor_colAmountMoney" text="金额"/>
+        <text name="storageMonitor_noMoneyToday" text="今天尚无收入或支出"/>
+        <text name="storageMonitor_beehives" text="蜂箱"/>
+        <text name="storageMonitor_beehivesCaps" text="蜂箱"/>
+        <text name="storageMonitor_honeyPerDay" text="每日蜂蜜"/>
+        <text name="storageMonitor_beesStatus" text="状态"/>
+        <text name="storageMonitor_beesProducing" text="生产中"/>
+        <text name="storageMonitor_beesWinter" text="冬季休眠"/>
+        <text name="storageMonitor_beesFlying" text="蜜蜂"/>
+        <text name="storageMonitor_beesOut" text="飞行中"/>
+        <text name="storageMonitor_beesIn" text="休息中"/>
+        <text name="storageMonitor_palletSpot" text="托盘位"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="已满"/>
+        <text name="storageMonitor_spotNone" text="无"/>
+        <text name="storageMonitor_honeyHint" text="蜂蜜会在托盘位装上托盘"/>
+        <text name="storageMonitor_honeyValue" text="每日价值"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM（壁挂）"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM（悬挂）"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM（双面广告牌）"/>
+        <text name="storageMonitor_fields" text="我的田地"/>
+        <text name="storageMonitor_weather" text="天气"/>
+        <text name="storageMonitor_fleet" text="我的车辆"/>
+        <text name="storageMonitor_contracts" text="我的合同"/>
+        <text name="storageMonitor_allPens" text="我的所有动物围栏"/>
+        <text name="storageMonitor_allProductions" text="我的所有生产设施"/>
+        <text name="storageMonitor_mode3" text="历史（24 小时）"/>
+        <text name="storageMonitor_needLime" text="石灰"/>
+        <text name="storageMonitor_needPlow" text="犁地"/>
+        <text name="storageMonitor_needFertilizer" text="肥料 %d%%"/>
+        <text name="storageMonitor_needRoll" text="碾压"/>
+        <text name="storageMonitor_needWeeds" text="杂草"/>
+        <text name="storageMonitor_fieldNo" text="田地 %s"/>
+        <text name="storageMonitor_alertReady" text="%s：%s 可收获"/>
+        <text name="storageMonitor_alertWithered" text="%s：作物已枯萎"/>
+        <text name="storageMonitor_alertReadyMany" text="%d 块田地可收获"/>
+        <text name="storageMonitor_cropReady" text="收获"/>
+        <text name="storageMonitor_cropPrepare" text="准备"/>
+        <text name="storageMonitor_cropWithered" text="枯萎"/>
+        <text name="storageMonitor_cropCut" text="已收获"/>
+        <text name="storageMonitor_cropNone" text="无作物"/>
+        <text name="storageMonitor_cropGrowing" text="生长中"/>
+        <text name="storageMonitor_readyCaps" text="可收获"/>
+        <text name="storageMonitor_fieldsCount" text="田地"/>
+        <text name="storageMonitor_area" text="面积"/>
+        <text name="storageMonitor_growing" text="生长中"/>
+        <text name="storageMonitor_toSow" text="待播种"/>
+        <text name="storageMonitor_needWork" text="需作业"/>
+        <text name="storageMonitor_colField" text="田地"/>
+        <text name="storageMonitor_colNeeds" text="需求"/>
+        <text name="storageMonitor_colState" text="状态"/>
+        <text name="storageMonitor_noFields" text="你的农场没有田地"/>
+        <text name="storageMonitor_inHours" text="%d 小时后"/>
+        <text name="storageMonitor_tomorrow" text="明天"/>
+        <text name="storageMonitor_inDays" text="%d 天后"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s，%d 小时后"/>
+        <text name="storageMonitor_wSun" text="晴"/>
+        <text name="storageMonitor_wCloudy" text="多云"/>
+        <text name="storageMonitor_wRain" text="雨"/>
+        <text name="storageMonitor_wSnow" text="雪"/>
+        <text name="storageMonitor_wFog" text="雾"/>
+        <text name="storageMonitor_wHail" text="冰雹"/>
+        <text name="storageMonitor_wStorm" text="暴风雨"/>
+        <text name="storageMonitor_steady" text="平稳"/>
+        <text name="storageMonitor_rising" text="上升"/>
+        <text name="storageMonitor_falling" text="下降"/>
+        <text name="storageMonitor_noChange" text="今天无变化"/>
+        <text name="storageMonitor_fallNone" text="无"/>
+        <text name="storageMonitor_temperature" text="气温"/>
+        <text name="storageMonitor_weatherNow" text="现在"/>
+        <text name="storageMonitor_today" text="今天"/>
+        <text name="storageMonitor_next" text="接下来"/>
+        <text name="storageMonitor_tempTrend" text="气温"/>
+        <text name="storageMonitor_precipitation" text="当前降水"/>
+        <text name="storageMonitor_crops" text="作物"/>
+        <text name="storageMonitor_cropsWet" text="潮湿"/>
+        <text name="storageMonitor_cropsDry" text="干燥"/>
+        <text name="storageMonitor_colWhen" text="时间"/>
+        <text name="storageMonitor_colWeather" text="天气"/>
+        <text name="storageMonitor_noForecast" text="无预报"/>
+        <text name="storageMonitor_helperWorking" text="雇工工作中"/>
+        <text name="storageMonitor_inUse" text="使用中"/>
+        <text name="storageMonitor_engineOn" text="发动机运转"/>
+        <text name="storageMonitor_parked" text="已停放"/>
+        <text name="storageMonitor_alertFuel" text="%s：燃料 %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s：损坏 %d%%"/>
+        <text name="storageMonitor_damage" text="损坏 %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="工作中的雇工"/>
+        <text name="storageMonitor_vehicles" text="车辆"/>
+        <text name="storageMonitor_lowFuel" text="燃料不足"/>
+        <text name="storageMonitor_needRepair" text="需维修"/>
+        <text name="storageMonitor_leased" text="租赁"/>
+        <text name="storageMonitor_colVehicle" text="车辆"/>
+        <text name="storageMonitor_colStatus" text="状态"/>
+        <text name="storageMonitor_colFuel" text="燃料"/>
+        <text name="storageMonitor_noVehicles" text="你的农场没有车辆"/>
+        <text name="storageMonitor_contractsCaps" text="进行中的合同"/>
+        <text name="storageMonitor_reward" text="报酬"/>
+        <text name="storageMonitor_almostDone" text="即将完成"/>
+        <text name="storageMonitor_average" text="平均"/>
+        <text name="storageMonitor_colContract" text="合同"/>
+        <text name="storageMonitor_colWhere" text="地点  报酬"/>
+        <text name="storageMonitor_colDone" text="完成"/>
+        <text name="storageMonitor_noContracts" text="没有进行中的合同"/>
+        <text name="storageMonitor_pens" text="围栏"/>
+        <text name="storageMonitor_places" text="栏位"/>
+        <text name="storageMonitor_lowFood" text="饲料不足"/>
+        <text name="storageMonitor_lowSupplies" text="水、垫草不足"/>
+        <text name="storageMonitor_tanksFull" text="储罐已满"/>
+        <text name="storageMonitor_foodLasts" text="饲料可用"/>
+        <text name="storageMonitor_colPen" text="围栏"/>
+        <text name="storageMonitor_colSupplies" text="补给"/>
+        <text name="storageMonitor_noPens" text="你的农场没有动物围栏"/>
+        <text name="storageMonitor_missingList" text="缺少：%s"/>
+        <text name="storageMonitor_productions" text="生产设施"/>
+        <text name="storageMonitor_idle" text="闲置"/>
+        <text name="storageMonitor_colProduction" text="生产设施"/>
+        <text name="storageMonitor_colLines" text="生产线"/>
+        <text name="storageMonitor_noProductions" text="你的农场没有生产设施"/>
+        <text name="storageMonitor_last24" text="过去 24 个游戏小时"/>
+        <text name="storageMonitor_nowValue" text="当前 %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 小时"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 小时"/>
+        <text name="storageMonitor_now" text="现在"/>
+        <text name="storageMonitor_graphFilling" text="图表将在接下来的一个游戏日内逐渐填满"/>
+        <text name="storageMonitor_alertPrice" text="%s 售价 %s（%s）"/>
+        <text name="storageMonitor_menuFullAt" text="快满阈值（当前：%d%%）"/>
+        <text name="storageMonitor_menuPriceAlert" text="价格提醒（当前：%s）"/>
+        <text name="storageMonitor_menuSlideshow" text="轮播（当前：%s）"/>
+        <text name="storageMonitor_pickTextSlides" text="轮播已开启：显示其自己的画面。此显示屏附近的仓储（由近到远），然后是整个农场："/>
+        <text name="storageMonitor_priceAbove" text="%s：%s 起"/>
+        <text name="storageMonitor_slidesNow" text="%d 个画面，每个 %d 秒"/>
+        <text name="storageMonitor_fullAtTitle" text="快满阈值"/>
+        <text name="storageMonitor_fullAtText" text="筒仓、棚屋或堆垛达到多少时算作快满：发出警报，屏幕显示红色（低 15 起显示琥珀色）："/>
+        <text name="storageMonitor_priceNow" text="%s（当前 %s，%s）"/>
+        <text name="storageMonitor_priceAlertTitle" text="价格提醒"/>
+        <text name="storageMonitor_priceAlertText" text="当产品售价更高时提醒我（每 1000 升价格）。产品："/>
+        <text name="storageMonitor_priceAlertNone" text="这里的东西在任何地方都无法出售。请先选择有产品的仓储。"/>
+        <text name="storageMonitor_priceStep" text="%s 起（+%d%%）"/>
+        <text name="storageMonitor_priceStepText" text="%s 当前每 1000 升售价 %s。从以下价格起提醒我："/>
+        <text name="storageMonitor_slideTimeNow" text="每个画面时长（当前：%d 秒）"/>
+        <text name="storageMonitor_slideTimeOff" text="每个画面时长（当前：关闭）"/>
+        <text name="storageMonitor_done" text="完成"/>
+        <text name="storageMonitor_slideshowTitle" text="轮播"/>
+        <text name="storageMonitor_slideshowText" text="勾选显示屏轮流显示的画面（最多 %d 个）："/>
+        <text name="storageMonitor_slideOff" text="关闭：显示所选仓储"/>
+        <text name="storageMonitor_seconds" text="%d 秒"/>
+        <text name="storageMonitor_slideTimeText" text="每个画面显示多久："/>
+    </texts>
+</l10n>

@@ -15,7 +15,8 @@
 </p>
 
 <p align="center">
-  <b>A live colour screen next to your silo: how full it is, what's in it and how much room is left, at a glance.</b>
+  <b>A live colour screen next to your silo: how full it is, what's in it and how much room is left, at a glance. And
+  screens for your whole farm: fields, weather, vehicles, contracts, pens and productions.</b>
 </p>
 
 <p align="center">
@@ -27,7 +28,23 @@
 </p>
 
 Put a monitor at a silo, production, animal pen, bunker silo, bale / pallet shed, manure heap, greenhouse or beehive and
-it shows what is in it, live. It can also show your farm's money, or today's best prices:
+it shows what is in it, live. It can also show a screen for your whole farm (fields, weather, vehicles, contracts, all
+pens, all productions, money), today's best prices, or the last in-game day as a chart:
+
+- **My fields:** the crop on every field and how far it has grown; the fields ready to harvest first, then withered and to
+  sow; what each needs: lime, fertilizer, plowing, rolling, weeds. A message when a field is ready.
+- **Weather:** the temperature, today's high and low, the weather now, in the next hours and the next days, when it
+  changes, and whether the crops are dry. A warning 3 hours before rain.
+- **My vehicles:** helpers at work, fuel and damage of every vehicle, the ones that need you first. A warning when a
+  helper runs low on fuel.
+- **My contracts:** every running contract with where, the reward and how far it is.
+- **All my animal pens / all my productions:** every pen or production on one screen, the lowest supply, missing
+  inputs by name, full outputs, greenhouses without water.
+- **History:** "Screen shows: History (24 h)" draws how full the storage was over the last in-game day, a column per half
+  hour (the farm's money: the balance).
+- **Slideshow:** tick several screens and the monitor shows them in turn, 10 to 60 seconds each.
+- **Your own alert levels:** "nearly full" from 70 to 100 % per monitor (the red and amber follow it), and a price alert:
+  a message when a product sells for the price you wait for.
 
 - **How full:** the percent in big numbers, green, then amber from 75 % and red from 90 %.
 - **Used, free and total capacity**, and one bar across the screen with every product in its own colour.
@@ -89,6 +106,14 @@ bigger.
 </p>
 
 <p align="center">
+  <img src="src/screens/farm.png" alt="My fields, weather, my vehicles, my contracts, all my animal pens, all my productions" width="100%">
+</p>
+
+<p align="center">
+  <img src="src/screens/history.png" alt="History of a silo in a slideshow, history of the farm's money, a greenhouse without water, a manure heap nearly full at 80 %" width="100%">
+</p>
+
+<p align="center">
   <img src="src/screens/new.png" alt="Price board, rates with an alert, the farm's money, beehives" width="100%">
 </p>
 
@@ -111,8 +136,9 @@ bigger.
 1. Buy a monitor (Buildings > Tools) and place it at the storage you want to watch. Silo mounts go right against the
    silo wall: the back of the bracket touches it.
 2. It shows the nearest storage within 40 m by itself, each building on its own: a silo, each silo extension, your
-   farm's productions, animal pens, bunker silos, bale / pallet sheds, manure heaps and beehives. "All silos of my
-   farm" and "My farm's money" are at the end of the pick list.
+   farm's productions, animal pens, bunker silos, bale / pallet sheds, manure heaps and beehives. The screens of the
+   whole farm are at the end of the pick list: all silos, money, fields, weather, vehicles, contracts, all pens, all
+   productions.
 3. Stand in front of the screen and press the activate key (**Monitor settings**):
    - **Pick the storage**: a list of every storage nearby, nearest first, or "Always the nearest". A picked silo stays
      picked when something nearer is built.
@@ -123,8 +149,12 @@ bigger.
    - **Brightness**: very dim to very bright (screen glow, bars and text).
    - **Colours**: night blue, DTM green, amber terminal, daylight.
    - **Title**: type your own, or leave it empty for the storage's name.
-   - **Screen shows**: the storage, or prices (the price board).
+   - **Screen shows**: the storage, prices (the price board), or history (the last in-game day as a chart).
    - **Alerts**: off, on the screen, or on the screen and as a game message for your farm.
+   - **Nearly full from**: 70 to 100 % (default 90 %); red from there, amber from 15 below.
+   - **Price alert**: pick a product and a price (5 to 50 % above today's best); a message when it sells for that.
+   - **Slideshow**: tick the screens to show in turn (up to 8) and the time per screen (10, 20, 30 or 60 s). While it
+     runs the header shows "2/3" and a thin bar for the time to the next screen.
 4. More than 42 products: **Page Up / Page Down** in front of the screen (rebindable under Controls). The pages stay
    where you put them for 30 seconds.
 
@@ -132,13 +162,18 @@ bigger.
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/multiplayer.jpg" alt="Multiplayer" width="100%">
 </p>
 
-- The settings (storage, connected silos, size, brightness, colours, title, prices, alerts) are synced: everyone on the server sees the same, and they are saved
-  with the game. Paging is each player's own.
+- The settings (storage, connected silos, size, brightness, colours, title, screen mode, alerts, nearly full level,
+  price alert, slideshow) are synced: everyone on the server sees the same, and they are saved with the game. Paging is
+  each player's own.
 - In silos that keep one stock per farm, every player sees their own farm's stock.
 - The screen is drawn by each player's game. A dedicated server draws nothing, so it costs the server nothing.
 - Alert messages go to the players of the monitor's own farm only, from each player's own game.
 - Rates need about a quarter of an in-game hour of readings before they show. A monitor nobody is near still reads its
   storage every 10 seconds, so rates and alerts keep going.
+- The history graph is drawn from each player's own readings: it starts empty after loading or joining and fills over
+  the next in-game day. A slideshow reads each screen while it is shown.
+- The fields and vehicles are read at most every 10 seconds for all monitors together.
+- In 27 languages: every language the game has.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/installation.jpg" alt="Installation" width="100%">
@@ -181,6 +216,13 @@ How it works:
 - **Prices:** the unloading stations that sell (`isSellingPoint`, not the farm's own productions or animal pens),
   `getEffectiveFillTypePrice`, read at most every 10 seconds for all monitors; the trend is the fill type's
   `economy.factors` from this month to the next.
+- **Farm screens ("boards"):** `buildBoard` reads the fields (`g_fieldManager`, the crop at each field's middle with
+  `FSDensityMapUtil.getFruitTypeIndexAtWorldPos`, the ground from `field.fieldState`), the weather (`environment.weather`:
+  `getCurrentWeatherType`, `getNextWeatherType`, temperatures), the vehicles (`vehicleSystem.vehicles`: fuel through
+  `getConsumerFillUnitIndex`, `getDamageAmount`, `getIsAIActive`), the contracts (`g_missionManager:getMissionsByFarmId`)
+  and the farm's pens and productions. Each gives rows (name, middle text, bar, value) drawn by `drawRowList`, a summary
+  for the top panel and its problems for the alerts.
+- **History:** a sample every half in-game hour, kept for 24 hours per screen (`updateGraph`), drawn as columns.
 - **Performance:** a monitor out of sight reads its storage every 10 seconds (every 2.5 seconds beyond half its reading
   distance, every second up close); screens behind the camera are not drawn, and at most 8 monitors are drawn, nearest
   first. Fitted texts are measured once per reading, not every frame.
@@ -202,6 +244,19 @@ The PNG masters in `src/` stay out of the zip (`.modignore`).
 <p align="center">
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/patch-notes.jpg" alt="Patch notes" width="100%">
 </p>
+
+### 1.3.0.0
+
+- New screens for the whole farm: my fields (crop, growth, ready to harvest, what each field needs), weather (now, the
+  next hours and days, crops dry or wet), my vehicles (helpers, fuel, damage), my contracts (where, reward, progress),
+  all my animal pens and all my productions on one screen each.
+- History: "Screen shows: History (24 h)" draws how full the storage was over the last in-game day (money: the balance).
+- Slideshow: a monitor shows several screens in turn, 10 to 60 seconds each.
+- Your own "nearly full" level per monitor (70 to 100 %), and a price alert for a product.
+- New alerts: fields ready to harvest or withered, rain within 3 hours, a helper low on fuel, a vehicle badly damaged, a
+  pen low on supplies, a production missing inputs.
+- The pick list always shows the farm screens at its end, after the storages nearby.
+- In every language of the game (27).
 
 ### 1.2.0.0
 

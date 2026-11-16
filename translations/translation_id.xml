@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kios)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Dinding Layar)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Papan Reklame)"/>
+        <text name="function_storageMonitor"           text="Layar warna langsung untuk silo, produksi, kandang hewan, silo bunker, gudang, sarang lebah, dan uang pertanian: kapasitas, setiap produk, laju, harga, dan peringatan."/>
+
+        <text name="storageMonitor_showing"    text="Menampilkan"/>
+        <text name="storageMonitor_noStorage"  text="Tidak ada penyimpanan di dekat sini"/>
+        <text name="storageMonitor_searching"  text="Mencari penyimpanan..."/>
+        <text name="storageMonitor_reading"    text="Membaca..."/>
+        <text name="storageMonitor_capacity"   text="KAPASITAS"/>
+        <text name="storageMonitor_used"       text="TERPAKAI"/>
+        <text name="storageMonitor_total"      text="TOTAL"/>
+        <text name="storageMonitor_free"       text="SISA"/>
+        <text name="storageMonitor_products"   text="%d PRODUK"/>
+        <text name="storageMonitor_colProduct" text="PRODUK"/>
+        <text name="storageMonitor_colLevel"   text="ISI"/>
+        <text name="storageMonitor_colAmount"  text="JUMLAH"/>
+        <text name="storageMonitor_empty"      text="Kosong"/>
+        <text name="storageMonitor_page"       text="HALAMAN %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Dudukan Silo)"/>
+        <text name="storageMonitor_settings" text="Pengaturan monitor"/>
+        <text name="storageMonitor_plusConnected" text="%s + %d terhubung"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Menampilkan: %s"/>
+        <text name="storageMonitor_menuPick" text="Pilih penyimpanan (sekarang: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Tampilkan juga silo yang terhubung"/>
+        <text name="storageMonitor_menuConnectedOff" text="Hanya tampilkan silo ini"/>
+        <text name="storageMonitor_pickTitle" text="Pilih penyimpanan"/>
+        <text name="storageMonitor_pickText" text="Penyimpanan di dekat monitor ini, yang terdekat dulu, lalu seluruh pertanian Anda:"/>
+        <text name="storageMonitor_pickNearest" text="Selalu yang terdekat"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: halaman sebelumnya"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: halaman berikutnya"/>
+        <text name="storageMonitor_menuSize" text="Ukuran layar (sekarang: lebar %.1f m)"/>
+        <text name="storageMonitor_sizeTitle" text="Ukuran layar"/>
+        <text name="storageMonitor_sizeText" text="Ukuran layar. Layar membesar ke atas dari tepi bawahnya."/>
+        <text name="storageMonitor_sizeOption" text="lebar %.1f m, tinggi %.1f m"/>
+        <text name="storageMonitor_menuBrightness" text="Kecerahan (sekarang: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Warna (sekarang: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Judul (sekarang: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Judul: ketik sendiri"/>
+        <text name="storageMonitor_brightnessTitle" text="Kecerahan"/>
+        <text name="storageMonitor_brightnessText" text="Seberapa terang layar, bilah, dan teksnya menyala:"/>
+        <text name="storageMonitor_themeTitle" text="Warna"/>
+        <text name="storageMonitor_themeText" text="Warna layar:"/>
+        <text name="storageMonitor_titlePrompt" text="Judul di layar (kosong: nama penyimpanan)"/>
+        <text name="storageMonitor_sizeTextGround" text="Ukuran monitor. Monitor membesar dari tanah."/>
+        <text name="storageMonitor_bright1" text="Sangat redup"/>
+        <text name="storageMonitor_bright2" text="Redup"/>
+        <text name="storageMonitor_bright3" text="Normal"/>
+        <text name="storageMonitor_bright4" text="Terang"/>
+        <text name="storageMonitor_bright5" text="Sangat terang"/>
+        <text name="storageMonitor_theme1" text="Biru malam"/>
+        <text name="storageMonitor_theme2" text="Hijau DTM"/>
+        <text name="storageMonitor_theme3" text="Terminal amber"/>
+        <text name="storageMonitor_theme4" text="Siang hari"/>
+        <text name="storageMonitor_farmAll" text="Semua silo pertanian saya"/>
+        <text name="storageMonitor_linesRunning" text="BERJALAN"/>
+        <text name="storageMonitor_line_running" text="Berjalan"/>
+        <text name="storageMonitor_line_missing" text="Bahan masuk kurang"/>
+        <text name="storageMonitor_line_full" text="Hasil penuh"/>
+        <text name="storageMonitor_line_off" text="Mati"/>
+        <text name="storageMonitor_more" text="+%d lagi"/>
+        <text name="storageMonitor_animals" text="HEWAN"/>
+        <text name="storageMonitor_food" text="Pakan"/>
+        <text name="storageMonitor_bunker_filling" text="Mengisi"/>
+        <text name="storageMonitor_bunker_fermenting" text="Fermentasi"/>
+        <text name="storageMonitor_bunker_ready" text="Siap"/>
+        <text name="storageMonitor_bunkerLevel" text="DI DALAM SILO"/>
+        <text name="storageMonitor_objects" text="TERSIMPAN  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Penyimpanan"/>
+        <text name="storageMonitor_mode2" text="Harga"/>
+        <text name="storageMonitor_menuMode" text="Layar menampilkan (sekarang: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Layar menampilkan"/>
+        <text name="storageMonitor_modeText" text="Penyimpanan, harga terbaik hari ini untuk isinya, atau seberapa penuh penyimpanan selama satu hari terakhir dalam game (pilih &quot;Semua silo pertanian saya&quot; untuk seluruh pertanian):"/>
+        <text name="storageMonitor_alerts1" text="Mati"/>
+        <text name="storageMonitor_alerts2" text="Di layar"/>
+        <text name="storageMonitor_alerts3" text="Di layar dan sebagai pesan"/>
+        <text name="storageMonitor_menuAlerts" text="Peringatan (sekarang: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Peringatan"/>
+        <text name="storageMonitor_alertsText" text="Peringatkan saat hampir penuh, bahan masuk kosong, atau hewan kekurangan pakan atau air:"/>
+        <text name="storageMonitor_alertFull" text="Penuh"/>
+        <text name="storageMonitor_alertNearlyFull" text="Hampir penuh: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s kosong"/>
+        <text name="storageMonitor_alertItemFull" text="%s penuh"/>
+        <text name="storageMonitor_alertLow" text="%s rendah: %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Tidak ada air"/>
+        <text name="storageMonitor_alertNoSpawner" text="Tidak ada tempat palet madu"/>
+        <text name="storageMonitor_alertPalletFull" text="Tempat palet madu penuh"/>
+        <text name="storageMonitor_alertOverdrawn" text="Saldo minus"/>
+        <text name="storageMonitor_minutes" text="%d mnt"/>
+        <text name="storageMonitor_hours" text="%s jam"/>
+        <text name="storageMonitor_days" text="%s hari"/>
+        <text name="storageMonitor_fullIn" text="PENUH DALAM %s"/>
+        <text name="storageMonitor_emptyIn" text="KOSONG DALAM %s"/>
+        <text name="storageMonitor_runsOut" text="%s: kosong dalam %s"/>
+        <text name="storageMonitor_foodFor" text="Pakan untuk %s"/>
+        <text name="storageMonitor_stockValue" text="NILAI STOK"/>
+        <text name="storageMonitor_mostValuable" text="PALING BERHARGA"/>
+        <text name="storageMonitor_bestMarket" text="PASAR TERBAIK"/>
+        <text name="storageMonitor_nextMonth" text="BULAN DEPAN"/>
+        <text name="storageMonitor_trendCount" text="%d naik  %d turun"/>
+        <text name="storageMonitor_colBestAt" text="HARGA TERBAIK DI"/>
+        <text name="storageMonitor_colPrice" text="PER 1000 L"/>
+        <text name="storageMonitor_colTrend" text="TREN"/>
+        <text name="storageMonitor_colValue" text="NILAI"/>
+        <text name="storageMonitor_notSold" text="tidak ada pembeli"/>
+        <text name="storageMonitor_finance" text="Uang pertanian saya"/>
+        <text name="storageMonitor_balance" text="SALDO"/>
+        <text name="storageMonitor_loan" text="Pinjaman"/>
+        <text name="storageMonitor_credit" text="Sisa kredit"/>
+        <text name="storageMonitor_incomeToday" text="Pemasukan hari ini"/>
+        <text name="storageMonitor_costsToday" text="Biaya hari ini"/>
+        <text name="storageMonitor_netToday" text="Hari ini"/>
+        <text name="storageMonitor_colToday" text="HARI INI"/>
+        <text name="storageMonitor_colAmountMoney" text="JUMLAH"/>
+        <text name="storageMonitor_noMoneyToday" text="Belum ada pemasukan atau biaya hari ini"/>
+        <text name="storageMonitor_beehives" text="Sarang lebah"/>
+        <text name="storageMonitor_beehivesCaps" text="SARANG LEBAH"/>
+        <text name="storageMonitor_honeyPerDay" text="Madu per hari"/>
+        <text name="storageMonitor_beesStatus" text="Status"/>
+        <text name="storageMonitor_beesProducing" text="Berproduksi"/>
+        <text name="storageMonitor_beesWinter" text="Istirahat musim dingin"/>
+        <text name="storageMonitor_beesFlying" text="Lebah"/>
+        <text name="storageMonitor_beesOut" text="Terbang"/>
+        <text name="storageMonitor_beesIn" text="Istirahat"/>
+        <text name="storageMonitor_palletSpot" text="Tempat palet"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Penuh"/>
+        <text name="storageMonitor_spotNone" text="Tidak ada"/>
+        <text name="storageMonitor_honeyHint" text="Madu dimuat ke palet di tempat palet"/>
+        <text name="storageMonitor_honeyValue" text="Nilai per hari"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Dudukan Dinding)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Gantung)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Papan Reklame Dua Sisi)"/>
+        <text name="storageMonitor_fields" text="Ladang saya"/>
+        <text name="storageMonitor_weather" text="Cuaca"/>
+        <text name="storageMonitor_fleet" text="Kendaraan saya"/>
+        <text name="storageMonitor_contracts" text="Kontrak saya"/>
+        <text name="storageMonitor_allPens" text="Semua kandang hewan saya"/>
+        <text name="storageMonitor_allProductions" text="Semua produksi saya"/>
+        <text name="storageMonitor_mode3" text="Riwayat (24 jam)"/>
+        <text name="storageMonitor_needLime" text="Kapur"/>
+        <text name="storageMonitor_needPlow" text="Bajak"/>
+        <text name="storageMonitor_needFertilizer" text="Pupuk %d%%"/>
+        <text name="storageMonitor_needRoll" text="Gilas"/>
+        <text name="storageMonitor_needWeeds" text="Gulma"/>
+        <text name="storageMonitor_fieldNo" text="Ladang %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s siap panen"/>
+        <text name="storageMonitor_alertWithered" text="%s: tanaman telah layu"/>
+        <text name="storageMonitor_alertReadyMany" text="%d ladang siap panen"/>
+        <text name="storageMonitor_cropReady" text="Panen"/>
+        <text name="storageMonitor_cropPrepare" text="Siapkan"/>
+        <text name="storageMonitor_cropWithered" text="Layu"/>
+        <text name="storageMonitor_cropCut" text="Dipanen"/>
+        <text name="storageMonitor_cropNone" text="Tanpa tanaman"/>
+        <text name="storageMonitor_cropGrowing" text="Tumbuh"/>
+        <text name="storageMonitor_readyCaps" text="SIAP PANEN"/>
+        <text name="storageMonitor_fieldsCount" text="Ladang"/>
+        <text name="storageMonitor_area" text="Luas"/>
+        <text name="storageMonitor_growing" text="Tumbuh"/>
+        <text name="storageMonitor_toSow" text="Perlu ditanam"/>
+        <text name="storageMonitor_needWork" text="Perlu dikerjakan"/>
+        <text name="storageMonitor_colField" text="LADANG"/>
+        <text name="storageMonitor_colNeeds" text="PERLU"/>
+        <text name="storageMonitor_colState" text="KONDISI"/>
+        <text name="storageMonitor_noFields" text="Pertanian Anda tidak punya ladang"/>
+        <text name="storageMonitor_inHours" text="dalam %d jam"/>
+        <text name="storageMonitor_tomorrow" text="Besok"/>
+        <text name="storageMonitor_inDays" text="Dalam %d hari"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s dalam %d jam"/>
+        <text name="storageMonitor_wSun" text="Cerah"/>
+        <text name="storageMonitor_wCloudy" text="Berawan"/>
+        <text name="storageMonitor_wRain" text="Hujan"/>
+        <text name="storageMonitor_wSnow" text="Salju"/>
+        <text name="storageMonitor_wFog" text="Kabut"/>
+        <text name="storageMonitor_wHail" text="Hujan es"/>
+        <text name="storageMonitor_wStorm" text="Badai"/>
+        <text name="storageMonitor_steady" text="Stabil"/>
+        <text name="storageMonitor_rising" text="Naik"/>
+        <text name="storageMonitor_falling" text="Turun"/>
+        <text name="storageMonitor_noChange" text="Tidak ada perubahan hari ini"/>
+        <text name="storageMonitor_fallNone" text="Tidak ada"/>
+        <text name="storageMonitor_temperature" text="SUHU"/>
+        <text name="storageMonitor_weatherNow" text="Sekarang"/>
+        <text name="storageMonitor_today" text="Hari ini"/>
+        <text name="storageMonitor_next" text="Berikutnya"/>
+        <text name="storageMonitor_tempTrend" text="Suhu"/>
+        <text name="storageMonitor_precipitation" text="Sedang turun"/>
+        <text name="storageMonitor_crops" text="Tanaman"/>
+        <text name="storageMonitor_cropsWet" text="Basah"/>
+        <text name="storageMonitor_cropsDry" text="Kering"/>
+        <text name="storageMonitor_colWhen" text="KAPAN"/>
+        <text name="storageMonitor_colWeather" text="CUACA"/>
+        <text name="storageMonitor_noForecast" text="Tidak ada prakiraan"/>
+        <text name="storageMonitor_helperWorking" text="Pekerja bekerja"/>
+        <text name="storageMonitor_inUse" text="Dipakai"/>
+        <text name="storageMonitor_engineOn" text="Mesin menyala"/>
+        <text name="storageMonitor_parked" text="Diparkir"/>
+        <text name="storageMonitor_alertFuel" text="%s: bahan bakar %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: kerusakan %d%%"/>
+        <text name="storageMonitor_damage" text="kerusakan %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="PEKERJA AKTIF"/>
+        <text name="storageMonitor_vehicles" text="Kendaraan"/>
+        <text name="storageMonitor_lowFuel" text="Bahan bakar rendah"/>
+        <text name="storageMonitor_needRepair" text="Perlu perbaikan"/>
+        <text name="storageMonitor_leased" text="Disewa"/>
+        <text name="storageMonitor_colVehicle" text="KENDARAAN"/>
+        <text name="storageMonitor_colStatus" text="KEADAAN"/>
+        <text name="storageMonitor_colFuel" text="BBM"/>
+        <text name="storageMonitor_noVehicles" text="Pertanian Anda tidak punya kendaraan"/>
+        <text name="storageMonitor_contractsCaps" text="KONTRAK BERJALAN"/>
+        <text name="storageMonitor_reward" text="Imbalan"/>
+        <text name="storageMonitor_almostDone" text="Hampir selesai"/>
+        <text name="storageMonitor_average" text="Rata-rata"/>
+        <text name="storageMonitor_colContract" text="KONTRAK"/>
+        <text name="storageMonitor_colWhere" text="LOKASI  IMBALAN"/>
+        <text name="storageMonitor_colDone" text="SELESAI"/>
+        <text name="storageMonitor_noContracts" text="Tidak ada kontrak berjalan"/>
+        <text name="storageMonitor_pens" text="Kandang"/>
+        <text name="storageMonitor_places" text="Tempat"/>
+        <text name="storageMonitor_lowFood" text="Pakan rendah"/>
+        <text name="storageMonitor_lowSupplies" text="Air, jerami rendah"/>
+        <text name="storageMonitor_tanksFull" text="Tangki penuh"/>
+        <text name="storageMonitor_foodLasts" text="Pakan cukup untuk"/>
+        <text name="storageMonitor_colPen" text="KANDANG"/>
+        <text name="storageMonitor_colSupplies" text="PASOKAN"/>
+        <text name="storageMonitor_noPens" text="Pertanian Anda tidak punya kandang hewan"/>
+        <text name="storageMonitor_missingList" text="Kurang: %s"/>
+        <text name="storageMonitor_productions" text="Produksi"/>
+        <text name="storageMonitor_idle" text="Menganggur"/>
+        <text name="storageMonitor_colProduction" text="PRODUKSI"/>
+        <text name="storageMonitor_colLines" text="LINI"/>
+        <text name="storageMonitor_noProductions" text="Pertanian Anda tidak punya produksi"/>
+        <text name="storageMonitor_last24" text="24 JAM TERAKHIR DALAM GAME"/>
+        <text name="storageMonitor_nowValue" text="KINI %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 jam"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 jam"/>
+        <text name="storageMonitor_now" text="kini"/>
+        <text name="storageMonitor_graphFilling" text="Grafik terisi selama satu hari berikutnya dalam game"/>
+        <text name="storageMonitor_alertPrice" text="%s terjual %s di %s"/>
+        <text name="storageMonitor_menuFullAt" text="Hampir penuh mulai (sekarang: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Peringatan harga (sekarang: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Tayangan slide (sekarang: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="Tayangan slide aktif: monitor menampilkan layarnya sendiri. Penyimpanan di dekat monitor ini, yang terdekat dulu, lalu seluruh pertanian Anda:"/>
+        <text name="storageMonitor_priceAbove" text="%s mulai %s"/>
+        <text name="storageMonitor_slidesNow" text="%d layar, masing-masing %d dtk"/>
+        <text name="storageMonitor_fullAtTitle" text="Hampir penuh mulai"/>
+        <text name="storageMonitor_fullAtText" text="Dari tingkat berapa silo, gudang, atau tumpukan dianggap hampir penuh: peringatan, dan merah di layar (kuning dari 15 di bawahnya):"/>
+        <text name="storageMonitor_priceNow" text="%s (sekarang %s di %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Peringatan harga"/>
+        <text name="storageMonitor_priceAlertText" text="Beri tahu saya saat produk terjual lebih mahal (harga per 1000 l). Produknya:"/>
+        <text name="storageMonitor_priceAlertNone" text="Tidak ada isi di sini yang laku di mana pun. Pilih dulu penyimpanan yang berisi produk."/>
+        <text name="storageMonitor_priceStep" text="Mulai %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s kini terjual %s per 1000 l. Beri tahu saya mulai:"/>
+        <text name="storageMonitor_slideTimeNow" text="Waktu per layar (sekarang: %d dtk)"/>
+        <text name="storageMonitor_slideTimeOff" text="Waktu per layar (sekarang: mati)"/>
+        <text name="storageMonitor_done" text="Selesai"/>
+        <text name="storageMonitor_slideshowTitle" text="Tayangan slide"/>
+        <text name="storageMonitor_slideshowText" text="Centang layar yang ditampilkan monitor secara bergantian (maks. %d):"/>
+        <text name="storageMonitor_slideOff" text="Mati: tampilkan penyimpanan yang dipilih"/>
+        <text name="storageMonitor_seconds" text="%d dtk"/>
+        <text name="storageMonitor_slideTimeText" text="Berapa lama setiap layar ditampilkan:"/>
+    </texts>
+</l10n>

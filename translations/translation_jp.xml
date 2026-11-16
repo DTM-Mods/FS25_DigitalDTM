@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM（キオスク）"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM（ウォール）"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM（看板）"/>
+        <text name="function_storageMonitor"           text="サイロ、生産施設、畜舎、バンカーサイロ、倉庫、養蜂箱、農場の資金を表示するライブカラースクリーン：容量、全製品、増減ペース、価格、警告。"/>
+
+        <text name="storageMonitor_showing"    text="表示中"/>
+        <text name="storageMonitor_noStorage"  text="近くに保管庫がありません"/>
+        <text name="storageMonitor_searching"  text="保管庫を検索中..."/>
+        <text name="storageMonitor_reading"    text="読み込み中..."/>
+        <text name="storageMonitor_capacity"   text="容量"/>
+        <text name="storageMonitor_used"       text="使用"/>
+        <text name="storageMonitor_total"      text="合計"/>
+        <text name="storageMonitor_free"       text="空き"/>
+        <text name="storageMonitor_products"   text="%d 品目"/>
+        <text name="storageMonitor_colProduct" text="製品"/>
+        <text name="storageMonitor_colLevel"   text="充填率"/>
+        <text name="storageMonitor_colAmount"  text="量"/>
+        <text name="storageMonitor_empty"      text="空"/>
+        <text name="storageMonitor_page"       text="ページ %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM（サイロ取付）"/>
+        <text name="storageMonitor_settings" text="モニター設定"/>
+        <text name="storageMonitor_plusConnected" text="%s + 接続 %d"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="表示中：%s"/>
+        <text name="storageMonitor_menuPick" text="保管庫を選択（現在：%s）"/>
+        <text name="storageMonitor_menuConnectedOn" text="接続されたサイロも表示"/>
+        <text name="storageMonitor_menuConnectedOff" text="このサイロのみ表示"/>
+        <text name="storageMonitor_pickTitle" text="保管庫を選択"/>
+        <text name="storageMonitor_pickText" text="このモニター付近の保管庫（近い順）、続いて農場全体："/>
+        <text name="storageMonitor_pickNearest" text="常に最寄り"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM：前のページ"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM：次のページ"/>
+        <text name="storageMonitor_menuSize" text="画面サイズ（現在：幅 %.1f m）"/>
+        <text name="storageMonitor_sizeTitle" text="画面サイズ"/>
+        <text name="storageMonitor_sizeText" text="画面のサイズ。下端から上に向かって大きくなります。"/>
+        <text name="storageMonitor_sizeOption" text="幅 %.1f m、高さ %.1f m"/>
+        <text name="storageMonitor_menuBrightness" text="明るさ（現在：%s）"/>
+        <text name="storageMonitor_menuTheme" text="配色（現在：%s）"/>
+        <text name="storageMonitor_menuTitleNow" text="タイトル（現在：%s）"/>
+        <text name="storageMonitor_menuTitleSet" text="タイトル：自分で入力"/>
+        <text name="storageMonitor_brightnessTitle" text="明るさ"/>
+        <text name="storageMonitor_brightnessText" text="画面、バー、文字の光の強さ："/>
+        <text name="storageMonitor_themeTitle" text="配色"/>
+        <text name="storageMonitor_themeText" text="画面の配色："/>
+        <text name="storageMonitor_titlePrompt" text="画面のタイトル（空欄：保管庫の名前）"/>
+        <text name="storageMonitor_sizeTextGround" text="モニターのサイズ。地面から大きくなります。"/>
+        <text name="storageMonitor_bright1" text="とても暗い"/>
+        <text name="storageMonitor_bright2" text="暗い"/>
+        <text name="storageMonitor_bright3" text="標準"/>
+        <text name="storageMonitor_bright4" text="明るい"/>
+        <text name="storageMonitor_bright5" text="とても明るい"/>
+        <text name="storageMonitor_theme1" text="ナイトブルー"/>
+        <text name="storageMonitor_theme2" text="DTMグリーン"/>
+        <text name="storageMonitor_theme3" text="アンバー端末"/>
+        <text name="storageMonitor_theme4" text="デイライト"/>
+        <text name="storageMonitor_farmAll" text="自分の農場の全サイロ"/>
+        <text name="storageMonitor_linesRunning" text="稼働中"/>
+        <text name="storageMonitor_line_running" text="稼働中"/>
+        <text name="storageMonitor_line_missing" text="原料不足"/>
+        <text name="storageMonitor_line_full" text="産出物が満杯"/>
+        <text name="storageMonitor_line_off" text="オフ"/>
+        <text name="storageMonitor_more" text="+%d 件"/>
+        <text name="storageMonitor_animals" text="動物"/>
+        <text name="storageMonitor_food" text="飼料"/>
+        <text name="storageMonitor_bunker_filling" text="充填中"/>
+        <text name="storageMonitor_bunker_fermenting" text="発酵中"/>
+        <text name="storageMonitor_bunker_ready" text="完成"/>
+        <text name="storageMonitor_bunkerLevel" text="サイロ内"/>
+        <text name="storageMonitor_objects" text="保管数  %d / %d"/>
+        <text name="storageMonitor_mode1" text="保管庫"/>
+        <text name="storageMonitor_mode2" text="価格"/>
+        <text name="storageMonitor_menuMode" text="画面表示（現在：%s）"/>
+        <text name="storageMonitor_modeTitle" text="画面表示"/>
+        <text name="storageMonitor_modeText" text="保管庫、中身の本日の最高価格、またはゲーム内の過去1日の充填量の推移（農場全体を表示するには「自分の農場の全サイロ」を選択）："/>
+        <text name="storageMonitor_alerts1" text="オフ"/>
+        <text name="storageMonitor_alerts2" text="画面に表示"/>
+        <text name="storageMonitor_alerts3" text="画面とメッセージで表示"/>
+        <text name="storageMonitor_menuAlerts" text="警告（現在：%s）"/>
+        <text name="storageMonitor_alertsTitle" text="警告"/>
+        <text name="storageMonitor_alertsText" text="ほぼ満杯のとき、原料が空のとき、動物の飼料や水が少ないときに警告："/>
+        <text name="storageMonitor_alertFull" text="満杯"/>
+        <text name="storageMonitor_alertNearlyFull" text="ほぼ満杯：%d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s が空です"/>
+        <text name="storageMonitor_alertItemFull" text="%s が満杯です"/>
+        <text name="storageMonitor_alertLow" text="%s 不足：%d%%"/>
+        <text name="storageMonitor_alertNoWater" text="水がありません"/>
+        <text name="storageMonitor_alertNoSpawner" text="はちみつパレット置き場なし"/>
+        <text name="storageMonitor_alertPalletFull" text="はちみつパレット置き場が満杯"/>
+        <text name="storageMonitor_alertOverdrawn" text="残高がマイナス"/>
+        <text name="storageMonitor_minutes" text="%d 分"/>
+        <text name="storageMonitor_hours" text="%s 時間"/>
+        <text name="storageMonitor_days" text="%s 日"/>
+        <text name="storageMonitor_fullIn" text="満杯まで %s"/>
+        <text name="storageMonitor_emptyIn" text="空まで %s"/>
+        <text name="storageMonitor_runsOut" text="%s：あと %s で空"/>
+        <text name="storageMonitor_foodFor" text="飼料残り %s"/>
+        <text name="storageMonitor_stockValue" text="在庫価値"/>
+        <text name="storageMonitor_mostValuable" text="最高価値"/>
+        <text name="storageMonitor_bestMarket" text="最良の売却先"/>
+        <text name="storageMonitor_nextMonth" text="来月"/>
+        <text name="storageMonitor_trendCount" text="上昇 %d  下落 %d"/>
+        <text name="storageMonitor_colBestAt" text="最高価格の売却先"/>
+        <text name="storageMonitor_colPrice" text="1000 Lあたり"/>
+        <text name="storageMonitor_colTrend" text="傾向"/>
+        <text name="storageMonitor_colValue" text="価値"/>
+        <text name="storageMonitor_notSold" text="買い手なし"/>
+        <text name="storageMonitor_finance" text="農場の資金"/>
+        <text name="storageMonitor_balance" text="残高"/>
+        <text name="storageMonitor_loan" text="借入金"/>
+        <text name="storageMonitor_credit" text="借入可能額"/>
+        <text name="storageMonitor_incomeToday" text="本日の収入"/>
+        <text name="storageMonitor_costsToday" text="本日の支出"/>
+        <text name="storageMonitor_netToday" text="本日"/>
+        <text name="storageMonitor_colToday" text="本日"/>
+        <text name="storageMonitor_colAmountMoney" text="金額"/>
+        <text name="storageMonitor_noMoneyToday" text="本日の収入・支出はまだありません"/>
+        <text name="storageMonitor_beehives" text="養蜂箱"/>
+        <text name="storageMonitor_beehivesCaps" text="養蜂箱"/>
+        <text name="storageMonitor_honeyPerDay" text="1日のはちみつ"/>
+        <text name="storageMonitor_beesStatus" text="状態"/>
+        <text name="storageMonitor_beesProducing" text="生産中"/>
+        <text name="storageMonitor_beesWinter" text="冬季休止"/>
+        <text name="storageMonitor_beesFlying" text="ミツバチ"/>
+        <text name="storageMonitor_beesOut" text="飛行中"/>
+        <text name="storageMonitor_beesIn" text="休息中"/>
+        <text name="storageMonitor_palletSpot" text="パレット置き場"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="満杯"/>
+        <text name="storageMonitor_spotNone" text="なし"/>
+        <text name="storageMonitor_honeyHint" text="はちみつはパレット置き場でパレットに積まれます"/>
+        <text name="storageMonitor_honeyValue" text="1日の価値"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM（壁掛け）"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM（吊り下げ）"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM（両面看板）"/>
+        <text name="storageMonitor_fields" text="自分の畑"/>
+        <text name="storageMonitor_weather" text="天気"/>
+        <text name="storageMonitor_fleet" text="自分の車両"/>
+        <text name="storageMonitor_contracts" text="自分の契約"/>
+        <text name="storageMonitor_allPens" text="自分の全畜舎"/>
+        <text name="storageMonitor_allProductions" text="自分の全生産施設"/>
+        <text name="storageMonitor_mode3" text="履歴（24時間）"/>
+        <text name="storageMonitor_needLime" text="石灰"/>
+        <text name="storageMonitor_needPlow" text="耕起"/>
+        <text name="storageMonitor_needFertilizer" text="肥料 %d%%"/>
+        <text name="storageMonitor_needRoll" text="ローラー"/>
+        <text name="storageMonitor_needWeeds" text="雑草"/>
+        <text name="storageMonitor_fieldNo" text="畑 %s"/>
+        <text name="storageMonitor_alertReady" text="%s：%s 収穫可能"/>
+        <text name="storageMonitor_alertWithered" text="%s：作物が枯れました"/>
+        <text name="storageMonitor_alertReadyMany" text="%d 枚の畑が収穫可能"/>
+        <text name="storageMonitor_cropReady" text="収穫"/>
+        <text name="storageMonitor_cropPrepare" text="準備"/>
+        <text name="storageMonitor_cropWithered" text="枯死"/>
+        <text name="storageMonitor_cropCut" text="収穫済み"/>
+        <text name="storageMonitor_cropNone" text="作物なし"/>
+        <text name="storageMonitor_cropGrowing" text="生育中"/>
+        <text name="storageMonitor_readyCaps" text="収穫可能"/>
+        <text name="storageMonitor_fieldsCount" text="畑"/>
+        <text name="storageMonitor_area" text="面積"/>
+        <text name="storageMonitor_growing" text="生育中"/>
+        <text name="storageMonitor_toSow" text="種まき待ち"/>
+        <text name="storageMonitor_needWork" text="作業が必要"/>
+        <text name="storageMonitor_colField" text="畑"/>
+        <text name="storageMonitor_colNeeds" text="必要作業"/>
+        <text name="storageMonitor_colState" text="状態"/>
+        <text name="storageMonitor_noFields" text="農場に畑がありません"/>
+        <text name="storageMonitor_inHours" text="%d 時間後"/>
+        <text name="storageMonitor_tomorrow" text="明日"/>
+        <text name="storageMonitor_inDays" text="%d 日後"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s、%d 時間後"/>
+        <text name="storageMonitor_wSun" text="晴れ"/>
+        <text name="storageMonitor_wCloudy" text="曇り"/>
+        <text name="storageMonitor_wRain" text="雨"/>
+        <text name="storageMonitor_wSnow" text="雪"/>
+        <text name="storageMonitor_wFog" text="霧"/>
+        <text name="storageMonitor_wHail" text="ひょう"/>
+        <text name="storageMonitor_wStorm" text="嵐"/>
+        <text name="storageMonitor_steady" text="横ばい"/>
+        <text name="storageMonitor_rising" text="上昇"/>
+        <text name="storageMonitor_falling" text="下降"/>
+        <text name="storageMonitor_noChange" text="本日は変化なし"/>
+        <text name="storageMonitor_fallNone" text="なし"/>
+        <text name="storageMonitor_temperature" text="気温"/>
+        <text name="storageMonitor_weatherNow" text="現在"/>
+        <text name="storageMonitor_today" text="今日"/>
+        <text name="storageMonitor_next" text="この先"/>
+        <text name="storageMonitor_tempTrend" text="気温"/>
+        <text name="storageMonitor_precipitation" text="現在の降水"/>
+        <text name="storageMonitor_crops" text="作物"/>
+        <text name="storageMonitor_cropsWet" text="濡れている"/>
+        <text name="storageMonitor_cropsDry" text="乾燥"/>
+        <text name="storageMonitor_colWhen" text="時期"/>
+        <text name="storageMonitor_colWeather" text="天気"/>
+        <text name="storageMonitor_noForecast" text="予報なし"/>
+        <text name="storageMonitor_helperWorking" text="ヘルパー作業中"/>
+        <text name="storageMonitor_inUse" text="使用中"/>
+        <text name="storageMonitor_engineOn" text="エンジン作動中"/>
+        <text name="storageMonitor_parked" text="駐車中"/>
+        <text name="storageMonitor_alertFuel" text="%s：燃料 %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s：損傷 %d%%"/>
+        <text name="storageMonitor_damage" text="損傷 %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="作業中のヘルパー"/>
+        <text name="storageMonitor_vehicles" text="車両"/>
+        <text name="storageMonitor_lowFuel" text="燃料不足"/>
+        <text name="storageMonitor_needRepair" text="要修理"/>
+        <text name="storageMonitor_leased" text="リース"/>
+        <text name="storageMonitor_colVehicle" text="車両"/>
+        <text name="storageMonitor_colStatus" text="状態"/>
+        <text name="storageMonitor_colFuel" text="燃料"/>
+        <text name="storageMonitor_noVehicles" text="農場に車両がありません"/>
+        <text name="storageMonitor_contractsCaps" text="進行中の契約"/>
+        <text name="storageMonitor_reward" text="報酬"/>
+        <text name="storageMonitor_almostDone" text="もうすぐ完了"/>
+        <text name="storageMonitor_average" text="平均"/>
+        <text name="storageMonitor_colContract" text="契約"/>
+        <text name="storageMonitor_colWhere" text="場所  報酬"/>
+        <text name="storageMonitor_colDone" text="進捗"/>
+        <text name="storageMonitor_noContracts" text="進行中の契約はありません"/>
+        <text name="storageMonitor_pens" text="畜舎"/>
+        <text name="storageMonitor_places" text="収容数"/>
+        <text name="storageMonitor_lowFood" text="飼料不足"/>
+        <text name="storageMonitor_lowSupplies" text="水・わら不足"/>
+        <text name="storageMonitor_tanksFull" text="タンク満杯"/>
+        <text name="storageMonitor_foodLasts" text="飼料の残り"/>
+        <text name="storageMonitor_colPen" text="畜舎"/>
+        <text name="storageMonitor_colSupplies" text="補給"/>
+        <text name="storageMonitor_noPens" text="農場に畜舎がありません"/>
+        <text name="storageMonitor_missingList" text="不足：%s"/>
+        <text name="storageMonitor_productions" text="生産施設"/>
+        <text name="storageMonitor_idle" text="待機中"/>
+        <text name="storageMonitor_colProduction" text="生産施設"/>
+        <text name="storageMonitor_colLines" text="ライン"/>
+        <text name="storageMonitor_noProductions" text="農場に生産施設がありません"/>
+        <text name="storageMonitor_last24" text="ゲーム内の過去24時間"/>
+        <text name="storageMonitor_nowValue" text="現在 %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24時間"/>
+        <text name="storageMonitor_hoursAgo12" text="-12時間"/>
+        <text name="storageMonitor_now" text="現在"/>
+        <text name="storageMonitor_graphFilling" text="グラフはゲーム内の次の1日で埋まっていきます"/>
+        <text name="storageMonitor_alertPrice" text="%s が %s で売れます（%s）"/>
+        <text name="storageMonitor_menuFullAt" text="ほぼ満杯の基準（現在：%d%%）"/>
+        <text name="storageMonitor_menuPriceAlert" text="価格アラート（現在：%s）"/>
+        <text name="storageMonitor_menuSlideshow" text="スライドショー（現在：%s）"/>
+        <text name="storageMonitor_pickTextSlides" text="スライドショーがオンです：専用の画面を順に表示します。このモニター付近の保管庫（近い順）、続いて農場全体："/>
+        <text name="storageMonitor_priceAbove" text="%s（%s 以上）"/>
+        <text name="storageMonitor_slidesNow" text="%d 画面、各 %d 秒"/>
+        <text name="storageMonitor_fullAtTitle" text="ほぼ満杯の基準"/>
+        <text name="storageMonitor_fullAtText" text="サイロ、倉庫、堆積物がほぼ満杯とみなされる充填率：警告が出て画面が赤になります（その15下からはオレンジ）："/>
+        <text name="storageMonitor_priceNow" text="%s（現在 %s、%s）"/>
+        <text name="storageMonitor_priceAlertTitle" text="価格アラート"/>
+        <text name="storageMonitor_priceAlertText" text="製品がより高く売れるようになったら通知します（1000 Lあたりの価格）。製品："/>
+        <text name="storageMonitor_priceAlertNone" text="ここにある物はどこにも売れません。先に製品のある保管庫を選んでください。"/>
+        <text name="storageMonitor_priceStep" text="%s から（+%d%%）"/>
+        <text name="storageMonitor_priceStepText" text="%s は現在 1000 Lあたり %s で売れます。通知する価格："/>
+        <text name="storageMonitor_slideTimeNow" text="1画面の表示時間（現在：%d 秒）"/>
+        <text name="storageMonitor_slideTimeOff" text="1画面の表示時間（現在：オフ）"/>
+        <text name="storageMonitor_done" text="完了"/>
+        <text name="storageMonitor_slideshowTitle" text="スライドショー"/>
+        <text name="storageMonitor_slideshowText" text="モニターが順番に表示する画面を選択（最大 %d）："/>
+        <text name="storageMonitor_slideOff" text="オフ：選択した保管庫を表示"/>
+        <text name="storageMonitor_seconds" text="%d 秒"/>
+        <text name="storageMonitor_slideTimeText" text="各画面の表示時間："/>
+    </texts>
+</l10n>

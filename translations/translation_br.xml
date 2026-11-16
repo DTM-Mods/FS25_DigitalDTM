@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Quiosque)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Parede)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Outdoor)"/>
+        <text name="function_storageMonitor"           text="Tela colorida ao vivo para silos, produções, currais, silos trincheira, galpões, colmeias e o dinheiro da fazenda: capacidade, cada produto, ritmos, preços e alertas."/>
+
+        <text name="storageMonitor_showing"    text="Mostrando"/>
+        <text name="storageMonitor_noStorage"  text="Nenhum armazém por perto"/>
+        <text name="storageMonitor_searching"  text="Procurando um armazém..."/>
+        <text name="storageMonitor_reading"    text="Lendo..."/>
+        <text name="storageMonitor_capacity"   text="CAPACIDADE"/>
+        <text name="storageMonitor_used"       text="USADO"/>
+        <text name="storageMonitor_total"      text="TOTAL"/>
+        <text name="storageMonitor_free"       text="LIVRE"/>
+        <text name="storageMonitor_products"   text="%d PRODUTOS"/>
+        <text name="storageMonitor_colProduct" text="PRODUTO"/>
+        <text name="storageMonitor_colLevel"   text="NÍVEL"/>
+        <text name="storageMonitor_colAmount"  text="QUANTIDADE"/>
+        <text name="storageMonitor_empty"      text="Vazio"/>
+        <text name="storageMonitor_page"       text="PÁG. %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Suporte de silo)"/>
+        <text name="storageMonitor_settings" text="Configurações do monitor"/>
+        <text name="storageMonitor_plusConnected" text="%s + %d conectados"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Mostrando: %s"/>
+        <text name="storageMonitor_menuPick" text="Escolher o armazém (agora: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Mostrar também os silos conectados"/>
+        <text name="storageMonitor_menuConnectedOff" text="Mostrar só este silo"/>
+        <text name="storageMonitor_pickTitle" text="Escolher o armazém"/>
+        <text name="storageMonitor_pickText" text="Armazéns perto deste monitor, o mais próximo primeiro, depois toda a sua fazenda:"/>
+        <text name="storageMonitor_pickNearest" text="Sempre o mais próximo"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: página anterior"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: próxima página"/>
+        <text name="storageMonitor_menuSize" text="Tamanho da tela (agora: %.1f m de largura)"/>
+        <text name="storageMonitor_sizeTitle" text="Tamanho da tela"/>
+        <text name="storageMonitor_sizeText" text="Tamanho da tela. Ela cresce para cima a partir da borda inferior."/>
+        <text name="storageMonitor_sizeOption" text="%.1f m de largura, %.1f m de altura"/>
+        <text name="storageMonitor_menuBrightness" text="Brilho (agora: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Cores (agora: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Título (agora: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Título: digite o seu"/>
+        <text name="storageMonitor_brightnessTitle" text="Brilho"/>
+        <text name="storageMonitor_brightnessText" text="Quanto brilham a tela, suas barras e seu texto:"/>
+        <text name="storageMonitor_themeTitle" text="Cores"/>
+        <text name="storageMonitor_themeText" text="Cores da tela:"/>
+        <text name="storageMonitor_titlePrompt" text="Título na tela (vazio: o nome do armazém)"/>
+        <text name="storageMonitor_sizeTextGround" text="Tamanho do monitor. Ele cresce a partir do chão."/>
+        <text name="storageMonitor_bright1" text="Muito fraco"/>
+        <text name="storageMonitor_bright2" text="Fraco"/>
+        <text name="storageMonitor_bright3" text="Normal"/>
+        <text name="storageMonitor_bright4" text="Forte"/>
+        <text name="storageMonitor_bright5" text="Muito forte"/>
+        <text name="storageMonitor_theme1" text="Azul noite"/>
+        <text name="storageMonitor_theme2" text="Verde DTM"/>
+        <text name="storageMonitor_theme3" text="Terminal âmbar"/>
+        <text name="storageMonitor_theme4" text="Luz do dia"/>
+        <text name="storageMonitor_farmAll" text="Todos os silos da minha fazenda"/>
+        <text name="storageMonitor_linesRunning" text="FUNCIONANDO"/>
+        <text name="storageMonitor_line_running" text="Funcionando"/>
+        <text name="storageMonitor_line_missing" text="Faltam insumos"/>
+        <text name="storageMonitor_line_full" text="Saída cheia"/>
+        <text name="storageMonitor_line_off" text="Desligada"/>
+        <text name="storageMonitor_more" text="+%d mais"/>
+        <text name="storageMonitor_animals" text="ANIMAIS"/>
+        <text name="storageMonitor_food" text="Ração"/>
+        <text name="storageMonitor_bunker_filling" text="Enchendo"/>
+        <text name="storageMonitor_bunker_fermenting" text="Fermentando"/>
+        <text name="storageMonitor_bunker_ready" text="Pronto"/>
+        <text name="storageMonitor_bunkerLevel" text="NO SILO"/>
+        <text name="storageMonitor_objects" text="ARMAZENADOS  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Armazém"/>
+        <text name="storageMonitor_mode2" text="Preços"/>
+        <text name="storageMonitor_menuMode" text="A tela mostra (agora: %s)"/>
+        <text name="storageMonitor_modeTitle" text="A tela mostra"/>
+        <text name="storageMonitor_modeText" text="O armazém, os melhores preços de hoje para o que há nele, ou o quanto esteve cheio no último dia do jogo (escolha &quot;Todos os silos da minha fazenda&quot; para a fazenda inteira):"/>
+        <text name="storageMonitor_alerts1" text="Desligados"/>
+        <text name="storageMonitor_alerts2" text="Na tela"/>
+        <text name="storageMonitor_alerts3" text="Na tela e como mensagem"/>
+        <text name="storageMonitor_menuAlerts" text="Alertas (agora: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Alertas"/>
+        <text name="storageMonitor_alertsText" text="Avisar quando estiver quase cheio, faltar um insumo ou os animais estiverem com pouca ração ou água:"/>
+        <text name="storageMonitor_alertFull" text="Cheio"/>
+        <text name="storageMonitor_alertNearlyFull" text="Quase cheio: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s está vazio"/>
+        <text name="storageMonitor_alertItemFull" text="%s está cheio"/>
+        <text name="storageMonitor_alertLow" text="%s: resta %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Sem água"/>
+        <text name="storageMonitor_alertNoSpawner" text="Sem local para paletes de mel"/>
+        <text name="storageMonitor_alertPalletFull" text="O local dos paletes de mel está cheio"/>
+        <text name="storageMonitor_alertOverdrawn" text="Conta no negativo"/>
+        <text name="storageMonitor_minutes" text="%d min"/>
+        <text name="storageMonitor_hours" text="%s h"/>
+        <text name="storageMonitor_days" text="%s dias"/>
+        <text name="storageMonitor_fullIn" text="CHEIO EM %s"/>
+        <text name="storageMonitor_emptyIn" text="VAZIO EM %s"/>
+        <text name="storageMonitor_runsOut" text="%s: vazio em %s"/>
+        <text name="storageMonitor_foodFor" text="Ração para %s"/>
+        <text name="storageMonitor_stockValue" text="VALOR DO ESTOQUE"/>
+        <text name="storageMonitor_mostValuable" text="O MAIS VALIOSO"/>
+        <text name="storageMonitor_bestMarket" text="MELHOR MERCADO"/>
+        <text name="storageMonitor_nextMonth" text="PRÓXIMO MÊS"/>
+        <text name="storageMonitor_trendCount" text="%d sobem  %d caem"/>
+        <text name="storageMonitor_colBestAt" text="MELHOR PREÇO EM"/>
+        <text name="storageMonitor_colPrice" text="POR 1000 L"/>
+        <text name="storageMonitor_colTrend" text="TENDÊNCIA"/>
+        <text name="storageMonitor_colValue" text="VALOR"/>
+        <text name="storageMonitor_notSold" text="ninguém compra"/>
+        <text name="storageMonitor_finance" text="O dinheiro da minha fazenda"/>
+        <text name="storageMonitor_balance" text="SALDO"/>
+        <text name="storageMonitor_loan" text="Empréstimo"/>
+        <text name="storageMonitor_credit" text="Crédito restante"/>
+        <text name="storageMonitor_incomeToday" text="Receitas de hoje"/>
+        <text name="storageMonitor_costsToday" text="Despesas de hoje"/>
+        <text name="storageMonitor_netToday" text="Hoje"/>
+        <text name="storageMonitor_colToday" text="HOJE"/>
+        <text name="storageMonitor_colAmountMoney" text="VALOR"/>
+        <text name="storageMonitor_noMoneyToday" text="Ainda sem receitas nem despesas hoje"/>
+        <text name="storageMonitor_beehives" text="Colmeias"/>
+        <text name="storageMonitor_beehivesCaps" text="COLMEIAS"/>
+        <text name="storageMonitor_honeyPerDay" text="Mel por dia"/>
+        <text name="storageMonitor_beesStatus" text="Estado"/>
+        <text name="storageMonitor_beesProducing" text="Produzindo"/>
+        <text name="storageMonitor_beesWinter" text="Pausa de inverno"/>
+        <text name="storageMonitor_beesFlying" text="Abelhas"/>
+        <text name="storageMonitor_beesOut" text="Voando"/>
+        <text name="storageMonitor_beesIn" text="Descansando"/>
+        <text name="storageMonitor_palletSpot" text="Local dos paletes"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Cheio"/>
+        <text name="storageMonitor_spotNone" text="Nenhum"/>
+        <text name="storageMonitor_honeyHint" text="O mel vai para paletes no local dos paletes"/>
+        <text name="storageMonitor_honeyValue" text="Valor por dia"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Suporte de parede)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Suspenso)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Outdoor dupla face)"/>
+        <text name="storageMonitor_fields" text="Meus campos"/>
+        <text name="storageMonitor_weather" text="Clima"/>
+        <text name="storageMonitor_fleet" text="Meus veículos"/>
+        <text name="storageMonitor_contracts" text="Meus contratos"/>
+        <text name="storageMonitor_allPens" text="Todos os meus currais"/>
+        <text name="storageMonitor_allProductions" text="Todas as minhas produções"/>
+        <text name="storageMonitor_mode3" text="Histórico (24 h)"/>
+        <text name="storageMonitor_needLime" text="Calcário"/>
+        <text name="storageMonitor_needPlow" text="Arar"/>
+        <text name="storageMonitor_needFertilizer" text="Fertilizante %d%%"/>
+        <text name="storageMonitor_needRoll" text="Rolar"/>
+        <text name="storageMonitor_needWeeds" text="Ervas daninhas"/>
+        <text name="storageMonitor_fieldNo" text="Campo %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s pronto para colher"/>
+        <text name="storageMonitor_alertWithered" text="%s: a plantação murchou"/>
+        <text name="storageMonitor_alertReadyMany" text="%d campos prontos para colher"/>
+        <text name="storageMonitor_cropReady" text="Colher"/>
+        <text name="storageMonitor_cropPrepare" text="Preparar"/>
+        <text name="storageMonitor_cropWithered" text="Murcha"/>
+        <text name="storageMonitor_cropCut" text="Colhido"/>
+        <text name="storageMonitor_cropNone" text="Sem cultura"/>
+        <text name="storageMonitor_cropGrowing" text="Crescendo"/>
+        <text name="storageMonitor_readyCaps" text="PRONTOS PARA COLHER"/>
+        <text name="storageMonitor_fieldsCount" text="Campos"/>
+        <text name="storageMonitor_area" text="Área"/>
+        <text name="storageMonitor_growing" text="Crescendo"/>
+        <text name="storageMonitor_toSow" text="Para semear"/>
+        <text name="storageMonitor_needWork" text="Com trabalho"/>
+        <text name="storageMonitor_colField" text="CAMPO"/>
+        <text name="storageMonitor_colNeeds" text="PRECISA"/>
+        <text name="storageMonitor_colState" text="ESTADO"/>
+        <text name="storageMonitor_noFields" text="Sua fazenda não tem campos"/>
+        <text name="storageMonitor_inHours" text="em %d h"/>
+        <text name="storageMonitor_tomorrow" text="Amanhã"/>
+        <text name="storageMonitor_inDays" text="Em %d dias"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s em %d h"/>
+        <text name="storageMonitor_wSun" text="Ensolarado"/>
+        <text name="storageMonitor_wCloudy" text="Nublado"/>
+        <text name="storageMonitor_wRain" text="Chuva"/>
+        <text name="storageMonitor_wSnow" text="Neve"/>
+        <text name="storageMonitor_wFog" text="Neblina"/>
+        <text name="storageMonitor_wHail" text="Granizo"/>
+        <text name="storageMonitor_wStorm" text="Tempestade"/>
+        <text name="storageMonitor_steady" text="Estável"/>
+        <text name="storageMonitor_rising" text="Subindo"/>
+        <text name="storageMonitor_falling" text="Caindo"/>
+        <text name="storageMonitor_noChange" text="Sem mudança hoje"/>
+        <text name="storageMonitor_fallNone" text="Nada"/>
+        <text name="storageMonitor_temperature" text="TEMPERATURA"/>
+        <text name="storageMonitor_weatherNow" text="Agora"/>
+        <text name="storageMonitor_today" text="Hoje"/>
+        <text name="storageMonitor_next" text="Depois"/>
+        <text name="storageMonitor_tempTrend" text="Temperatura"/>
+        <text name="storageMonitor_precipitation" text="Precipitação"/>
+        <text name="storageMonitor_crops" text="Plantações"/>
+        <text name="storageMonitor_cropsWet" text="Molhadas"/>
+        <text name="storageMonitor_cropsDry" text="Secas"/>
+        <text name="storageMonitor_colWhen" text="QUANDO"/>
+        <text name="storageMonitor_colWeather" text="CLIMA"/>
+        <text name="storageMonitor_noForecast" text="Sem previsão"/>
+        <text name="storageMonitor_helperWorking" text="Ajudante trabalhando"/>
+        <text name="storageMonitor_inUse" text="Em uso"/>
+        <text name="storageMonitor_engineOn" text="Motor ligado"/>
+        <text name="storageMonitor_parked" text="Estacionado"/>
+        <text name="storageMonitor_alertFuel" text="%s: combustível %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: danos %d%%"/>
+        <text name="storageMonitor_damage" text="danos %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="AJUDANTES TRABALHANDO"/>
+        <text name="storageMonitor_vehicles" text="Veículos"/>
+        <text name="storageMonitor_lowFuel" text="Pouco combustível"/>
+        <text name="storageMonitor_needRepair" text="Para consertar"/>
+        <text name="storageMonitor_leased" text="Alugado"/>
+        <text name="storageMonitor_colVehicle" text="VEÍCULO"/>
+        <text name="storageMonitor_colStatus" text="ESTADO"/>
+        <text name="storageMonitor_colFuel" text="COMBUSTÍVEL"/>
+        <text name="storageMonitor_noVehicles" text="Sua fazenda não tem veículos"/>
+        <text name="storageMonitor_contractsCaps" text="CONTRATOS EM ANDAMENTO"/>
+        <text name="storageMonitor_reward" text="Recompensa"/>
+        <text name="storageMonitor_almostDone" text="Quase prontos"/>
+        <text name="storageMonitor_average" text="Média"/>
+        <text name="storageMonitor_colContract" text="CONTRATO"/>
+        <text name="storageMonitor_colWhere" text="ONDE  RECOMPENSA"/>
+        <text name="storageMonitor_colDone" text="FEITO"/>
+        <text name="storageMonitor_noContracts" text="Nenhum contrato em andamento"/>
+        <text name="storageMonitor_pens" text="Currais"/>
+        <text name="storageMonitor_places" text="Vagas"/>
+        <text name="storageMonitor_lowFood" text="Pouca ração"/>
+        <text name="storageMonitor_lowSupplies" text="Pouca água, palha"/>
+        <text name="storageMonitor_tanksFull" text="Tanques cheios"/>
+        <text name="storageMonitor_foodLasts" text="Ração para"/>
+        <text name="storageMonitor_colPen" text="CURRAL"/>
+        <text name="storageMonitor_colSupplies" text="SUPRIMENTOS"/>
+        <text name="storageMonitor_noPens" text="Sua fazenda não tem currais"/>
+        <text name="storageMonitor_missingList" text="Falta: %s"/>
+        <text name="storageMonitor_productions" text="Produções"/>
+        <text name="storageMonitor_idle" text="Parada"/>
+        <text name="storageMonitor_colProduction" text="PRODUÇÃO"/>
+        <text name="storageMonitor_colLines" text="LINHAS"/>
+        <text name="storageMonitor_noProductions" text="Sua fazenda não tem produções"/>
+        <text name="storageMonitor_last24" text="ÚLTIMAS 24 HORAS DO JOGO"/>
+        <text name="storageMonitor_nowValue" text="AGORA %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 h"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 h"/>
+        <text name="storageMonitor_now" text="agora"/>
+        <text name="storageMonitor_graphFilling" text="O gráfico se preenche durante o próximo dia do jogo"/>
+        <text name="storageMonitor_alertPrice" text="%s vale %s em %s"/>
+        <text name="storageMonitor_menuFullAt" text="Quase cheio a partir de (agora: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Alerta de preço (agora: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Apresentação (agora: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="A apresentação está ligada: ela mostra suas próprias telas. Armazéns perto deste monitor, o mais próximo primeiro, depois toda a sua fazenda:"/>
+        <text name="storageMonitor_priceAbove" text="%s a partir de %s"/>
+        <text name="storageMonitor_slidesNow" text="%d telas, %d s cada"/>
+        <text name="storageMonitor_fullAtTitle" text="Quase cheio a partir de"/>
+        <text name="storageMonitor_fullAtText" text="A partir de que nível um silo, galpão ou monte conta como quase cheio: o alerta, e vermelho na tela (âmbar a partir de 15 abaixo):"/>
+        <text name="storageMonitor_priceNow" text="%s (agora %s em %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Alerta de preço"/>
+        <text name="storageMonitor_priceAlertText" text="Avise-me quando um produto for vendido por mais (preço por 1000 l). O produto:"/>
+        <text name="storageMonitor_priceAlertNone" text="Nada daqui é vendido em lugar nenhum. Escolha primeiro um armazém com produtos."/>
+        <text name="storageMonitor_priceStep" text="A partir de %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s vale %s por 1000 l agora. Avise-me a partir de:"/>
+        <text name="storageMonitor_slideTimeNow" text="Tempo por tela (agora: %d s)"/>
+        <text name="storageMonitor_slideTimeOff" text="Tempo por tela (agora: desligado)"/>
+        <text name="storageMonitor_done" text="Concluído"/>
+        <text name="storageMonitor_slideshowTitle" text="Apresentação"/>
+        <text name="storageMonitor_slideshowText" text="Marque as telas que o monitor mostra alternadamente (até %d):"/>
+        <text name="storageMonitor_slideOff" text="Desligada: mostrar o armazém escolhido"/>
+        <text name="storageMonitor_seconds" text="%d s"/>
+        <text name="storageMonitor_slideTimeText" text="Quanto tempo cada tela é mostrada:"/>
+    </texts>
+</l10n>

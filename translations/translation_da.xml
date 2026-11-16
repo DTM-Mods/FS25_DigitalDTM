@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kiosk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Væg)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Reklameskilt)"/>
+        <text name="function_storageMonitor"           text="Levende farveskærm til siloer, produktioner, dyrestalde, plansiloer, lagerhaller, bistader og gårdens penge: kapacitet, hvert produkt, hastigheder, priser og advarsler."/>
+
+        <text name="storageMonitor_showing"    text="Viser"/>
+        <text name="storageMonitor_noStorage"  text="Intet lager i nærheden"/>
+        <text name="storageMonitor_searching"  text="Søger efter et lager..."/>
+        <text name="storageMonitor_reading"    text="Læser..."/>
+        <text name="storageMonitor_capacity"   text="KAPACITET"/>
+        <text name="storageMonitor_used"       text="BRUGT"/>
+        <text name="storageMonitor_total"      text="I ALT"/>
+        <text name="storageMonitor_free"       text="LEDIG"/>
+        <text name="storageMonitor_products"   text="%d PRODUKTER"/>
+        <text name="storageMonitor_colProduct" text="PRODUKT"/>
+        <text name="storageMonitor_colLevel"   text="FYLDNING"/>
+        <text name="storageMonitor_colAmount"  text="MÆNGDE"/>
+        <text name="storageMonitor_empty"      text="Tom"/>
+        <text name="storageMonitor_page"       text="SIDE %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Siloholder)"/>
+        <text name="storageMonitor_settings" text="Skærmindstillinger"/>
+        <text name="storageMonitor_plusConnected" text="%s + %d forbundet"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Viser: %s"/>
+        <text name="storageMonitor_menuPick" text="Vælg lager (nu: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Vis også siloerne, der er forbundet med den"/>
+        <text name="storageMonitor_menuConnectedOff" text="Vis kun denne silo"/>
+        <text name="storageMonitor_pickTitle" text="Vælg lager"/>
+        <text name="storageMonitor_pickText" text="Lagre nær denne skærm, nærmeste først, derefter hele din gård:"/>
+        <text name="storageMonitor_pickNearest" text="Altid det nærmeste"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: forrige side"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: næste side"/>
+        <text name="storageMonitor_menuSize" text="Skærmstørrelse (nu: %.1f m bred)"/>
+        <text name="storageMonitor_sizeTitle" text="Skærmstørrelse"/>
+        <text name="storageMonitor_sizeText" text="Skærmens størrelse. Den vokser opad fra sin nederste kant."/>
+        <text name="storageMonitor_sizeOption" text="%.1f m bred, %.1f m høj"/>
+        <text name="storageMonitor_menuBrightness" text="Lysstyrke (nu: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Farver (nu: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Titel (nu: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Titel: skriv din egen"/>
+        <text name="storageMonitor_brightnessTitle" text="Lysstyrke"/>
+        <text name="storageMonitor_brightnessText" text="Hvor kraftigt skærmen, dens bjælker og dens tekst lyser:"/>
+        <text name="storageMonitor_themeTitle" text="Farver"/>
+        <text name="storageMonitor_themeText" text="Skærmens farver:"/>
+        <text name="storageMonitor_titlePrompt" text="Titel på skærmen (tom: lagerets navn)"/>
+        <text name="storageMonitor_sizeTextGround" text="Skærmens størrelse. Den vokser op fra jorden."/>
+        <text name="storageMonitor_bright1" text="Meget svag"/>
+        <text name="storageMonitor_bright2" text="Svag"/>
+        <text name="storageMonitor_bright3" text="Normal"/>
+        <text name="storageMonitor_bright4" text="Lys"/>
+        <text name="storageMonitor_bright5" text="Meget lys"/>
+        <text name="storageMonitor_theme1" text="Natteblå"/>
+        <text name="storageMonitor_theme2" text="DTM-grøn"/>
+        <text name="storageMonitor_theme3" text="Ravgul terminal"/>
+        <text name="storageMonitor_theme4" text="Dagslys"/>
+        <text name="storageMonitor_farmAll" text="Alle siloer på min gård"/>
+        <text name="storageMonitor_linesRunning" text="KØRER"/>
+        <text name="storageMonitor_line_running" text="Kører"/>
+        <text name="storageMonitor_line_missing" text="Mangler råvarer"/>
+        <text name="storageMonitor_line_full" text="Lager fuldt"/>
+        <text name="storageMonitor_line_off" text="Fra"/>
+        <text name="storageMonitor_more" text="+%d mere"/>
+        <text name="storageMonitor_animals" text="DYR"/>
+        <text name="storageMonitor_food" text="Foder"/>
+        <text name="storageMonitor_bunker_filling" text="Fyldes"/>
+        <text name="storageMonitor_bunker_fermenting" text="Gærer"/>
+        <text name="storageMonitor_bunker_ready" text="Klar"/>
+        <text name="storageMonitor_bunkerLevel" text="I SILOEN"/>
+        <text name="storageMonitor_objects" text="OPLAGRET  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Lager"/>
+        <text name="storageMonitor_mode2" text="Priser"/>
+        <text name="storageMonitor_menuMode" text="Skærmen viser (nu: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Skærmen viser"/>
+        <text name="storageMonitor_modeText" text="Lageret, dagens bedste priser for indholdet, eller hvor fyldt det var det sidste spildøgn (vælg &quot;Alle siloer på min gård&quot; for hele gården):"/>
+        <text name="storageMonitor_alerts1" text="Fra"/>
+        <text name="storageMonitor_alerts2" text="På skærmen"/>
+        <text name="storageMonitor_alerts3" text="På skærmen og som besked"/>
+        <text name="storageMonitor_menuAlerts" text="Advarsler (nu: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Advarsler"/>
+        <text name="storageMonitor_alertsText" text="Advar, når det er næsten fuldt, en råvare er tom, eller dyrene mangler foder eller vand:"/>
+        <text name="storageMonitor_alertFull" text="Fuld"/>
+        <text name="storageMonitor_alertNearlyFull" text="Næsten fuld: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s er tom"/>
+        <text name="storageMonitor_alertItemFull" text="%s er fuld"/>
+        <text name="storageMonitor_alertLow" text="Lidt %s: %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Intet vand"/>
+        <text name="storageMonitor_alertNoSpawner" text="Ingen plads til honningpaller"/>
+        <text name="storageMonitor_alertPalletFull" text="Pladsen til honningpaller er fuld"/>
+        <text name="storageMonitor_alertOverdrawn" text="Kontoen er overtrukket"/>
+        <text name="storageMonitor_minutes" text="%d min"/>
+        <text name="storageMonitor_hours" text="%s t"/>
+        <text name="storageMonitor_days" text="%s dage"/>
+        <text name="storageMonitor_fullIn" text="FULD OM %s"/>
+        <text name="storageMonitor_emptyIn" text="TOM OM %s"/>
+        <text name="storageMonitor_runsOut" text="%s: tom om %s"/>
+        <text name="storageMonitor_foodFor" text="Foder til %s"/>
+        <text name="storageMonitor_stockValue" text="LAGERVÆRDI"/>
+        <text name="storageMonitor_mostValuable" text="MEST VÆRDIFULD"/>
+        <text name="storageMonitor_bestMarket" text="BEDSTE SALGSSTED"/>
+        <text name="storageMonitor_nextMonth" text="NÆSTE MÅNED"/>
+        <text name="storageMonitor_trendCount" text="%d stiger  %d falder"/>
+        <text name="storageMonitor_colBestAt" text="BEDSTE PRIS HOS"/>
+        <text name="storageMonitor_colPrice" text="PR. 1000 L"/>
+        <text name="storageMonitor_colTrend" text="TENDENS"/>
+        <text name="storageMonitor_colValue" text="VÆRDI"/>
+        <text name="storageMonitor_notSold" text="ingen køber det"/>
+        <text name="storageMonitor_finance" text="Min gårds penge"/>
+        <text name="storageMonitor_balance" text="SALDO"/>
+        <text name="storageMonitor_loan" text="Lån"/>
+        <text name="storageMonitor_credit" text="Kredit tilbage"/>
+        <text name="storageMonitor_incomeToday" text="Indtægter i dag"/>
+        <text name="storageMonitor_costsToday" text="Udgifter i dag"/>
+        <text name="storageMonitor_netToday" text="I dag"/>
+        <text name="storageMonitor_colToday" text="I DAG"/>
+        <text name="storageMonitor_colAmountMoney" text="BELØB"/>
+        <text name="storageMonitor_noMoneyToday" text="Ingen indtægter eller udgifter i dag endnu"/>
+        <text name="storageMonitor_beehives" text="Bistader"/>
+        <text name="storageMonitor_beehivesCaps" text="BISTADER"/>
+        <text name="storageMonitor_honeyPerDay" text="Honning pr. dag"/>
+        <text name="storageMonitor_beesStatus" text="Status"/>
+        <text name="storageMonitor_beesProducing" text="Producerer"/>
+        <text name="storageMonitor_beesWinter" text="Vinterpause"/>
+        <text name="storageMonitor_beesFlying" text="Bier"/>
+        <text name="storageMonitor_beesOut" text="Flyver"/>
+        <text name="storageMonitor_beesIn" text="Hviler"/>
+        <text name="storageMonitor_palletSpot" text="Palleplads"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Fuld"/>
+        <text name="storageMonitor_spotNone" text="Ingen"/>
+        <text name="storageMonitor_honeyHint" text="Honningen kommer på paller ved pallepladsen"/>
+        <text name="storageMonitor_honeyValue" text="Værdi pr. dag"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Vægbeslag)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Hængende)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Dobbeltsidet reklameskilt)"/>
+        <text name="storageMonitor_fields" text="Mine marker"/>
+        <text name="storageMonitor_weather" text="Vejr"/>
+        <text name="storageMonitor_fleet" text="Mine køretøjer"/>
+        <text name="storageMonitor_contracts" text="Mine kontrakter"/>
+        <text name="storageMonitor_allPens" text="Alle mine dyrestalde"/>
+        <text name="storageMonitor_allProductions" text="Alle mine produktioner"/>
+        <text name="storageMonitor_mode3" text="Historik (24 t)"/>
+        <text name="storageMonitor_needLime" text="Kalk"/>
+        <text name="storageMonitor_needPlow" text="Pløj"/>
+        <text name="storageMonitor_needFertilizer" text="Gødning %d%%"/>
+        <text name="storageMonitor_needRoll" text="Tromle"/>
+        <text name="storageMonitor_needWeeds" text="Ukrudt"/>
+        <text name="storageMonitor_fieldNo" text="Mark %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s klar til høst"/>
+        <text name="storageMonitor_alertWithered" text="%s: afgrøden er visnet"/>
+        <text name="storageMonitor_alertReadyMany" text="%d marker klar til høst"/>
+        <text name="storageMonitor_cropReady" text="Høst"/>
+        <text name="storageMonitor_cropPrepare" text="Forbered"/>
+        <text name="storageMonitor_cropWithered" text="Visnet"/>
+        <text name="storageMonitor_cropCut" text="Høstet"/>
+        <text name="storageMonitor_cropNone" text="Ingen afgrøde"/>
+        <text name="storageMonitor_cropGrowing" text="Vokser"/>
+        <text name="storageMonitor_readyCaps" text="KLAR TIL HØST"/>
+        <text name="storageMonitor_fieldsCount" text="Marker"/>
+        <text name="storageMonitor_area" text="Areal"/>
+        <text name="storageMonitor_growing" text="Vokser"/>
+        <text name="storageMonitor_toSow" text="Skal sås"/>
+        <text name="storageMonitor_needWork" text="Kræver arbejde"/>
+        <text name="storageMonitor_colField" text="MARK"/>
+        <text name="storageMonitor_colNeeds" text="BEHOV"/>
+        <text name="storageMonitor_colState" text="TILSTAND"/>
+        <text name="storageMonitor_noFields" text="Din gård har ingen marker"/>
+        <text name="storageMonitor_inHours" text="om %d t"/>
+        <text name="storageMonitor_tomorrow" text="I morgen"/>
+        <text name="storageMonitor_inDays" text="Om %d dage"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s om %d t"/>
+        <text name="storageMonitor_wSun" text="Solrigt"/>
+        <text name="storageMonitor_wCloudy" text="Overskyet"/>
+        <text name="storageMonitor_wRain" text="Regn"/>
+        <text name="storageMonitor_wSnow" text="Sne"/>
+        <text name="storageMonitor_wFog" text="Tåge"/>
+        <text name="storageMonitor_wHail" text="Hagl"/>
+        <text name="storageMonitor_wStorm" text="Storm"/>
+        <text name="storageMonitor_steady" text="Stabil"/>
+        <text name="storageMonitor_rising" text="Stiger"/>
+        <text name="storageMonitor_falling" text="Falder"/>
+        <text name="storageMonitor_noChange" text="Ingen ændring i dag"/>
+        <text name="storageMonitor_fallNone" text="Intet"/>
+        <text name="storageMonitor_temperature" text="TEMPERATUR"/>
+        <text name="storageMonitor_weatherNow" text="Nu"/>
+        <text name="storageMonitor_today" text="I dag"/>
+        <text name="storageMonitor_next" text="Næste"/>
+        <text name="storageMonitor_tempTrend" text="Temperatur"/>
+        <text name="storageMonitor_precipitation" text="Nedbør nu"/>
+        <text name="storageMonitor_crops" text="Afgrøder"/>
+        <text name="storageMonitor_cropsWet" text="Våde"/>
+        <text name="storageMonitor_cropsDry" text="Tørre"/>
+        <text name="storageMonitor_colWhen" text="HVORNÅR"/>
+        <text name="storageMonitor_colWeather" text="VEJR"/>
+        <text name="storageMonitor_noForecast" text="Ingen vejrudsigt"/>
+        <text name="storageMonitor_helperWorking" text="Medhjælper arbejder"/>
+        <text name="storageMonitor_inUse" text="I brug"/>
+        <text name="storageMonitor_engineOn" text="Motor tændt"/>
+        <text name="storageMonitor_parked" text="Parkeret"/>
+        <text name="storageMonitor_alertFuel" text="%s: brændstof %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: skade %d%%"/>
+        <text name="storageMonitor_damage" text="skade %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="MEDHJÆLPERE I GANG"/>
+        <text name="storageMonitor_vehicles" text="Køretøjer"/>
+        <text name="storageMonitor_lowFuel" text="Lidt brændstof"/>
+        <text name="storageMonitor_needRepair" text="Skal repareres"/>
+        <text name="storageMonitor_leased" text="Leaset"/>
+        <text name="storageMonitor_colVehicle" text="KØRETØJ"/>
+        <text name="storageMonitor_colStatus" text="STATUS"/>
+        <text name="storageMonitor_colFuel" text="BRÆNDSTOF"/>
+        <text name="storageMonitor_noVehicles" text="Din gård har ingen køretøjer"/>
+        <text name="storageMonitor_contractsCaps" text="AKTIVE KONTRAKTER"/>
+        <text name="storageMonitor_reward" text="Belønning"/>
+        <text name="storageMonitor_almostDone" text="Næsten færdig"/>
+        <text name="storageMonitor_average" text="Gennemsnit"/>
+        <text name="storageMonitor_colContract" text="KONTRAKT"/>
+        <text name="storageMonitor_colWhere" text="HVOR  BELØNNING"/>
+        <text name="storageMonitor_colDone" text="FÆRDIG"/>
+        <text name="storageMonitor_noContracts" text="Ingen aktive kontrakter"/>
+        <text name="storageMonitor_pens" text="Stalde"/>
+        <text name="storageMonitor_places" text="Pladser"/>
+        <text name="storageMonitor_lowFood" text="Lidt foder"/>
+        <text name="storageMonitor_lowSupplies" text="Lidt vand, halm"/>
+        <text name="storageMonitor_tanksFull" text="Tanke fulde"/>
+        <text name="storageMonitor_foodLasts" text="Foder rækker"/>
+        <text name="storageMonitor_colPen" text="STALD"/>
+        <text name="storageMonitor_colSupplies" text="FORSYNING"/>
+        <text name="storageMonitor_noPens" text="Din gård har ingen dyrestalde"/>
+        <text name="storageMonitor_missingList" text="Mangler: %s"/>
+        <text name="storageMonitor_productions" text="Produktioner"/>
+        <text name="storageMonitor_idle" text="Står stille"/>
+        <text name="storageMonitor_colProduction" text="PRODUKTION"/>
+        <text name="storageMonitor_colLines" text="LINJER"/>
+        <text name="storageMonitor_noProductions" text="Din gård har ingen produktioner"/>
+        <text name="storageMonitor_last24" text="SIDSTE 24 SPILTIMER"/>
+        <text name="storageMonitor_nowValue" text="NU %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 t"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 t"/>
+        <text name="storageMonitor_now" text="nu"/>
+        <text name="storageMonitor_graphFilling" text="Grafen fyldes i løbet af det næste spildøgn"/>
+        <text name="storageMonitor_alertPrice" text="%s sælges for %s hos %s"/>
+        <text name="storageMonitor_menuFullAt" text="Næsten fuld fra (nu: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Prisadvarsel (nu: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Diasshow (nu: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="Diasshowet er slået til: det viser sine egne skærme. Lagre nær denne skærm, nærmeste først, derefter hele din gård:"/>
+        <text name="storageMonitor_priceAbove" text="%s fra %s"/>
+        <text name="storageMonitor_slidesNow" text="%d skærme, %d s hver"/>
+        <text name="storageMonitor_fullAtTitle" text="Næsten fuld fra"/>
+        <text name="storageMonitor_fullAtText" text="Fra hvilket niveau en silo, lagerhal eller bunke tæller som næsten fuld: advarslen, og rødt på skærmen (ravgult fra 15 under):"/>
+        <text name="storageMonitor_priceNow" text="%s (nu %s hos %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Prisadvarsel"/>
+        <text name="storageMonitor_priceAlertText" text="Sig til, når et produkt sælges for mere (pris pr. 1000 l). Produktet:"/>
+        <text name="storageMonitor_priceAlertNone" text="Intet her kan sælges nogen steder. Vælg først et lager med produkter."/>
+        <text name="storageMonitor_priceStep" text="Fra %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s sælges nu for %s pr. 1000 l. Sig til fra:"/>
+        <text name="storageMonitor_slideTimeNow" text="Tid pr. skærm (nu: %d s)"/>
+        <text name="storageMonitor_slideTimeOff" text="Tid pr. skærm (nu: fra)"/>
+        <text name="storageMonitor_done" text="Færdig"/>
+        <text name="storageMonitor_slideshowTitle" text="Diasshow"/>
+        <text name="storageMonitor_slideshowText" text="Sæt hak ved de skærme, som monitoren skiftes til at vise (op til %d):"/>
+        <text name="storageMonitor_slideOff" text="Fra: vis det valgte lager"/>
+        <text name="storageMonitor_seconds" text="%d s"/>
+        <text name="storageMonitor_slideTimeText" text="Hvor længe hver skærm vises:"/>
+    </texts>
+</l10n>

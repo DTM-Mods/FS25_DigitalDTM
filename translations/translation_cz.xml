@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (kiosk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (nástěnný)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (billboard)"/>
+        <text name="function_storageMonitor"           text="Barevná živá obrazovka pro sila, výrobny, ohrady zvířat, silážní žlaby, sklady, úly a peníze farmy: kapacita, každý produkt, rychlost, ceny a upozornění."/>
+
+        <text name="storageMonitor_showing"    text="Zobrazuje"/>
+        <text name="storageMonitor_noStorage"  text="Žádný sklad poblíž"/>
+        <text name="storageMonitor_searching"  text="Hledám sklad..."/>
+        <text name="storageMonitor_reading"    text="Načítám..."/>
+        <text name="storageMonitor_capacity"   text="KAPACITA"/>
+        <text name="storageMonitor_used"       text="OBSAZENO"/>
+        <text name="storageMonitor_total"      text="CELKEM"/>
+        <text name="storageMonitor_free"       text="VOLNO"/>
+        <text name="storageMonitor_products"   text="PRODUKTY: %d"/>
+        <text name="storageMonitor_colProduct" text="PRODUKT"/>
+        <text name="storageMonitor_colLevel"   text="PLNĚNÍ"/>
+        <text name="storageMonitor_colAmount"  text="MNOŽSTVÍ"/>
+        <text name="storageMonitor_empty"      text="Prázdné"/>
+        <text name="storageMonitor_page"       text="STRANA %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (na silo)"/>
+        <text name="storageMonitor_settings" text="Nastavení monitoru"/>
+        <text name="storageMonitor_plusConnected" text="%s + připojená: %d"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Zobrazuje: %s"/>
+        <text name="storageMonitor_menuPick" text="Vybrat sklad (nyní: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Zobrazit i připojená sila"/>
+        <text name="storageMonitor_menuConnectedOff" text="Zobrazit jen toto silo"/>
+        <text name="storageMonitor_pickTitle" text="Vybrat sklad"/>
+        <text name="storageMonitor_pickText" text="Sklady u tohoto monitoru, nejbližší první, potom celá farma:"/>
+        <text name="storageMonitor_pickNearest" text="Vždy ten nejbližší"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: předchozí strana"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: další strana"/>
+        <text name="storageMonitor_menuSize" text="Velikost obrazovky (nyní: šířka %.1f m)"/>
+        <text name="storageMonitor_sizeTitle" text="Velikost obrazovky"/>
+        <text name="storageMonitor_sizeText" text="Velikost obrazovky. Roste nahoru od spodního okraje."/>
+        <text name="storageMonitor_sizeOption" text="šířka %.1f m, výška %.1f m"/>
+        <text name="storageMonitor_menuBrightness" text="Jas (nyní: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Barvy (nyní: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Nadpis (nyní: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Nadpis: napsat vlastní"/>
+        <text name="storageMonitor_brightnessTitle" text="Jas"/>
+        <text name="storageMonitor_brightnessText" text="Jak silně svítí obrazovka, její pruhy a text:"/>
+        <text name="storageMonitor_themeTitle" text="Barvy"/>
+        <text name="storageMonitor_themeText" text="Barvy obrazovky:"/>
+        <text name="storageMonitor_titlePrompt" text="Nadpis na obrazovce (prázdný: název skladu)"/>
+        <text name="storageMonitor_sizeTextGround" text="Velikost monitoru. Roste od země."/>
+        <text name="storageMonitor_bright1" text="Velmi tlumený"/>
+        <text name="storageMonitor_bright2" text="Tlumený"/>
+        <text name="storageMonitor_bright3" text="Normální"/>
+        <text name="storageMonitor_bright4" text="Jasný"/>
+        <text name="storageMonitor_bright5" text="Velmi jasný"/>
+        <text name="storageMonitor_theme1" text="Noční modrá"/>
+        <text name="storageMonitor_theme2" text="DTM zelená"/>
+        <text name="storageMonitor_theme3" text="Jantarový terminál"/>
+        <text name="storageMonitor_theme4" text="Denní světlo"/>
+        <text name="storageMonitor_farmAll" text="Všechna sila mé farmy"/>
+        <text name="storageMonitor_linesRunning" text="V PROVOZU"/>
+        <text name="storageMonitor_line_running" text="V provozu"/>
+        <text name="storageMonitor_line_missing" text="Chybí suroviny"/>
+        <text name="storageMonitor_line_full" text="Výstup plný"/>
+        <text name="storageMonitor_line_off" text="Vyp."/>
+        <text name="storageMonitor_more" text="+%d další"/>
+        <text name="storageMonitor_animals" text="ZVÍŘATA"/>
+        <text name="storageMonitor_food" text="Krmivo"/>
+        <text name="storageMonitor_bunker_filling" text="Plnění"/>
+        <text name="storageMonitor_bunker_fermenting" text="Fermentace"/>
+        <text name="storageMonitor_bunker_ready" text="Hotovo"/>
+        <text name="storageMonitor_bunkerLevel" text="V SILU"/>
+        <text name="storageMonitor_objects" text="USKLADNĚNO  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Sklad"/>
+        <text name="storageMonitor_mode2" text="Ceny"/>
+        <text name="storageMonitor_menuMode" text="Obrazovka ukazuje (nyní: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Obrazovka ukazuje"/>
+        <text name="storageMonitor_modeText" text="Sklad, dnešní nejlepší ceny jeho obsahu, nebo jak byl plný za poslední herní den (pro celou farmu zvolte &quot;Všechna sila mé farmy&quot;):"/>
+        <text name="storageMonitor_alerts1" text="Vyp."/>
+        <text name="storageMonitor_alerts2" text="Na obrazovce"/>
+        <text name="storageMonitor_alerts3" text="Na obrazovce i jako zpráva"/>
+        <text name="storageMonitor_menuAlerts" text="Upozornění (nyní: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Upozornění"/>
+        <text name="storageMonitor_alertsText" text="Varovat, když je téměř plno, chybí surovina nebo zvířatům dochází krmivo či voda:"/>
+        <text name="storageMonitor_alertFull" text="Plno"/>
+        <text name="storageMonitor_alertNearlyFull" text="Téměř plno: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s: prázdné"/>
+        <text name="storageMonitor_alertItemFull" text="%s: plno"/>
+        <text name="storageMonitor_alertLow" text="Málo: %s %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Žádná voda"/>
+        <text name="storageMonitor_alertNoSpawner" text="Chybí místo pro palety medu"/>
+        <text name="storageMonitor_alertPalletFull" text="Místo pro palety medu je plné"/>
+        <text name="storageMonitor_alertOverdrawn" text="Účet v mínusu"/>
+        <text name="storageMonitor_minutes" text="%d min"/>
+        <text name="storageMonitor_hours" text="%s h"/>
+        <text name="storageMonitor_days" text="%s d"/>
+        <text name="storageMonitor_fullIn" text="PLNO ZA %s"/>
+        <text name="storageMonitor_emptyIn" text="PRÁZDNO ZA %s"/>
+        <text name="storageMonitor_runsOut" text="%s: dojde za %s"/>
+        <text name="storageMonitor_foodFor" text="Krmivo na %s"/>
+        <text name="storageMonitor_stockValue" text="HODNOTA ZÁSOB"/>
+        <text name="storageMonitor_mostValuable" text="NEJCENNĚJŠÍ"/>
+        <text name="storageMonitor_bestMarket" text="NEJLEPŠÍ TRH"/>
+        <text name="storageMonitor_nextMonth" text="PŘÍŠTÍ MĚSÍC"/>
+        <text name="storageMonitor_trendCount" text="Roste: %d  Klesá: %d"/>
+        <text name="storageMonitor_colBestAt" text="NEJLEPŠÍ CENA V"/>
+        <text name="storageMonitor_colPrice" text="ZA 1000 L"/>
+        <text name="storageMonitor_colTrend" text="TREND"/>
+        <text name="storageMonitor_colValue" text="HODNOTA"/>
+        <text name="storageMonitor_notSold" text="nikdo nekupuje"/>
+        <text name="storageMonitor_finance" text="Peníze mé farmy"/>
+        <text name="storageMonitor_balance" text="ZŮSTATEK"/>
+        <text name="storageMonitor_loan" text="Úvěr"/>
+        <text name="storageMonitor_credit" text="Volný úvěr"/>
+        <text name="storageMonitor_incomeToday" text="Příjmy dnes"/>
+        <text name="storageMonitor_costsToday" text="Náklady dnes"/>
+        <text name="storageMonitor_netToday" text="Dnes"/>
+        <text name="storageMonitor_colToday" text="DNES"/>
+        <text name="storageMonitor_colAmountMoney" text="ČÁSTKA"/>
+        <text name="storageMonitor_noMoneyToday" text="Dnes zatím žádné příjmy ani náklady"/>
+        <text name="storageMonitor_beehives" text="Úly"/>
+        <text name="storageMonitor_beehivesCaps" text="ÚLY"/>
+        <text name="storageMonitor_honeyPerDay" text="Med za den"/>
+        <text name="storageMonitor_beesStatus" text="Stav"/>
+        <text name="storageMonitor_beesProducing" text="Produkují"/>
+        <text name="storageMonitor_beesWinter" text="Zimní přestávka"/>
+        <text name="storageMonitor_beesFlying" text="Včely"/>
+        <text name="storageMonitor_beesOut" text="Létají"/>
+        <text name="storageMonitor_beesIn" text="Odpočívají"/>
+        <text name="storageMonitor_palletSpot" text="Místo pro palety"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Plné"/>
+        <text name="storageMonitor_spotNone" text="Žádné"/>
+        <text name="storageMonitor_honeyHint" text="Med se ukládá na palety na místě pro palety"/>
+        <text name="storageMonitor_honeyValue" text="Hodnota za den"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (na zeď budovy)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (závěsný)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (oboustranný billboard)"/>
+        <text name="storageMonitor_fields" text="Moje pole"/>
+        <text name="storageMonitor_weather" text="Počasí"/>
+        <text name="storageMonitor_fleet" text="Moje vozidla"/>
+        <text name="storageMonitor_contracts" text="Moje zakázky"/>
+        <text name="storageMonitor_allPens" text="Všechny mé ohrady"/>
+        <text name="storageMonitor_allProductions" text="Všechny mé výrobny"/>
+        <text name="storageMonitor_mode3" text="Historie (24 h)"/>
+        <text name="storageMonitor_needLime" text="Vápno"/>
+        <text name="storageMonitor_needPlow" text="Orba"/>
+        <text name="storageMonitor_needFertilizer" text="Hnojivo %d%%"/>
+        <text name="storageMonitor_needRoll" text="Válcování"/>
+        <text name="storageMonitor_needWeeds" text="Plevel"/>
+        <text name="storageMonitor_fieldNo" text="Pole %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s ke sklizni"/>
+        <text name="storageMonitor_alertWithered" text="%s: plodina uschla"/>
+        <text name="storageMonitor_alertReadyMany" text="Pole připravená ke sklizni: %d"/>
+        <text name="storageMonitor_cropReady" text="Sklizeň"/>
+        <text name="storageMonitor_cropPrepare" text="Připravit"/>
+        <text name="storageMonitor_cropWithered" text="Uschlé"/>
+        <text name="storageMonitor_cropCut" text="Sklizeno"/>
+        <text name="storageMonitor_cropNone" text="Bez plodiny"/>
+        <text name="storageMonitor_cropGrowing" text="Roste"/>
+        <text name="storageMonitor_readyCaps" text="PŘIPRAVENO KE SKLIZNI"/>
+        <text name="storageMonitor_fieldsCount" text="Pole"/>
+        <text name="storageMonitor_area" text="Plocha"/>
+        <text name="storageMonitor_growing" text="Roste"/>
+        <text name="storageMonitor_toSow" text="K setí"/>
+        <text name="storageMonitor_needWork" text="Potřebuje práci"/>
+        <text name="storageMonitor_colField" text="POLE"/>
+        <text name="storageMonitor_colNeeds" text="POTŘEBUJE"/>
+        <text name="storageMonitor_colState" text="STAV"/>
+        <text name="storageMonitor_noFields" text="Vaše farma nemá žádná pole"/>
+        <text name="storageMonitor_inHours" text="za %d h"/>
+        <text name="storageMonitor_tomorrow" text="Zítra"/>
+        <text name="storageMonitor_inDays" text="Za %d dní"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s za %d h"/>
+        <text name="storageMonitor_wSun" text="Slunečno"/>
+        <text name="storageMonitor_wCloudy" text="Oblačno"/>
+        <text name="storageMonitor_wRain" text="Déšť"/>
+        <text name="storageMonitor_wSnow" text="Sníh"/>
+        <text name="storageMonitor_wFog" text="Mlha"/>
+        <text name="storageMonitor_wHail" text="Kroupy"/>
+        <text name="storageMonitor_wStorm" text="Bouřka"/>
+        <text name="storageMonitor_steady" text="Stálá"/>
+        <text name="storageMonitor_rising" text="Stoupá"/>
+        <text name="storageMonitor_falling" text="Klesá"/>
+        <text name="storageMonitor_noChange" text="Dnes beze změny"/>
+        <text name="storageMonitor_fallNone" text="Nic"/>
+        <text name="storageMonitor_temperature" text="TEPLOTA"/>
+        <text name="storageMonitor_weatherNow" text="Nyní"/>
+        <text name="storageMonitor_today" text="Dnes"/>
+        <text name="storageMonitor_next" text="Potom"/>
+        <text name="storageMonitor_tempTrend" text="Teplota"/>
+        <text name="storageMonitor_precipitation" text="Srážky"/>
+        <text name="storageMonitor_crops" text="Plodiny"/>
+        <text name="storageMonitor_cropsWet" text="Mokré"/>
+        <text name="storageMonitor_cropsDry" text="Suché"/>
+        <text name="storageMonitor_colWhen" text="KDY"/>
+        <text name="storageMonitor_colWeather" text="POČASÍ"/>
+        <text name="storageMonitor_noForecast" text="Bez předpovědi"/>
+        <text name="storageMonitor_helperWorking" text="Pomocník pracuje"/>
+        <text name="storageMonitor_inUse" text="Používá se"/>
+        <text name="storageMonitor_engineOn" text="Motor běží"/>
+        <text name="storageMonitor_parked" text="Zaparkováno"/>
+        <text name="storageMonitor_alertFuel" text="%s: palivo %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: poškození %d%%"/>
+        <text name="storageMonitor_damage" text="poškození %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="PRACUJÍCÍ POMOCNÍCI"/>
+        <text name="storageMonitor_vehicles" text="Vozidla"/>
+        <text name="storageMonitor_lowFuel" text="Málo paliva"/>
+        <text name="storageMonitor_needRepair" text="K opravě"/>
+        <text name="storageMonitor_leased" text="Pronajato"/>
+        <text name="storageMonitor_colVehicle" text="VOZIDLO"/>
+        <text name="storageMonitor_colStatus" text="STAV"/>
+        <text name="storageMonitor_colFuel" text="PALIVO"/>
+        <text name="storageMonitor_noVehicles" text="Vaše farma nemá žádná vozidla"/>
+        <text name="storageMonitor_contractsCaps" text="PROBÍHAJÍCÍ ZAKÁZKY"/>
+        <text name="storageMonitor_reward" text="Odměna"/>
+        <text name="storageMonitor_almostDone" text="Skoro hotovo"/>
+        <text name="storageMonitor_average" text="Průměr"/>
+        <text name="storageMonitor_colContract" text="ZAKÁZKA"/>
+        <text name="storageMonitor_colWhere" text="KDE  ODMĚNA"/>
+        <text name="storageMonitor_colDone" text="HOTOVO"/>
+        <text name="storageMonitor_noContracts" text="Žádné probíhající zakázky"/>
+        <text name="storageMonitor_pens" text="Ohrady"/>
+        <text name="storageMonitor_places" text="Místa"/>
+        <text name="storageMonitor_lowFood" text="Málo krmiva"/>
+        <text name="storageMonitor_lowSupplies" text="Málo vody, slámy"/>
+        <text name="storageMonitor_tanksFull" text="Plné nádrže"/>
+        <text name="storageMonitor_foodLasts" text="Krmivo vydrží"/>
+        <text name="storageMonitor_colPen" text="OHRADA"/>
+        <text name="storageMonitor_colSupplies" text="ZÁSOBY"/>
+        <text name="storageMonitor_noPens" text="Vaše farma nemá žádné ohrady"/>
+        <text name="storageMonitor_missingList" text="Chybí: %s"/>
+        <text name="storageMonitor_productions" text="Výrobny"/>
+        <text name="storageMonitor_idle" text="Nečinná"/>
+        <text name="storageMonitor_colProduction" text="VÝROBNA"/>
+        <text name="storageMonitor_colLines" text="LINKY"/>
+        <text name="storageMonitor_noProductions" text="Vaše farma nemá žádné výrobny"/>
+        <text name="storageMonitor_last24" text="POSLEDNÍCH 24 HERNÍCH HODIN"/>
+        <text name="storageMonitor_nowValue" text="NYNÍ %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 h"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 h"/>
+        <text name="storageMonitor_now" text="nyní"/>
+        <text name="storageMonitor_graphFilling" text="Graf se zaplní během příštího herního dne"/>
+        <text name="storageMonitor_alertPrice" text="%s se prodává za %s (%s)"/>
+        <text name="storageMonitor_menuFullAt" text="Téměř plno od (nyní: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Cenové upozornění (nyní: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Prezentace (nyní: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="Prezentace je zapnutá: ukazuje své vlastní obrazovky. Sklady u tohoto monitoru, nejbližší první, potom celá farma:"/>
+        <text name="storageMonitor_priceAbove" text="%s od %s"/>
+        <text name="storageMonitor_slidesNow" text="Obrazovky: %d, každá %d s"/>
+        <text name="storageMonitor_fullAtTitle" text="Téměř plno od"/>
+        <text name="storageMonitor_fullAtText" text="Od jaké úrovně se silo, sklad nebo hromada počítá jako téměř plné: upozornění a červená na obrazovce (jantarová od 15 níže):"/>
+        <text name="storageMonitor_priceNow" text="%s (nyní %s, %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Cenové upozornění"/>
+        <text name="storageMonitor_priceAlertText" text="Dejte mi vědět, když se produkt prodává dráž (cena za 1000 l). Produkt:"/>
+        <text name="storageMonitor_priceAlertNone" text="Nic odsud se nikde neprodává. Nejprve vyberte sklad s produkty."/>
+        <text name="storageMonitor_priceStep" text="Od %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s se nyní prodává za %s za 1000 l. Upozornit od:"/>
+        <text name="storageMonitor_slideTimeNow" text="Čas na obrazovku (nyní: %d s)"/>
+        <text name="storageMonitor_slideTimeOff" text="Čas na obrazovku (nyní: vyp.)"/>
+        <text name="storageMonitor_done" text="Hotovo"/>
+        <text name="storageMonitor_slideshowTitle" text="Prezentace"/>
+        <text name="storageMonitor_slideshowText" text="Zaškrtněte obrazovky, které má monitor střídavě ukazovat (nejvýše %d):"/>
+        <text name="storageMonitor_slideOff" text="Vyp.: ukazovat vybraný sklad"/>
+        <text name="storageMonitor_seconds" text="%d s"/>
+        <text name="storageMonitor_slideTimeText" text="Jak dlouho ukazovat každou obrazovku:"/>
+    </texts>
+</l10n>

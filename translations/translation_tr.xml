@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kiosk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Duvar)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Reklam Panosu)"/>
+        <text name="function_storageMonitor"           text="Silolar, üretimler, hayvan ağılları, silaj siloları, depolar, arı kovanları ve çiftliğin parası için canlı renkli ekran: kapasite, her ürün, hızlar, fiyatlar ve uyarılar."/>
+
+        <text name="storageMonitor_showing"    text="Gösterilen"/>
+        <text name="storageMonitor_noStorage"  text="Yakında depo yok"/>
+        <text name="storageMonitor_searching"  text="Depo aranıyor..."/>
+        <text name="storageMonitor_reading"    text="Okunuyor..."/>
+        <text name="storageMonitor_capacity"   text="KAPASİTE"/>
+        <text name="storageMonitor_used"       text="KULLANILAN"/>
+        <text name="storageMonitor_total"      text="TOPLAM"/>
+        <text name="storageMonitor_free"       text="BOŞ"/>
+        <text name="storageMonitor_products"   text="%d ÜRÜN"/>
+        <text name="storageMonitor_colProduct" text="ÜRÜN"/>
+        <text name="storageMonitor_colLevel"   text="DOLULUK"/>
+        <text name="storageMonitor_colAmount"  text="MİKTAR"/>
+        <text name="storageMonitor_empty"      text="Boş"/>
+        <text name="storageMonitor_page"       text="SAYFA %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Silo Montajlı)"/>
+        <text name="storageMonitor_settings" text="Monitör ayarları"/>
+        <text name="storageMonitor_plusConnected" text="%s + %d bağlı"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Gösterilen: %s"/>
+        <text name="storageMonitor_menuPick" text="Depoyu seç (şu an: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Ona bağlı siloları da göster"/>
+        <text name="storageMonitor_menuConnectedOff" text="Yalnızca bu siloyu göster"/>
+        <text name="storageMonitor_pickTitle" text="Depoyu seç"/>
+        <text name="storageMonitor_pickText" text="Bu monitörün yakınındaki depolar, önce en yakını, sonra tüm çiftliğin:"/>
+        <text name="storageMonitor_pickNearest" text="Her zaman en yakını"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: önceki sayfa"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: sonraki sayfa"/>
+        <text name="storageMonitor_menuSize" text="Ekran boyutu (şu an: %.1f m genişlik)"/>
+        <text name="storageMonitor_sizeTitle" text="Ekran boyutu"/>
+        <text name="storageMonitor_sizeText" text="Ekranın boyutu. Alt kenarından yukarı doğru büyür."/>
+        <text name="storageMonitor_sizeOption" text="%.1f m genişlik, %.1f m yükseklik"/>
+        <text name="storageMonitor_menuBrightness" text="Parlaklık (şu an: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Renkler (şu an: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Başlık (şu an: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Başlık: kendin yaz"/>
+        <text name="storageMonitor_brightnessTitle" text="Parlaklık"/>
+        <text name="storageMonitor_brightnessText" text="Ekranın, çubuklarının ve yazısının ne kadar parlak yandığı:"/>
+        <text name="storageMonitor_themeTitle" text="Renkler"/>
+        <text name="storageMonitor_themeText" text="Ekranın renkleri:"/>
+        <text name="storageMonitor_titlePrompt" text="Ekrandaki başlık (boş: deponun adı)"/>
+        <text name="storageMonitor_sizeTextGround" text="Monitörün boyutu. Yerden yukarı doğru büyür."/>
+        <text name="storageMonitor_bright1" text="Çok loş"/>
+        <text name="storageMonitor_bright2" text="Loş"/>
+        <text name="storageMonitor_bright3" text="Normal"/>
+        <text name="storageMonitor_bright4" text="Parlak"/>
+        <text name="storageMonitor_bright5" text="Çok parlak"/>
+        <text name="storageMonitor_theme1" text="Gece mavisi"/>
+        <text name="storageMonitor_theme2" text="DTM yeşili"/>
+        <text name="storageMonitor_theme3" text="Kehribar terminal"/>
+        <text name="storageMonitor_theme4" text="Gün ışığı"/>
+        <text name="storageMonitor_farmAll" text="Çiftliğimin tüm siloları"/>
+        <text name="storageMonitor_linesRunning" text="ÇALIŞIYOR"/>
+        <text name="storageMonitor_line_running" text="Çalışıyor"/>
+        <text name="storageMonitor_line_missing" text="Girdi eksik"/>
+        <text name="storageMonitor_line_full" text="Çıktı deposu dolu"/>
+        <text name="storageMonitor_line_off" text="Kapalı"/>
+        <text name="storageMonitor_more" text="+%d daha"/>
+        <text name="storageMonitor_animals" text="HAYVANLAR"/>
+        <text name="storageMonitor_food" text="Yem"/>
+        <text name="storageMonitor_bunker_filling" text="Doluyor"/>
+        <text name="storageMonitor_bunker_fermenting" text="Fermente oluyor"/>
+        <text name="storageMonitor_bunker_ready" text="Hazır"/>
+        <text name="storageMonitor_bunkerLevel" text="SİLODA"/>
+        <text name="storageMonitor_objects" text="DEPODA  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Depo"/>
+        <text name="storageMonitor_mode2" text="Fiyatlar"/>
+        <text name="storageMonitor_menuMode" text="Ekranda (şu an: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Ekranda gösterilen"/>
+        <text name="storageMonitor_modeText" text="Depo, içindekiler için bugünün en iyi fiyatları ya da son oyun gününde ne kadar dolu olduğu (tüm çiftlik için &quot;Çiftliğimin tüm siloları&quot; seçeneğini seç):"/>
+        <text name="storageMonitor_alerts1" text="Kapalı"/>
+        <text name="storageMonitor_alerts2" text="Ekranda"/>
+        <text name="storageMonitor_alerts3" text="Ekranda ve mesaj olarak"/>
+        <text name="storageMonitor_menuAlerts" text="Uyarılar (şu an: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Uyarılar"/>
+        <text name="storageMonitor_alertsText" text="Neredeyse dolduğunda, bir girdi bittiğinde ya da hayvanların yemi veya suyu azaldığında uyar:"/>
+        <text name="storageMonitor_alertFull" text="Dolu"/>
+        <text name="storageMonitor_alertNearlyFull" text="Neredeyse dolu: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s boş"/>
+        <text name="storageMonitor_alertItemFull" text="%s dolu"/>
+        <text name="storageMonitor_alertLow" text="%s az: %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Su yok"/>
+        <text name="storageMonitor_alertNoSpawner" text="Bal paleti yeri yok"/>
+        <text name="storageMonitor_alertPalletFull" text="Bal paleti yeri dolu"/>
+        <text name="storageMonitor_alertOverdrawn" text="Hesap eksiye düştü"/>
+        <text name="storageMonitor_minutes" text="%d dk"/>
+        <text name="storageMonitor_hours" text="%s sa"/>
+        <text name="storageMonitor_days" text="%s gün"/>
+        <text name="storageMonitor_fullIn" text="DOLMASINA %s"/>
+        <text name="storageMonitor_emptyIn" text="BOŞALMASINA %s"/>
+        <text name="storageMonitor_runsOut" text="%s: boşalmasına %s"/>
+        <text name="storageMonitor_foodFor" text="Yem: %s"/>
+        <text name="storageMonitor_stockValue" text="STOK DEĞERİ"/>
+        <text name="storageMonitor_mostValuable" text="EN DEĞERLİ"/>
+        <text name="storageMonitor_bestMarket" text="EN İYİ PAZAR"/>
+        <text name="storageMonitor_nextMonth" text="GELECEK AY"/>
+        <text name="storageMonitor_trendCount" text="%d artıyor  %d düşüyor"/>
+        <text name="storageMonitor_colBestAt" text="EN İYİ FİYAT"/>
+        <text name="storageMonitor_colPrice" text="1000 L BAŞINA"/>
+        <text name="storageMonitor_colTrend" text="EĞİLİM"/>
+        <text name="storageMonitor_colValue" text="DEĞER"/>
+        <text name="storageMonitor_notSold" text="kimse almıyor"/>
+        <text name="storageMonitor_finance" text="Çiftliğimin parası"/>
+        <text name="storageMonitor_balance" text="BAKİYE"/>
+        <text name="storageMonitor_loan" text="Kredi"/>
+        <text name="storageMonitor_credit" text="Kalan kredi limiti"/>
+        <text name="storageMonitor_incomeToday" text="Bugünkü gelir"/>
+        <text name="storageMonitor_costsToday" text="Bugünkü gider"/>
+        <text name="storageMonitor_netToday" text="Bugün"/>
+        <text name="storageMonitor_colToday" text="BUGÜN"/>
+        <text name="storageMonitor_colAmountMoney" text="TUTAR"/>
+        <text name="storageMonitor_noMoneyToday" text="Bugün henüz gelir ya da gider yok"/>
+        <text name="storageMonitor_beehives" text="Arı kovanları"/>
+        <text name="storageMonitor_beehivesCaps" text="ARI KOVANLARI"/>
+        <text name="storageMonitor_honeyPerDay" text="Günlük bal"/>
+        <text name="storageMonitor_beesStatus" text="Durum"/>
+        <text name="storageMonitor_beesProducing" text="Üretiyor"/>
+        <text name="storageMonitor_beesWinter" text="Kış molası"/>
+        <text name="storageMonitor_beesFlying" text="Arılar"/>
+        <text name="storageMonitor_beesOut" text="Uçuyor"/>
+        <text name="storageMonitor_beesIn" text="Dinleniyor"/>
+        <text name="storageMonitor_palletSpot" text="Palet yeri"/>
+        <text name="storageMonitor_spotOk" text="Tamam"/>
+        <text name="storageMonitor_spotFull" text="Dolu"/>
+        <text name="storageMonitor_spotNone" text="Yok"/>
+        <text name="storageMonitor_honeyHint" text="Bal, palet yerinde paletlere konur"/>
+        <text name="storageMonitor_honeyValue" text="Günlük değer"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Duvar Montajlı)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Asılı)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Çift Taraflı Reklam Panosu)"/>
+        <text name="storageMonitor_fields" text="Tarlalarım"/>
+        <text name="storageMonitor_weather" text="Hava durumu"/>
+        <text name="storageMonitor_fleet" text="Araçlarım"/>
+        <text name="storageMonitor_contracts" text="Sözleşmelerim"/>
+        <text name="storageMonitor_allPens" text="Tüm hayvan ağıllarım"/>
+        <text name="storageMonitor_allProductions" text="Tüm üretimlerim"/>
+        <text name="storageMonitor_mode3" text="Geçmiş (24 sa)"/>
+        <text name="storageMonitor_needLime" text="Kireç"/>
+        <text name="storageMonitor_needPlow" text="Sürüm"/>
+        <text name="storageMonitor_needFertilizer" text="Gübre %d%%"/>
+        <text name="storageMonitor_needRoll" text="Merdane"/>
+        <text name="storageMonitor_needWeeds" text="Yabani ot"/>
+        <text name="storageMonitor_fieldNo" text="Tarla %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s hasada hazır"/>
+        <text name="storageMonitor_alertWithered" text="%s: ürün kurudu"/>
+        <text name="storageMonitor_alertReadyMany" text="%d tarla hasada hazır"/>
+        <text name="storageMonitor_cropReady" text="Hasat"/>
+        <text name="storageMonitor_cropPrepare" text="Hazırlık"/>
+        <text name="storageMonitor_cropWithered" text="Kurumuş"/>
+        <text name="storageMonitor_cropCut" text="Hasat edildi"/>
+        <text name="storageMonitor_cropNone" text="Ürün yok"/>
+        <text name="storageMonitor_cropGrowing" text="Büyüyor"/>
+        <text name="storageMonitor_readyCaps" text="HASADA HAZIR"/>
+        <text name="storageMonitor_fieldsCount" text="Tarlalar"/>
+        <text name="storageMonitor_area" text="Alan"/>
+        <text name="storageMonitor_growing" text="Büyüyen"/>
+        <text name="storageMonitor_toSow" text="Ekilecek"/>
+        <text name="storageMonitor_needWork" text="İş gereken"/>
+        <text name="storageMonitor_colField" text="TARLA"/>
+        <text name="storageMonitor_colNeeds" text="GEREKEN"/>
+        <text name="storageMonitor_colState" text="DURUM"/>
+        <text name="storageMonitor_noFields" text="Çiftliğinin hiç tarlası yok"/>
+        <text name="storageMonitor_inHours" text="%d sa sonra"/>
+        <text name="storageMonitor_tomorrow" text="Yarın"/>
+        <text name="storageMonitor_inDays" text="%d gün sonra"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s, %d sa sonra"/>
+        <text name="storageMonitor_wSun" text="Güneşli"/>
+        <text name="storageMonitor_wCloudy" text="Bulutlu"/>
+        <text name="storageMonitor_wRain" text="Yağmur"/>
+        <text name="storageMonitor_wSnow" text="Kar"/>
+        <text name="storageMonitor_wFog" text="Sis"/>
+        <text name="storageMonitor_wHail" text="Dolu"/>
+        <text name="storageMonitor_wStorm" text="Fırtına"/>
+        <text name="storageMonitor_steady" text="Sabit"/>
+        <text name="storageMonitor_rising" text="Yükseliyor"/>
+        <text name="storageMonitor_falling" text="Düşüyor"/>
+        <text name="storageMonitor_noChange" text="Bugün değişiklik yok"/>
+        <text name="storageMonitor_fallNone" text="Yok"/>
+        <text name="storageMonitor_temperature" text="SICAKLIK"/>
+        <text name="storageMonitor_weatherNow" text="Şimdi"/>
+        <text name="storageMonitor_today" text="Bugün"/>
+        <text name="storageMonitor_next" text="Sonraki"/>
+        <text name="storageMonitor_tempTrend" text="Sıcaklık"/>
+        <text name="storageMonitor_precipitation" text="Şu an yağış"/>
+        <text name="storageMonitor_crops" text="Ürünler"/>
+        <text name="storageMonitor_cropsWet" text="Islak"/>
+        <text name="storageMonitor_cropsDry" text="Kuru"/>
+        <text name="storageMonitor_colWhen" text="NE ZAMAN"/>
+        <text name="storageMonitor_colWeather" text="HAVA"/>
+        <text name="storageMonitor_noForecast" text="Tahmin yok"/>
+        <text name="storageMonitor_helperWorking" text="Yardımcı çalışıyor"/>
+        <text name="storageMonitor_inUse" text="Kullanımda"/>
+        <text name="storageMonitor_engineOn" text="Motor çalışıyor"/>
+        <text name="storageMonitor_parked" text="Park halinde"/>
+        <text name="storageMonitor_alertFuel" text="%s: yakıt %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: hasar %d%%"/>
+        <text name="storageMonitor_damage" text="hasar %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="ÇALIŞAN YARDIMCILAR"/>
+        <text name="storageMonitor_vehicles" text="Araçlar"/>
+        <text name="storageMonitor_lowFuel" text="Yakıt az"/>
+        <text name="storageMonitor_needRepair" text="Tamir gerekli"/>
+        <text name="storageMonitor_leased" text="Kiralık"/>
+        <text name="storageMonitor_colVehicle" text="ARAÇ"/>
+        <text name="storageMonitor_colStatus" text="DURUM"/>
+        <text name="storageMonitor_colFuel" text="YAKIT"/>
+        <text name="storageMonitor_noVehicles" text="Çiftliğinin hiç aracı yok"/>
+        <text name="storageMonitor_contractsCaps" text="SÜREN SÖZLEŞMELER"/>
+        <text name="storageMonitor_reward" text="Ödül"/>
+        <text name="storageMonitor_almostDone" text="Neredeyse bitti"/>
+        <text name="storageMonitor_average" text="Ortalama"/>
+        <text name="storageMonitor_colContract" text="SÖZLEŞME"/>
+        <text name="storageMonitor_colWhere" text="YER  ÖDÜL"/>
+        <text name="storageMonitor_colDone" text="BİTEN"/>
+        <text name="storageMonitor_noContracts" text="Süren sözleşme yok"/>
+        <text name="storageMonitor_pens" text="Ağıllar"/>
+        <text name="storageMonitor_places" text="Yerler"/>
+        <text name="storageMonitor_lowFood" text="Yem az"/>
+        <text name="storageMonitor_lowSupplies" text="Su, saman az"/>
+        <text name="storageMonitor_tanksFull" text="Tanklar dolu"/>
+        <text name="storageMonitor_foodLasts" text="Yem yeter"/>
+        <text name="storageMonitor_colPen" text="AĞIL"/>
+        <text name="storageMonitor_colSupplies" text="İHTİYAÇLAR"/>
+        <text name="storageMonitor_noPens" text="Çiftliğinin hiç hayvan ağılı yok"/>
+        <text name="storageMonitor_missingList" text="Eksik: %s"/>
+        <text name="storageMonitor_productions" text="Üretimler"/>
+        <text name="storageMonitor_idle" text="Boşta"/>
+        <text name="storageMonitor_colProduction" text="ÜRETİM"/>
+        <text name="storageMonitor_colLines" text="HATLAR"/>
+        <text name="storageMonitor_noProductions" text="Çiftliğinin hiç üretimi yok"/>
+        <text name="storageMonitor_last24" text="SON 24 OYUN SAATİ"/>
+        <text name="storageMonitor_nowValue" text="ŞİMDİ %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 sa"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 sa"/>
+        <text name="storageMonitor_now" text="şimdi"/>
+        <text name="storageMonitor_graphFilling" text="Grafik sonraki oyun günü boyunca dolar"/>
+        <text name="storageMonitor_alertPrice" text="%s: %s, alıcı %s"/>
+        <text name="storageMonitor_menuFullAt" text="Neredeyse dolu eşiği (şu an: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Fiyat uyarısı (şu an: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Slayt gösterisi (şu an: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="Slayt gösterisi açık: kendi ekranlarını gösterir. Bu monitörün yakınındaki depolar, önce en yakını, sonra tüm çiftliğin:"/>
+        <text name="storageMonitor_priceAbove" text="%s: en az %s"/>
+        <text name="storageMonitor_slidesNow" text="%d ekran, her biri %d sn"/>
+        <text name="storageMonitor_fullAtTitle" text="Neredeyse dolu eşiği"/>
+        <text name="storageMonitor_fullAtText" text="Bir silo, depo veya yığının hangi seviyeden itibaren neredeyse dolu sayılacağı: uyarı ve ekranda kırmızı (15 altından itibaren sarı):"/>
+        <text name="storageMonitor_priceNow" text="%s (şu an %s, %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Fiyat uyarısı"/>
+        <text name="storageMonitor_priceAlertText" text="Bir ürün daha pahalıya satıldığında haber ver (1000 l başına fiyat). Ürün:"/>
+        <text name="storageMonitor_priceAlertNone" text="Buradaki hiçbir şey hiçbir yerde satılmıyor. Önce içinde ürün olan bir depo seç."/>
+        <text name="storageMonitor_priceStep" text="En az %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s: şu an 1000 l başına %s. Haber verme eşiği:"/>
+        <text name="storageMonitor_slideTimeNow" text="Ekran başına süre (şu an: %d sn)"/>
+        <text name="storageMonitor_slideTimeOff" text="Ekran başına süre (şu an: kapalı)"/>
+        <text name="storageMonitor_done" text="Tamam"/>
+        <text name="storageMonitor_slideshowTitle" text="Slayt gösterisi"/>
+        <text name="storageMonitor_slideshowText" text="Monitörün sırayla göstereceği ekranları işaretle (en fazla %d):"/>
+        <text name="storageMonitor_slideOff" text="Kapalı: seçilen depoyu göster"/>
+        <text name="storageMonitor_seconds" text="%d sn"/>
+        <text name="storageMonitor_slideTimeText" text="Her ekranın ne kadar süre gösterileceği:"/>
+    </texts>
+</l10n>

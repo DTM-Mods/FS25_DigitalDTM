@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (chioșc)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (perete)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (panou publicitar)"/>
+        <text name="function_storageMonitor"           text="Ecran color în timp real pentru silozuri, producții, țarcuri de animale, silozuri buncăr, magazii, stupi și banii fermei: capacitate, fiecare produs, ritmuri, prețuri și alerte."/>
+
+        <text name="storageMonitor_showing"    text="Afișează"/>
+        <text name="storageMonitor_noStorage"  text="Niciun depozit în apropiere"/>
+        <text name="storageMonitor_searching"  text="Se caută un depozit..."/>
+        <text name="storageMonitor_reading"    text="Se citește..."/>
+        <text name="storageMonitor_capacity"   text="CAPACITATE"/>
+        <text name="storageMonitor_used"       text="OCUPAT"/>
+        <text name="storageMonitor_total"      text="TOTAL"/>
+        <text name="storageMonitor_free"       text="LIBER"/>
+        <text name="storageMonitor_products"   text="PRODUSE: %d"/>
+        <text name="storageMonitor_colProduct" text="PRODUS"/>
+        <text name="storageMonitor_colLevel"   text="NIVEL"/>
+        <text name="storageMonitor_colAmount"  text="CANTITATE"/>
+        <text name="storageMonitor_empty"      text="Gol"/>
+        <text name="storageMonitor_page"       text="PAGINA %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (pe siloz)"/>
+        <text name="storageMonitor_settings" text="Setări monitor"/>
+        <text name="storageMonitor_plusConnected" text="%s + conectate: %d"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Afișează: %s"/>
+        <text name="storageMonitor_menuPick" text="Alege depozitul (acum: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Afișează și silozurile conectate"/>
+        <text name="storageMonitor_menuConnectedOff" text="Afișează doar acest siloz"/>
+        <text name="storageMonitor_pickTitle" text="Alege depozitul"/>
+        <text name="storageMonitor_pickText" text="Depozite lângă acest monitor, cel mai apropiat primul, apoi toată ferma:"/>
+        <text name="storageMonitor_pickNearest" text="Mereu cel mai apropiat"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: pagina anterioară"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: pagina următoare"/>
+        <text name="storageMonitor_menuSize" text="Mărimea ecranului (acum: %.1f m lățime)"/>
+        <text name="storageMonitor_sizeTitle" text="Mărimea ecranului"/>
+        <text name="storageMonitor_sizeText" text="Mărimea ecranului. Crește în sus de la marginea de jos."/>
+        <text name="storageMonitor_sizeOption" text="%.1f m lățime, %.1f m înălțime"/>
+        <text name="storageMonitor_menuBrightness" text="Luminozitate (acum: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Culori (acum: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Titlu (acum: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Titlu: scrie-l tu"/>
+        <text name="storageMonitor_brightnessTitle" text="Luminozitate"/>
+        <text name="storageMonitor_brightnessText" text="Cât de puternic strălucesc ecranul, barele și textul:"/>
+        <text name="storageMonitor_themeTitle" text="Culori"/>
+        <text name="storageMonitor_themeText" text="Culorile ecranului:"/>
+        <text name="storageMonitor_titlePrompt" text="Titlul pe ecran (gol: numele depozitului)"/>
+        <text name="storageMonitor_sizeTextGround" text="Mărimea monitorului. Crește de la sol."/>
+        <text name="storageMonitor_bright1" text="Foarte slab"/>
+        <text name="storageMonitor_bright2" text="Slab"/>
+        <text name="storageMonitor_bright3" text="Normal"/>
+        <text name="storageMonitor_bright4" text="Luminos"/>
+        <text name="storageMonitor_bright5" text="Foarte luminos"/>
+        <text name="storageMonitor_theme1" text="Albastru de noapte"/>
+        <text name="storageMonitor_theme2" text="Verde DTM"/>
+        <text name="storageMonitor_theme3" text="Terminal chihlimbar"/>
+        <text name="storageMonitor_theme4" text="Lumina zilei"/>
+        <text name="storageMonitor_farmAll" text="Toate silozurile fermei mele"/>
+        <text name="storageMonitor_linesRunning" text="ÎN FUNCȚIUNE"/>
+        <text name="storageMonitor_line_running" text="Funcționează"/>
+        <text name="storageMonitor_line_missing" text="Lipsesc materii prime"/>
+        <text name="storageMonitor_line_full" text="Ieșirea e plină"/>
+        <text name="storageMonitor_line_off" text="Oprit"/>
+        <text name="storageMonitor_more" text="+%d în plus"/>
+        <text name="storageMonitor_animals" text="ANIMALE"/>
+        <text name="storageMonitor_food" text="Hrană"/>
+        <text name="storageMonitor_bunker_filling" text="Umplere"/>
+        <text name="storageMonitor_bunker_fermenting" text="Fermentare"/>
+        <text name="storageMonitor_bunker_ready" text="Gata"/>
+        <text name="storageMonitor_bunkerLevel" text="ÎN SILOZ"/>
+        <text name="storageMonitor_objects" text="DEPOZITAT  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Depozit"/>
+        <text name="storageMonitor_mode2" text="Prețuri"/>
+        <text name="storageMonitor_menuMode" text="Ecranul arată (acum: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Ecranul arată"/>
+        <text name="storageMonitor_modeText" text="Depozitul, cele mai bune prețuri de azi pentru ce conține sau cât de plin a fost în ultima zi din joc (alege „Toate silozurile fermei mele” pentru toată ferma):"/>
+        <text name="storageMonitor_alerts1" text="Oprit"/>
+        <text name="storageMonitor_alerts2" text="Pe ecran"/>
+        <text name="storageMonitor_alerts3" text="Pe ecran și ca mesaj"/>
+        <text name="storageMonitor_menuAlerts" text="Alerte (acum: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Alerte"/>
+        <text name="storageMonitor_alertsText" text="Avertizează când e aproape plin, o materie primă s-a terminat sau animalele rămân fără hrană sau apă:"/>
+        <text name="storageMonitor_alertFull" text="Plin"/>
+        <text name="storageMonitor_alertNearlyFull" text="Aproape plin: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s: gol"/>
+        <text name="storageMonitor_alertItemFull" text="%s: plin"/>
+        <text name="storageMonitor_alertLow" text="Puțin: %s %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Fără apă"/>
+        <text name="storageMonitor_alertNoSpawner" text="Niciun loc pentru paleții cu miere"/>
+        <text name="storageMonitor_alertPalletFull" text="Locul pentru paleții cu miere e plin"/>
+        <text name="storageMonitor_alertOverdrawn" text="Cont pe minus"/>
+        <text name="storageMonitor_minutes" text="%d min"/>
+        <text name="storageMonitor_hours" text="%s h"/>
+        <text name="storageMonitor_days" text="%s zile"/>
+        <text name="storageMonitor_fullIn" text="PLIN ÎN %s"/>
+        <text name="storageMonitor_emptyIn" text="GOL ÎN %s"/>
+        <text name="storageMonitor_runsOut" text="%s: se termină în %s"/>
+        <text name="storageMonitor_foodFor" text="Hrană pentru %s"/>
+        <text name="storageMonitor_stockValue" text="VALOAREA STOCULUI"/>
+        <text name="storageMonitor_mostValuable" text="CEL MAI VALOROS"/>
+        <text name="storageMonitor_bestMarket" text="CEA MAI BUNĂ PIAȚĂ"/>
+        <text name="storageMonitor_nextMonth" text="LUNA VIITOARE"/>
+        <text name="storageMonitor_trendCount" text="Cresc: %d  Scad: %d"/>
+        <text name="storageMonitor_colBestAt" text="CEL MAI BUN PREȚ LA"/>
+        <text name="storageMonitor_colPrice" text="PE 1000 L"/>
+        <text name="storageMonitor_colTrend" text="TENDINȚĂ"/>
+        <text name="storageMonitor_colValue" text="VALOARE"/>
+        <text name="storageMonitor_notSold" text="nu-l cumpără nimeni"/>
+        <text name="storageMonitor_finance" text="Banii fermei mele"/>
+        <text name="storageMonitor_balance" text="SOLD"/>
+        <text name="storageMonitor_loan" text="Împrumut"/>
+        <text name="storageMonitor_credit" text="Credit disponibil"/>
+        <text name="storageMonitor_incomeToday" text="Venituri azi"/>
+        <text name="storageMonitor_costsToday" text="Cheltuieli azi"/>
+        <text name="storageMonitor_netToday" text="Azi"/>
+        <text name="storageMonitor_colToday" text="AZI"/>
+        <text name="storageMonitor_colAmountMoney" text="SUMĂ"/>
+        <text name="storageMonitor_noMoneyToday" text="Azi încă nu sunt venituri sau cheltuieli"/>
+        <text name="storageMonitor_beehives" text="Stupi"/>
+        <text name="storageMonitor_beehivesCaps" text="STUPI"/>
+        <text name="storageMonitor_honeyPerDay" text="Miere pe zi"/>
+        <text name="storageMonitor_beesStatus" text="Stare"/>
+        <text name="storageMonitor_beesProducing" text="Produc"/>
+        <text name="storageMonitor_beesWinter" text="Pauză de iarnă"/>
+        <text name="storageMonitor_beesFlying" text="Albine"/>
+        <text name="storageMonitor_beesOut" text="Zboară"/>
+        <text name="storageMonitor_beesIn" text="Se odihnesc"/>
+        <text name="storageMonitor_palletSpot" text="Loc pentru paleți"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Plin"/>
+        <text name="storageMonitor_spotNone" text="Niciunul"/>
+        <text name="storageMonitor_honeyHint" text="Mierea ajunge pe paleți la locul pentru paleți"/>
+        <text name="storageMonitor_honeyValue" text="Valoare pe zi"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (pe peretele clădirii)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (suspendat)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (panou publicitar dublu)"/>
+        <text name="storageMonitor_fields" text="Câmpurile mele"/>
+        <text name="storageMonitor_weather" text="Vremea"/>
+        <text name="storageMonitor_fleet" text="Vehiculele mele"/>
+        <text name="storageMonitor_contracts" text="Contractele mele"/>
+        <text name="storageMonitor_allPens" text="Toate țarcurile mele"/>
+        <text name="storageMonitor_allProductions" text="Toate producțiile mele"/>
+        <text name="storageMonitor_mode3" text="Istoric (24 h)"/>
+        <text name="storageMonitor_needLime" text="Var"/>
+        <text name="storageMonitor_needPlow" text="Arat"/>
+        <text name="storageMonitor_needFertilizer" text="Îngrășământ %d%%"/>
+        <text name="storageMonitor_needRoll" text="Tăvălugit"/>
+        <text name="storageMonitor_needWeeds" text="Buruieni"/>
+        <text name="storageMonitor_fieldNo" text="Câmpul %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s de recoltat"/>
+        <text name="storageMonitor_alertWithered" text="%s: cultura s-a uscat"/>
+        <text name="storageMonitor_alertReadyMany" text="Câmpuri gata de recoltat: %d"/>
+        <text name="storageMonitor_cropReady" text="Recoltare"/>
+        <text name="storageMonitor_cropPrepare" text="Pregătire"/>
+        <text name="storageMonitor_cropWithered" text="Uscată"/>
+        <text name="storageMonitor_cropCut" text="Recoltat"/>
+        <text name="storageMonitor_cropNone" text="Fără cultură"/>
+        <text name="storageMonitor_cropGrowing" text="Crește"/>
+        <text name="storageMonitor_readyCaps" text="GATA DE RECOLTAT"/>
+        <text name="storageMonitor_fieldsCount" text="Câmpuri"/>
+        <text name="storageMonitor_area" text="Suprafață"/>
+        <text name="storageMonitor_growing" text="Cresc"/>
+        <text name="storageMonitor_toSow" text="De semănat"/>
+        <text name="storageMonitor_needWork" text="Necesită lucru"/>
+        <text name="storageMonitor_colField" text="CÂMP"/>
+        <text name="storageMonitor_colNeeds" text="NECESITĂ"/>
+        <text name="storageMonitor_colState" text="STARE"/>
+        <text name="storageMonitor_noFields" text="Ferma ta nu are câmpuri"/>
+        <text name="storageMonitor_inHours" text="în %d h"/>
+        <text name="storageMonitor_tomorrow" text="Mâine"/>
+        <text name="storageMonitor_inDays" text="În %d zile"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s în %d h"/>
+        <text name="storageMonitor_wSun" text="Însorit"/>
+        <text name="storageMonitor_wCloudy" text="Înnorat"/>
+        <text name="storageMonitor_wRain" text="Ploaie"/>
+        <text name="storageMonitor_wSnow" text="Ninsoare"/>
+        <text name="storageMonitor_wFog" text="Ceață"/>
+        <text name="storageMonitor_wHail" text="Grindină"/>
+        <text name="storageMonitor_wStorm" text="Furtună"/>
+        <text name="storageMonitor_steady" text="Constantă"/>
+        <text name="storageMonitor_rising" text="Crește"/>
+        <text name="storageMonitor_falling" text="Scade"/>
+        <text name="storageMonitor_noChange" text="Fără schimbări azi"/>
+        <text name="storageMonitor_fallNone" text="Nimic"/>
+        <text name="storageMonitor_temperature" text="TEMPERATURĂ"/>
+        <text name="storageMonitor_weatherNow" text="Acum"/>
+        <text name="storageMonitor_today" text="Azi"/>
+        <text name="storageMonitor_next" text="Urmează"/>
+        <text name="storageMonitor_tempTrend" text="Temperatură"/>
+        <text name="storageMonitor_precipitation" text="Precipitații"/>
+        <text name="storageMonitor_crops" text="Culturi"/>
+        <text name="storageMonitor_cropsWet" text="Ude"/>
+        <text name="storageMonitor_cropsDry" text="Uscate"/>
+        <text name="storageMonitor_colWhen" text="CÂND"/>
+        <text name="storageMonitor_colWeather" text="VREMEA"/>
+        <text name="storageMonitor_noForecast" text="Fără prognoză"/>
+        <text name="storageMonitor_helperWorking" text="Muncitor la lucru"/>
+        <text name="storageMonitor_inUse" text="În folosință"/>
+        <text name="storageMonitor_engineOn" text="Motor pornit"/>
+        <text name="storageMonitor_parked" text="Parcat"/>
+        <text name="storageMonitor_alertFuel" text="%s: combustibil %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: daune %d%%"/>
+        <text name="storageMonitor_damage" text="daune %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="MUNCITORI LA LUCRU"/>
+        <text name="storageMonitor_vehicles" text="Vehicule"/>
+        <text name="storageMonitor_lowFuel" text="Combustibil puțin"/>
+        <text name="storageMonitor_needRepair" text="De reparat"/>
+        <text name="storageMonitor_leased" text="În leasing"/>
+        <text name="storageMonitor_colVehicle" text="VEHICUL"/>
+        <text name="storageMonitor_colStatus" text="STARE"/>
+        <text name="storageMonitor_colFuel" text="COMBUSTIBIL"/>
+        <text name="storageMonitor_noVehicles" text="Ferma ta nu are vehicule"/>
+        <text name="storageMonitor_contractsCaps" text="CONTRACTE ACTIVE"/>
+        <text name="storageMonitor_reward" text="Recompensă"/>
+        <text name="storageMonitor_almostDone" text="Aproape gata"/>
+        <text name="storageMonitor_average" text="Medie"/>
+        <text name="storageMonitor_colContract" text="CONTRACT"/>
+        <text name="storageMonitor_colWhere" text="UNDE  RECOMPENSĂ"/>
+        <text name="storageMonitor_colDone" text="GATA"/>
+        <text name="storageMonitor_noContracts" text="Niciun contract activ"/>
+        <text name="storageMonitor_pens" text="Țarcuri"/>
+        <text name="storageMonitor_places" text="Locuri"/>
+        <text name="storageMonitor_lowFood" text="Hrană puțină"/>
+        <text name="storageMonitor_lowSupplies" text="Apă, paie puține"/>
+        <text name="storageMonitor_tanksFull" text="Rezervoare pline"/>
+        <text name="storageMonitor_foodLasts" text="Hrana ajunge"/>
+        <text name="storageMonitor_colPen" text="ȚARC"/>
+        <text name="storageMonitor_colSupplies" text="APROVIZIONARE"/>
+        <text name="storageMonitor_noPens" text="Ferma ta nu are țarcuri de animale"/>
+        <text name="storageMonitor_missingList" text="Lipsește: %s"/>
+        <text name="storageMonitor_productions" text="Producții"/>
+        <text name="storageMonitor_idle" text="Inactivă"/>
+        <text name="storageMonitor_colProduction" text="PRODUCȚIE"/>
+        <text name="storageMonitor_colLines" text="LINII"/>
+        <text name="storageMonitor_noProductions" text="Ferma ta nu are producții"/>
+        <text name="storageMonitor_last24" text="ULTIMELE 24 DE ORE DIN JOC"/>
+        <text name="storageMonitor_nowValue" text="ACUM %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 h"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 h"/>
+        <text name="storageMonitor_now" text="acum"/>
+        <text name="storageMonitor_graphFilling" text="Graficul se umple în următoarea zi din joc"/>
+        <text name="storageMonitor_alertPrice" text="%s se vinde cu %s la %s"/>
+        <text name="storageMonitor_menuFullAt" text="Aproape plin de la (acum: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Alertă de preț (acum: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Prezentare (acum: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="Prezentarea e pornită: arată propriile ecrane. Depozite lângă acest monitor, cel mai apropiat primul, apoi toată ferma:"/>
+        <text name="storageMonitor_priceAbove" text="%s de la %s"/>
+        <text name="storageMonitor_slidesNow" text="%d ecrane, câte %d s"/>
+        <text name="storageMonitor_fullAtTitle" text="Aproape plin de la"/>
+        <text name="storageMonitor_fullAtText" text="De la ce nivel un siloz, o magazie sau o grămadă e considerată aproape plină: alerta și roșu pe ecran (chihlimbar de la 15 mai jos):"/>
+        <text name="storageMonitor_priceNow" text="%s (acum %s la %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Alertă de preț"/>
+        <text name="storageMonitor_priceAlertText" text="Anunță-mă când un produs se vinde mai scump (preț pe 1000 l). Produsul:"/>
+        <text name="storageMonitor_priceAlertNone" text="Nimic de aici nu se vinde nicăieri. Alege întâi un depozit cu produse."/>
+        <text name="storageMonitor_priceStep" text="De la %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s se vinde acum cu %s pe 1000 l. Anunță-mă de la:"/>
+        <text name="storageMonitor_slideTimeNow" text="Timp pe ecran (acum: %d s)"/>
+        <text name="storageMonitor_slideTimeOff" text="Timp pe ecran (acum: oprit)"/>
+        <text name="storageMonitor_done" text="Gata"/>
+        <text name="storageMonitor_slideshowTitle" text="Prezentare"/>
+        <text name="storageMonitor_slideshowText" text="Bifează ecranele pe care monitorul le arată pe rând (până la %d):"/>
+        <text name="storageMonitor_slideOff" text="Oprit: arată depozitul ales"/>
+        <text name="storageMonitor_seconds" text="%d s"/>
+        <text name="storageMonitor_slideTimeText" text="Cât timp se arată fiecare ecran:"/>
+    </texts>
+</l10n>

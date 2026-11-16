@@ -82,9 +82,33 @@ def render(count, out, theme=1, scene=None):
         f = font(int(round(size * PX / SCALE)), state["bold"])
         return f.getlength(s) / PX * SCALE
 
+    # product icons: the game's HUD images are packed in dataS.gar; with DTM_ICON_DIR set to a folder of
+    # <fill type name>.png images, the mockups show those instead of a coloured square
+    materials = {}
+
+    def icon_for(name):
+        if ICON_DIR and name and os.path.exists(os.path.join(ICON_DIR, str(name).lower() + ".png")):
+            return "icon:" + str(name).lower()
+        return None
+
+    def new_material(path):
+        materials[len(materials) + 10] = path
+        return len(materials) + 9
+
+    def set_material(n, m):
+        if n in shapes and m in materials:
+            shapes[n]["material"] = materials[m]
+
     g = lua.globals()
     g.py_color, g.py_align, g.py_bold, g.py_text, g.py_width = set_color, set_align, set_bold, text3d, width
     g.py_clone, g.py_translation, g.py_scale, g.py_visibility, g.py_shader = clone, set_translation, set_scale, set_visibility, set_shader
+    g.py_icon, g.py_material, g.py_set_material = icon_for, new_material, set_material
+    if ICON_DIR:
+        lua.execute("""
+            getMaterial = function() return 1 end
+            setMaterialDiffuseMapFromFile = function(m, path) return py_material(path) end
+            setMaterial = function(n, m) py_set_material(n, m) end
+        """)
     lua.execute("""
         logs = {}
         function print(s) table.insert(logs, tostring(s)) end
@@ -125,13 +149,14 @@ def render(count, out, theme=1, scene=None):
     lua.execute("""
         local frame = {o = {0, 0, 0}, ex = {1, 0, 0}, ey = {0, 1, 0}, ez = {0, 0, 1}, rot = {0, 0, 0}, scale = 1.5}
         local m = setmetatable({}, {__index = StorageMonitor})
-        local face = {frame = frame, barTemplate = 1, bars = {}, icons = {}}
+        local face = {frame = frame, barTemplate = 1, iconTemplate = 2, bars = {}, icons = {}}
         m.spec_storageMonitor = {faces = {face}, rowCache = {}, page = 1, pageTime = 3000, manualTime = 0, mode = 1,
                                  alerts = 2, alertList = {}, brightness = 3}
         local levels, info = {}, {}
         for i = 1, count do
             levels[i] = math.floor(400000 / (i ^ 1.15))
             info[i] = {name = internal[i] or ("MOD_TYPE_" .. i), title = names[i] or ("Product " .. i)}
+            info[i].icon = py_icon(info[i].name)
         end
         local storage = {capacity = 2000000, getFillLevels = function() return levels end}
         local snap = StorageMonitor.buildSnapshot({{storage = storage}}, nil, function(i) return info[i] end)
@@ -140,6 +165,26 @@ def render(count, out, theme=1, scene=None):
         spec.target = {name = "Multifruit Silo", title = "Multifruit Silo"}
         if scene ~= nil then           -- another kind of storage: the scene sets sceneTarget and sceneInfo
             assert(load(scene))()
+            -- icons for the scene's products, fill types and crops
+            for _, i in pairs(sceneInfo or {}) do i.icon = i.icon or py_icon(i.name) end
+            if g_fillTypeManager ~= nil and g_fillTypeManager.getFillTypeByIndex ~= nil then
+                local get = g_fillTypeManager.getFillTypeByIndex
+                g_fillTypeManager.getFillTypeByIndex = function(self, i)
+                    local ft = get(self, i)
+                    if ft ~= nil and ft.hudOverlayFilename == nil then ft.hudOverlayFilename = py_icon(ft.name) end
+                    return ft
+                end
+            end
+            if g_fruitTypeManager ~= nil then
+                local get = g_fruitTypeManager.getFruitTypeByIndex
+                g_fruitTypeManager.getFruitTypeByIndex = function(self, i)
+                    local f = get(self, i)
+                    if f ~= nil and f.fillType ~= nil and f.fillType.hudOverlayFilename == nil then
+                        f.fillType.hudOverlayFilename = py_icon(f.fillType.name)
+                    end
+                    return f
+                end
+            end
             snap = StorageMonitor.buildSnapshot(sceneTarget.sources, sceneTarget.roles, function(i) return sceneInfo[i] end)
             snap.panel = StorageMonitor.buildPanel(sceneTarget)
             snap.countMode = sceneTarget.kind == "objects"
@@ -163,7 +208,13 @@ def render(count, out, theme=1, scene=None):
     def uv(x, y):
         return (x / SCALE + 0.8) * PX, (0.5 - y / SCALE) * PX
     for sh in shapes.values():
-        if sh["visible"]:
+        if sh["visible"] and sh.get("material"):
+            x0, y0 = uv(sh["x"], sh["y"])
+            x1, y1 = uv(sh["x"] + sh["w"], sh["y"] - sh["h"])
+            size = (max(1, int(round(x1 - x0))), max(1, int(round(y1 - y0))))
+            pic = Image.open(os.path.join(ICON_DIR, sh["material"][5:] + ".png")).convert("RGBA").resize(size, Image.LANCZOS)
+            over.alpha_composite(pic, (int(round(x0)), int(round(y0))))
+        elif sh["visible"]:
             x0, y0 = uv(sh["x"], sh["y"])
             x1, y1 = uv(sh["x"] + sh["w"], sh["y"] - sh["h"])
             glow = g.StorageMonitor.BAR_GLOW       # the game gets colour x glow; show the colour itself
@@ -181,7 +232,239 @@ def render(count, out, theme=1, scene=None):
 
 
 SCALE = 1.5     # screen height in metres for the frame above (any value works)
+ICON_DIR = os.environ.get("DTM_ICON_DIR")     # optional: <fill type name>.png images to draw as product icons
 NEW_KINDS = ("prices", "alert", "finance", "beehive")
+FARM_KINDS = ("fields", "weather", "fleet", "contracts", "allPens", "allProductions")
+EXTRA_KINDS = ("history", "historyMoney", "greenhouse", "manure")
+
+# a board's rows instead of products (what refreshStorageMonitorData does)
+BOARD_POST = """
+        function scenePost(snap, spec)
+            snap.board = true
+            snap.rows = snap.panel.rows
+            snap.count = #snap.rows
+            spec.alertList = StorageMonitor.computeAlerts(sceneTarget, snap)
+        end
+"""
+
+FARM_SCENES = {
+    "fields": """
+        sceneInfo = {}
+        local function fruit(i, name, title, minH, maxH, extra)
+            local f = {index = i, name = name, fillType = {name = name, title = title}, minHarvestingGrowthState = minH,
+                maxHarvestingGrowthState = maxH, minPreparingGrowthState = -1, maxPreparingGrowthState = -1, cutState = 10}
+            function f:getIsWithered(g) return g == maxH + 1 end
+            for k, v in pairs(extra or {}) do f[k] = v end
+            return f
+        end
+        local fruits = {fruit(1, "WHEAT", "Wheat", 7, 8), fruit(2, "CANOLA", "Canola", 7, 8), fruit(3, "MAIZE", "Corn", 7, 8),
+                        fruit(4, "SUGARBEET", "Sugar Beet", 7, 7, {minPreparingGrowthState = 6, maxPreparingGrowthState = 6}),
+                        fruit(5, "BARLEY", "Barley", 7, 8), fruit(6, "SOYBEAN", "Soybeans", 6, 7)}
+        g_fruitTypeManager = {getFruitTypeByIndex = function(self, i) return fruits[i] end}
+        local list = {   -- id, fruit, growth, ha, lime, plow, spray, roller, weeds
+            {12, 1, 8, 18.4, 1, 1, 2, 0, 0}, {7, 2, 7, 9.6, 1, 1, 2, 0, 0}, {21, 4, 6, 6.2, 1, 1, 2, 0, 0},
+            {3, 3, 4, 22.1, 1, 1, 1, 0, 1}, {15, 5, 2, 11.8, 0, 1, 0, 1, 0}, {9, 6, 5, 7.4, 1, 1, 2, 0, 0},
+            {30, 1, 9, 4.3, 1, 1, 2, 0, 0}, {18, 2, 10, 13.0, 1, 0, 0, 0, 0}, {26, nil, 0, 5.5, 0, 1, 0, 0, 0}}
+        local fields, byX = {}, {}
+        for _, e in ipairs(list) do
+            local field = {farmland = {id = e[1]}, areaHa = e[4],
+                fieldState = {limeLevel = e[5], plowLevel = e[6], sprayLevel = e[7], rollerLevel = e[8], weedState = e[9]}}
+            function field:getCenterOfFieldWorldPosition() return e[1] * 100, 0 end
+            function field:getId() return e[1] end
+            byX[e[1] * 100] = e
+            table.insert(fields, field)
+        end
+        g_fieldManager = {getFields = function() return fields end}
+        g_farmlandManager = {getFarmlandOwner = function() return 1 end}
+        FSDensityMapUtil = {getFruitTypeIndexAtWorldPos = function(x, z) local e = byX[x] return e[2], e[3] end}
+        FieldDensityMap = {SPRAY_LEVEL = 1}
+        g_currentMission.missionInfo = {limeRequired = true, plowingRequiredEnabled = true, weedsEnabled = true}
+        g_currentMission.fieldGroundSystem = {getMaxValue = function() return 2 end}
+        sceneTarget = {name = "My fields", title = "My fields", kind = "fields", sources = {}}
+    """ + BOARD_POST,
+    "weather": """
+        sceneInfo = {}
+        WeatherType = {SUN = 1, CLOUDY = 2, RAIN = 3, SNOW = 4}
+        local env = g_currentMission.environment
+        env.dayTime, env.currentMonotonicDay, env.currentHour = 14.58 * 3600000, 10, 14
+        -- sun until 17:00, rain until 20:00, then clouds; tomorrow sun, then rain, clouds, sun
+        local days = {[11] = 1, [12] = 3, [13] = 2, [14] = 1}
+        local w = {forecast = {getCurrentWeather = function() return {temperature = 14.2} end}}
+        function w:getCurrentWeatherType() return 1 end
+        function w:getNextWeatherType(dayTime, day)
+            if day == 10 then
+                local h = dayTime / 3600000
+                if h < 17 then return 1 elseif h < 20 then return 3 end
+                return 2
+            end
+            return days[day]
+        end
+        function w:getCurrentMinMaxTemperatures() return 6.8, 17.1 end
+        function w:getCurrentTemperatureTrend() return 1 end
+        function w:getIsRaining() return false end
+        function w:getRainFallScale() return 0 end
+        env.weather = w
+        sceneTarget = {name = "Weather", title = "Weather", kind = "weather", sources = {}}
+    """ + BOARD_POST,
+    "fleet": """
+        sceneInfo = {}
+        VehiclePropertyState = {OWNED = 1, LEASED = 2, MISSION = 3}
+        FillType = {DIESEL = 1, ELECTRICCHARGE = 2, METHANE = 3, DEF = 4}
+        local list = {  -- name, fuel, damage, ai, driven, engine, leased
+            {"Fendt 942 Vario", 0.08, 0.12, true, false, true}, {"John Deere 8R 410", 0.64, 0.05, true, false, true},
+            {"Claas Lexion 8900", 0.41, 0.56, false, true, true}, {"New Holland T7.315", 0.92, 0.02, false, false, false, true},
+            {"Case IH Magnum 400", 0.12, 0.31, false, false, false}, {"Massey Ferguson 8S.265", 0.77, 0.18, false, false, false},
+            {"Fendt Katana 650", 0.55, 0.74, false, false, false}, {"Mercedes-Benz Unimog", 0.36, 0.09, false, false, true}}
+        local vehicles = {}
+        for i, e in ipairs(list) do
+            local v = {id = i, typeName = "tractor", propertyState = e[7] and 2 or 1}
+            function v:getFullName() return e[1] end
+            function v:getOwnerFarmId() return 1 end
+            function v:getIsControlled() return e[5] end
+            function v:getIsAIActive() return e[4] end
+            function v:getIsMotorStarted() return e[6] end
+            function v:getDamageAmount() return e[3] end
+            function v:getConsumerFillUnitIndex(ft) if ft == 1 then return 1 end return nil end
+            function v:getFillUnitFillLevel() return e[2] * 600 end
+            function v:getFillUnitCapacity() return 600 end
+            table.insert(vehicles, v)
+        end
+        g_currentMission.vehicleSystem = {vehicles = vehicles}
+        sceneTarget = {name = "My vehicles", title = "My vehicles", kind = "fleet", sources = {}}
+    """ + BOARD_POST,
+    "contracts": """
+        sceneInfo = {}
+        MissionStatus = {RUNNING = 2}
+        local fts = {{"WHEAT", "Wheat"}, {"STRAW", "Straw"}, {"FERTILIZER", "Fertilizer"}, {"WOODCHIPS", "Wood chips"}}
+        g_fillTypeManager = {getFillTypeByIndex = function(self, i) return fts[i] and {name = fts[i][1], title = fts[i][2]} end}
+        local list = {{"Harvesting", "Field 14", 0.94, 48200, 1}, {"Baling", "Field 3", 0.41, 12600, 2},
+                      {"Fertilizing", "Field 22", 0.68, 9850, 3}, {"Plowing", "Field 8", 0.07, 15300},
+                      {"Transport: Wood chips", "Sawmill", 0.25, 21000, 4}}
+        local missions = {}
+        for i, e in ipairs(list) do
+            local m = {id = i, status = 2, fillTypeIndex = e[5]}
+            function m:getTitle() return e[1] end
+            function m:getLocation() return e[2] end
+            function m:getCompletion() return e[3] end
+            function m:getReward() return e[4] end
+            table.insert(missions, m)
+        end
+        g_missionManager = {getMissionsByFarmId = function() return missions end}
+        sceneTarget = {name = "My contracts", title = "My contracts", kind = "contracts", sources = {}}
+    """ + BOARD_POST,
+    "allPens": """
+        sceneInfo = {}
+        local fts = {{"MILK", "Milk"}, {"LIQUIDMANURE", "Slurry"}, {"EGG", "Eggs"}, {"WOOL", "Wool"}, {"MANURE", "Manure"}}
+        g_fillTypeManager = {getFillTypeByIndex = function(self, i) return fts[i] and {name = fts[i][1], title = fts[i][2]} end}
+        local function pen(name, n, max, food, conds, perHour, products)
+            local levels = {}
+            for _, ft in ipairs(products or {}) do levels[ft] = 1000 end
+            local p = {spec_husbandryFood = {litersPerHour = perHour},
+                       spec_husbandry = {storage = {getFillLevels = function() return levels end}}}
+            function p:getNumOfAnimals() return n end
+            function p:getMaxNumOfAnimals() return max end
+            function p:getTotalFood() return food end
+            function p:getFoodCapacity() return 100000 end
+            function p:getConditionInfos() return conds end
+            return {placeable = p, name = name}
+        end
+        sceneTarget = {name = "All my animal pens", title = "All my animal pens", kind = "allPens", sources = {}, pens = {
+            pen("Cowshed with feeding robot", 112, 150, 62000, {{title = "Productivity", ratio = 0.86, valueText = "86 %"},
+                {title = "Water", ratio = 0.42}, {title = "Straw", ratio = 0.49}, {title = "Liquid manure", ratio = 0.97, invertedBar = true}}, 900, {1, 2}),
+            pen("Pig Barn", 64, 80, 7000, {{title = "Productivity", ratio = 0.71, valueText = "71 %"},
+                {title = "Water", ratio = 0.81}, {title = "Straw", ratio = 0.05}}, 450, {2}),
+            pen("Sheep Pasture", 38, 40, 81000, {{title = "Productivity", ratio = 0.95, valueText = "95 %"}, {title = "Water", ratio = 0.9}}, 120, {4}),
+            pen("Chicken Coop", 240, 300, 45000, {{title = "Productivity", ratio = 0.9, valueText = "90 %"}}, 60, {3}),
+            pen("Horse Stable", 4, 6, 22000, {{title = "Productivity", ratio = 0.8, valueText = "80 %"},
+                {title = "Water", ratio = 0.62}, {title = "Straw", ratio = 0.33}}, 80, {5})}}
+    """ + BOARD_POST,
+    "allProductions": """
+        ProductionPoint = {PROD_STATUS = {INACTIVE = 0, RUNNING = 1, MISSING_INPUTS = 2, NO_OUTPUT_SPACE = 3}}
+        local fts = {{"FLOUR", "Flour"}, {"SUGAR", "Sugar"}, {"EGG", "Eggs"}, {"MILK", "Milk"}, {"WATER", "Water"}, {"GRAPE", "Grapes"},
+                     {"WOOL", "Wool"}, {"BREAD", "Bread"}, {"CHEESE", "Cheese"}, {"LETTUCE", "Lettuce"}, {"CAKE", "Cake"}}
+        g_fillTypeManager = {getFillTypeByIndex = function(self, i) return fts[i] and {name = fts[i][1], title = fts[i][2]} end}
+        sceneInfo = {}
+        local function prod(name, statuses, active, levels, inputs, greenhouse, output)
+            local lines, act = {}, {}
+            for i, s in ipairs(statuses) do
+                lines[i] = {name = name .. " " .. i, status = s}
+                if active[i] then table.insert(act, lines[i]) end
+            end
+            local pp = {productions = lines, activeProductions = act, inputFillTypeIds = inputs, outputFillTypeIds = {[output] = true},
+                storage = {getFillLevels = function() return levels end}}
+            return {pp = pp, name = name, greenhouse = greenhouse}
+        end
+        sceneTarget = {name = "All my productions", title = "All my productions", kind = "allProductions", sources = {}, productions = {
+            prod("Bakery", {1, 2, 1, 0}, {true, true, true}, {[1] = 12000, [2] = 0, [3] = 0}, {[1] = true, [2] = true, [3] = true}, nil, 8),
+            prod("Dairy", {1, 1}, {true, true}, {[4] = 900}, {[4] = true}, nil, 9),
+            prod("Greenhouse North", {2}, {true}, {[5] = 0}, {[5] = true}, {hasWater = false}, 10),
+            prod("Winery", {3}, {true}, {[6] = 8000}, {[6] = true}, nil, 6),
+            prod("Spinnery", {0, 0}, {}, {[7] = 0}, {[7] = true}, nil, 7),
+            prod("Cake Factory", {1, 1, 1}, {true, true, true}, {[2] = 5000}, {[2] = true}, nil, 11)}}
+    """ + BOARD_POST,
+}
+
+EXTRA_SCENES = {
+    # a silo in "History (24 h)", in a slideshow (2 of 3) with a price alert in the footer
+    "history": """
+        sceneInfo = {{name = "WHEAT", title = "Wheat"}, {name = "BARLEY", title = "Barley"}, {name = "CANOLA", title = "Canola"}}
+        local storage = {capacity = 1000000, getFillLevels = function() return {612000, 214000, 96000} end}
+        sceneTarget = {name = "Multifruit Silo", title = "Multifruit Silo", kind = "silo", sources = {{storage = storage}}}
+        function scenePost(snap, spec)
+            local graph = {}
+            for k = 1, 47 do
+                local h = k * 0.5
+                local v = 380000 + 520000 * math.min(1, math.max(0, (h - 6) / 14)) - (h > 21 and 160000 or 0)
+                table.insert(graph, {t = 100 + h, v = v, cap = 1000000})
+            end
+            snap.graph, snap.graphNow, snap.showGraph = graph, {v = snap.used, cap = snap.capacity}, true
+            snap.rate = 21000
+            spec.slideTime, spec.slides, spec.slideIndex, spec.slideTimer = 3, {{1, 1}, {2, 2}, {3, 3}}, 2, 12000
+            spec.alertList = {{key = "price_WHEAT", text = "Wheat sells for $480 at Grain Elevator"}}
+        end
+    """,
+    # the farm's money in "History (24 h)": the balance over the day
+    "historyMoney": """
+        sceneInfo = {}
+        FinanceStats = {statNames = {"harvestIncome", "newVehiclesCost", "fuelCost"}}
+        local farm = {money = 1846250, loan = 300000, loanMax = 2000000, stats = {finances = {harvestIncome = 184200,
+            newVehiclesCost = -248000, fuelCost = -3120}}}
+        g_farmManager = {getFarmById = function() return farm end}
+        sceneTarget = {name = "My farm's money", title = "My farm's money", kind = "finance", sources = {}}
+        function scenePost(snap)
+            snap.finance = true
+            snap.count = #snap.panel.lines
+            local graph = {}
+            for k = 1, 47 do
+                local h = k * 0.5
+                local v = 1900000 + (h > 9 and 184000 or 0) - (h > 15 and 248000 or 0) + h * 900
+                table.insert(graph, {t = 100 + h, v = v})
+            end
+            snap.graph, snap.graphNow, snap.showGraph = graph, {v = farm.money}, true
+        end
+    """,
+    "greenhouse": """
+        ProductionPoint = {PROD_STATUS = {INACTIVE = 0, RUNNING = 1, MISSING_INPUTS = 2, NO_OUTPUT_SPACE = 3}}
+        sceneInfo = {{name = "WATER", title = "Water"}, {name = "LETTUCE", title = "Lettuce"}, {name = "TOMATO", title = "Tomatoes"}}
+        local storage = {capacity = 100000, capacities = {20000, 50000, 50000}, getFillLevels = function() return {0, 9200, 4100} end}
+        local lines = {{name = "Lettuce", status = 2}, {name = "Tomatoes", status = 2}}
+        sceneTarget = {name = "Greenhouse", title = "Greenhouse", kind = "production", sources = {{storage = storage}},
+            roles = {"in", "out", "out"}, greenhouse = {hasWater = false},
+            pp = {productions = lines, activeProductions = lines}}
+        function scenePost(snap, spec)
+            spec.alertList = StorageMonitor.computeAlerts(sceneTarget, snap)
+        end
+    """,
+    "manure": """
+        sceneInfo = {[1] = {name = "MANURE", title = "Manure"}}
+        local heap = {fillTypeIndex = 1, capacity = 200000, getFillLevel = function() return 168000 end}
+        sceneTarget = {name = "Manure Heap", title = "Manure Heap", kind = "manure", sources = {{heap = heap}}}
+        function scenePost(snap, spec)
+            spec.alertList = StorageMonitor.computeAlerts(sceneTarget, snap, {fullAt = 80})
+            spec.fullAt = 80
+        end
+    """,
+}
 
 KIND_SCENES = {
     "production": """
@@ -313,9 +596,29 @@ KIND_SCENES = {
 }
 
 
+def contact_sheet(paths, out):
+    """Tiles of 800 x 500, two per row."""
+    tiles = [Image.open(p) for p in paths]
+    rows = (len(tiles) + 1) // 2
+    img = Image.new("RGB", (1600, 500 * rows))
+    for i, tile in enumerate(tiles):
+        img.paste(tile.resize((800, 500), Image.LANCZOS), ((i % 2) * 800, (i // 2) * 500))
+    img.save(out)
+    print("wrote", out)
+
+
 def main():
     out_dir = os.path.join(ROOT, "src", "screens")
     os.makedirs(out_dir, exist_ok=True)
+    if "--farm" in sys.argv or "--extra" in sys.argv:     # 1.3: the farm screens; history, greenhouse, manure heap
+        scenes = FARM_SCENES if "--farm" in sys.argv else EXTRA_SCENES
+        paths = []
+        for name, scene in scenes.items():
+            path = os.path.join(out_dir, "kind_%s.png" % name)
+            render(0, path, 1, scene)
+            paths.append(path)
+        contact_sheet(paths, os.path.join(out_dir, "farm.png" if "--farm" in sys.argv else "history.png"))
+        return
     if "--kinds" in sys.argv:           # production, animal pen, bunker silo, bale shed
         tiles = []
         for name, scene in KIND_SCENES.items():

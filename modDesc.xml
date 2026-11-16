@@ -1,73 +1,874 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="115" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>DTM Mods, Fennell</author>
-    <version>1.2.0.0</version>
+    <version>1.3.0.0</version>
     <title>
         <en>Digital DTM</en>
         <de>Digital DTM</de>
         <fr>Digital DTM</fr>
+        <es>Digital DTM</es>
+        <ea>Digital DTM</ea>
+        <pt>Digital DTM</pt>
+        <br>Digital DTM</br>
+        <it>Digital DTM</it>
+        <fc>Digital DTM</fc>
+        <pl>Digital DTM</pl>
+        <cz>Digital DTM</cz>
+        <ru>Digital DTM</ru>
+        <uk>Digital DTM</uk>
+        <hu>Digital DTM</hu>
+        <ro>Digital DTM</ro>
+        <nl>Digital DTM</nl>
+        <da>Digital DTM</da>
+        <sv>Digital DTM</sv>
+        <no>Digital DTM</no>
+        <fi>Digital DTM</fi>
+        <tr>Digital DTM</tr>
+        <jp>Digital DTM</jp>
+        <kr>Digital DTM</kr>
+        <cs>Digital DTM</cs>
+        <ct>Digital DTM</ct>
+        <id>Digital DTM</id>
+        <vi>Digital DTM</vi>
     </title>
     <description>
-        <en><![CDATA[A live screen for your silos, productions, animal pens, bunker silos, bale or pallet sheds, manure heaps, greenhouses, beehives and your farm's money.
+        <en><![CDATA[A live screen for your silos, productions, animal pens, bunker silos, bale or pallet sheds, manure heaps, greenhouses and beehives, and for your whole farm: fields, weather, vehicles, contracts, money.
 
 Place it at a storage and it shows what is in it, in colour:
-- silos: how full in percent (green, amber from 75 %, red from 90 %), used, free and total capacity, one bar with every product in its own colour
+- silos: how full in percent (green, amber, red from the level you set), used, free and total capacity, one bar with every product in its own colour
 - how fast it fills or empties ("+18,000 l/h") and when it is full or empty
 - productions: which lines run, which miss inputs or have a full output store; inputs (IN) and outputs (OUT), empty inputs in red; which input runs out first
 - animal pens: number of animals, food, water, straw, productivity and the tanks; how long the food lasts
 - bunker silos: filling, fermenting (in percent) or ready; several bunkers side by side
 - bale and pallet sheds: how many of how many, and every product with its number of bales or pallets
 - beehives: hives, honey per day and what it is worth, the pallet spot
-- my farm's money: balance, loan, credit left, today's income and costs by category
 - every product with its own icon, amount, fill bar and percent, all at once (up to 42, in up to 3 columns; more turn pages, also with Page Up / Page Down)
 
-Price board: switch the screen to prices and it shows, for every product in the storage, the best price and where to sell it, whether the price rises or falls next month, and what the stock is worth. Pick "all silos of my farm" for a price board of the whole farm.
+Screens for the whole farm:
+- my fields: the crop on every field, how far it has grown, which are ready to harvest (first), withered or to sow, and what each needs (lime, fertilizer, plowing, rolling, weeds)
+- weather: the temperature, the weather now, in the next hours and the next days, when it changes, and whether the crops are dry
+- my vehicles: helpers at work, fuel and damage of every vehicle; low fuel and damage first
+- my contracts: every running contract with where, the reward and how far it is
+- all my animal pens and all my productions on one screen each, the ones that need you first
+- all silos of my farm, and my farm's money (balance, loan, credit, today's income and costs)
 
-Alerts: a blinking red stripe and a line in the footer when a silo is nearly full, an input is empty, animals run low on food or water, or a tank is full. Optionally also as a game message for everyone on the farm.
+History: switch a screen to "History (24 h)" and it shows how full the storage was over the last in-game day as a column chart (the farm's money: the balance).
 
-Stand in front of it and press the activate key for its settings: the storage (everything within 40 m, all silos of the farm, or the farm's money), connected silos, screen size (0.8 to 6 m wide), brightness (5 levels, readable at night), colours (night blue, DTM green, amber terminal, daylight), your own title, storage or prices, and alerts. Everyone on the server sees the same settings and they are saved with the game.
+Price board: switch the screen to prices and it shows, for every product in the storage, the best price and where to sell it, whether the price rises or falls next month, and what the stock is worth.
+
+Slideshow: tick several screens and the monitor shows them in turn (10 to 60 seconds each).
+
+Alerts: a blinking red stripe and a line in the footer when a silo is nearly full (from the level you set), an input is empty, animals run low on food or water, a tank is full, fields are ready to harvest, a helper runs out of fuel, rain is coming, or a product sells for the price you wait for. Optionally also as a game message for everyone on the farm.
+
+Stand in front of it and press the activate key for its settings: the storage or farm screen, connected silos, screen size (0.8 to 6 m wide), brightness (5 levels, readable at night), colours (night blue, DTM green, amber terminal, daylight), your own title, storage, prices or history, alerts, the nearly full level, a price alert and the slideshow. Everyone on the server sees the same settings and they are saved with the game.
 
 Seven models (Buildings > Tools): Kiosk 3,500, Wall 6,500, Billboard 12,000, Two-Sided Billboard 18,000, Silo Mount 6,000, Wall Mount 5,500 (flat on a building) and Hanging 5,500 (on rods, for inside a shed).]]></en>
-        <de><![CDATA[Ein Live-Bildschirm für Silos, Produktionen, Tierställe, Fahrsilos, Ballen- und Palettenlager, Misthaufen, Gewächshäuser, Bienenstöcke und das Geld des Hofes.
+        <de><![CDATA[Ein Live-Bildschirm für Silos, Produktionen, Tierställe, Fahrsilos, Ballen- und Palettenlager, Misthaufen, Gewächshäuser und Bienenstöcke, und für den ganzen Hof: Felder, Wetter, Fahrzeuge, Aufträge, Geld.
 
 An einem Lager aufgestellt, zeigt er dessen Inhalt in Farbe:
-- Silos: Füllstand in Prozent (grün, ab 75 % gelb, ab 90 % rot), belegte, freie und gesamte Kapazität, ein Balken mit jedem Produkt in seiner Farbe
+- Silos: Füllstand in Prozent (grün, gelb, rot ab dem eingestellten Füllstand), belegte, freie und gesamte Kapazität, ein Balken mit jedem Produkt in seiner eigenen Farbe
 - wie schnell es sich füllt oder leert ("+18.000 l/h") und wann es voll oder leer ist
 - Produktionen: welche Linien laufen, welchen Rohstoffe fehlen oder deren Lager voll ist; Rohstoffe (IN) und Erzeugnisse (OUT), fehlende Rohstoffe rot; welcher Rohstoff zuerst ausgeht
 - Tierställe: Anzahl der Tiere, Futter, Wasser, Stroh, Produktivität und Tanks; wie lange das Futter reicht
 - Fahrsilos: Befüllen, Gären (in Prozent) oder fertig; mehrere Silos nebeneinander
-- Ballen- und Palettenlager: wie viele von wie vielen, und jedes Produkt mit seiner Anzahl
+- Ballen- und Palettenlager: wie viele von wie vielen, und jedes Produkt mit seiner Anzahl Ballen oder Paletten
 - Bienenstöcke: Anzahl, Honig pro Tag und sein Wert, der Palettenplatz
-- Geld des Hofes: Kontostand, Kredit, freier Kreditrahmen, Einnahmen und Ausgaben von heute nach Art
 - jedes Produkt mit eigenem Symbol, Menge, Füllbalken und Prozent, alle auf einmal (bis zu 42, in bis zu 3 Spalten; mehr blättern, auch mit Bild auf / Bild ab)
 
-Preistafel: auf Preise umgestellt, zeigt der Bildschirm für jedes Produkt im Lager den besten Preis und wo man es verkauft, ob der Preis nächsten Monat steigt oder fällt, und was der Bestand wert ist. "Alle Silos meines Hofes" wählen für eine Preistafel des ganzen Hofes.
+Bildschirme für den ganzen Hof:
+- Meine Felder: die Frucht auf jedem Feld, wie weit sie gewachsen ist, welche erntereif (zuerst), verdorrt oder zu säen sind, und was jedes braucht (Kalk, Dünger, Pflügen, Walzen, Unkraut)
+- Wetter: die Temperatur, das Wetter jetzt, in den nächsten Stunden und den nächsten Tagen, wann es umschlägt, und ob die Früchte trocken sind
+- Meine Fahrzeuge: Helfer im Einsatz, Kraftstoff und Schaden jedes Fahrzeugs; wenig Kraftstoff und Schäden zuerst
+- Meine Aufträge: jeder laufende Auftrag mit Ort, Belohnung und wie weit er ist
+- alle meine Tierställe und alle meine Produktionen auf je einem Bildschirm, die zuerst, die dich brauchen
+- alle Silos meines Hofes, und das Geld meines Hofes (Kontostand, Kredit, freier Kreditrahmen, Einnahmen und Ausgaben von heute)
 
-Warnungen: ein blinkender roter Streifen und eine Zeile unten, wenn ein Silo fast voll ist, ein Rohstoff fehlt, den Tieren Futter oder Wasser ausgeht oder ein Tank voll ist. Auf Wunsch auch als Meldung im Spiel für alle Spieler des Hofes.
+Verlauf: auf "Verlauf (24 h)" umgestellt, zeigt ein Bildschirm als Säulendiagramm, wie voll das Lager über den letzten Spieltag war (beim Geld des Hofes: den Kontostand).
 
-Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager (alles im Umkreis von 40 m, alle Silos des Hofes oder das Geld des Hofes), verbundene Silos, Bildschirmgröße (0,8 bis 6 m breit), Helligkeit (5 Stufen, nachts lesbar), Farben (Nachtblau, DTM-Grün, Bernstein-Terminal, Tageslicht), ein eigener Titel, Lager oder Preise und Warnungen. Alle Spieler auf dem Server sehen dieselben Einstellungen, und sie werden mit dem Spielstand gespeichert.
+Preistafel: auf Preise umgestellt, zeigt der Bildschirm für jedes Produkt im Lager den besten Preis und wo man es verkauft, ob der Preis nächsten Monat steigt oder fällt, und was der Bestand wert ist.
+
+Diashow: mehrere Bildschirme ankreuzen, und der Monitor zeigt sie abwechselnd (je 10 bis 60 Sekunden).
+
+Warnungen: ein blinkender roter Streifen und eine Zeile unten, wenn ein Silo fast voll ist (ab dem eingestellten Füllstand), ein Rohstoff fehlt, den Tieren Futter oder Wasser ausgeht, ein Tank voll ist, Felder erntereif sind, einem Helfer der Kraftstoff ausgeht, Regen kommt oder ein Produkt den Preis bringt, auf den du wartest. Auf Wunsch auch als Meldung im Spiel für alle Spieler des Hofes.
+
+Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager oder der Hof-Bildschirm, verbundene Silos, Bildschirmgröße (0,8 bis 6 m breit), Helligkeit (5 Stufen, nachts lesbar), Farben (Nachtblau, DTM-Grün, Bernstein-Terminal, Tageslicht), ein eigener Titel, Lager, Preise oder Verlauf, Warnungen, der Füllstand für "fast voll", eine Preiswarnung und die Diashow. Alle Spieler auf dem Server sehen dieselben Einstellungen, und sie werden mit dem Spielstand gespeichert.
 
 Sieben Modelle (Gebäude > Werkzeuge): Kiosk 3.500, Wand 6.500, Großanzeige 12.000, Großanzeige beidseitig 18.000, Silohalterung 6.000, Wandhalterung 5.500 (flach an einem Gebäude) und Hängend 5.500 (an Stangen, für in der Halle).]]></de>
-        <fr><![CDATA[Un écran en direct pour vos silos, productions, élevages, silos couloirs, hangars à balles ou à palettes, fumières, serres, ruches et l'argent de votre ferme.
+        <fr><![CDATA[Un écran en direct pour vos silos, productions, élevages, silos couloirs, hangars à balles ou à palettes, fumières, serres et ruches, et pour toute votre ferme : champs, météo, véhicules, contrats, argent.
 
-Placé près d'un stockage, il affiche son contenu en couleur :
-- silos : remplissage en pour cent (vert, orange dès 75 %, rouge dès 90 %), capacité utilisée, libre et totale, une barre avec chaque produit dans sa couleur
+Placé près d'un stockage, il affiche son contenu, en couleur :
+- silos : remplissage en pour cent (vert, orange, rouge à partir du niveau choisi), capacité utilisée, libre et totale, une barre avec chaque produit dans sa propre couleur
 - la vitesse à laquelle il se remplit ou se vide (« +18 000 l/h ») et quand il sera plein ou vide
-- productions : les lignes en marche, celles sans intrants ou dont la sortie est pleine ; intrants (IN) et produits (OUT), intrants vides en rouge ; l'intrant qui manquera en premier
+- productions : les lignes en marche, celles à qui il manque des intrants ou dont la sortie est pleine ; intrants (IN) et produits (OUT), intrants vides en rouge ; l'intrant qui manquera en premier
 - élevages : nombre d'animaux, nourriture, eau, paille, productivité et réservoirs ; combien de temps dure la nourriture
 - silos couloirs : remplissage, fermentation (en pour cent) ou prêt ; plusieurs couloirs côte à côte
-- hangars à balles et palettes : combien sur combien, et chaque produit avec son nombre
-- ruches : nombre, miel par jour et sa valeur, l'emplacement des palettes
-- l'argent de ma ferme : solde, prêt, crédit restant, recettes et dépenses du jour par catégorie
-- chaque produit avec son icône, sa quantité, une barre et son pourcentage, tous en même temps (jusqu'à 42, sur 3 colonnes ; au-delà les pages tournent, aussi avec Page préc. / Page suiv.)
+- hangars à balles et à palettes : combien sur combien, et chaque produit avec son nombre de balles ou de palettes
+- ruches : ruches, miel par jour et sa valeur, l'emplacement des palettes
+- chaque produit avec son icône, sa quantité, une barre de remplissage et son pourcentage, tous en même temps (jusqu'à 42, sur 3 colonnes au plus ; au-delà les pages tournent, aussi avec Page préc. / Page suiv.)
 
-Tableau des prix : passé en mode prix, l'écran montre pour chaque produit du stockage le meilleur prix et où le vendre, si le prix monte ou baisse le mois prochain, et la valeur du stock. Choisir « Tous les silos de ma ferme » pour un tableau des prix de toute la ferme.
+Écrans pour toute la ferme :
+- mes champs : la culture de chaque champ, son stade de croissance, ceux prêts à récolter (en premier), flétris ou à semer, et ce dont chacun a besoin (chaux, engrais, labour, roulage, mauvaises herbes)
+- météo : la température, le temps actuel, dans les prochaines heures et les prochains jours, quand il change, et si les cultures sont sèches
+- mes véhicules : ouvriers au travail, carburant et dégâts de chaque véhicule ; ceux qui manquent de carburant ou sont endommagés en premier
+- mes contrats : chaque contrat en cours avec le lieu, la récompense et l'avancement
+- tous mes élevages et toutes mes productions, chacun sur un écran, ceux qui ont besoin de vous en premier
+- tous les silos de ma ferme, et l'argent de ma ferme (solde, prêt, crédit, recettes et dépenses du jour)
 
-Alertes : une bande rouge clignotante et une ligne en bas quand un silo est presque plein, qu'un intrant manque, que les animaux manquent de nourriture ou d'eau, ou qu'un réservoir est plein. En option aussi en message dans le jeu pour tous les joueurs de la ferme.
+Historique : passez un écran sur « Historique (24 h) » et il montre le remplissage du stockage pendant la dernière journée de jeu sous forme d'histogramme (pour l'argent de la ferme : le solde).
 
-Devant l'écran, la touche d'activation ouvre ses réglages : le stockage (tout à moins de 40 m, tous les silos de la ferme ou l'argent de la ferme), silos reliés, taille de l'écran (0,8 à 6 m), luminosité (5 niveaux, lisible la nuit), couleurs (bleu nuit, vert DTM, terminal ambre, plein jour), votre propre titre, stockage ou prix, et alertes. Tous les joueurs du serveur voient les mêmes réglages, sauvegardés avec la partie.
+Tableau des prix : passez l'écran sur les prix et il montre, pour chaque produit du stockage, le meilleur prix et où le vendre, si le prix monte ou baisse le mois prochain, et la valeur du stock.
+
+Diaporama : cochez plusieurs écrans et le moniteur les affiche à tour de rôle (de 10 à 60 secondes chacun).
+
+Alertes : une bande rouge clignotante et une ligne en bas de l'écran quand un silo est presque plein (à partir du niveau choisi), qu'un intrant manque, que les animaux manquent de nourriture ou d'eau, qu'un réservoir est plein, que des champs sont prêts à récolter, qu'un ouvrier va tomber en panne de carburant, que la pluie arrive ou qu'un produit se vend au prix que vous attendez. En option, aussi comme message du jeu pour tous les membres de la ferme.
+
+Placez-vous devant et appuyez sur la touche d'activation pour ses réglages : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 6 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert DTM, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes réglages, et ils sont sauvegardés avec la partie.
 
 Sept modèles (Bâtiments > Outils) : Kiosque 3 500, Mural 6 500, Panneau 12 000, Panneau double face 18 000, Fixation silo 6 000, Fixation murale 5 500 (à plat sur un bâtiment) et Suspendu 5 500 (sur tiges, pour l'intérieur d'un hangar).]]></fr>
+        <es><![CDATA[Una pantalla en directo para tus silos, producciones, corrales, silos búnker, naves de pacas o de palés, estercoleros, invernaderos y colmenas, y para toda tu granja: campos, tiempo, vehículos, contratos, dinero.
+
+Colócala junto a un almacén y muestra lo que hay dentro, en color:
+- silos: lo lleno que está en porcentaje (verde, ámbar, rojo desde el nivel que elijas), capacidad usada, libre y total, una barra con cada producto en su propio color
+- lo rápido que se llena o se vacía ("+18.000 l/h") y cuándo estará lleno o vacío
+- producciones: qué líneas están en marcha, a cuáles les faltan insumos o tienen la salida llena; entradas (IN) y salidas (OUT), las entradas vacías en rojo; qué insumo se acaba primero
+- corrales: número de animales, comida, agua, paja, productividad y los tanques; cuánto dura la comida
+- silos búnker: llenando, fermentando (en porcentaje) o listo; varios búnkeres uno al lado del otro
+- naves de pacas y de palés: cuántos de cuántos, y cada producto con su número de pacas o palés
+- colmenas: colmenas, miel al día y lo que vale, el punto de palés
+- cada producto con su propio icono, cantidad, barra de llenado y porcentaje, todo a la vez (hasta 42, en hasta 3 columnas; si hay más, pasa de página, también con Re Pág / Av Pág)
+
+Pantallas para toda la granja:
+- mis campos: el cultivo de cada campo, cuánto ha crecido, cuáles están listos para cosechar (primero), marchitos o por sembrar, y qué necesita cada uno (cal, fertilizante, arado, rodillo, malas hierbas)
+- tiempo: la temperatura, el tiempo ahora, en las próximas horas y los próximos días, cuándo cambia y si los cultivos están secos
+- mis vehículos: ayudantes trabajando, combustible y daños de cada vehículo; primero los que tienen poco combustible o daños
+- mis contratos: cada contrato en curso con dónde es, la recompensa y cuánto lleva hecho
+- todos mis corrales y todas mis producciones, cada uno en una pantalla, primero los que te necesitan
+- todos los silos de mi granja, y el dinero de mi granja (saldo, préstamo, crédito, ingresos y gastos de hoy)
+
+Historial: cambia una pantalla a «Historial (24 h)» y muestra lo lleno que estuvo el almacén durante el último día de juego en un gráfico de columnas (el dinero de la granja: el saldo).
+
+Tablón de precios: cambia la pantalla a precios y muestra, para cada producto del almacén, el mejor precio y dónde venderlo, si el precio sube o baja el próximo mes y cuánto vale el stock.
+
+Presentación: marca varias pantallas y el monitor las muestra por turnos (de 10 a 60 segundos cada una).
+
+Alertas: una franja roja parpadeante y una línea en el pie de la pantalla cuando un silo está casi lleno (desde el nivel que elijas), falta un insumo, a los animales les falta comida o agua, un tanque está lleno, hay campos listos para cosechar, un ayudante se queda sin combustible, viene lluvia o un producto se vende al precio que esperas. Opcionalmente también como mensaje del juego para todos los de la granja.
+
+Ponte delante y pulsa la tecla de activar para abrir sus ajustes: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0,8 a 6 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde DTM, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven los mismos ajustes y se guardan con la partida.
+
+Siete modelos (Edificios > Herramientas): Quiosco 3.500, Pared 6.500, Valla publicitaria 12.000, Valla de dos caras 18.000, Soporte de silo 6.000, Soporte de pared 5.500 (plano sobre un edificio) y Colgante 5.500 (con varillas, para el interior de una nave).]]></es>
+        <ea><![CDATA[Una pantalla en vivo para tus silos, producciones, corrales, silos búnker, galpones de fardos o de pallets, pilas de estiércol, invernaderos y colmenas, y para toda tu granja: campos, clima, vehículos, contratos, dinero.
+
+Colócala junto a un almacén y muestra lo que hay adentro, a color:
+- silos: qué tan lleno está en porcentaje (verde, ámbar, rojo desde el nivel que elijas), capacidad usada, libre y total, una barra con cada producto en su propio color
+- qué tan rápido se llena o se vacía ("+18,000 l/h") y cuándo estará lleno o vacío
+- producciones: qué líneas están en marcha, a cuáles les faltan insumos o tienen la salida llena; entradas (IN) y salidas (OUT), las entradas vacías en rojo; qué insumo se acaba primero
+- corrales: número de animales, comida, agua, paja, productividad y los tanques; cuánto dura la comida
+- silos búnker: llenando, fermentando (en porcentaje) o listo; varios búnkeres uno al lado del otro
+- galpones de fardos y de pallets: cuántos de cuántos, y cada producto con su número de fardos o pallets
+- colmenas: colmenas, miel por día y cuánto vale, el punto de pallets
+- cada producto con su propio ícono, cantidad, barra de llenado y porcentaje, todo a la vez (hasta 42, en hasta 3 columnas; si hay más, cambia de página, también con Re Pág / Av Pág)
+
+Pantallas para toda la granja:
+- mis campos: el cultivo de cada campo, cuánto creció, cuáles están listos para cosechar (primero), marchitos o por sembrar, y qué necesita cada uno (cal, fertilizante, arado, rodillo, maleza)
+- clima: la temperatura, el clima ahora, en las próximas horas y los próximos días, cuándo cambia y si los cultivos están secos
+- mis vehículos: ayudantes trabajando, combustible y daños de cada vehículo; primero los que tienen poco combustible o daños
+- mis contratos: cada contrato en curso con dónde es, la recompensa y cuánto lleva hecho
+- todos mis corrales y todas mis producciones, cada uno en una pantalla, primero los que te necesitan
+- todos los silos de mi granja, y el dinero de mi granja (saldo, préstamo, crédito, ingresos y gastos de hoy)
+
+Historial: cambia una pantalla a «Historial (24 h)» y muestra qué tan lleno estuvo el almacén durante el último día de juego en una gráfica de columnas (el dinero de la granja: el saldo).
+
+Tablero de precios: cambia la pantalla a precios y muestra, para cada producto del almacén, el mejor precio y dónde venderlo, si el precio sube o baja el próximo mes y cuánto vale el inventario.
+
+Presentación: marca varias pantallas y el monitor las muestra por turnos (de 10 a 60 segundos cada una).
+
+Alertas: una franja roja parpadeante y una línea en la parte inferior de la pantalla cuando un silo está casi lleno (desde el nivel que elijas), falta un insumo, a los animales les falta comida o agua, un tanque está lleno, hay campos listos para cosechar, un ayudante se queda sin combustible, viene lluvia o un producto se vende al precio que esperas. Opcionalmente también como mensaje del juego para todos los de la granja.
+
+Párate enfrente y presiona la tecla de activar para abrir su configuración: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0.8 a 6 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde DTM, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven la misma configuración y se guarda con la partida.
+
+Siete modelos (Edificios > Herramientas): Quiosco 3,500, Pared 6,500, Cartel publicitario 12,000, Cartel de dos caras 18,000, Soporte de silo 6,000, Soporte de pared 5,500 (plano sobre un edificio) y Colgante 5,500 (con varillas, para el interior de un galpón).]]></ea>
+        <pt><![CDATA[Um ecrã em direto para os seus silos, produções, currais, silos trincheira, pavilhões de fardos ou de paletes, nitreiras, estufas e colmeias, e para toda a sua quinta: campos, tempo, veículos, contratos, dinheiro.
+
+Coloque-o junto a um armazém e ele mostra o que contém, a cores:
+- silos: quão cheio está em percentagem (verde, âmbar, vermelho a partir do nível que definir), capacidade usada, livre e total, uma barra com cada produto na sua própria cor
+- a que ritmo enche ou esvazia ("+18 000 l/h") e quando estará cheio ou vazio
+- produções: que linhas estão a funcionar, quais têm falta de matérias-primas ou a saída cheia; entradas (IN) e saídas (OUT), entradas vazias a vermelho; que matéria-prima acaba primeiro
+- currais: número de animais, ração, água, palha, produtividade e os tanques; quanto tempo dura a ração
+- silos trincheira: a encher, a fermentar (em percentagem) ou pronto; vários silos lado a lado
+- pavilhões de fardos e de paletes: quantos de quantos, e cada produto com o seu número de fardos ou paletes
+- colmeias: colmeias, mel por dia e quanto vale, o local das paletes
+- cada produto com o seu próprio ícone, quantidade, barra de nível e percentagem, tudo ao mesmo tempo (até 42, em até 3 colunas; se houver mais, as páginas mudam, também com Page Up / Page Down)
+
+Ecrãs para toda a quinta:
+- os meus campos: a cultura de cada campo, quanto cresceu, quais estão prontos a colher (primeiro), murchos ou por semear, e o que cada um precisa (cal, fertilizante, lavoura, rolagem, ervas daninhas)
+- tempo: a temperatura, o tempo agora, nas próximas horas e nos próximos dias, quando muda e se as culturas estão secas
+- os meus veículos: ajudantes a trabalhar, combustível e danos de cada veículo; primeiro os que têm pouco combustível ou danos
+- os meus contratos: cada contrato em curso com o local, a recompensa e quanto já está feito
+- todos os meus currais e todas as minhas produções, cada um num ecrã, primeiro os que precisam de si
+- todos os silos da minha quinta, e o dinheiro da minha quinta (saldo, empréstimo, crédito, receitas e despesas de hoje)
+
+Histórico: mude um ecrã para «Histórico (24 h)» e ele mostra quão cheio esteve o armazém no último dia de jogo, num gráfico de colunas (o dinheiro da quinta: o saldo).
+
+Quadro de preços: mude o ecrã para preços e ele mostra, para cada produto do armazém, o melhor preço e onde o vender, se o preço sobe ou desce no próximo mês e quanto vale o stock.
+
+Apresentação: marque vários ecrãs e o monitor mostra-os alternadamente (de 10 a 60 segundos cada).
+
+Alertas: uma faixa vermelha a piscar e uma linha no rodapé quando um silo está quase cheio (a partir do nível que definir), falta uma matéria-prima, os animais têm pouca ração ou água, um tanque está cheio, há campos prontos a colher, um ajudante está a ficar sem combustível, vem aí chuva ou um produto se vende ao preço que espera. Opcionalmente também como mensagem do jogo para todos na quinta.
+
+Coloque-se à frente dele e prima a tecla de ativar para abrir as definições: o ecrã de armazém ou da quinta, silos ligados, tamanho do ecrã (de 0,8 a 6 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde DTM, terminal âmbar, luz do dia), o seu próprio título, armazém, preços ou histórico, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas definições, e estas são guardadas com o jogo.
+
+Sete modelos (Edifícios > Ferramentas): Quiosque 3 500, Parede 6 500, Painel publicitário 12 000, Painel de dupla face 18 000, Suporte de silo 6 000, Suporte de parede 5 500 (encostado a um edifício) e Suspenso 5 500 (em varões, para o interior de um pavilhão).]]></pt>
+        <br><![CDATA[Uma tela ao vivo para seus silos, produções, currais, silos trincheira, galpões de fardos ou de paletes, montes de esterco, estufas e colmeias, e para toda a sua fazenda: campos, clima, veículos, contratos, dinheiro.
+
+Coloque-a junto a um armazém e ela mostra o que há nele, em cores:
+- silos: o quanto está cheio em porcentagem (verde, âmbar, vermelho a partir do nível que você definir), capacidade usada, livre e total, uma barra com cada produto na sua própria cor
+- a velocidade com que enche ou esvazia ("+18.000 l/h") e quando estará cheio ou vazio
+- produções: quais linhas estão funcionando, quais estão sem insumos ou com a saída cheia; entradas (IN) e saídas (OUT), entradas vazias em vermelho; qual insumo acaba primeiro
+- currais: número de animais, ração, água, palha, produtividade e os tanques; quanto tempo a ração dura
+- silos trincheira: enchendo, fermentando (em porcentagem) ou pronto; vários silos lado a lado
+- galpões de fardos e de paletes: quantos de quantos, e cada produto com seu número de fardos ou paletes
+- colmeias: colmeias, mel por dia e quanto vale, o local dos paletes
+- cada produto com seu próprio ícone, quantidade, barra de nível e porcentagem, tudo de uma vez (até 42, em até 3 colunas; se houver mais, as páginas viram, também com Page Up / Page Down)
+
+Telas para toda a fazenda:
+- meus campos: a cultura de cada campo, o quanto cresceu, quais estão prontos para colher (primeiro), murchos ou para semear, e do que cada um precisa (calcário, fertilizante, aração, rolagem, ervas daninhas)
+- clima: a temperatura, o clima agora, nas próximas horas e nos próximos dias, quando muda e se as plantações estão secas
+- meus veículos: ajudantes trabalhando, combustível e danos de cada veículo; primeiro os com pouco combustível ou danos
+- meus contratos: cada contrato em andamento com onde é, a recompensa e o quanto já foi feito
+- todos os meus currais e todas as minhas produções, cada um numa tela, primeiro os que precisam de você
+- todos os silos da minha fazenda, e o dinheiro da minha fazenda (saldo, empréstimo, crédito, receitas e despesas de hoje)
+
+Histórico: mude uma tela para "Histórico (24 h)" e ela mostra o quanto o armazém esteve cheio no último dia do jogo, em um gráfico de colunas (o dinheiro da fazenda: o saldo).
+
+Painel de preços: mude a tela para preços e ela mostra, para cada produto do armazém, o melhor preço e onde vendê-lo, se o preço sobe ou cai no próximo mês e quanto vale o estoque.
+
+Apresentação: marque várias telas e o monitor as mostra alternadamente (de 10 a 60 segundos cada).
+
+Alertas: uma faixa vermelha piscando e uma linha no rodapé quando um silo está quase cheio (a partir do nível que você definir), falta um insumo, os animais estão com pouca ração ou água, um tanque está cheio, há campos prontos para colher, um ajudante está ficando sem combustível, vem chuva ou um produto é vendido pelo preço que você espera. Opcionalmente também como mensagem do jogo para todos da fazenda.
+
+Fique na frente dela e aperte a tecla de ativar para abrir as configurações: a tela de armazém ou da fazenda, silos conectados, tamanho da tela (de 0,8 a 6 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde DTM, terminal âmbar, luz do dia), seu próprio título, armazém, preços ou histórico, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas configurações, e elas são salvas com o jogo.
+
+Sete modelos (Construções > Ferramentas): Quiosque 3.500, Parede 6.500, Outdoor 12.000, Outdoor dupla face 18.000, Suporte de silo 6.000, Suporte de parede 5.500 (rente a um prédio) e Suspenso 5.500 (em hastes, para dentro de um galpão).]]></br>
+        <it><![CDATA[Uno schermo in tempo reale per i tuoi silos, produzioni, recinti, silos a trincea, capannoni per balle o pallet, concimaie, serre e arnie, e per tutta la tua fattoria: campi, meteo, veicoli, contratti, denaro.
+
+Posizionalo vicino a un deposito e mostra cosa contiene, a colori:
+- silos: quanto è pieno in percentuale (verde, ambra, rosso dal livello che imposti), capacità usata, libera e totale, una barra con ogni prodotto nel suo colore
+- quanto velocemente si riempie o si svuota ("+18.000 l/h") e quando sarà pieno o vuoto
+- produzioni: quali linee sono in funzione, a quali mancano materie prime o hanno l'uscita piena; ingressi (IN) e uscite (OUT), ingressi vuoti in rosso; quale materia prima finisce per prima
+- recinti: numero di animali, cibo, acqua, paglia, produttività e i serbatoi; quanto dura il cibo
+- silos a trincea: riempimento, fermentazione (in percentuale) o pronto; più trincee una accanto all'altra
+- capannoni per balle e pallet: quanti su quanti, e ogni prodotto con il suo numero di balle o pallet
+- arnie: arnie, miele al giorno e quanto vale, il punto pallet
+- ogni prodotto con la sua icona, quantità, barra di riempimento e percentuale, tutti insieme (fino a 42, in fino a 3 colonne; oltre si cambia pagina, anche con Pag su / Pag giù)
+
+Schermate per tutta la fattoria:
+- i miei campi: la coltura di ogni campo, quanto è cresciuta, quali sono pronti da raccogliere (per primi), appassiti o da seminare, e cosa serve a ciascuno (calce, fertilizzante, aratura, rullatura, erbacce)
+- meteo: la temperatura, il tempo adesso, nelle prossime ore e nei prossimi giorni, quando cambia e se le colture sono asciutte
+- i miei veicoli: aiutanti al lavoro, carburante e danni di ogni veicolo; prima quelli con poco carburante o danneggiati
+- i miei contratti: ogni contratto in corso con dove si trova, la ricompensa e a che punto è
+- tutti i miei recinti e tutte le mie produzioni, ognuno su una schermata, prima quelli che hanno bisogno di te
+- tutti i silos della mia fattoria, e il denaro della mia fattoria (saldo, prestito, credito, entrate e uscite di oggi)
+
+Cronologia: imposta una schermata su «Cronologia (24 h)» e mostra quanto era pieno il deposito durante l'ultimo giorno di gioco con un grafico a colonne (il denaro della fattoria: il saldo).
+
+Tabellone prezzi: imposta lo schermo sui prezzi e mostra, per ogni prodotto del deposito, il prezzo migliore e dove venderlo, se il prezzo sale o scende il mese prossimo e quanto valgono le scorte.
+
+Presentazione: spunta più schermate e il monitor le mostra a turno (da 10 a 60 secondi ciascuna).
+
+Avvisi: una striscia rossa lampeggiante e una riga in fondo allo schermo quando un silo è quasi pieno (dal livello che imposti), una materia prima è finita, gli animali hanno poco cibo o acqua, un serbatoio è pieno, ci sono campi pronti da raccogliere, un aiutante sta finendo il carburante, arriva la pioggia o un prodotto si vende al prezzo che aspetti. Facoltativamente anche come messaggio di gioco per tutti nella fattoria.
+
+Mettiti davanti e premi il tasto di attivazione per le sue impostazioni: la schermata del deposito o della fattoria, silos collegati, dimensione dello schermo (da 0,8 a 6 m di larghezza), luminosità (5 livelli, leggibile di notte), colori (blu notte, verde DTM, terminale ambra, luce del giorno), il tuo titolo, deposito, prezzi o cronologia, avvisi, il livello di quasi pieno, un avviso prezzo e la presentazione. Tutti sul server vedono le stesse impostazioni, che vengono salvate con la partita.
+
+Sette modelli (Edifici > Strumenti): Chiosco 3.500, Parete 6.500, Cartellone 12.000, Cartellone bifacciale 18.000, Supporto per silo 6.000, Supporto a parete 5.500 (aderente a un edificio) e Sospeso 5.500 (su aste, per l'interno di un capannone).]]></it>
+        <fc><![CDATA[Un écran en direct pour vos silos, productions, élevages, silos couloirs, hangars à balles ou à palettes, fumières, serres et ruches, et pour toute votre ferme : champs, météo, véhicules, contrats, argent.
+
+Placé près d'un stockage, il affiche son contenu, en couleur :
+- silos : remplissage en pour cent (vert, orange, rouge à partir du niveau choisi), capacité utilisée, libre et totale, une barre avec chaque produit dans sa propre couleur
+- la vitesse à laquelle il se remplit ou se vide (« +18 000 l/h ») et quand il sera plein ou vide
+- productions : les lignes en marche, celles à qui il manque des intrants ou dont la sortie est pleine ; intrants (IN) et produits (OUT), intrants vides en rouge ; l'intrant qui manquera en premier
+- élevages : nombre d'animaux, nourriture, eau, paille, productivité et réservoirs ; combien de temps dure la nourriture
+- silos couloirs : remplissage, fermentation (en pour cent) ou prêt ; plusieurs couloirs côte à côte
+- hangars à balles et à palettes : combien sur combien, et chaque produit avec son nombre de balles ou de palettes
+- ruches : ruches, miel par jour et sa valeur, l'emplacement des palettes
+- chaque produit avec son icône, sa quantité, une barre de remplissage et son pourcentage, tous en même temps (jusqu'à 42, sur 3 colonnes au plus ; au-delà les pages tournent, aussi avec Page préc. / Page suiv.)
+
+Écrans pour toute la ferme :
+- mes champs : la culture de chaque champ, son stade de croissance, ceux prêts à récolter (en premier), flétris ou à semer, et ce dont chacun a besoin (chaux, engrais, labour, roulage, mauvaises herbes)
+- météo : la température, le temps actuel, dans les prochaines heures et les prochains jours, quand il change, et si les cultures sont sèches
+- mes véhicules : ouvriers au travail, carburant et dégâts de chaque véhicule ; ceux qui manquent de carburant ou sont endommagés en premier
+- mes contrats : chaque contrat en cours avec le lieu, la récompense et l'avancement
+- tous mes élevages et toutes mes productions, chacun sur un écran, ceux qui ont besoin de vous en premier
+- tous les silos de ma ferme, et l'argent de ma ferme (solde, prêt, crédit, revenus et dépenses du jour)
+
+Historique : passez un écran sur « Historique (24 h) » et il montre le remplissage du stockage pendant la dernière journée de jeu sous forme d'histogramme (pour l'argent de la ferme : le solde).
+
+Tableau des prix : passez l'écran sur les prix et il montre, pour chaque produit du stockage, le meilleur prix et où le vendre, si le prix monte ou baisse le mois prochain, et la valeur de l'inventaire.
+
+Diaporama : cochez plusieurs écrans et le moniteur les affiche à tour de rôle (de 10 à 60 secondes chacun).
+
+Alertes : une bande rouge clignotante et une ligne en bas de l'écran quand un silo est presque plein (à partir du niveau choisi), qu'un intrant manque, que les animaux manquent de nourriture ou d'eau, qu'un réservoir est plein, que des champs sont prêts à récolter, qu'un ouvrier va manquer d'essence, que la pluie arrive ou qu'un produit se vend au prix que vous attendez. En option, aussi comme message du jeu pour tous les membres de la ferme.
+
+Placez-vous devant et appuyez sur la touche d'activation pour ses paramètres : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 6 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert DTM, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes paramètres, et ils sont sauvegardés avec la partie.
+
+Sept modèles (Bâtiments > Outils) : Kiosque 3 500, Mural 6 500, Panneau-réclame 12 000, Panneau-réclame double face 18 000, Fixation silo 6 000, Fixation murale 5 500 (à plat sur un bâtiment) et Suspendu 5 500 (sur tiges, pour l'intérieur d'un hangar).]]></fc>
+        <pl><![CDATA[Ekran na żywo dla Twoich silosów, produkcji, zagród zwierząt, silosów przejazdowych, magazynów bel i palet, pryzm obornika, szklarni i uli, a także dla całego gospodarstwa: pola, pogoda, pojazdy, zlecenia, pieniądze.
+
+Postaw go przy magazynie, a pokaże w kolorze, co jest w środku:
+- silosy: zapełnienie w procentach (zielony, bursztynowy, czerwony od ustawionego poziomu), zajęta, wolna i całkowita pojemność, jeden pasek z każdym produktem w jego własnym kolorze
+- jak szybko się napełnia lub opróżnia ("+18 000 l/h") i kiedy będzie pełny lub pusty
+- produkcje: które linie pracują, którym brakuje surowców, a które mają pełny magazyn wyjściowy; wejścia (IN) i wyjścia (OUT), puste wejścia na czerwono; który surowiec skończy się pierwszy
+- zagrody zwierząt: liczba zwierząt, pasza, woda, słoma, wydajność i zbiorniki; na jak długo wystarczy paszy
+- silosy przejazdowe: napełnianie, fermentacja (w procentach) lub gotowe; kilka silosów obok siebie
+- magazyny bel i palet: ile z ilu oraz każdy produkt z liczbą bel lub palet
+- ule: liczba uli, miód dziennie i jego wartość, miejsce na palety
+- każdy produkt z własną ikoną, ilością, paskiem zapełnienia i procentem, wszystko naraz (do 42, w maksymalnie 3 kolumnach; więcej na kolejnych stronach, także przez Page Up / Page Down)
+
+Ekrany dla całego gospodarstwa:
+- moje pola: uprawa na każdym polu, jak bardzo urosła, które są gotowe do zbioru (na początku), uschnięte lub do siewu i czego każde potrzebuje (wapno, nawóz, orka, wałowanie, chwasty)
+- pogoda: temperatura, pogoda teraz, w najbliższych godzinach i dniach, kiedy się zmieni i czy uprawy są suche
+- moje pojazdy: pracujący pomocnicy, paliwo i uszkodzenia każdego pojazdu; mało paliwa i uszkodzenia na początku
+- moje zlecenia: każde aktywne zlecenie z miejscem, nagrodą i postępem
+- wszystkie moje zagrody i wszystkie moje produkcje, każde na jednym ekranie, najpierw te, które Cię potrzebują
+- wszystkie silosy gospodarstwa oraz pieniądze gospodarstwa (saldo, pożyczka, dostępny kredyt, dzisiejsze dochody i koszty)
+
+Historia: przełącz ekran na "Historia (24 h)", a pokaże wykres słupkowy zapełnienia magazynu w ostatniej dobie gry (dla pieniędzy gospodarstwa: saldo).
+
+Tablica cen: przełącz ekran na ceny, a pokaże dla każdego produktu w magazynie najlepszą cenę i gdzie go sprzedać, czy cena w przyszłym miesiącu wzrośnie, czy spadnie, oraz ile warte są zapasy.
+
+Pokaz slajdów: zaznacz kilka ekranów, a monitor pokaże je po kolei (od 10 do 60 sekund każdy).
+
+Alerty: migający czerwony pasek i linia w stopce, gdy silos jest prawie pełny (od ustawionego poziomu), brakuje surowca, zwierzętom kończy się pasza lub woda, zbiornik jest pełny, pola są gotowe do zbioru, pomocnikowi kończy się paliwo, nadchodzi deszcz lub produkt sprzedaje się po cenie, na którą czekasz. Opcjonalnie także jako wiadomość w grze dla wszystkich w gospodarstwie.
+
+Stań przed nim i naciśnij klawisz aktywacji, aby otworzyć ustawienia: ekran magazynu lub gospodarstwa, połączone silosy, rozmiar ekranu (od 0,8 do 6 m szerokości), jasność (5 poziomów, czytelna w nocy), kolory (nocny niebieski, zieleń DTM, bursztynowy terminal, dzienny), własny tytuł, magazyn, ceny lub historia, alerty, poziom prawie pełny, alert cenowy i pokaz slajdów. Wszyscy na serwerze widzą te same ustawienia, a są one zapisywane razem z grą.
+
+Siedem modeli (Budynki > Narzędzia): kiosk 3 500, ścienny 6 500, billboard 12 000, billboard dwustronny 18 000, na silos 6 000, na ścianę budynku 5 500 (płasko na budynku) i wiszący 5 500 (na prętach, do wnętrza magazynu).]]></pl>
+        <cz><![CDATA[Živá obrazovka pro vaše sila, výrobny, ohrady zvířat, silážní žlaby, sklady balíků a palet, hnojiště, skleníky a úly a pro celou vaši farmu: pole, počasí, vozidla, zakázky, peníze.
+
+Postavte ji ke skladu a barevně ukáže, co v něm je:
+- sila: zaplnění v procentech (zelená, jantarová, červená od nastavené úrovně), obsazená, volná a celková kapacita, jeden pruh s každým produktem v jeho vlastní barvě
+- jak rychle se plní nebo vyprazdňuje ("+18 000 l/h") a kdy bude plné nebo prázdné
+- výrobny: které linky běží, kterým chybí suroviny nebo mají plný výstupní sklad; vstupy (IN) a výstupy (OUT), prázdné vstupy červeně; která surovina dojde jako první
+- ohrady zvířat: počet zvířat, krmivo, voda, sláma, produktivita a nádrže; na jak dlouho vydrží krmivo
+- silážní žlaby: plnění, fermentace (v procentech) nebo hotovo; několik žlabů vedle sebe
+- sklady balíků a palet: kolik z kolika a každý produkt s počtem balíků nebo palet
+- úly: počet úlů, med za den a jeho hodnota, místo pro palety
+- každý produkt s vlastní ikonou, množstvím, pruhem zaplnění a procenty, vše najednou (až 42, až ve 3 sloupcích; další na dalších stranách, také pomocí Page Up / Page Down)
+
+Obrazovky pro celou farmu:
+- moje pole: plodina na každém poli, jak je vzrostlá, která jsou připravená ke sklizni (první), uschlá nebo k setí a co které potřebuje (vápno, hnojivo, orba, válcování, plevel)
+- počasí: teplota, počasí nyní, v příštích hodinách a dnech, kdy se změní a zda jsou plodiny suché
+- moje vozidla: pracující pomocníci, palivo a poškození každého vozidla; málo paliva a poškození první
+- moje zakázky: každá probíhající zakázka s místem, odměnou a postupem
+- všechny mé ohrady a všechny mé výrobny, každé na jedné obrazovce, nejprve ty, které vás potřebují
+- všechna sila mé farmy a peníze mé farmy (zůstatek, úvěr, volný úvěr, dnešní příjmy a náklady)
+
+Historie: přepněte obrazovku na "Historie (24 h)" a ukáže sloupcový graf, jak byl sklad plný za poslední herní den (u peněz farmy: zůstatek).
+
+Cenová tabule: přepněte obrazovku na ceny a ukáže pro každý produkt ve skladu nejlepší cenu a kde ho prodat, zda cena příští měsíc stoupne nebo klesne a jakou hodnotu mají zásoby.
+
+Prezentace: zaškrtněte několik obrazovek a monitor je bude ukazovat postupně (každou 10 až 60 sekund).
+
+Upozornění: blikající červený pruh a řádek v zápatí, když je silo téměř plné (od nastavené úrovně), chybí surovina, zvířatům dochází krmivo nebo voda, nádrž je plná, pole jsou připravená ke sklizni, pomocníkovi dochází palivo, blíží se déšť nebo se produkt prodává za cenu, na kterou čekáte. Volitelně i jako herní zpráva pro všechny na farmě.
+
+Postavte se před něj a stiskněte klávesu aktivace pro nastavení: obrazovka skladu nebo farmy, připojená sila, velikost obrazovky (šířka 0,8 až 6 m), jas (5 úrovní, čitelné i v noci), barvy (noční modrá, DTM zelená, jantarový terminál, denní světlo), vlastní nadpis, sklad, ceny nebo historie, upozornění, úroveň téměř plno, cenové upozornění a prezentace. Všichni na serveru vidí stejná nastavení a ukládají se spolu s hrou.
+
+Sedm modelů (Budovy > Nástroje): kiosk 3 500, nástěnný 6 500, billboard 12 000, oboustranný billboard 18 000, na silo 6 000, na zeď budovy 5 500 (naplocho na budovu) a závěsný 5 500 (na tyčích, dovnitř skladu).]]></cz>
+        <ru><![CDATA[Экран в реальном времени для ваших силосов, производств, загонов, силосных ям, складов тюков и поддонов, куч навоза, теплиц и ульев, а также для всей фермы: поля, погода, техника, контракты, деньги.
+
+Поставьте его у хранилища, и он покажет в цвете, что в нём:
+- силосы: заполненность в процентах (зелёный, янтарный, красный от заданного уровня), занятая, свободная и общая вместимость, одна полоса, где у каждого продукта свой цвет
+- как быстро он заполняется или пустеет («+18 000 л/ч») и когда будет полон или пуст
+- производства: какие линии работают, каким не хватает сырья или у каких полон выходной склад; входы (IN) и выходы (OUT), пустые входы красным; какое сырьё кончится первым
+- загоны: число животных, корм, вода, солома, продуктивность и баки; на сколько хватит корма
+- силосные ямы: заполнение, брожение (в процентах) или готово; несколько ям рядом
+- склады тюков и поддонов: сколько из скольких и каждый продукт с числом тюков или поддонов
+- ульи: число ульев, мёд в день и его стоимость, место для поддонов
+- каждый продукт со своим значком, количеством, полосой заполнения и процентом, всё сразу (до 42, до 3 столбцов; остальное на следующих страницах, также через Page Up / Page Down)
+
+Экраны для всей фермы:
+- мои поля: культура на каждом поле, насколько она выросла, какие готовы к уборке (первыми), засохли или ждут посева и что нужно каждому (известь, удобрение, вспашка, прикатывание, сорняки)
+- погода: температура, погода сейчас, в ближайшие часы и дни, когда она изменится и сухие ли посевы
+- моя техника: работники за делом, топливо и повреждения каждой машины; мало топлива и повреждения первыми
+- мои контракты: каждый активный контракт с местом, наградой и прогрессом
+- все мои загоны и все мои производства, каждое на одном экране, сначала те, что требуют внимания
+- все силосы моей фермы и деньги моей фермы (баланс, кредит, доступный кредит, сегодняшние доходы и расходы)
+
+История: переключите экран на «История (24 ч)», и он покажет столбчатую диаграмму заполненности хранилища за последние игровые сутки (для денег фермы: баланс).
+
+Табло цен: переключите экран на цены, и он покажет для каждого продукта в хранилище лучшую цену и где его продать, вырастет или упадёт цена в следующем месяце и сколько стоят запасы.
+
+Слайд-шоу: отметьте несколько экранов, и монитор будет показывать их по очереди (от 10 до 60 секунд каждый).
+
+Оповещения: мигающая красная полоса и строка внизу экрана, когда силос почти полон (от заданного уровня), закончилось сырьё, у животных мало корма или воды, бак полон, поля готовы к уборке, у работника кончается топливо, приближается дождь или продукт продаётся по цене, которую вы ждёте. По желанию также игровым сообщением для всех на ферме.
+
+Встаньте перед ним и нажмите клавишу действия, чтобы открыть настройки: экран хранилища или фермы, подключённые силосы, размер экрана (ширина от 0,8 до 6 м), яркость (5 уровней, читается ночью), цвета (ночной синий, зелёный DTM, янтарный терминал, дневной свет), свой заголовок, хранилище, цены или история, оповещения, уровень «почти полно», ценовое оповещение и слайд-шоу. Все на сервере видят одни и те же настройки, и они сохраняются вместе с игрой.
+
+Семь моделей (Здания > Инструменты): киоск 3 500, стена 6 500, билборд 12 000, двусторонний билборд 18 000, на силос 6 000, на стену здания 5 500 (вплотную к зданию) и подвесной 5 500 (на штангах, для установки внутри склада).]]></ru>
+        <uk><![CDATA[Екран у реальному часі для ваших силосів, виробництв, загонів, силосних ям, складів тюків і палет, куп гною, теплиць і вуликів, а також для всієї ферми: поля, погода, техніка, контракти, гроші.
+
+Поставте його біля сховища, і він покаже в кольорі, що в ньому:
+- силоси: заповненість у відсотках (зелений, бурштиновий, червоний від заданого рівня), зайнята, вільна й загальна місткість, одна смуга, де кожен продукт має свій колір
+- як швидко воно заповнюється чи порожніє («+18 000 л/год») і коли буде повним або порожнім
+- виробництва: які лінії працюють, яким бракує сировини або в яких повний вихідний склад; входи (IN) і виходи (OUT), порожні входи червоним; яка сировина скінчиться першою
+- загони: кількість тварин, корм, вода, солома, продуктивність і баки; на скільки вистачить корму
+- силосні ями: заповнення, бродіння (у відсотках) або готово; кілька ям поруч
+- склади тюків і палет: скільки з скількох і кожен продукт із кількістю тюків чи палет
+- вулики: кількість вуликів, мед за день і його вартість, місце для палет
+- кожен продукт зі своїм значком, кількістю, смугою заповнення й відсотком, усе одразу (до 42, до 3 стовпців; решта на наступних сторінках, також через Page Up / Page Down)
+
+Екрани для всієї ферми:
+- мої поля: культура на кожному полі, наскільки вона виросла, які готові до збирання (першими), засохли чи чекають посіву і що потрібно кожному (вапно, добриво, оранка, прикочування, бур'яни)
+- погода: температура, погода зараз, у найближчі години й дні, коли вона зміниться і чи сухі посіви
+- моя техніка: працівники при ділі, пальне й пошкодження кожної машини; мало пального й пошкодження першими
+- мої контракти: кожен активний контракт із місцем, винагородою та прогресом
+- усі мої загони й усі мої виробництва, кожне на одному екрані, спершу ті, що потребують уваги
+- усі силоси моєї ферми та гроші моєї ферми (баланс, кредит, доступний кредит, сьогоднішні доходи й витрати)
+
+Історія: перемкніть екран на «Історія (24 год)», і він покаже стовпчикову діаграму заповненості сховища за останню ігрову добу (для грошей ферми: баланс).
+
+Табло цін: перемкніть екран на ціни, і він покаже для кожного продукту в сховищі найкращу ціну та де його продати, чи зросте або впаде ціна наступного місяця і скільки варті запаси.
+
+Слайд-шоу: позначте кілька екранів, і монітор показуватиме їх по черзі (від 10 до 60 секунд кожен).
+
+Сповіщення: блимаюча червона смуга й рядок унизу екрана, коли силос майже повний (від заданого рівня), скінчилася сировина, тваринам бракує корму чи води, бак повний, поля готові до збирання, у працівника закінчується пальне, наближається дощ або продукт продається за ціною, на яку ви чекаєте. За бажанням також ігровим повідомленням для всіх на фермі.
+
+Станьте перед ним і натисніть клавішу дії, щоб відкрити налаштування: екран сховища чи ферми, під'єднані силоси, розмір екрана (ширина від 0,8 до 6 м), яскравість (5 рівнів, читається вночі), кольори (нічний синій, зелений DTM, бурштиновий термінал, денне світло), власний заголовок, сховище, ціни чи історія, сповіщення, рівень «майже повно», цінове сповіщення та слайд-шоу. Усі на сервері бачать однакові налаштування, і вони зберігаються разом із грою.
+
+Сім моделей (Будівлі > Інструменти): кіоск 3 500, стіна 6 500, білборд 12 000, двосторонній білборд 18 000, на силос 6 000, на стіну будівлі 5 500 (впритул до будівлі) і підвісний 5 500 (на штангах, для встановлення всередині складу).]]></uk>
+        <hu><![CDATA[Élő kijelző a silóidhoz, termeléseidhez, állattartó karámjaidhoz, silóárkaidhoz, bála- és raklaptárolóidhoz, trágyadombjaidhoz, üvegházaidhoz és méhkaptáraidhoz, valamint az egész farmodhoz: földek, időjárás, járművek, szerződések, pénz.
+
+Tedd le egy tároló mellé, és színesen megmutatja, mi van benne:
+- silók: töltöttség százalékban (zöld, borostyán, piros a beállított szinttől), foglalt, szabad és teljes kapacitás, egyetlen sáv, amelyben minden termék a saját színével szerepel
+- milyen gyorsan telik vagy ürül ("+18 000 l/h"), és mikor lesz tele vagy üres
+- termelések: mely sorok futnak, melyekből hiányzik alapanyag, vagy melyeknek tele van a kimeneti tárolója; bemenetek (IN) és kimenetek (OUT), az üres bemenetek pirossal; melyik alapanyag fogy el először
+- állattartó karámok: az állatok száma, takarmány, víz, szalma, termelékenység és a tartályok; meddig elég a takarmány
+- silóárkok: töltés, erjedés (százalékban) vagy kész; több árok egymás mellett
+- bála- és raklaptárolók: hány darab a maximumból, és minden termék a bálák vagy raklapok számával
+- méhkaptárak: kaptárak, napi méz és annak értéke, a raklaphely
+- minden termék saját ikonnal, mennyiséggel, töltöttségi sávval és százalékkal, egyszerre (legfeljebb 42, legfeljebb 3 oszlopban; a többi további oldalakon, Page Up / Page Down gombbal is)
+
+Képernyők az egész farmhoz:
+- saját földjeim: a termény minden földön, mennyire nőtt meg, melyek arathatók (elöl), elszáradtak vagy vetésre várnak, és mire van szükségük (mész, trágya, szántás, hengerezés, gyom)
+- időjárás: a hőmérséklet, az időjárás most, a következő órákban és napokban, mikor változik, és szárazak-e a termények
+- saját járműveim: dolgozó segítők, minden jármű üzemanyaga és sérülése; a kevés üzemanyag és a sérülés elöl
+- saját szerződéseim: minden futó szerződés helyszínnel, jutalommal és készültséggel
+- összes állattartó karámom és összes termelésem egy-egy képernyőn, elöl azok, amelyeknek rád van szükségük
+- a farmom összes silója és a farmom pénze (egyenleg, hitel, szabad hitelkeret, mai bevétel és kiadás)
+
+Előzmények: állítsd a képernyőt "Előzmények (24 ó)" módra, és oszlopdiagramon mutatja, mennyire volt tele a tároló az elmúlt játéknapon (a farm pénzénél: az egyenleg).
+
+Ártábla: állítsd a képernyőt árakra, és a tároló minden termékéhez mutatja a legjobb árat és hogy hol adhatod el, hogy az ár a jövő hónapban emelkedik vagy csökken, és mennyit ér a készlet.
+
+Diavetítés: jelölj be több képernyőt, és a monitor felváltva mutatja őket (egyenként 10-60 másodpercig).
+
+Riasztások: villogó piros csík és egy sor a láblécben, ha egy siló majdnem tele van (a beállított szinttől), egy alapanyag elfogyott, az állatoknak fogy a takarmánya vagy a vize, egy tartály tele van, földek arathatók, egy segítőnek fogy az üzemanyaga, eső közeleg, vagy egy termék azon az áron kel el, amire vársz. Kérésre játékbeli üzenetként is a farm minden tagjának.
+
+Állj elé, és nyomd meg az aktiválás gombot a beállításokhoz: tároló- vagy farmképernyő, csatlakoztatott silók, képernyőméret (0,8-6 m széles), fényerő (5 fokozat, éjjel is olvasható), színek (éjkék, DTM zöld, borostyán terminál, nappali fény), saját cím, tároló, árak vagy előzmények, riasztások, a majdnem tele szint, árriasztás és a diavetítés. A szerveren mindenki ugyanazokat a beállításokat látja, és ezek a játékkal együtt mentődnek.
+
+Hét modell (Épületek > Eszközök): kioszk 3 500, fali 6 500, óriásplakát 12 000, kétoldalas óriásplakát 18 000, silóra szerelt 6 000, épületfalra szerelt 5 500 (laposan az épületen) és függesztett 5 500 (rudakon, tárolón belülre).]]></hu>
+        <ro><![CDATA[Un ecran în timp real pentru silozurile, producțiile, țarcurile de animale, silozurile buncăr, magaziile de baloți sau paleți, grămezile de gunoi de grajd, serele și stupii tăi, dar și pentru toată ferma: câmpuri, vreme, vehicule, contracte, bani.
+
+Așază-l lângă un depozit și îți arată color ce este în el:
+- silozuri: cât de plin e în procente (verde, chihlimbar, roșu de la nivelul ales), capacitatea ocupată, liberă și totală, o singură bară cu fiecare produs în propria culoare
+- cât de repede se umple sau se golește ("+18.000 l/h") și când va fi plin sau gol
+- producții: ce linii funcționează, căror le lipsesc materii prime sau au depozitul de ieșire plin; intrări (IN) și ieșiri (OUT), intrările goale cu roșu; ce materie primă se termină prima
+- țarcuri de animale: numărul de animale, hrană, apă, paie, productivitate și rezervoarele; cât timp ajunge hrana
+- silozuri buncăr: umplere, fermentare (în procente) sau gata; mai multe buncăre unul lângă altul
+- magazii de baloți și paleți: câți din câți și fiecare produs cu numărul său de baloți sau paleți
+- stupi: numărul de stupi, mierea pe zi și cât valorează, locul pentru paleți
+- fiecare produs cu propria pictogramă, cantitate, bară de umplere și procent, toate odată (până la 42, în până la 3 coloane; restul pe pagini următoare, și cu Page Up / Page Down)
+
+Ecrane pentru toată ferma:
+- câmpurile mele: cultura de pe fiecare câmp, cât a crescut, care sunt gata de recoltat (primele), uscate sau de semănat și de ce are nevoie fiecare (var, îngrășământ, arat, tăvălugit, buruieni)
+- vremea: temperatura, vremea acum, în următoarele ore și zile, când se schimbă și dacă culturile sunt uscate
+- vehiculele mele: muncitorii la lucru, combustibilul și daunele fiecărui vehicul; combustibilul puțin și daunele primele
+- contractele mele: fiecare contract activ cu locul, recompensa și progresul
+- toate țarcurile mele și toate producțiile mele, fiecare pe câte un ecran, întâi cele care au nevoie de tine
+- toate silozurile fermei mele și banii fermei mele (sold, împrumut, credit disponibil, veniturile și cheltuielile de azi)
+
+Istoric: comută ecranul pe „Istoric (24 h)” și arată ca grafic cu coloane cât de plin a fost depozitul în ultima zi din joc (pentru banii fermei: soldul).
+
+Panou de prețuri: comută ecranul pe prețuri și arată pentru fiecare produs din depozit cel mai bun preț și unde să-l vinzi, dacă prețul crește sau scade luna viitoare și cât valorează stocul.
+
+Prezentare: bifează mai multe ecrane și monitorul le arată pe rând (câte 10 până la 60 de secunde fiecare).
+
+Alerte: o bandă roșie care clipește și un rând în subsol când un siloz e aproape plin (de la nivelul ales), o materie primă s-a terminat, animalele rămân fără hrană sau apă, un rezervor e plin, câmpurile sunt gata de recoltat, unui muncitor i se termină combustibilul, vine ploaia sau un produs se vinde la prețul pe care îl aștepți. Opțional și ca mesaj în joc pentru toți cei din fermă.
+
+Stai în fața lui și apasă tasta de activare pentru setări: ecranul de depozit sau de fermă, silozurile conectate, mărimea ecranului (0,8 până la 6 m lățime), luminozitatea (5 niveluri, lizibil noaptea), culorile (albastru de noapte, verde DTM, terminal chihlimbar, lumina zilei), propriul titlu, depozit, prețuri sau istoric, alerte, nivelul aproape plin, o alertă de preț și prezentarea. Toți cei de pe server văd aceleași setări și ele se salvează odată cu jocul.
+
+Șapte modele (Clădiri > Unelte): chioșc 3.500, perete 6.500, panou publicitar 12.000, panou publicitar dublu 18.000, pe siloz 6.000, pe peretele clădirii 5.500 (lipit de clădire) și suspendat 5.500 (pe tije, pentru interiorul unei magazii).]]></ro>
+        <nl><![CDATA[Een live scherm voor je silo's, producties, dierenverblijven, sleufsilo's, balen- en palletloodsen, mesthopen, kassen en bijenkorven, en voor je hele boerderij: velden, weer, voertuigen, contracten, geld.
+
+Zet het bij een opslag en het toont wat erin zit, in kleur:
+- silo's: hoe vol in procent (groen, oranje, rood vanaf het ingestelde niveau), gebruikte, vrije en totale capaciteit, één balk met elk product in zijn eigen kleur
+- hoe snel het vult of leegloopt ("+18.000 l/h") en wanneer het vol of leeg is
+- producties: welke lijnen draaien, welke grondstoffen missen of een volle uitvoeropslag hebben; grondstoffen (IN) en producten (OUT), lege grondstoffen in rood; welke grondstof het eerst op is
+- dierenverblijven: aantal dieren, voer, water, stro, productiviteit en de tanks; hoe lang het voer nog reikt
+- sleufsilo's: vullen, fermenteren (in procent) of klaar; meerdere sleufsilo's naast elkaar
+- balen- en palletloodsen: hoeveel van hoeveel, en elk product met zijn aantal balen of pallets
+- bijenkorven: aantal korven, honing per dag en wat die waard is, de palletplek
+- elk product met een eigen pictogram, hoeveelheid, vulbalk en procent, allemaal tegelijk (tot 42, in maximaal 3 kolommen; bij meer wordt er gebladerd, ook met Page Up / Page Down)
+
+Schermen voor de hele boerderij:
+- mijn velden: het gewas op elk veld, hoe ver het gegroeid is, welke oogstklaar zijn (eerst), verdord of nog te zaaien, en wat elk veld nodig heeft (kalk, bemesting, ploegen, rollen, onkruid)
+- weer: de temperatuur, het weer nu, in de komende uren en de komende dagen, wanneer het omslaat, en of de gewassen droog zijn
+- mijn voertuigen: helpers aan het werk, brandstof en schade van elk voertuig; weinig brandstof en schade eerst
+- mijn contracten: elk lopend contract met waar, de beloning en hoe ver het is
+- al mijn dierenverblijven en al mijn producties op elk één scherm, eerst die jou nodig hebben
+- alle silo's van mijn boerderij, en het geld van mijn boerderij (saldo, lening, krediet over, inkomsten en kosten van vandaag)
+
+Verloop: zet een scherm op "Verloop (24 u)" en het toont als staafdiagram hoe vol de opslag was tijdens de laatste speldag (bij het geld van de boerderij: het saldo).
+
+Prijzenbord: zet het scherm op prijzen en het toont voor elk product in de opslag de beste prijs en waar je het verkoopt, of de prijs volgende maand stijgt of daalt, en wat de voorraad waard is.
+
+Diavoorstelling: vink meerdere schermen aan en de monitor toont ze om de beurt (elk 10 tot 60 seconden).
+
+Meldingen: een knipperende rode streep en een regel onderaan als een silo bijna vol is (vanaf het ingestelde niveau), een grondstof op is, dieren bijna geen voer of water meer hebben, een tank vol is, velden oogstklaar zijn, een helper zonder brandstof komt te staan, er regen aankomt, of een product de prijs oplevert waarop je wacht. Desgewenst ook als spelbericht voor iedereen op de boerderij.
+
+Ga ervoor staan en druk op de activeertoets voor de instellingen: de opslag of het boerderijscherm, gekoppelde silo's, schermgrootte (0,8 tot 6 m breed), helderheid (5 standen, 's nachts leesbaar), kleuren (nachtblauw, DTM-groen, amber terminal, daglicht), je eigen titel, opslag, prijzen of verloop, meldingen, het niveau voor bijna vol, een prijsmelding en de diavoorstelling. Iedereen op de server ziet dezelfde instellingen en ze worden met het spel opgeslagen.
+
+Zeven modellen (Gebouwen > Gereedschap): Kiosk 3.500, Muur 6.500, Reclamebord 12.000, Dubbelzijdig reclamebord 18.000, Silohouder 6.000, Wandhouder 5.500 (plat op een gebouw) en Hangend 5.500 (aan stangen, voor in een loods).]]></nl>
+        <da><![CDATA[En live skærm til dine siloer, produktioner, dyrestalde, plansiloer, balle- og pallelagre, møddinger, drivhuse og bistader, og til hele din gård: marker, vejr, køretøjer, kontrakter, penge.
+
+Stil den ved et lager, og den viser, hvad der er i det, i farver:
+- siloer: hvor fyldt i procent (grøn, ravgul, rød fra det niveau, du vælger), brugt, ledig og samlet kapacitet, én bjælke med hvert produkt i sin egen farve
+- hvor hurtigt det fyldes eller tømmes ("+18.000 l/h"), og hvornår det er fuldt eller tomt
+- produktioner: hvilke linjer der kører, hvilke der mangler råvarer eller har et fuldt produktlager; råvarer (IN) og produkter (OUT), tomme råvarer i rødt; hvilken råvare der slipper op først
+- dyrestalde: antal dyr, foder, vand, halm, produktivitet og tankene; hvor længe foderet rækker
+- plansiloer: fyldes, gærer (i procent) eller klar; flere plansiloer side om side
+- balle- og pallelagre: hvor mange af hvor mange, og hvert produkt med sit antal baller eller paller
+- bistader: antal stader, honning pr. dag og hvad den er værd, pallepladsen
+- hvert produkt med sit eget ikon, mængde, fyldebjælke og procent, alle på én gang (op til 42, i op til 3 kolonner; flere bladrer, også med Page Up / Page Down)
+
+Skærme for hele gården:
+- mine marker: afgrøden på hver mark, hvor langt den er vokset, hvilke der er klar til høst (først), visnet eller skal sås, og hvad hver mark har brug for (kalk, gødning, pløjning, tromling, ukrudt)
+- vejr: temperaturen, vejret nu, de næste timer og de næste dage, hvornår det skifter, og om afgrøderne er tørre
+- mine køretøjer: medhjælpere i gang, brændstof og skade på hvert køretøj; lidt brændstof og skader først
+- mine kontrakter: hver aktiv kontrakt med hvor, belønningen og hvor langt den er
+- alle mine dyrestalde og alle mine produktioner på hver sin skærm, dem der har brug for dig først
+- alle siloer på min gård, og min gårds penge (saldo, lån, kredit tilbage, dagens indtægter og udgifter)
+
+Historik: sæt en skærm til "Historik (24 t)", og den viser som søjlediagram, hvor fyldt lageret var det sidste spildøgn (for gårdens penge: saldoen).
+
+Pristavle: sæt skærmen til priser, og den viser for hvert produkt i lageret den bedste pris og hvor det sælges, om prisen stiger eller falder næste måned, og hvad beholdningen er værd.
+
+Diasshow: sæt hak ved flere skærme, og monitoren viser dem på skift (10 til 60 sekunder hver).
+
+Advarsler: en blinkende rød stribe og en linje i bunden, når en silo er næsten fuld (fra det niveau, du vælger), en råvare er tom, dyrene mangler foder eller vand, en tank er fuld, marker er klar til høst, en medhjælper løber tør for brændstof, der kommer regn, eller et produkt sælges for den pris, du venter på. Hvis ønsket også som spilbesked til alle på gården.
+
+Stil dig foran den, og tryk på aktiveringstasten for indstillingerne: lageret eller gårdskærmen, forbundne siloer, skærmstørrelse (0,8 til 6 m bred), lysstyrke (5 niveauer, læsbar om natten), farver (natteblå, DTM-grøn, ravgul terminal, dagslys), din egen titel, lager, priser eller historik, advarsler, niveauet for næsten fuld, en prisadvarsel og diasshowet. Alle på serveren ser de samme indstillinger, og de gemmes med spillet.
+
+Syv modeller (Bygninger > Værktøj): Kiosk 3.500, Væg 6.500, Reklameskilt 12.000, Dobbeltsidet reklameskilt 18.000, Siloholder 6.000, Vægbeslag 5.500 (fladt på en bygning) og Hængende 5.500 (på stænger, til inde i en hal).]]></da>
+        <sv><![CDATA[En live-skärm för dina silor, produktioner, djurstallar, plansilor, bal- och pallager, gödselstackar, växthus och bikupor, och för hela din gård: fält, väder, fordon, kontrakt, pengar.
+
+Placera den vid ett lager så visar den vad som finns i det, i färg:
+- silor: hur fullt i procent (grönt, gult, rött från den nivå du väljer), använd, ledig och total kapacitet, en stapel med varje produkt i sin egen färg
+- hur snabbt det fylls eller töms ("+18 000 l/h") och när det är fullt eller tomt
+- produktioner: vilka linjer som går, vilka som saknar råvaror eller har ett fullt utlager; råvaror (IN) och produkter (OUT), tomma råvaror i rött; vilken råvara som tar slut först
+- djurstallar: antal djur, foder, vatten, halm, produktivitet och tankarna; hur länge fodret räcker
+- plansilor: fylls, jäser (i procent) eller klar; flera plansilor bredvid varandra
+- bal- och pallager: hur många av hur många, och varje produkt med sitt antal balar eller pallar
+- bikupor: antal kupor, honung per dag och vad den är värd, pallplatsen
+- varje produkt med egen ikon, mängd, nivåstapel och procent, alla på en gång (upp till 42, i upp till 3 kolumner; fler bläddrar, även med Page Up / Page Down)
+
+Skärmar för hela gården:
+- mina fält: grödan på varje fält, hur långt den har vuxit, vilka som är redo för skörd (först), vissnade eller ska sås, och vad varje fält behöver (kalk, gödsel, plöjning, vältning, ogräs)
+- väder: temperaturen, vädret nu, de närmaste timmarna och de närmaste dagarna, när det slår om, och om grödorna är torra
+- mina fordon: medhjälpare i arbete, bränsle och skador på varje fordon; lite bränsle och skador först
+- mina kontrakt: varje pågående kontrakt med var, belöningen och hur långt det har kommit
+- alla mina djurstallar och alla mina produktioner på var sin skärm, de som behöver dig först
+- alla silor på min gård, och min gårds pengar (saldo, lån, kredit kvar, dagens intäkter och kostnader)
+
+Historik: ställ en skärm på "Historik (24 h)" så visar den som stapeldiagram hur fullt lagret var under det senaste speldygnet (för gårdens pengar: saldot).
+
+Pristavla: ställ skärmen på priser så visar den för varje produkt i lagret det bästa priset och var det säljs, om priset stiger eller sjunker nästa månad, och vad lagret är värt.
+
+Bildspel: kryssa för flera skärmar så visar monitorn dem i tur och ordning (10 till 60 sekunder var).
+
+Varningar: en blinkande röd rand och en rad längst ner när en silo är nästan full (från den nivå du väljer), en råvara är slut, djuren har ont om foder eller vatten, en tank är full, fält är redo för skörd, en medhjälpare får slut på bränsle, regn är på väg, eller en produkt säljs för det pris du väntar på. Vid önskemål även som spelmeddelande till alla på gården.
+
+Ställ dig framför den och tryck på aktiveringsknappen för inställningarna: lagret eller gårdsskärmen, anslutna silor, skärmstorlek (0,8 till 6 m bred), ljusstyrka (5 nivåer, läsbar på natten), färger (nattblå, DTM-grön, bärnstensterminal, dagsljus), din egen titel, lager, priser eller historik, varningar, nivån för nästan full, en prisvarning och bildspelet. Alla på servern ser samma inställningar och de sparas med spelet.
+
+Sju modeller (Byggnader > Verktyg): Kiosk 3 500, Vägg 6 500, Reklamskylt 12 000, Dubbelsidig reklamskylt 18 000, Silofäste 6 000, Väggfäste 5 500 (platt på en byggnad) och Hängande 5 500 (i stänger, för inne i en hall).]]></sv>
+        <no><![CDATA[En levende skjerm for siloene, produksjonene, dyrefjøsene, plansiloene, ball- og pallelagrene, møkkhaugene, drivhusene og bikubene dine, og for hele gården din: jorder, vær, kjøretøy, kontrakter, penger.
+
+Plasser den ved et lager, så viser den hva som er i det, i farger:
+- siloer: hvor fullt i prosent (grønt, gult, rødt fra nivået du velger), brukt, ledig og total kapasitet, én søyle med hvert produkt i sin egen farge
+- hvor raskt det fylles eller tømmes ("+18 000 l/h") og når det er fullt eller tomt
+- produksjoner: hvilke linjer som går, hvilke som mangler råvarer eller har fullt utlager; råvarer (IN) og produkter (OUT), tomme råvarer i rødt; hvilken råvare som går tom først
+- dyrefjøs: antall dyr, fôr, vann, halm, produktivitet og tankene; hvor lenge fôret varer
+- plansiloer: fylles, gjærer (i prosent) eller klar; flere plansiloer side om side
+- ball- og pallelagre: hvor mange av hvor mange, og hvert produkt med antall baller eller paller
+- bikuber: antall kuber, honning per dag og hva den er verdt, pallplassen
+- hvert produkt med eget ikon, mengde, fyllingssøyle og prosent, alle på en gang (opptil 42, i opptil 3 kolonner; flere blar om, også med Page Up / Page Down)
+
+Skjermbilder for hele gården:
+- mine jorder: avlingen på hvert jorde, hvor langt den har vokst, hvilke som er klare til høsting (først), visnet eller skal sås, og hva hvert jorde trenger (kalk, gjødsel, pløying, valsing, ugress)
+- vær: temperaturen, været nå, de neste timene og de neste dagene, når det skifter, og om avlingene er tørre
+- mine kjøretøy: medhjelpere i arbeid, drivstoff og skade på hvert kjøretøy; lite drivstoff og skader først
+- mine kontrakter: hver aktiv kontrakt med hvor, belønningen og hvor langt den har kommet
+- alle mine dyrefjøs og alle mine produksjoner på hvert sitt skjermbilde, de som trenger deg først
+- alle siloer på gården min, og gårdens penger (saldo, lån, kreditt igjen, dagens inntekter og kostnader)
+
+Historikk: sett et skjermbilde til "Historikk (24 t)", så viser det som søylediagram hvor fullt lageret var det siste spilldøgnet (for gårdens penger: saldoen).
+
+Pristavle: sett skjermen til priser, så viser den for hvert produkt i lageret den beste prisen og hvor det selges, om prisen stiger eller faller neste måned, og hva beholdningen er verdt.
+
+Bildeserie: kryss av flere skjermbilder, så viser skjermen dem etter tur (10 til 60 sekunder hver).
+
+Varsler: en blinkende rød stripe og en linje nederst når en silo er nesten full (fra nivået du velger), en råvare er tom, dyrene har lite fôr eller vann, en tank er full, jorder er klare til høsting, en medhjelper går tom for drivstoff, det kommer regn, eller et produkt selges for prisen du venter på. Om ønskelig også som spillmelding til alle på gården.
+
+Stå foran den og trykk på aktiveringstasten for innstillingene: lageret eller gårdsskjermbildet, tilkoblede siloer, skjermstørrelse (0,8 til 6 m bred), lysstyrke (5 nivåer, lesbar om natten), farger (nattblå, DTM-grønn, ravgul terminal, dagslys), din egen tittel, lager, priser eller historikk, varsler, nivået for nesten full, et prisvarsel og bildeserien. Alle på serveren ser de samme innstillingene, og de lagres med spillet.
+
+Sju modeller (Bygninger > Verktøy): Kiosk 3 500, Vegg 6 500, Reklametavle 12 000, Tosidig reklametavle 18 000, Siloholder 6 000, Veggfeste 5 500 (flatt på en bygning) og Hengende 5 500 (i stenger, for inne i en hall).]]></no>
+        <fi><![CDATA[Live-näyttö siiloillesi, tuotannoillesi, eläinsuojillesi, aumasiiloillesi, paali- ja lavavarastoillesi, lantakasoillesi, kasvihuoneillesi ja mehiläispesillesi sekä koko tilallesi: pellot, sää, ajoneuvot, sopimukset, rahat.
+
+Sijoita se varaston luo, niin se näyttää värein, mitä varastossa on:
+- siilot: täyttöaste prosentteina (vihreä, keltainen, punainen asettamastasi rajasta alkaen), käytetty, vapaa ja kokonaiskapasiteetti, yksi palkki, jossa jokainen tuote on omalla värillään
+- kuinka nopeasti se täyttyy tai tyhjenee ("+18 000 l/h") ja milloin se on täynnä tai tyhjä
+- tuotannot: mitkä linjat käyvät, miltä puuttuu raaka-aineita tai minkä tuotevarasto on täynnä; raaka-aineet (IN) ja tuotteet (OUT), loppuneet raaka-aineet punaisella; mikä raaka-aine loppuu ensin
+- eläinsuojat: eläinten määrä, rehu, vesi, olki, tuottavuus ja säiliöt; kuinka kauan rehu riittää
+- aumasiilot: täytetään, käymässä (prosentteina) tai valmis; useita aumasiiloja rinnakkain
+- paali- ja lavavarastot: montako paikoista on käytössä, ja jokainen tuote paalien tai lavojen määrineen
+- mehiläispesät: pesät, hunaja päivässä ja sen arvo, lavapaikka
+- jokainen tuote omalla kuvakkeellaan, määrällä, täyttöpalkilla ja prosentilla, kaikki kerralla (enintään 42, enintään 3 sarakkeessa; loput seuraavilla sivuilla, myös Page Up / Page Down -näppäimillä)
+
+Näkymät koko tilalle:
+- peltoni: kasvusto jokaisella pellolla, kuinka pitkälle se on kasvanut, mitkä ovat korjuuvalmiita (ensin), kuihtuneita tai kylvettäviä, ja mitä kukin tarvitsee (kalkitus, lannoitus, kyntö, jyräys, rikkakasvit)
+- sää: lämpötila, sää nyt, seuraavina tunteina ja seuraavina päivinä, milloin se muuttuu, ja ovatko kasvustot kuivia
+- ajoneuvoni: työssä olevat apulaiset, jokaisen ajoneuvon polttoaine ja vauriot; vähän polttoainetta ja vauriot ensin
+- sopimukseni: jokainen käynnissä oleva sopimus sijainnin, palkkion ja edistymisen kanssa
+- kaikki eläinsuojani ja kaikki tuotantoni kumpikin omalla näkymällään, sinua tarvitsevat ensin
+- kaikki tilani siilot ja tilani rahat (saldo, laina, luottoa jäljellä, tämän päivän tulot ja kulut)
+
+Historia: vaihda näkymäksi "Historia (24 h)", niin se näyttää pylväskaaviona, kuinka täynnä varasto oli viimeisen pelivuorokauden aikana (tilan rahoista: saldo).
+
+Hintataulu: vaihda näyttö hintoihin, niin se näyttää jokaiselle varaston tuotteelle parhaan hinnan ja myyntipaikan, nouseeko vai laskeeko hinta ensi kuussa, ja mitä varasto on arvoltaan.
+
+Diaesitys: valitse useita näkymiä, niin näyttö näyttää ne vuorotellen (kukin 10–60 sekuntia).
+
+Hälytykset: vilkkuva punainen raita ja rivi alareunassa, kun siilo on lähes täynnä (asettamastasi rajasta alkaen), raaka-aine on lopussa, eläimiltä on loppumassa rehu tai vesi, säiliö on täynnä, peltoja on korjuuvalmiina, apulaiselta loppuu polttoaine, sadetta on tulossa tai tuotteesta maksetaan odottamasi hinta. Halutessasi myös pelin viestinä kaikille tilan pelaajille.
+
+Seiso sen edessä ja paina aktivointinäppäintä avataksesi asetukset: varasto tai tilan näkymä, yhdistetyt siilot, näytön koko (0,8–6 m leveä), kirkkaus (5 tasoa, luettavissa yölläkin), värit (yönsininen, DTM-vihreä, meripihkapääte, päivänvalo), oma otsikko, varasto, hinnat tai historia, hälytykset, lähes täynnä -raja, hintahälytys ja diaesitys. Kaikki palvelimella näkevät samat asetukset, ja ne tallentuvat pelin mukana.
+
+Seitsemän mallia (Rakennukset > Työkalut): Kioski 3 500, Seinä 6 500, Mainostaulu 12 000, Kaksipuolinen mainostaulu 18 000, Siiloteline 6 000, Seinäteline 5 500 (litteänä rakennuksen seinällä) ja Riippuva 5 500 (tankojen varassa, hallin sisälle).]]></fi>
+        <tr><![CDATA[Siloların, üretimlerin, hayvan ağılların, silaj siloların, balya ve palet depoların, gübre yığınların, seraların ve arı kovanların için, ayrıca tüm çiftliğin için canlı bir ekran: tarlalar, hava durumu, araçlar, sözleşmeler, para.
+
+Bir deponun yanına koy, içinde ne olduğunu renkli olarak gösterir:
+- silolar: yüzde olarak doluluk (yeşil, sarı, belirlediğin seviyeden itibaren kırmızı), kullanılan, boş ve toplam kapasite, her ürünün kendi renginde olduğu tek bir çubuk
+- ne kadar hızlı dolduğu ya da boşaldığı ("+18.000 l/h") ve ne zaman dolu ya da boş olacağı
+- üretimler: hangi hatların çalıştığı, hangilerinde girdi eksik ya da çıktı deposu dolu; girdiler (IN) ve çıktılar (OUT), biten girdiler kırmızı; hangi girdinin önce biteceği
+- hayvan ağılları: hayvan sayısı, yem, su, saman, verimlilik ve tanklar; yemin ne kadar yeteceği
+- silaj siloları: doluyor, fermente oluyor (yüzde olarak) ya da hazır; birkaç silo yan yana
+- balya ve palet depoları: kaçta kaç dolu ve her ürün balya ya da palet sayısıyla
+- arı kovanları: kovanlar, günlük bal ve değeri, palet yeri
+- her ürün kendi simgesi, miktarı, doluluk çubuğu ve yüzdesiyle, hepsi bir arada (en fazla 42, en fazla 3 sütunda; fazlası sayfa çevirir, Page Up / Page Down ile de)
+
+Tüm çiftlik için ekranlar:
+- tarlalarım: her tarladaki ürün, ne kadar büyüdüğü, hangilerinin hasada hazır (önce), kurumuş ya da ekilecek olduğu ve her birinin neye ihtiyacı olduğu (kireç, gübre, sürüm, merdane, yabani ot)
+- hava durumu: sıcaklık, şu anki hava, sonraki saatler ve sonraki günler, havanın ne zaman değişeceği ve ürünlerin kuru olup olmadığı
+- araçlarım: çalışan yardımcılar, her aracın yakıtı ve hasarı; yakıtı az olanlar ve hasarlılar önce
+- sözleşmelerim: süren her sözleşme yeri, ödülü ve ilerlemesiyle
+- tüm hayvan ağıllarım ve tüm üretimlerim ayrı birer ekranda, ilgilenmen gerekenler önce
+- çiftliğimin tüm siloları ve çiftliğimin parası (bakiye, kredi, kalan kredi limiti, bugünkü gelir ve giderler)
+
+Geçmiş: bir ekranı "Geçmiş (24 sa)" olarak ayarla, deponun son oyun gününde ne kadar dolu olduğunu sütun grafik olarak gösterir (çiftliğin parasında: bakiye).
+
+Fiyat panosu: ekranı fiyatlara ayarla, depodaki her ürün için en iyi fiyatı ve nerede satılacağını, fiyatın gelecek ay yükselip düşeceğini ve stokun ne kadar ettiğini gösterir.
+
+Slayt gösterisi: birkaç ekranı işaretle, monitör onları sırayla gösterir (her biri 10 ila 60 saniye).
+
+Uyarılar: bir silo neredeyse dolduğunda (belirlediğin seviyeden itibaren), bir girdi bittiğinde, hayvanların yemi veya suyu azaldığında, bir tank dolduğunda, tarlalar hasada hazır olduğunda, bir yardımcının yakıtı bittiğinde, yağmur yaklaştığında ya da bir ürün beklediğin fiyata satıldığında yanıp sönen kırmızı bir şerit ve altta bir satır. İstersen çiftlikteki herkes için oyun mesajı olarak da.
+
+Önünde dur ve ayarlar için etkinleştirme tuşuna bas: depo ya da çiftlik ekranı, bağlı silolar, ekran boyutu (0,8 ila 6 m genişlik), parlaklık (5 seviye, gece okunabilir), renkler (gece mavisi, DTM yeşili, kehribar terminal, gün ışığı), kendi başlığın, depo, fiyatlar ya da geçmiş, uyarılar, neredeyse dolu eşiği, fiyat uyarısı ve slayt gösterisi. Sunucudaki herkes aynı ayarları görür ve ayarlar oyunla birlikte kaydedilir.
+
+Yedi model (Binalar > Aletler): Kiosk 3.500, Duvar 6.500, Reklam Panosu 12.000, Çift Taraflı Reklam Panosu 18.000, Silo Montajlı 6.000, Duvar Montajlı 5.500 (bir binaya düz olarak) ve Asılı 5.500 (çubuklarla, bir sundurmanın içi için).]]></tr>
+        <jp><![CDATA[サイロ、生産施設、畜舎、バンカーサイロ、ベール・パレット倉庫、堆肥置き場、温室、養蜂箱、そして農場全体（畑、天気、車両、契約、資金）を表示するライブスクリーンです。
+
+保管庫のそばに設置すると、中身をカラーで表示します：
+- サイロ：充填率（%）（設定した基準に応じて緑、黄、赤）、使用量、空き容量、総容量、各製品を色分けした1本のバー
+- 増減のペース（「+18,000 l/h」）と、満杯・空になるまでの時間
+- 生産施設：稼働中のライン、原料不足や産出物が満杯のライン、投入物（IN）と産出物（OUT）、空の投入物は赤、最初に切れる原料
+- 畜舎：動物の数、飼料、水、わら、生産性、タンク、飼料が持つ期間
+- バンカーサイロ：充填中、発酵中（%）、完成。複数のバンカーを並べて表示
+- ベール・パレット倉庫：保管数と最大数、各製品のベールやパレットの数
+- 養蜂箱：巣箱の数、1日のはちみつ量とその価値、パレット置き場
+- 全製品をアイコン、量、充填バー、%付きで一度に表示（最大42品目、最大3列。それ以上はページ切り替え、Page Up / Page Down にも対応）
+
+農場全体の画面：
+- 自分の畑：各畑の作物、生育状況、収穫可能な畑（先頭に表示）、枯れた畑、種まき待ちの畑、必要な作業（石灰、肥料、耕起、ローラー、雑草）
+- 天気：気温、現在の天気、この先数時間と数日の天気、天気が変わる時期、作物が乾いているかどうか
+- 自分の車両：作業中のヘルパー、全車両の燃料と損傷。燃料不足や損傷のある車両を先頭に表示
+- 自分の契約：進行中の全契約の場所、報酬、進捗
+- 全畜舎と全生産施設をそれぞれ1画面にまとめて表示。対応が必要なものを先頭に表示
+- 自分の農場の全サイロと農場の資金（残高、借入金、借入可能額、本日の収入と支出）
+
+履歴：画面を「履歴（24時間）」に切り替えると、ゲーム内の過去1日の保管庫の充填量を棒グラフで表示します（農場の資金の場合は残高）。
+
+価格ボード：画面を価格に切り替えると、保管庫内の各製品について、最高価格とその売却先、来月価格が上がるか下がるか、在庫の価値を表示します。
+
+スライドショー：複数の画面にチェックを入れると、モニターが順番に表示します（1画面10～60秒）。
+
+警告：サイロがほぼ満杯（設定した基準から）、原料が空、動物の飼料や水が不足、タンクが満杯、畑が収穫可能、ヘルパーの燃料切れ、雨が近い、または製品が待っていた価格で売れるとき、赤いストライプが点滅し、フッターに1行表示されます。オプションで、農場の全員にゲーム内メッセージとしても通知できます。
+
+モニターの前に立って起動キーを押すと設定を開けます：保管庫または農場画面、接続されたサイロ、画面サイズ（幅0.8～6 m）、明るさ（5段階、夜間も見やすい）、配色（ナイトブルー、DTMグリーン、アンバー端末、デイライト）、独自のタイトル、保管庫・価格・履歴の表示切替、警告、ほぼ満杯の基準、価格アラート、スライドショー。サーバー上の全員が同じ設定を見ることができ、設定はゲームと一緒に保存されます。
+
+7種類のモデル（建物 > ツール）：キオスク 3,500、ウォール 6,500、看板 12,000、両面看板 18,000、サイロ取付 6,000、壁掛け 5,500（建物に平らに取り付け）、吊り下げ 5,500（ロッドで吊るす、倉庫内向け）。]]></jp>
+        <kr><![CDATA[사일로, 생산 시설, 축사, 벙커 사일로, 곤포·팔레트 창고, 퇴비 더미, 온실, 벌통, 그리고 농장 전체(밭, 날씨, 차량, 계약, 자금)를 보여 주는 실시간 화면입니다.
+
+저장소 옆에 설치하면 안에 무엇이 있는지 컬러로 보여 줍니다:
+- 사일로: 충전율(%)(설정한 기준에 따라 녹색, 주황색, 빨간색), 사용량, 여유 용량, 전체 용량, 제품마다 다른 색으로 표시되는 막대 하나
+- 채워지거나 비워지는 속도("+18,000 l/h")와 가득 차거나 바닥나는 시점
+- 생산 시설: 가동 중인 라인, 투입물이 부족하거나 산출물 저장소가 가득 찬 라인, 투입물(IN)과 산출물(OUT), 비어 있는 투입물은 빨간색, 가장 먼저 바닥나는 투입물
+- 축사: 동물 수, 사료, 물, 짚, 생산성, 탱크, 사료가 남은 기간
+- 벙커 사일로: 채우는 중, 발효 중(%) 또는 완료, 여러 벙커를 나란히 표시
+- 곤포·팔레트 창고: 보관 수와 최대 수, 제품별 곤포 또는 팔레트 수
+- 벌통: 벌통 수, 하루 꿀 생산량과 그 가치, 팔레트 자리
+- 모든 제품을 아이콘, 양, 충전 막대, %와 함께 한 번에 표시(최대 42개, 최대 3열, 그 이상은 페이지 전환, Page Up / Page Down 사용 가능)
+
+농장 전체 화면:
+- 내 밭: 밭마다 작물, 생육 정도, 수확 가능한 밭(맨 위), 시든 밭이나 파종이 필요한 밭, 필요한 작업(석회, 비료, 쟁기질, 롤러, 잡초)
+- 날씨: 기온, 현재 날씨, 앞으로 몇 시간과 며칠의 날씨, 날씨가 바뀌는 시점, 작물이 말랐는지 여부
+- 내 차량: 작업 중인 일꾼, 모든 차량의 연료와 손상, 연료 부족과 손상된 차량을 맨 위에 표시
+- 내 계약: 진행 중인 모든 계약의 위치, 보상, 진행 상황
+- 내 모든 축사와 내 모든 생산 시설을 각각 한 화면에 표시, 관리가 필요한 것을 맨 위에 표시
+- 내 농장의 모든 사일로와 농장 자금(잔액, 대출, 대출 가능액, 오늘의 수입과 지출)
+
+기록: 화면을 "기록 (24시간)"으로 바꾸면 지난 게임 내 하루 동안 저장소가 얼마나 차 있었는지 막대 그래프로 보여 줍니다(농장 자금의 경우 잔액).
+
+가격 보드: 화면을 가격으로 바꾸면 저장소 안의 제품마다 최고 가격과 판매처, 다음 달 가격이 오를지 내릴지, 재고의 가치를 보여 줍니다.
+
+슬라이드쇼: 여러 화면을 선택하면 모니터가 번갈아 표시합니다(화면당 10~60초).
+
+경고: 사일로가 거의 가득 찼을 때(설정한 기준부터), 투입물이 비었을 때, 동물의 사료나 물이 부족할 때, 탱크가 가득 찼을 때, 밭을 수확할 수 있을 때, 일꾼의 연료가 떨어질 때, 비가 올 때, 또는 기다리던 가격에 제품이 팔릴 때 빨간 줄이 깜박이고 하단에 한 줄이 표시됩니다. 선택하면 농장의 모든 사람에게 게임 메시지로도 알립니다.
+
+모니터 앞에 서서 활성화 키를 누르면 설정이 열립니다: 저장소 또는 농장 화면, 연결된 사일로, 화면 크기(너비 0.8~6 m), 밝기(5단계, 밤에도 잘 보임), 색상(나이트 블루, DTM 그린, 앰버 터미널, 주광), 직접 정하는 제목, 저장소·가격·기록 표시, 경고, 거의 가득 참 기준, 가격 알림, 슬라이드쇼. 서버의 모든 사람이 같은 설정을 보며, 설정은 게임과 함께 저장됩니다.
+
+7가지 모델(건물 > 도구): 키오스크 3,500, 월 6,500, 빌보드 12,000, 양면 빌보드 18,000, 사일로 거치형 6,000, 벽걸이형 5,500(건물 벽에 평평하게 부착), 천장걸이형 5,500(봉에 매달아 창고 안에 설치).]]></kr>
+        <cs><![CDATA[一块实时屏幕，可显示你的筒仓、生产设施、动物围栏、青贮窖、草捆或托盘棚屋、粪堆、温室和蜂箱，也可显示整个农场：田地、天气、车辆、合同和资金。
+
+把它放在仓储旁，它会以彩色显示其中的内容：
+- 筒仓：填充百分比（按你设定的阈值显示绿色、琥珀色、红色）、已用、剩余和总容量，以及一根每种产品各用一种颜色的条形图
+- 填充或清空的速度（“+18,000 l/h”）以及何时装满或清空
+- 生产设施：哪些生产线在运行，哪些缺少原料或产出仓已满；原料（IN）和产出（OUT），空的原料显示为红色；哪种原料最先耗尽
+- 动物围栏：动物数量、饲料、水、垫草、生产率和储罐；饲料还能维持多久
+- 青贮窖：填充中、发酵中（百分比）或就绪；可并排显示多个青贮窖
+- 草捆和托盘棚屋：已存数量与容量，以及每种产品的草捆或托盘数量
+- 蜂箱：蜂箱数量、每日蜂蜜产量及其价值、托盘位
+- 所有产品一次显示，每种都有图标、数量、填充条和百分比（最多 42 种，最多 3 列；更多时翻页，也可用 Page Up / Page Down）
+
+整个农场的画面：
+- 我的田地：每块田地的作物、生长进度，哪些可收获（排在最前）、已枯萎或待播种，以及各自需要什么（石灰、肥料、犁地、碾压、杂草）
+- 天气：气温、当前天气、接下来几小时和几天的天气、何时变天，以及作物是否干燥
+- 我的车辆：正在工作的雇工、每辆车的燃料和损坏；燃料不足和损坏的车辆排在最前
+- 我的合同：每份进行中的合同的地点、报酬和进度
+- 我的所有动物围栏和我的所有生产设施各占一个画面，需要你处理的排在最前
+- 我农场的所有筒仓，以及我的农场资金（余额、贷款、可贷额度、今日收入和支出）
+
+历史：把画面切换到“历史（24 小时）”，它会用柱状图显示仓储在过去一个游戏日内的存量（农场资金：余额）。
+
+价格板：把画面切换到价格，它会为仓储中的每种产品显示最高价格和出售地点、下个月价格是涨是跌，以及库存价值。
+
+轮播：勾选多个画面，显示屏会轮流显示它们（每个 10 到 60 秒）。
+
+警报：当筒仓快满（从你设定的阈值起）、原料耗尽、动物饲料或水不足、储罐已满、田地可收获、雇工燃料耗尽、即将下雨，或产品达到你等待的价格时，会出现闪烁的红色条纹，并在底部显示一行提示。也可选择以游戏消息的形式通知农场中的所有人。
+
+站在它面前按下激活键即可打开设置：仓储或农场画面、相连的筒仓、屏幕尺寸（宽 0.8 到 6 米）、亮度（5 档，夜间也清晰可读）、配色（夜蓝、DTM 绿、琥珀终端、日光）、自定义标题、仓储/价格/历史、警报、快满阈值、价格提醒和轮播。服务器上的所有人看到的设置都相同，并随游戏一起保存。
+
+七种型号（建筑 > 工具）：信息亭 3,500、屏幕墙 6,500、广告牌 12,000、双面广告牌 18,000、筒仓挂装 6,000、壁挂 5,500（平贴在建筑上）和悬挂 5,500（用吊杆悬挂，适合棚屋内部）。]]></cs>
+        <ct><![CDATA[一塊即時螢幕，可顯示你的筒倉、生產設施、動物圈舍、青貯窖、草捆或棧板棚屋、糞堆、溫室和蜂箱，也可顯示整個農場：田地、天氣、車輛、合約和資金。
+
+把它放在倉儲旁，它會以彩色顯示其中的內容：
+- 筒倉：填充百分比（依你設定的門檻顯示綠色、琥珀色、紅色）、已用、剩餘和總容量，以及一根每種產品各用一種顏色的長條
+- 填充或清空的速度（「+18,000 l/h」）以及何時裝滿或清空
+- 生產設施：哪些生產線在運作，哪些缺少原料或產出倉已滿；原料（IN）和產出（OUT），空的原料顯示為紅色；哪種原料最先耗盡
+- 動物圈舍：動物數量、飼料、水、墊草、生產力和儲槽；飼料還能維持多久
+- 青貯窖：填充中、發酵中（百分比）或就緒；可並排顯示多個青貯窖
+- 草捆和棧板棚屋：已存數量與容量，以及每種產品的草捆或棧板數量
+- 蜂箱：蜂箱數量、每日蜂蜜產量及其價值、棧板位
+- 所有產品一次顯示，每種都有圖示、數量、填充條和百分比（最多 42 種，最多 3 欄；更多時翻頁，也可用 Page Up / Page Down）
+
+整個農場的畫面：
+- 我的田地：每塊田地的作物、生長進度，哪些可收穫（排在最前）、已枯萎或待播種，以及各自需要什麼（石灰、肥料、犁田、滾壓、雜草）
+- 天氣：氣溫、目前天氣、接下來幾小時和幾天的天氣、何時變天，以及作物是否乾燥
+- 我的車輛：正在工作的雇工、每輛車的燃料和損壞；燃料不足和損壞的車輛排在最前
+- 我的合約：每份進行中合約的地點、報酬和進度
+- 我的所有動物圈舍和我的所有生產設施各占一個畫面，需要你處理的排在最前
+- 我農場的所有筒倉，以及我的農場資金（餘額、貸款、可貸額度、今日收入和支出）
+
+歷史：把畫面切換到「歷史（24 小時）」，它會用直條圖顯示倉儲在過去一個遊戲日內的存量（農場資金：餘額）。
+
+價格看板：把畫面切換到價格，它會為倉儲中的每種產品顯示最高價格和出售地點、下個月價格是漲是跌，以及庫存價值。
+
+輪播：勾選多個畫面，顯示器會輪流顯示它們（每個 10 到 60 秒）。
+
+警報：當筒倉快滿（從你設定的門檻起）、原料耗盡、動物飼料或水不足、儲槽已滿、田地可收穫、雇工燃料耗盡、即將下雨，或產品達到你等待的價格時，會出現閃爍的紅色條紋，並在底部顯示一行提示。也可選擇以遊戲訊息的形式通知農場中的所有人。
+
+站在它面前按下啟動鍵即可開啟設定：倉儲或農場畫面、相連的筒倉、螢幕尺寸（寬 0.8 到 6 公尺）、亮度（5 段，夜間也清晰可讀）、配色（夜藍、DTM 綠、琥珀終端、日光）、自訂標題、倉儲／價格／歷史、警報、快滿門檻、價格提醒和輪播。伺服器上的所有人看到的設定都相同，並隨遊戲一起儲存。
+
+七種型號（建築 > 工具）：資訊亭 3,500、螢幕牆 6,500、廣告看板 12,000、雙面廣告看板 18,000、筒倉掛裝 6,000、壁掛 5,500（平貼在建築上）和懸掛 5,500（以吊桿懸掛，適合棚屋內部）。]]></ct>
+        <id><![CDATA[Layar langsung untuk silo, produksi, kandang hewan, silo bunker, gudang bal atau palet, tumpukan pupuk kandang, rumah kaca, dan sarang lebah Anda, serta untuk seluruh pertanian Anda: ladang, cuaca, kendaraan, kontrak, uang.
+
+Letakkan di dekat penyimpanan dan layar akan menampilkan isinya, berwarna:
+- silo: seberapa penuh dalam persen (hijau, kuning, merah mulai dari tingkat yang Anda atur), kapasitas terpakai, sisa, dan total, satu bilah dengan setiap produk dalam warnanya sendiri
+- seberapa cepat terisi atau berkurang ("+18.000 l/h") dan kapan penuh atau kosong
+- produksi: lini mana yang berjalan, mana yang kekurangan bahan masuk atau penyimpanan hasilnya penuh; bahan masuk (IN) dan hasil (OUT), bahan masuk yang kosong berwarna merah; bahan masuk mana yang habis lebih dulu
+- kandang hewan: jumlah hewan, pakan, air, jerami, produktivitas, dan tangki; berapa lama pakan bertahan
+- silo bunker: mengisi, fermentasi (dalam persen) atau siap; beberapa bunker berdampingan
+- gudang bal dan palet: berapa dari berapa, dan setiap produk dengan jumlah bal atau paletnya
+- sarang lebah: jumlah sarang, madu per hari dan nilainya, tempat palet
+- setiap produk dengan ikon, jumlah, bilah isi, dan persennya sendiri, semuanya sekaligus (hingga 42, dalam hingga 3 kolom; lebih dari itu berganti halaman, juga dengan Page Up / Page Down)
+
+Layar untuk seluruh pertanian:
+- ladang saya: tanaman di setiap ladang, seberapa jauh tumbuhnya, mana yang siap panen (paling atas), layu atau perlu ditanam, dan apa yang dibutuhkan masing-masing (kapur, pupuk, membajak, menggilas, gulma)
+- cuaca: suhu, cuaca saat ini, dalam beberapa jam dan hari ke depan, kapan berubah, dan apakah tanaman kering
+- kendaraan saya: pekerja yang sedang bekerja, bahan bakar dan kerusakan setiap kendaraan; bahan bakar rendah dan kerusakan paling atas
+- kontrak saya: setiap kontrak yang berjalan dengan lokasi, imbalan, dan kemajuannya
+- semua kandang hewan saya dan semua produksi saya, masing-masing dalam satu layar, yang membutuhkan Anda paling atas
+- semua silo pertanian saya, dan uang pertanian saya (saldo, pinjaman, sisa kredit, pemasukan dan biaya hari ini)
+
+Riwayat: ubah layar ke "Riwayat (24 jam)" dan layar akan menampilkan seberapa penuh penyimpanan selama satu hari terakhir dalam game sebagai diagram kolom (uang pertanian: saldonya).
+
+Papan harga: ubah layar ke harga dan layar akan menampilkan, untuk setiap produk di penyimpanan, harga terbaik dan tempat menjualnya, apakah harga naik atau turun bulan depan, dan berapa nilai stoknya.
+
+Tayangan slide: centang beberapa layar dan monitor menampilkannya secara bergantian (masing-masing 10 sampai 60 detik).
+
+Peringatan: garis merah berkedip dan satu baris di bagian bawah saat silo hampir penuh (mulai dari tingkat yang Anda atur), bahan masuk kosong, hewan kekurangan pakan atau air, tangki penuh, ladang siap panen, pekerja kehabisan bahan bakar, hujan akan turun, atau produk terjual dengan harga yang Anda tunggu. Opsional juga sebagai pesan game untuk semua orang di pertanian.
+
+Berdirilah di depannya dan tekan tombol aktivasi untuk pengaturannya: layar penyimpanan atau pertanian, silo yang terhubung, ukuran layar (lebar 0,8 sampai 6 m), kecerahan (5 tingkat, terbaca di malam hari), warna (biru malam, hijau DTM, terminal amber, siang hari), judul Anda sendiri, penyimpanan, harga atau riwayat, peringatan, tingkat hampir penuh, peringatan harga, dan tayangan slide. Semua orang di server melihat pengaturan yang sama dan pengaturan disimpan bersama game.
+
+Tujuh model (Bangunan > Alat): Kios 3.500, Dinding Layar 6.500, Papan Reklame 12.000, Papan Reklame Dua Sisi 18.000, Dudukan Silo 6.000, Dudukan Dinding 5.500 (rata pada bangunan), dan Gantung 5.500 (pada batang, untuk di dalam gudang).]]></id>
+        <vi><![CDATA[Một màn hình trực tiếp cho xi-lô, cơ sở sản xuất, chuồng vật nuôi, hầm ủ chua, nhà kho kiện hoặc pallet, đống phân chuồng, nhà kính và tổ ong của bạn, và cho cả trang trại: ruộng, thời tiết, xe, hợp đồng, tiền.
+
+Đặt nó cạnh một kho và nó sẽ hiển thị những gì bên trong, có màu sắc:
+- xi-lô: mức đầy theo phần trăm (xanh lá, hổ phách, đỏ từ mức bạn đặt), sức chứa đã dùng, còn trống và tổng, một thanh với mỗi sản phẩm một màu riêng
+- tốc độ nạp vào hoặc vơi đi ("+18.000 l/h") và khi nào đầy hoặc hết
+- cơ sở sản xuất: dây chuyền nào đang chạy, dây chuyền nào thiếu nguyên liệu hoặc kho đầu ra đã đầy; đầu vào (IN) và đầu ra (OUT), đầu vào đã hết có màu đỏ; đầu vào nào hết trước
+- chuồng vật nuôi: số vật nuôi, thức ăn, nước, rơm, năng suất và các bồn; thức ăn còn đủ trong bao lâu
+- hầm ủ chua: đang nạp, đang ủ (theo phần trăm) hoặc sẵn sàng; nhiều hầm cạnh nhau
+- nhà kho kiện và pallet: bao nhiêu trên bao nhiêu, và mỗi sản phẩm với số kiện hoặc pallet của nó
+- tổ ong: số tổ, mật ong mỗi ngày và giá trị của nó, chỗ đặt pallet
+- mọi sản phẩm với biểu tượng, lượng, thanh mức và phần trăm riêng, tất cả cùng lúc (tối đa 42, trong tối đa 3 cột; nhiều hơn thì lật trang, cũng bằng Page Up / Page Down)
+
+Các màn hình cho cả trang trại:
+- ruộng của tôi: cây trồng trên mỗi ruộng, đã lớn đến đâu, ruộng nào sẵn sàng thu hoạch (đầu tiên), đã héo hoặc cần gieo, và mỗi ruộng cần gì (vôi, phân bón, cày, lăn, cỏ dại)
+- thời tiết: nhiệt độ, thời tiết hiện tại, trong vài giờ và vài ngày tới, khi nào thay đổi, và cây trồng có khô không
+- xe của tôi: nhân công đang làm việc, nhiên liệu và hư hỏng của mọi xe; xe sắp hết nhiên liệu và hư hỏng đứng đầu
+- hợp đồng của tôi: mọi hợp đồng đang chạy với địa điểm, phần thưởng và tiến độ
+- tất cả chuồng vật nuôi và tất cả cơ sở sản xuất của tôi, mỗi loại trên một màn hình, những nơi cần bạn đứng đầu
+- tất cả xi-lô của trang trại tôi, và tiền của trang trại tôi (số dư, khoản vay, hạn mức còn lại, thu nhập và chi phí hôm nay)
+
+Lịch sử: chuyển màn hình sang "Lịch sử (24 giờ)" và nó hiển thị mức đầy của kho trong ngày gần nhất trong game dưới dạng biểu đồ cột (tiền của trang trại: số dư).
+
+Bảng giá: chuyển màn hình sang giá và nó hiển thị, cho mỗi sản phẩm trong kho, giá tốt nhất và nơi bán, giá sẽ tăng hay giảm vào tháng sau, và hàng tồn kho đáng giá bao nhiêu.
+
+Trình chiếu: đánh dấu nhiều màn hình và màn hình sẽ lần lượt hiển thị chúng (mỗi màn 10 đến 60 giây).
+
+Cảnh báo: một dải đỏ nhấp nháy và một dòng ở chân màn hình khi xi-lô gần đầy (từ mức bạn đặt), một nguyên liệu đã hết, vật nuôi sắp thiếu thức ăn hoặc nước, một bồn đã đầy, ruộng sẵn sàng thu hoạch, nhân công sắp hết nhiên liệu, trời sắp mưa, hoặc một sản phẩm bán được giá bạn đang chờ. Tùy chọn gửi thêm tin nhắn trong game cho mọi người trong trang trại.
+
+Đứng trước nó và nhấn phím kích hoạt để mở cài đặt: màn hình kho hoặc trang trại, các xi-lô được kết nối, kích thước màn hình (rộng 0,8 đến 6 m), độ sáng (5 mức, đọc được vào ban đêm), màu sắc (xanh đêm, xanh lá DTM, màn hình hổ phách, ánh sáng ban ngày), tiêu đề riêng của bạn, kho, giá hoặc lịch sử, cảnh báo, mức gần đầy, cảnh báo giá và trình chiếu. Mọi người trên máy chủ đều thấy cùng cài đặt và cài đặt được lưu cùng trò chơi.
+
+Bảy mẫu (Công trình > Công cụ): Ki-ốt 3.500, Tường màn hình 6.500, Bảng quảng cáo 12.000, Bảng quảng cáo hai mặt 18.000, Gắn xi-lô 6.000, Gắn tường 5.500 (áp phẳng lên công trình) và Treo 5.500 (trên thanh treo, dùng trong nhà kho).]]></vi>
     </description>
 
     <iconFilename>icon_storageMonitor.dds</iconFilename>

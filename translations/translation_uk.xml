@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (кіоск)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (стіна)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (білборд)"/>
+        <text name="function_storageMonitor"           text="Кольоровий екран у реальному часі для силосів, виробництв, загонів, силосних ям, складів, вуликів і грошей ферми: місткість, кожен продукт, темпи, ціни та сповіщення."/>
+
+        <text name="storageMonitor_showing"    text="Показує"/>
+        <text name="storageMonitor_noStorage"  text="Поруч немає сховища"/>
+        <text name="storageMonitor_searching"  text="Пошук сховища..."/>
+        <text name="storageMonitor_reading"    text="Читання..."/>
+        <text name="storageMonitor_capacity"   text="МІСТКІСТЬ"/>
+        <text name="storageMonitor_used"       text="ЗАЙНЯТО"/>
+        <text name="storageMonitor_total"      text="УСЬОГО"/>
+        <text name="storageMonitor_free"       text="ВІЛЬНО"/>
+        <text name="storageMonitor_products"   text="ПРОДУКТІВ: %d"/>
+        <text name="storageMonitor_colProduct" text="ПРОДУКТ"/>
+        <text name="storageMonitor_colLevel"   text="РІВЕНЬ"/>
+        <text name="storageMonitor_colAmount"  text="КІЛЬКІСТЬ"/>
+        <text name="storageMonitor_empty"      text="Порожньо"/>
+        <text name="storageMonitor_page"       text="СТОР. %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (на силос)"/>
+        <text name="storageMonitor_settings" text="Налаштування монітора"/>
+        <text name="storageMonitor_plusConnected" text="%s + під'єднаних: %d"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Показує: %s"/>
+        <text name="storageMonitor_menuPick" text="Вибрати сховище (зараз: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Показувати й під'єднані силоси"/>
+        <text name="storageMonitor_menuConnectedOff" text="Показувати лише цей силос"/>
+        <text name="storageMonitor_pickTitle" text="Вибрати сховище"/>
+        <text name="storageMonitor_pickText" text="Сховища біля монітора, спершу найближчі, потім уся ферма:"/>
+        <text name="storageMonitor_pickNearest" text="Завжди найближче"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: попередня сторінка"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: наступна сторінка"/>
+        <text name="storageMonitor_menuSize" text="Розмір екрана (зараз: ширина %.1f м)"/>
+        <text name="storageMonitor_sizeTitle" text="Розмір екрана"/>
+        <text name="storageMonitor_sizeText" text="Розмір екрана. Він росте вгору від нижнього краю."/>
+        <text name="storageMonitor_sizeOption" text="ширина %.1f м, висота %.1f м"/>
+        <text name="storageMonitor_menuBrightness" text="Яскравість (зараз: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Кольори (зараз: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Заголовок (зараз: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Заголовок: ввести свій"/>
+        <text name="storageMonitor_brightnessTitle" text="Яскравість"/>
+        <text name="storageMonitor_brightnessText" text="Наскільки яскраво світяться екран, його смуги й текст:"/>
+        <text name="storageMonitor_themeTitle" text="Кольори"/>
+        <text name="storageMonitor_themeText" text="Кольори екрана:"/>
+        <text name="storageMonitor_titlePrompt" text="Заголовок на екрані (порожньо: назва сховища)"/>
+        <text name="storageMonitor_sizeTextGround" text="Розмір монітора. Він росте від землі."/>
+        <text name="storageMonitor_bright1" text="Дуже тьмяно"/>
+        <text name="storageMonitor_bright2" text="Тьмяно"/>
+        <text name="storageMonitor_bright3" text="Звичайно"/>
+        <text name="storageMonitor_bright4" text="Яскраво"/>
+        <text name="storageMonitor_bright5" text="Дуже яскраво"/>
+        <text name="storageMonitor_theme1" text="Нічний синій"/>
+        <text name="storageMonitor_theme2" text="Зелений DTM"/>
+        <text name="storageMonitor_theme3" text="Бурштиновий термінал"/>
+        <text name="storageMonitor_theme4" text="Денне світло"/>
+        <text name="storageMonitor_farmAll" text="Усі силоси моєї ферми"/>
+        <text name="storageMonitor_linesRunning" text="ПРАЦЮЮТЬ"/>
+        <text name="storageMonitor_line_running" text="Працює"/>
+        <text name="storageMonitor_line_missing" text="Бракує сировини"/>
+        <text name="storageMonitor_line_full" text="Вихід заповнено"/>
+        <text name="storageMonitor_line_off" text="Вимк."/>
+        <text name="storageMonitor_more" text="ще +%d"/>
+        <text name="storageMonitor_animals" text="ТВАРИНИ"/>
+        <text name="storageMonitor_food" text="Корм"/>
+        <text name="storageMonitor_bunker_filling" text="Заповнення"/>
+        <text name="storageMonitor_bunker_fermenting" text="Бродіння"/>
+        <text name="storageMonitor_bunker_ready" text="Готово"/>
+        <text name="storageMonitor_bunkerLevel" text="У СИЛОСІ"/>
+        <text name="storageMonitor_objects" text="НА СКЛАДІ  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Сховище"/>
+        <text name="storageMonitor_mode2" text="Ціни"/>
+        <text name="storageMonitor_menuMode" text="Екран показує (зараз: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Екран показує"/>
+        <text name="storageMonitor_modeText" text="Сховище, найкращі сьогоднішні ціни на його вміст або його заповненість за останню ігрову добу (для всієї ферми виберіть «Усі силоси моєї ферми»):"/>
+        <text name="storageMonitor_alerts1" text="Вимк."/>
+        <text name="storageMonitor_alerts2" text="На екрані"/>
+        <text name="storageMonitor_alerts3" text="На екрані та повідомленням"/>
+        <text name="storageMonitor_menuAlerts" text="Сповіщення (зараз: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Сповіщення"/>
+        <text name="storageMonitor_alertsText" text="Попереджати, коли майже повно, скінчилася сировина або тваринам бракує корму чи води:"/>
+        <text name="storageMonitor_alertFull" text="Повно"/>
+        <text name="storageMonitor_alertNearlyFull" text="Майже повно: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s: порожньо"/>
+        <text name="storageMonitor_alertItemFull" text="%s: заповнено"/>
+        <text name="storageMonitor_alertLow" text="Мало: %s %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Немає води"/>
+        <text name="storageMonitor_alertNoSpawner" text="Немає місця для палет меду"/>
+        <text name="storageMonitor_alertPalletFull" text="Місце для палет меду заповнене"/>
+        <text name="storageMonitor_alertOverdrawn" text="Рахунок у мінусі"/>
+        <text name="storageMonitor_minutes" text="%d хв"/>
+        <text name="storageMonitor_hours" text="%s год"/>
+        <text name="storageMonitor_days" text="%s дн."/>
+        <text name="storageMonitor_fullIn" text="ПОВНО ЧЕРЕЗ %s"/>
+        <text name="storageMonitor_emptyIn" text="ПОРОЖНЬО ЧЕРЕЗ %s"/>
+        <text name="storageMonitor_runsOut" text="%s: скінчиться через %s"/>
+        <text name="storageMonitor_foodFor" text="Корму на %s"/>
+        <text name="storageMonitor_stockValue" text="ВАРТІСТЬ ЗАПАСІВ"/>
+        <text name="storageMonitor_mostValuable" text="НАЙЦІННІШЕ"/>
+        <text name="storageMonitor_bestMarket" text="НАЙКРАЩИЙ РИНОК"/>
+        <text name="storageMonitor_nextMonth" text="НАСТ. МІСЯЦЬ"/>
+        <text name="storageMonitor_trendCount" text="Ростуть: %d  Падають: %d"/>
+        <text name="storageMonitor_colBestAt" text="НАЙКРАЩА ЦІНА"/>
+        <text name="storageMonitor_colPrice" text="ЗА 1000 Л"/>
+        <text name="storageMonitor_colTrend" text="ТРЕНД"/>
+        <text name="storageMonitor_colValue" text="ВАРТІСТЬ"/>
+        <text name="storageMonitor_notSold" text="ніхто не купує"/>
+        <text name="storageMonitor_finance" text="Гроші моєї ферми"/>
+        <text name="storageMonitor_balance" text="БАЛАНС"/>
+        <text name="storageMonitor_loan" text="Кредит"/>
+        <text name="storageMonitor_credit" text="Доступний кредит"/>
+        <text name="storageMonitor_incomeToday" text="Доходи сьогодні"/>
+        <text name="storageMonitor_costsToday" text="Витрати сьогодні"/>
+        <text name="storageMonitor_netToday" text="Сьогодні"/>
+        <text name="storageMonitor_colToday" text="СЬОГОДНІ"/>
+        <text name="storageMonitor_colAmountMoney" text="СУМА"/>
+        <text name="storageMonitor_noMoneyToday" text="Сьогодні ще немає доходів і витрат"/>
+        <text name="storageMonitor_beehives" text="Вулики"/>
+        <text name="storageMonitor_beehivesCaps" text="ВУЛИКИ"/>
+        <text name="storageMonitor_honeyPerDay" text="Мед за день"/>
+        <text name="storageMonitor_beesStatus" text="Стан"/>
+        <text name="storageMonitor_beesProducing" text="Виробляють"/>
+        <text name="storageMonitor_beesWinter" text="Зимова перерва"/>
+        <text name="storageMonitor_beesFlying" text="Бджоли"/>
+        <text name="storageMonitor_beesOut" text="Літають"/>
+        <text name="storageMonitor_beesIn" text="Відпочивають"/>
+        <text name="storageMonitor_palletSpot" text="Місце для палет"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Заповнено"/>
+        <text name="storageMonitor_spotNone" text="Немає"/>
+        <text name="storageMonitor_honeyHint" text="Мед складається на палети на місці для палет"/>
+        <text name="storageMonitor_honeyValue" text="Вартість за день"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (на стіну будівлі)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (підвісний)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (двосторонній білборд)"/>
+        <text name="storageMonitor_fields" text="Мої поля"/>
+        <text name="storageMonitor_weather" text="Погода"/>
+        <text name="storageMonitor_fleet" text="Моя техніка"/>
+        <text name="storageMonitor_contracts" text="Мої контракти"/>
+        <text name="storageMonitor_allPens" text="Усі мої загони"/>
+        <text name="storageMonitor_allProductions" text="Усі мої виробництва"/>
+        <text name="storageMonitor_mode3" text="Історія (24 год)"/>
+        <text name="storageMonitor_needLime" text="Вапно"/>
+        <text name="storageMonitor_needPlow" text="Оранка"/>
+        <text name="storageMonitor_needFertilizer" text="Добриво %d%%"/>
+        <text name="storageMonitor_needRoll" text="Прикочування"/>
+        <text name="storageMonitor_needWeeds" text="Бур'яни"/>
+        <text name="storageMonitor_fieldNo" text="Поле %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s, час збирати"/>
+        <text name="storageMonitor_alertWithered" text="%s: урожай засох"/>
+        <text name="storageMonitor_alertReadyMany" text="Готово до збирання полів: %d"/>
+        <text name="storageMonitor_cropReady" text="Збирання"/>
+        <text name="storageMonitor_cropPrepare" text="Підготовка"/>
+        <text name="storageMonitor_cropWithered" text="Засохло"/>
+        <text name="storageMonitor_cropCut" text="Зібрано"/>
+        <text name="storageMonitor_cropNone" text="Немає культури"/>
+        <text name="storageMonitor_cropGrowing" text="Росте"/>
+        <text name="storageMonitor_readyCaps" text="ГОТОВО ДО ЗБИРАННЯ"/>
+        <text name="storageMonitor_fieldsCount" text="Поля"/>
+        <text name="storageMonitor_area" text="Площа"/>
+        <text name="storageMonitor_growing" text="Росте"/>
+        <text name="storageMonitor_toSow" text="Під посів"/>
+        <text name="storageMonitor_needWork" text="Потрібна робота"/>
+        <text name="storageMonitor_colField" text="ПОЛЕ"/>
+        <text name="storageMonitor_colNeeds" text="ПОТРІБНО"/>
+        <text name="storageMonitor_colState" text="СТАН"/>
+        <text name="storageMonitor_noFields" text="У вашої ферми немає полів"/>
+        <text name="storageMonitor_inHours" text="через %d год"/>
+        <text name="storageMonitor_tomorrow" text="Завтра"/>
+        <text name="storageMonitor_inDays" text="Через %d дн."/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s через %d год"/>
+        <text name="storageMonitor_wSun" text="Сонячно"/>
+        <text name="storageMonitor_wCloudy" text="Хмарно"/>
+        <text name="storageMonitor_wRain" text="Дощ"/>
+        <text name="storageMonitor_wSnow" text="Сніг"/>
+        <text name="storageMonitor_wFog" text="Туман"/>
+        <text name="storageMonitor_wHail" text="Град"/>
+        <text name="storageMonitor_wStorm" text="Гроза"/>
+        <text name="storageMonitor_steady" text="Стабільно"/>
+        <text name="storageMonitor_rising" text="Росте"/>
+        <text name="storageMonitor_falling" text="Падає"/>
+        <text name="storageMonitor_noChange" text="Сьогодні без змін"/>
+        <text name="storageMonitor_fallNone" text="Немає"/>
+        <text name="storageMonitor_temperature" text="ТЕМПЕРАТУРА"/>
+        <text name="storageMonitor_weatherNow" text="Зараз"/>
+        <text name="storageMonitor_today" text="Сьогодні"/>
+        <text name="storageMonitor_next" text="Далі"/>
+        <text name="storageMonitor_tempTrend" text="Температура"/>
+        <text name="storageMonitor_precipitation" text="Опади"/>
+        <text name="storageMonitor_crops" text="Посіви"/>
+        <text name="storageMonitor_cropsWet" text="Мокрі"/>
+        <text name="storageMonitor_cropsDry" text="Сухі"/>
+        <text name="storageMonitor_colWhen" text="КОЛИ"/>
+        <text name="storageMonitor_colWeather" text="ПОГОДА"/>
+        <text name="storageMonitor_noForecast" text="Немає прогнозу"/>
+        <text name="storageMonitor_helperWorking" text="Працівник працює"/>
+        <text name="storageMonitor_inUse" text="Використовується"/>
+        <text name="storageMonitor_engineOn" text="Двигун увімк."/>
+        <text name="storageMonitor_parked" text="Стоїть"/>
+        <text name="storageMonitor_alertFuel" text="%s: пальне %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: пошкодження %d%%"/>
+        <text name="storageMonitor_damage" text="пошкодження %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="ПРАЦІВНИКИ ПРИ ДІЛІ"/>
+        <text name="storageMonitor_vehicles" text="Техніка"/>
+        <text name="storageMonitor_lowFuel" text="Мало пального"/>
+        <text name="storageMonitor_needRepair" text="Потрібен ремонт"/>
+        <text name="storageMonitor_leased" text="У лізингу"/>
+        <text name="storageMonitor_colVehicle" text="ТЕХНІКА"/>
+        <text name="storageMonitor_colStatus" text="СТАТУС"/>
+        <text name="storageMonitor_colFuel" text="ПАЛЬНЕ"/>
+        <text name="storageMonitor_noVehicles" text="У вашої ферми немає техніки"/>
+        <text name="storageMonitor_contractsCaps" text="АКТИВНІ КОНТРАКТИ"/>
+        <text name="storageMonitor_reward" text="Винагорода"/>
+        <text name="storageMonitor_almostDone" text="Майже готово"/>
+        <text name="storageMonitor_average" text="У середньому"/>
+        <text name="storageMonitor_colContract" text="КОНТРАКТ"/>
+        <text name="storageMonitor_colWhere" text="ДЕ  ВИНАГОРОДА"/>
+        <text name="storageMonitor_colDone" text="ГОТОВО"/>
+        <text name="storageMonitor_noContracts" text="Немає активних контрактів"/>
+        <text name="storageMonitor_pens" text="Загони"/>
+        <text name="storageMonitor_places" text="Місця"/>
+        <text name="storageMonitor_lowFood" text="Мало корму"/>
+        <text name="storageMonitor_lowSupplies" text="Мало води, соломи"/>
+        <text name="storageMonitor_tanksFull" text="Баки повні"/>
+        <text name="storageMonitor_foodLasts" text="Корму вистачить"/>
+        <text name="storageMonitor_colPen" text="ЗАГІН"/>
+        <text name="storageMonitor_colSupplies" text="ПОСТАЧАННЯ"/>
+        <text name="storageMonitor_noPens" text="У вашої ферми немає загонів"/>
+        <text name="storageMonitor_missingList" text="Бракує: %s"/>
+        <text name="storageMonitor_productions" text="Виробництва"/>
+        <text name="storageMonitor_idle" text="Простоює"/>
+        <text name="storageMonitor_colProduction" text="ВИРОБНИЦТВО"/>
+        <text name="storageMonitor_colLines" text="ЛІНІЇ"/>
+        <text name="storageMonitor_noProductions" text="У вашої ферми немає виробництв"/>
+        <text name="storageMonitor_last24" text="ОСТАННІ 24 ІГРОВІ ГОДИНИ"/>
+        <text name="storageMonitor_nowValue" text="ЗАРАЗ %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 год"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 год"/>
+        <text name="storageMonitor_now" text="зараз"/>
+        <text name="storageMonitor_graphFilling" text="Графік заповниться протягом наступної ігрової доби"/>
+        <text name="storageMonitor_alertPrice" text="%s продається за %s (%s)"/>
+        <text name="storageMonitor_menuFullAt" text="Майже повно від (зараз: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Цінове сповіщення (зараз: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Слайд-шоу (зараз: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="Слайд-шоу ввімкнено: воно показує свої екрани. Сховища біля монітора, спершу найближчі, потім уся ферма:"/>
+        <text name="storageMonitor_priceAbove" text="%s від %s"/>
+        <text name="storageMonitor_slidesNow" text="Екранів: %d, по %d с"/>
+        <text name="storageMonitor_fullAtTitle" text="Майже повно від"/>
+        <text name="storageMonitor_fullAtText" text="З якого рівня силос, склад чи купа вважається майже повним: сповіщення й червоний колір на екрані (бурштиновий на 15 нижче):"/>
+        <text name="storageMonitor_priceNow" text="%s (зараз %s, %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Цінове сповіщення"/>
+        <text name="storageMonitor_priceAlertText" text="Повідомити, коли продукт продаватиметься дорожче (ціна за 1000 л). Продукт:"/>
+        <text name="storageMonitor_priceAlertNone" text="Нічого звідси ніде не продається. Спершу виберіть сховище з продуктами."/>
+        <text name="storageMonitor_priceStep" text="Від %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s зараз продається за %s за 1000 л. Повідомити від:"/>
+        <text name="storageMonitor_slideTimeNow" text="Час на екран (зараз: %d с)"/>
+        <text name="storageMonitor_slideTimeOff" text="Час на екран (зараз: вимк.)"/>
+        <text name="storageMonitor_done" text="Готово"/>
+        <text name="storageMonitor_slideshowTitle" text="Слайд-шоу"/>
+        <text name="storageMonitor_slideshowText" text="Позначте екрани, які монітор показує по черзі (до %d):"/>
+        <text name="storageMonitor_slideOff" text="Вимк.: показувати вибране сховище"/>
+        <text name="storageMonitor_seconds" text="%d с"/>
+        <text name="storageMonitor_slideTimeText" text="Скільки показувати кожен екран:"/>
+    </texts>
+</l10n>

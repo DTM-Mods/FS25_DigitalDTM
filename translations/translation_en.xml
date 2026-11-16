@@ -31,7 +31,7 @@
         <text name="storageMonitor_menuConnectedOn" text="Also show the silos connected to it"/>
         <text name="storageMonitor_menuConnectedOff" text="Show only this silo"/>
         <text name="storageMonitor_pickTitle" text="Pick the storage"/>
-        <text name="storageMonitor_pickText" text="Storages near this monitor, nearest first:"/>
+        <text name="storageMonitor_pickText" text="Storages near this monitor, nearest first, then your whole farm:"/>
         <text name="storageMonitor_pickNearest" text="Always the nearest"/>
         <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: previous page"/>
         <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: next page"/>
@@ -76,7 +76,7 @@
         <text name="storageMonitor_mode2" text="Prices"/>
         <text name="storageMonitor_menuMode" text="Screen shows (now: %s)"/>
         <text name="storageMonitor_modeTitle" text="Screen shows"/>
-        <text name="storageMonitor_modeText" text="The storage, or today's best prices for what is in it (pick &quot;All silos of my farm&quot; for a price board of the whole farm):"/>
+        <text name="storageMonitor_modeText" text="The storage, today's best prices for what is in it, or how full it was over the last in-game day (pick &quot;All silos of my farm&quot; for the whole farm):"/>
         <text name="storageMonitor_alerts1" text="Off"/>
         <text name="storageMonitor_alerts2" text="On the screen"/>
         <text name="storageMonitor_alerts3" text="On the screen and as a message"/>
@@ -137,5 +137,133 @@
         <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Wall Mount)"/>
         <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Hanging)"/>
         <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Two-Sided Billboard)"/>
+        <text name="storageMonitor_fields" text="My fields"/>
+        <text name="storageMonitor_weather" text="Weather"/>
+        <text name="storageMonitor_fleet" text="My vehicles"/>
+        <text name="storageMonitor_contracts" text="My contracts"/>
+        <text name="storageMonitor_allPens" text="All my animal pens"/>
+        <text name="storageMonitor_allProductions" text="All my productions"/>
+        <text name="storageMonitor_mode3" text="History (24 h)"/>
+        <text name="storageMonitor_needLime" text="Lime"/>
+        <text name="storageMonitor_needPlow" text="Plow"/>
+        <text name="storageMonitor_needFertilizer" text="Fertilizer %d%%"/>
+        <text name="storageMonitor_needRoll" text="Roll"/>
+        <text name="storageMonitor_needWeeds" text="Weeds"/>
+        <text name="storageMonitor_fieldNo" text="Field %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s ready to harvest"/>
+        <text name="storageMonitor_alertWithered" text="%s: the crop has withered"/>
+        <text name="storageMonitor_alertReadyMany" text="%d fields ready to harvest"/>
+        <text name="storageMonitor_cropReady" text="Harvest"/>
+        <text name="storageMonitor_cropPrepare" text="Prepare"/>
+        <text name="storageMonitor_cropWithered" text="Withered"/>
+        <text name="storageMonitor_cropCut" text="Harvested"/>
+        <text name="storageMonitor_cropNone" text="No crop"/>
+        <text name="storageMonitor_cropGrowing" text="Growing"/>
+        <text name="storageMonitor_readyCaps" text="READY TO HARVEST"/>
+        <text name="storageMonitor_fieldsCount" text="Fields"/>
+        <text name="storageMonitor_area" text="Area"/>
+        <text name="storageMonitor_growing" text="Growing"/>
+        <text name="storageMonitor_toSow" text="To sow"/>
+        <text name="storageMonitor_needWork" text="Need work"/>
+        <text name="storageMonitor_colField" text="FIELD"/>
+        <text name="storageMonitor_colNeeds" text="NEEDS"/>
+        <text name="storageMonitor_colState" text="STATE"/>
+        <text name="storageMonitor_noFields" text="Your farm has no fields"/>
+        <text name="storageMonitor_inHours" text="in %d h"/>
+        <text name="storageMonitor_tomorrow" text="Tomorrow"/>
+        <text name="storageMonitor_inDays" text="In %d days"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s in %d h"/>
+        <text name="storageMonitor_wSun" text="Sunny"/>
+        <text name="storageMonitor_wCloudy" text="Cloudy"/>
+        <text name="storageMonitor_wRain" text="Rain"/>
+        <text name="storageMonitor_wSnow" text="Snow"/>
+        <text name="storageMonitor_wFog" text="Fog"/>
+        <text name="storageMonitor_wHail" text="Hail"/>
+        <text name="storageMonitor_wStorm" text="Storm"/>
+        <text name="storageMonitor_steady" text="Steady"/>
+        <text name="storageMonitor_rising" text="Rising"/>
+        <text name="storageMonitor_falling" text="Falling"/>
+        <text name="storageMonitor_noChange" text="No change today"/>
+        <text name="storageMonitor_fallNone" text="None"/>
+        <text name="storageMonitor_temperature" text="TEMPERATURE"/>
+        <text name="storageMonitor_weatherNow" text="Now"/>
+        <text name="storageMonitor_today" text="Today"/>
+        <text name="storageMonitor_next" text="Next"/>
+        <text name="storageMonitor_tempTrend" text="Temperature"/>
+        <text name="storageMonitor_precipitation" text="Falling now"/>
+        <text name="storageMonitor_crops" text="Crops"/>
+        <text name="storageMonitor_cropsWet" text="Wet"/>
+        <text name="storageMonitor_cropsDry" text="Dry"/>
+        <text name="storageMonitor_colWhen" text="WHEN"/>
+        <text name="storageMonitor_colWeather" text="WEATHER"/>
+        <text name="storageMonitor_noForecast" text="No forecast"/>
+        <text name="storageMonitor_helperWorking" text="Helper working"/>
+        <text name="storageMonitor_inUse" text="In use"/>
+        <text name="storageMonitor_engineOn" text="Engine on"/>
+        <text name="storageMonitor_parked" text="Parked"/>
+        <text name="storageMonitor_alertFuel" text="%s: fuel %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: damage %d%%"/>
+        <text name="storageMonitor_damage" text="damage %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="HELPERS WORKING"/>
+        <text name="storageMonitor_vehicles" text="Vehicles"/>
+        <text name="storageMonitor_lowFuel" text="Low fuel"/>
+        <text name="storageMonitor_needRepair" text="Need repair"/>
+        <text name="storageMonitor_leased" text="Leased"/>
+        <text name="storageMonitor_colVehicle" text="VEHICLE"/>
+        <text name="storageMonitor_colStatus" text="STATUS"/>
+        <text name="storageMonitor_colFuel" text="FUEL"/>
+        <text name="storageMonitor_noVehicles" text="Your farm has no vehicles"/>
+        <text name="storageMonitor_contractsCaps" text="CONTRACTS RUNNING"/>
+        <text name="storageMonitor_reward" text="Reward"/>
+        <text name="storageMonitor_almostDone" text="Almost done"/>
+        <text name="storageMonitor_average" text="Average"/>
+        <text name="storageMonitor_colContract" text="CONTRACT"/>
+        <text name="storageMonitor_colWhere" text="WHERE  REWARD"/>
+        <text name="storageMonitor_colDone" text="DONE"/>
+        <text name="storageMonitor_noContracts" text="No contracts running"/>
+        <text name="storageMonitor_pens" text="Pens"/>
+        <text name="storageMonitor_places" text="Places"/>
+        <text name="storageMonitor_lowFood" text="Low food"/>
+        <text name="storageMonitor_lowSupplies" text="Low water, straw"/>
+        <text name="storageMonitor_tanksFull" text="Tanks full"/>
+        <text name="storageMonitor_foodLasts" text="Food lasts"/>
+        <text name="storageMonitor_colPen" text="PEN"/>
+        <text name="storageMonitor_colSupplies" text="SUPPLIES"/>
+        <text name="storageMonitor_noPens" text="Your farm has no animal pens"/>
+        <text name="storageMonitor_missingList" text="Missing: %s"/>
+        <text name="storageMonitor_productions" text="Productions"/>
+        <text name="storageMonitor_idle" text="Idle"/>
+        <text name="storageMonitor_colProduction" text="PRODUCTION"/>
+        <text name="storageMonitor_colLines" text="LINES"/>
+        <text name="storageMonitor_noProductions" text="Your farm has no productions"/>
+        <text name="storageMonitor_last24" text="LAST 24 IN-GAME HOURS"/>
+        <text name="storageMonitor_nowValue" text="NOW %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 h"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 h"/>
+        <text name="storageMonitor_now" text="now"/>
+        <text name="storageMonitor_graphFilling" text="The graph fills over the next in-game day"/>
+        <text name="storageMonitor_alertPrice" text="%s sells for %s at %s"/>
+        <text name="storageMonitor_menuFullAt" text="Nearly full from (now: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Price alert (now: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Slideshow (now: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="The slideshow is on: it shows its own screens. Storages near this monitor, nearest first, then your whole farm:"/>
+        <text name="storageMonitor_priceAbove" text="%s from %s"/>
+        <text name="storageMonitor_slidesNow" text="%d screens, %d s each"/>
+        <text name="storageMonitor_fullAtTitle" text="Nearly full from"/>
+        <text name="storageMonitor_fullAtText" text="From what level a silo, shed or heap counts as nearly full: the alert, and red on the screen (amber from 15 below):"/>
+        <text name="storageMonitor_priceNow" text="%s (now %s at %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Price alert"/>
+        <text name="storageMonitor_priceAlertText" text="Tell me when a product sells for more (price per 1000 l). The product:"/>
+        <text name="storageMonitor_priceAlertNone" text="Nothing here sells anywhere. Pick a storage with products first."/>
+        <text name="storageMonitor_priceStep" text="From %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s sells for %s per 1000 l now. Tell me from:"/>
+        <text name="storageMonitor_slideTimeNow" text="Time per screen (now: %d s)"/>
+        <text name="storageMonitor_slideTimeOff" text="Time per screen (now: off)"/>
+        <text name="storageMonitor_done" text="Done"/>
+        <text name="storageMonitor_slideshowTitle" text="Slideshow"/>
+        <text name="storageMonitor_slideshowText" text="Tick the screens the monitor takes turns showing (up to %d):"/>
+        <text name="storageMonitor_slideOff" text="Off: show the picked storage"/>
+        <text name="storageMonitor_seconds" text="%d s"/>
+        <text name="storageMonitor_slideTimeText" text="How long each screen shows:"/>
     </texts>
 </l10n>

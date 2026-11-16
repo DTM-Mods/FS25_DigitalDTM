@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (kioszk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (fali)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (óriásplakát)"/>
+        <text name="function_storageMonitor"           text="Élő színes kijelző silókhoz, termelésekhez, állattartó karámokhoz, silóárkokhoz, tárolókhoz, méhkaptárakhoz és a farm pénzéhez: kapacitás, minden termék, ütemek, árak és riasztások."/>
+
+        <text name="storageMonitor_showing"    text="Mutatja"/>
+        <text name="storageMonitor_noStorage"  text="Nincs tároló a közelben"/>
+        <text name="storageMonitor_searching"  text="Tároló keresése..."/>
+        <text name="storageMonitor_reading"    text="Olvasás..."/>
+        <text name="storageMonitor_capacity"   text="KAPACITÁS"/>
+        <text name="storageMonitor_used"       text="FOGLALT"/>
+        <text name="storageMonitor_total"      text="ÖSSZESEN"/>
+        <text name="storageMonitor_free"       text="SZABAD"/>
+        <text name="storageMonitor_products"   text="TERMÉKEK: %d"/>
+        <text name="storageMonitor_colProduct" text="TERMÉK"/>
+        <text name="storageMonitor_colLevel"   text="TÖLTÖTTSÉG"/>
+        <text name="storageMonitor_colAmount"  text="MENNYISÉG"/>
+        <text name="storageMonitor_empty"      text="Üres"/>
+        <text name="storageMonitor_page"       text="OLDAL %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (silóra szerelt)"/>
+        <text name="storageMonitor_settings" text="Monitor beállításai"/>
+        <text name="storageMonitor_plusConnected" text="%s + csatlakoztatva: %d"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Mutatja: %s"/>
+        <text name="storageMonitor_menuPick" text="Tároló kiválasztása (most: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="A hozzá csatlakoztatott silókat is mutassa"/>
+        <text name="storageMonitor_menuConnectedOff" text="Csak ezt a silót mutassa"/>
+        <text name="storageMonitor_pickTitle" text="Tároló kiválasztása"/>
+        <text name="storageMonitor_pickText" text="Tárolók a monitor közelében, a legközelebbi elöl, utána az egész farm:"/>
+        <text name="storageMonitor_pickNearest" text="Mindig a legközelebbi"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: előző oldal"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: következő oldal"/>
+        <text name="storageMonitor_menuSize" text="Képernyőméret (most: %.1f m széles)"/>
+        <text name="storageMonitor_sizeTitle" text="Képernyőméret"/>
+        <text name="storageMonitor_sizeText" text="A képernyő mérete. Az alsó szélétől felfelé nő."/>
+        <text name="storageMonitor_sizeOption" text="%.1f m széles, %.1f m magas"/>
+        <text name="storageMonitor_menuBrightness" text="Fényerő (most: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Színek (most: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Cím (most: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Cím: saját megadása"/>
+        <text name="storageMonitor_brightnessTitle" text="Fényerő"/>
+        <text name="storageMonitor_brightnessText" text="Milyen erősen világít a képernyő, a sávjai és a szövege:"/>
+        <text name="storageMonitor_themeTitle" text="Színek"/>
+        <text name="storageMonitor_themeText" text="A képernyő színei:"/>
+        <text name="storageMonitor_titlePrompt" text="Cím a képernyőn (üres: a tároló neve)"/>
+        <text name="storageMonitor_sizeTextGround" text="A monitor mérete. A talajtól felfelé nő."/>
+        <text name="storageMonitor_bright1" text="Nagyon halvány"/>
+        <text name="storageMonitor_bright2" text="Halvány"/>
+        <text name="storageMonitor_bright3" text="Normál"/>
+        <text name="storageMonitor_bright4" text="Fényes"/>
+        <text name="storageMonitor_bright5" text="Nagyon fényes"/>
+        <text name="storageMonitor_theme1" text="Éjkék"/>
+        <text name="storageMonitor_theme2" text="DTM zöld"/>
+        <text name="storageMonitor_theme3" text="Borostyán terminál"/>
+        <text name="storageMonitor_theme4" text="Nappali fény"/>
+        <text name="storageMonitor_farmAll" text="A farmom összes silója"/>
+        <text name="storageMonitor_linesRunning" text="FUT"/>
+        <text name="storageMonitor_line_running" text="Fut"/>
+        <text name="storageMonitor_line_missing" text="Hiányzó alapanyag"/>
+        <text name="storageMonitor_line_full" text="A kimenet tele"/>
+        <text name="storageMonitor_line_off" text="Ki"/>
+        <text name="storageMonitor_more" text="+%d további"/>
+        <text name="storageMonitor_animals" text="ÁLLATOK"/>
+        <text name="storageMonitor_food" text="Takarmány"/>
+        <text name="storageMonitor_bunker_filling" text="Töltés"/>
+        <text name="storageMonitor_bunker_fermenting" text="Erjedés"/>
+        <text name="storageMonitor_bunker_ready" text="Kész"/>
+        <text name="storageMonitor_bunkerLevel" text="A SILÓBAN"/>
+        <text name="storageMonitor_objects" text="TÁROLVA  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Tároló"/>
+        <text name="storageMonitor_mode2" text="Árak"/>
+        <text name="storageMonitor_menuMode" text="A képernyő mutatja (most: %s)"/>
+        <text name="storageMonitor_modeTitle" text="A képernyő mutatja"/>
+        <text name="storageMonitor_modeText" text="A tárolót, a tartalma mai legjobb árait, vagy hogy mennyire volt tele az elmúlt játéknapon (az egész farmhoz válaszd ezt: &quot;A farmom összes silója&quot;):"/>
+        <text name="storageMonitor_alerts1" text="Ki"/>
+        <text name="storageMonitor_alerts2" text="A képernyőn"/>
+        <text name="storageMonitor_alerts3" text="A képernyőn és üzenetként"/>
+        <text name="storageMonitor_menuAlerts" text="Riasztások (most: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Riasztások"/>
+        <text name="storageMonitor_alertsText" text="Figyelmeztessen, ha majdnem tele van, egy alapanyag elfogyott, vagy az állatoknak fogy a takarmánya vagy a vize:"/>
+        <text name="storageMonitor_alertFull" text="Tele"/>
+        <text name="storageMonitor_alertNearlyFull" text="Majdnem tele: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s: üres"/>
+        <text name="storageMonitor_alertItemFull" text="%s: tele"/>
+        <text name="storageMonitor_alertLow" text="Kevés: %s %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Nincs víz"/>
+        <text name="storageMonitor_alertNoSpawner" text="Nincs mézraklap-hely"/>
+        <text name="storageMonitor_alertPalletFull" text="A mézraklap-hely tele van"/>
+        <text name="storageMonitor_alertOverdrawn" text="A számla mínuszban"/>
+        <text name="storageMonitor_minutes" text="%d perc"/>
+        <text name="storageMonitor_hours" text="%s ó"/>
+        <text name="storageMonitor_days" text="%s nap"/>
+        <text name="storageMonitor_fullIn" text="TELE %s MÚLVA"/>
+        <text name="storageMonitor_emptyIn" text="ÜRES %s MÚLVA"/>
+        <text name="storageMonitor_runsOut" text="%s: kifogy %s múlva"/>
+        <text name="storageMonitor_foodFor" text="Takarmány: %s"/>
+        <text name="storageMonitor_stockValue" text="KÉSZLET ÉRTÉKE"/>
+        <text name="storageMonitor_mostValuable" text="LEGÉRTÉKESEBB"/>
+        <text name="storageMonitor_bestMarket" text="LEGJOBB PIAC"/>
+        <text name="storageMonitor_nextMonth" text="JÖVŐ HÓNAP"/>
+        <text name="storageMonitor_trendCount" text="Emelkedik: %d  Csökken: %d"/>
+        <text name="storageMonitor_colBestAt" text="LEGJOBB ÁR ITT"/>
+        <text name="storageMonitor_colPrice" text="1000 L ÁRA"/>
+        <text name="storageMonitor_colTrend" text="TREND"/>
+        <text name="storageMonitor_colValue" text="ÉRTÉK"/>
+        <text name="storageMonitor_notSold" text="senki nem veszi"/>
+        <text name="storageMonitor_finance" text="A farmom pénze"/>
+        <text name="storageMonitor_balance" text="EGYENLEG"/>
+        <text name="storageMonitor_loan" text="Hitel"/>
+        <text name="storageMonitor_credit" text="Szabad hitelkeret"/>
+        <text name="storageMonitor_incomeToday" text="Mai bevétel"/>
+        <text name="storageMonitor_costsToday" text="Mai kiadás"/>
+        <text name="storageMonitor_netToday" text="Ma"/>
+        <text name="storageMonitor_colToday" text="MA"/>
+        <text name="storageMonitor_colAmountMoney" text="ÖSSZEG"/>
+        <text name="storageMonitor_noMoneyToday" text="Ma még nincs bevétel vagy kiadás"/>
+        <text name="storageMonitor_beehives" text="Méhkaptárak"/>
+        <text name="storageMonitor_beehivesCaps" text="MÉHKAPTÁRAK"/>
+        <text name="storageMonitor_honeyPerDay" text="Méz naponta"/>
+        <text name="storageMonitor_beesStatus" text="Állapot"/>
+        <text name="storageMonitor_beesProducing" text="Termel"/>
+        <text name="storageMonitor_beesWinter" text="Téli szünet"/>
+        <text name="storageMonitor_beesFlying" text="Méhek"/>
+        <text name="storageMonitor_beesOut" text="Repülnek"/>
+        <text name="storageMonitor_beesIn" text="Pihennek"/>
+        <text name="storageMonitor_palletSpot" text="Raklaphely"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Tele"/>
+        <text name="storageMonitor_spotNone" text="Nincs"/>
+        <text name="storageMonitor_honeyHint" text="A méz raklapokra kerül a raklaphelyen"/>
+        <text name="storageMonitor_honeyValue" text="Napi érték"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (épületfalra szerelt)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (függesztett)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (kétoldalas óriásplakát)"/>
+        <text name="storageMonitor_fields" text="Saját földjeim"/>
+        <text name="storageMonitor_weather" text="Időjárás"/>
+        <text name="storageMonitor_fleet" text="Saját járműveim"/>
+        <text name="storageMonitor_contracts" text="Saját szerződéseim"/>
+        <text name="storageMonitor_allPens" text="Összes állattartó karámom"/>
+        <text name="storageMonitor_allProductions" text="Összes termelésem"/>
+        <text name="storageMonitor_mode3" text="Előzmények (24 ó)"/>
+        <text name="storageMonitor_needLime" text="Mész"/>
+        <text name="storageMonitor_needPlow" text="Szántás"/>
+        <text name="storageMonitor_needFertilizer" text="Trágya %d%%"/>
+        <text name="storageMonitor_needRoll" text="Hengerezés"/>
+        <text name="storageMonitor_needWeeds" text="Gyom"/>
+        <text name="storageMonitor_fieldNo" text="Föld %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s aratható"/>
+        <text name="storageMonitor_alertWithered" text="%s: a termény elszáradt"/>
+        <text name="storageMonitor_alertReadyMany" text="Aratható földek: %d"/>
+        <text name="storageMonitor_cropReady" text="Aratás"/>
+        <text name="storageMonitor_cropPrepare" text="Előkészítés"/>
+        <text name="storageMonitor_cropWithered" text="Elszáradt"/>
+        <text name="storageMonitor_cropCut" text="Learatva"/>
+        <text name="storageMonitor_cropNone" text="Nincs termény"/>
+        <text name="storageMonitor_cropGrowing" text="Növekszik"/>
+        <text name="storageMonitor_readyCaps" text="ARATHATÓ"/>
+        <text name="storageMonitor_fieldsCount" text="Földek"/>
+        <text name="storageMonitor_area" text="Terület"/>
+        <text name="storageMonitor_growing" text="Növekszik"/>
+        <text name="storageMonitor_toSow" text="Vetésre vár"/>
+        <text name="storageMonitor_needWork" text="Munka kell"/>
+        <text name="storageMonitor_colField" text="FÖLD"/>
+        <text name="storageMonitor_colNeeds" text="TEENDŐ"/>
+        <text name="storageMonitor_colState" text="ÁLLAPOT"/>
+        <text name="storageMonitor_noFields" text="A farmodnak nincsenek földjei"/>
+        <text name="storageMonitor_inHours" text="%d ó múlva"/>
+        <text name="storageMonitor_tomorrow" text="Holnap"/>
+        <text name="storageMonitor_inDays" text="%d nap múlva"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s %d ó múlva"/>
+        <text name="storageMonitor_wSun" text="Napos"/>
+        <text name="storageMonitor_wCloudy" text="Felhős"/>
+        <text name="storageMonitor_wRain" text="Eső"/>
+        <text name="storageMonitor_wSnow" text="Hó"/>
+        <text name="storageMonitor_wFog" text="Köd"/>
+        <text name="storageMonitor_wHail" text="Jégeső"/>
+        <text name="storageMonitor_wStorm" text="Vihar"/>
+        <text name="storageMonitor_steady" text="Állandó"/>
+        <text name="storageMonitor_rising" text="Emelkedik"/>
+        <text name="storageMonitor_falling" text="Csökken"/>
+        <text name="storageMonitor_noChange" text="Ma nincs változás"/>
+        <text name="storageMonitor_fallNone" text="Nincs"/>
+        <text name="storageMonitor_temperature" text="HŐMÉRSÉKLET"/>
+        <text name="storageMonitor_weatherNow" text="Most"/>
+        <text name="storageMonitor_today" text="Ma"/>
+        <text name="storageMonitor_next" text="Következő"/>
+        <text name="storageMonitor_tempTrend" text="Hőmérséklet"/>
+        <text name="storageMonitor_precipitation" text="Csapadék"/>
+        <text name="storageMonitor_crops" text="Termények"/>
+        <text name="storageMonitor_cropsWet" text="Nedves"/>
+        <text name="storageMonitor_cropsDry" text="Száraz"/>
+        <text name="storageMonitor_colWhen" text="MIKOR"/>
+        <text name="storageMonitor_colWeather" text="IDŐJÁRÁS"/>
+        <text name="storageMonitor_noForecast" text="Nincs előrejelzés"/>
+        <text name="storageMonitor_helperWorking" text="Segítő dolgozik"/>
+        <text name="storageMonitor_inUse" text="Használatban"/>
+        <text name="storageMonitor_engineOn" text="Motor jár"/>
+        <text name="storageMonitor_parked" text="Parkol"/>
+        <text name="storageMonitor_alertFuel" text="%s: üzemanyag %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: sérülés %d%%"/>
+        <text name="storageMonitor_damage" text="sérülés %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="DOLGOZÓ SEGÍTŐK"/>
+        <text name="storageMonitor_vehicles" text="Járművek"/>
+        <text name="storageMonitor_lowFuel" text="Kevés üzemanyag"/>
+        <text name="storageMonitor_needRepair" text="Javítani kell"/>
+        <text name="storageMonitor_leased" text="Lízingelt"/>
+        <text name="storageMonitor_colVehicle" text="JÁRMŰ"/>
+        <text name="storageMonitor_colStatus" text="ÁLLAPOT"/>
+        <text name="storageMonitor_colFuel" text="ÜZEMANYAG"/>
+        <text name="storageMonitor_noVehicles" text="A farmodnak nincsenek járművei"/>
+        <text name="storageMonitor_contractsCaps" text="FUTÓ SZERZŐDÉSEK"/>
+        <text name="storageMonitor_reward" text="Jutalom"/>
+        <text name="storageMonitor_almostDone" text="Majdnem kész"/>
+        <text name="storageMonitor_average" text="Átlag"/>
+        <text name="storageMonitor_colContract" text="SZERZŐDÉS"/>
+        <text name="storageMonitor_colWhere" text="HOL  JUTALOM"/>
+        <text name="storageMonitor_colDone" text="KÉSZ"/>
+        <text name="storageMonitor_noContracts" text="Nincs futó szerződés"/>
+        <text name="storageMonitor_pens" text="Karámok"/>
+        <text name="storageMonitor_places" text="Férőhely"/>
+        <text name="storageMonitor_lowFood" text="Kevés takarmány"/>
+        <text name="storageMonitor_lowSupplies" text="Kevés víz, szalma"/>
+        <text name="storageMonitor_tanksFull" text="Tartályok tele"/>
+        <text name="storageMonitor_foodLasts" text="Takarmány elég"/>
+        <text name="storageMonitor_colPen" text="KARÁM"/>
+        <text name="storageMonitor_colSupplies" text="ELLÁTÁS"/>
+        <text name="storageMonitor_noPens" text="A farmodnak nincsenek állattartó karámjai"/>
+        <text name="storageMonitor_missingList" text="Hiányzik: %s"/>
+        <text name="storageMonitor_productions" text="Termelések"/>
+        <text name="storageMonitor_idle" text="Áll"/>
+        <text name="storageMonitor_colProduction" text="TERMELÉS"/>
+        <text name="storageMonitor_colLines" text="SOROK"/>
+        <text name="storageMonitor_noProductions" text="A farmodnak nincsenek termelései"/>
+        <text name="storageMonitor_last24" text="AZ ELMÚLT 24 JÁTÉKÓRA"/>
+        <text name="storageMonitor_nowValue" text="MOST %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 ó"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 ó"/>
+        <text name="storageMonitor_now" text="most"/>
+        <text name="storageMonitor_graphFilling" text="A grafikon a következő játéknap alatt telik meg"/>
+        <text name="storageMonitor_alertPrice" text="%s ára %s itt: %s"/>
+        <text name="storageMonitor_menuFullAt" text="Majdnem tele ettől (most: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Árriasztás (most: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Diavetítés (most: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="A diavetítés be van kapcsolva: a saját képernyőit mutatja. Tárolók a monitor közelében, a legközelebbi elöl, utána az egész farm:"/>
+        <text name="storageMonitor_priceAbove" text="%s, ennyitől: %s"/>
+        <text name="storageMonitor_slidesNow" text="%d képernyő, egyenként %d mp"/>
+        <text name="storageMonitor_fullAtTitle" text="Majdnem tele ettől"/>
+        <text name="storageMonitor_fullAtText" text="Milyen szinttől számít egy siló, tároló vagy halom majdnem telinek: riasztás és piros a képernyőn (15-tel alatta borostyán):"/>
+        <text name="storageMonitor_priceNow" text="%s (most %s, %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Árriasztás"/>
+        <text name="storageMonitor_priceAlertText" text="Szólj, ha egy termék drágábban kel el (ár 1000 l-enként). A termék:"/>
+        <text name="storageMonitor_priceAlertNone" text="Innen semmit nem vesznek meg sehol. Előbb válassz egy tárolót termékekkel."/>
+        <text name="storageMonitor_priceStep" text="Ennyitől: %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s most %s 1000 l-enként. Szólj ennyitől:"/>
+        <text name="storageMonitor_slideTimeNow" text="Idő képernyőnként (most: %d mp)"/>
+        <text name="storageMonitor_slideTimeOff" text="Idő képernyőnként (most: ki)"/>
+        <text name="storageMonitor_done" text="Kész"/>
+        <text name="storageMonitor_slideshowTitle" text="Diavetítés"/>
+        <text name="storageMonitor_slideshowText" text="Jelöld be a képernyőket, amelyeket a monitor felváltva mutat (legfeljebb %d):"/>
+        <text name="storageMonitor_slideOff" text="Ki: a kiválasztott tárolót mutatja"/>
+        <text name="storageMonitor_seconds" text="%d mp"/>
+        <text name="storageMonitor_slideTimeText" text="Mennyi ideig látszik egy képernyő:"/>
+    </texts>
+</l10n>

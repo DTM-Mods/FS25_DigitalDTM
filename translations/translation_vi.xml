@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Ki-ốt)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Tường màn hình)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Bảng quảng cáo)"/>
+        <text name="function_storageMonitor"           text="Màn hình màu trực tiếp cho xi-lô, cơ sở sản xuất, chuồng vật nuôi, hầm ủ chua, nhà kho, tổ ong và tiền của trang trại: sức chứa, mọi sản phẩm, tốc độ, giá và cảnh báo."/>
+
+        <text name="storageMonitor_showing"    text="Đang hiển thị"/>
+        <text name="storageMonitor_noStorage"  text="Không có kho gần đây"/>
+        <text name="storageMonitor_searching"  text="Đang tìm kho..."/>
+        <text name="storageMonitor_reading"    text="Đang đọc..."/>
+        <text name="storageMonitor_capacity"   text="SỨC CHỨA"/>
+        <text name="storageMonitor_used"       text="ĐÃ DÙNG"/>
+        <text name="storageMonitor_total"      text="TỔNG"/>
+        <text name="storageMonitor_free"       text="CÒN TRỐNG"/>
+        <text name="storageMonitor_products"   text="%d SẢN PHẨM"/>
+        <text name="storageMonitor_colProduct" text="SẢN PHẨM"/>
+        <text name="storageMonitor_colLevel"   text="MỨC"/>
+        <text name="storageMonitor_colAmount"  text="LƯỢNG"/>
+        <text name="storageMonitor_empty"      text="Trống"/>
+        <text name="storageMonitor_page"       text="TRANG %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Gắn xi-lô)"/>
+        <text name="storageMonitor_settings" text="Cài đặt màn hình"/>
+        <text name="storageMonitor_plusConnected" text="%s + %d kết nối"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Đang hiển thị: %s"/>
+        <text name="storageMonitor_menuPick" text="Chọn kho (hiện tại: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Hiện cả các xi-lô được kết nối"/>
+        <text name="storageMonitor_menuConnectedOff" text="Chỉ hiện xi-lô này"/>
+        <text name="storageMonitor_pickTitle" text="Chọn kho"/>
+        <text name="storageMonitor_pickText" text="Các kho gần màn hình này, gần nhất trước, sau đó là cả trang trại:"/>
+        <text name="storageMonitor_pickNearest" text="Luôn kho gần nhất"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: trang trước"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: trang sau"/>
+        <text name="storageMonitor_menuSize" text="Kích thước màn hình (hiện tại: rộng %.1f m)"/>
+        <text name="storageMonitor_sizeTitle" text="Kích thước màn hình"/>
+        <text name="storageMonitor_sizeText" text="Kích thước của màn hình. Màn hình lớn dần lên trên từ cạnh dưới."/>
+        <text name="storageMonitor_sizeOption" text="rộng %.1f m, cao %.1f m"/>
+        <text name="storageMonitor_menuBrightness" text="Độ sáng (hiện tại: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Màu sắc (hiện tại: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Tiêu đề (hiện tại: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Tiêu đề: tự nhập"/>
+        <text name="storageMonitor_brightnessTitle" text="Độ sáng"/>
+        <text name="storageMonitor_brightnessText" text="Mức phát sáng của màn hình, các thanh và chữ:"/>
+        <text name="storageMonitor_themeTitle" text="Màu sắc"/>
+        <text name="storageMonitor_themeText" text="Màu sắc của màn hình:"/>
+        <text name="storageMonitor_titlePrompt" text="Tiêu đề trên màn hình (để trống: tên kho)"/>
+        <text name="storageMonitor_sizeTextGround" text="Kích thước của màn hình. Màn hình lớn dần từ mặt đất."/>
+        <text name="storageMonitor_bright1" text="Rất tối"/>
+        <text name="storageMonitor_bright2" text="Tối"/>
+        <text name="storageMonitor_bright3" text="Bình thường"/>
+        <text name="storageMonitor_bright4" text="Sáng"/>
+        <text name="storageMonitor_bright5" text="Rất sáng"/>
+        <text name="storageMonitor_theme1" text="Xanh đêm"/>
+        <text name="storageMonitor_theme2" text="Xanh lá DTM"/>
+        <text name="storageMonitor_theme3" text="Màn hình hổ phách"/>
+        <text name="storageMonitor_theme4" text="Ánh sáng ban ngày"/>
+        <text name="storageMonitor_farmAll" text="Tất cả xi-lô của trang trại tôi"/>
+        <text name="storageMonitor_linesRunning" text="ĐANG CHẠY"/>
+        <text name="storageMonitor_line_running" text="Đang chạy"/>
+        <text name="storageMonitor_line_missing" text="Thiếu nguyên liệu"/>
+        <text name="storageMonitor_line_full" text="Đầu ra đã đầy"/>
+        <text name="storageMonitor_line_off" text="Tắt"/>
+        <text name="storageMonitor_more" text="+%d nữa"/>
+        <text name="storageMonitor_animals" text="VẬT NUÔI"/>
+        <text name="storageMonitor_food" text="Thức ăn"/>
+        <text name="storageMonitor_bunker_filling" text="Đang nạp"/>
+        <text name="storageMonitor_bunker_fermenting" text="Đang ủ"/>
+        <text name="storageMonitor_bunker_ready" text="Sẵn sàng"/>
+        <text name="storageMonitor_bunkerLevel" text="TRONG HẦM"/>
+        <text name="storageMonitor_objects" text="ĐÃ CHỨA  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Kho"/>
+        <text name="storageMonitor_mode2" text="Giá"/>
+        <text name="storageMonitor_menuMode" text="Màn hình hiển thị (hiện tại: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Màn hình hiển thị"/>
+        <text name="storageMonitor_modeText" text="Kho, giá tốt nhất hôm nay cho những gì trong kho, hoặc mức đầy của kho trong ngày gần nhất trong game (chọn &quot;Tất cả xi-lô của trang trại tôi&quot; cho cả trang trại):"/>
+        <text name="storageMonitor_alerts1" text="Tắt"/>
+        <text name="storageMonitor_alerts2" text="Trên màn hình"/>
+        <text name="storageMonitor_alerts3" text="Trên màn hình và bằng tin nhắn"/>
+        <text name="storageMonitor_menuAlerts" text="Cảnh báo (hiện tại: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Cảnh báo"/>
+        <text name="storageMonitor_alertsText" text="Cảnh báo khi kho gần đầy, một nguyên liệu đã hết, hoặc vật nuôi sắp thiếu thức ăn hoặc nước:"/>
+        <text name="storageMonitor_alertFull" text="Đầy"/>
+        <text name="storageMonitor_alertNearlyFull" text="Gần đầy: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s đã hết"/>
+        <text name="storageMonitor_alertItemFull" text="%s đã đầy"/>
+        <text name="storageMonitor_alertLow" text="%s thấp: %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Hết nước"/>
+        <text name="storageMonitor_alertNoSpawner" text="Không có chỗ đặt pallet mật ong"/>
+        <text name="storageMonitor_alertPalletFull" text="Chỗ đặt pallet mật ong đã đầy"/>
+        <text name="storageMonitor_alertOverdrawn" text="Tài khoản bị âm"/>
+        <text name="storageMonitor_minutes" text="%d phút"/>
+        <text name="storageMonitor_hours" text="%s giờ"/>
+        <text name="storageMonitor_days" text="%s ngày"/>
+        <text name="storageMonitor_fullIn" text="ĐẦY SAU %s"/>
+        <text name="storageMonitor_emptyIn" text="HẾT SAU %s"/>
+        <text name="storageMonitor_runsOut" text="%s: hết sau %s"/>
+        <text name="storageMonitor_foodFor" text="Thức ăn đủ %s"/>
+        <text name="storageMonitor_stockValue" text="GIÁ TRỊ KHO"/>
+        <text name="storageMonitor_mostValuable" text="GIÁ TRỊ NHẤT"/>
+        <text name="storageMonitor_bestMarket" text="NƠI BÁN TỐT NHẤT"/>
+        <text name="storageMonitor_nextMonth" text="THÁNG SAU"/>
+        <text name="storageMonitor_trendCount" text="%d tăng  %d giảm"/>
+        <text name="storageMonitor_colBestAt" text="GIÁ TỐT NHẤT TẠI"/>
+        <text name="storageMonitor_colPrice" text="MỖI 1000 L"/>
+        <text name="storageMonitor_colTrend" text="XU HƯỚNG"/>
+        <text name="storageMonitor_colValue" text="GIÁ TRỊ"/>
+        <text name="storageMonitor_notSold" text="không ai mua"/>
+        <text name="storageMonitor_finance" text="Tiền của trang trại tôi"/>
+        <text name="storageMonitor_balance" text="SỐ DƯ"/>
+        <text name="storageMonitor_loan" text="Khoản vay"/>
+        <text name="storageMonitor_credit" text="Hạn mức còn lại"/>
+        <text name="storageMonitor_incomeToday" text="Thu nhập hôm nay"/>
+        <text name="storageMonitor_costsToday" text="Chi phí hôm nay"/>
+        <text name="storageMonitor_netToday" text="Hôm nay"/>
+        <text name="storageMonitor_colToday" text="HÔM NAY"/>
+        <text name="storageMonitor_colAmountMoney" text="SỐ TIỀN"/>
+        <text name="storageMonitor_noMoneyToday" text="Hôm nay chưa có thu nhập hay chi phí"/>
+        <text name="storageMonitor_beehives" text="Tổ ong"/>
+        <text name="storageMonitor_beehivesCaps" text="TỔ ONG"/>
+        <text name="storageMonitor_honeyPerDay" text="Mật ong mỗi ngày"/>
+        <text name="storageMonitor_beesStatus" text="Trạng thái"/>
+        <text name="storageMonitor_beesProducing" text="Đang sản xuất"/>
+        <text name="storageMonitor_beesWinter" text="Nghỉ đông"/>
+        <text name="storageMonitor_beesFlying" text="Ong"/>
+        <text name="storageMonitor_beesOut" text="Đang bay"/>
+        <text name="storageMonitor_beesIn" text="Đang nghỉ"/>
+        <text name="storageMonitor_palletSpot" text="Chỗ đặt pallet"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Đầy"/>
+        <text name="storageMonitor_spotNone" text="Không có"/>
+        <text name="storageMonitor_honeyHint" text="Mật ong được xếp lên pallet tại chỗ đặt pallet"/>
+        <text name="storageMonitor_honeyValue" text="Giá trị mỗi ngày"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Gắn tường)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Treo)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Bảng quảng cáo hai mặt)"/>
+        <text name="storageMonitor_fields" text="Ruộng của tôi"/>
+        <text name="storageMonitor_weather" text="Thời tiết"/>
+        <text name="storageMonitor_fleet" text="Xe của tôi"/>
+        <text name="storageMonitor_contracts" text="Hợp đồng của tôi"/>
+        <text name="storageMonitor_allPens" text="Tất cả chuồng vật nuôi của tôi"/>
+        <text name="storageMonitor_allProductions" text="Tất cả cơ sở sản xuất của tôi"/>
+        <text name="storageMonitor_mode3" text="Lịch sử (24 giờ)"/>
+        <text name="storageMonitor_needLime" text="Bón vôi"/>
+        <text name="storageMonitor_needPlow" text="Cày"/>
+        <text name="storageMonitor_needFertilizer" text="Phân bón %d%%"/>
+        <text name="storageMonitor_needRoll" text="Lăn"/>
+        <text name="storageMonitor_needWeeds" text="Cỏ dại"/>
+        <text name="storageMonitor_fieldNo" text="Ruộng %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s sẵn sàng thu hoạch"/>
+        <text name="storageMonitor_alertWithered" text="%s: cây trồng đã héo"/>
+        <text name="storageMonitor_alertReadyMany" text="%d ruộng sẵn sàng thu hoạch"/>
+        <text name="storageMonitor_cropReady" text="Thu hoạch"/>
+        <text name="storageMonitor_cropPrepare" text="Chuẩn bị"/>
+        <text name="storageMonitor_cropWithered" text="Héo"/>
+        <text name="storageMonitor_cropCut" text="Đã thu hoạch"/>
+        <text name="storageMonitor_cropNone" text="Không có cây"/>
+        <text name="storageMonitor_cropGrowing" text="Đang lớn"/>
+        <text name="storageMonitor_readyCaps" text="SẴN SÀNG THU HOẠCH"/>
+        <text name="storageMonitor_fieldsCount" text="Ruộng"/>
+        <text name="storageMonitor_area" text="Diện tích"/>
+        <text name="storageMonitor_growing" text="Đang lớn"/>
+        <text name="storageMonitor_toSow" text="Cần gieo"/>
+        <text name="storageMonitor_needWork" text="Cần làm"/>
+        <text name="storageMonitor_colField" text="RUỘNG"/>
+        <text name="storageMonitor_colNeeds" text="CẦN"/>
+        <text name="storageMonitor_colState" text="TRẠNG THÁI"/>
+        <text name="storageMonitor_noFields" text="Trang trại của bạn không có ruộng"/>
+        <text name="storageMonitor_inHours" text="sau %d giờ"/>
+        <text name="storageMonitor_tomorrow" text="Ngày mai"/>
+        <text name="storageMonitor_inDays" text="Sau %d ngày"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s sau %d giờ"/>
+        <text name="storageMonitor_wSun" text="Nắng"/>
+        <text name="storageMonitor_wCloudy" text="Nhiều mây"/>
+        <text name="storageMonitor_wRain" text="Mưa"/>
+        <text name="storageMonitor_wSnow" text="Tuyết"/>
+        <text name="storageMonitor_wFog" text="Sương mù"/>
+        <text name="storageMonitor_wHail" text="Mưa đá"/>
+        <text name="storageMonitor_wStorm" text="Bão"/>
+        <text name="storageMonitor_steady" text="Ổn định"/>
+        <text name="storageMonitor_rising" text="Tăng"/>
+        <text name="storageMonitor_falling" text="Giảm"/>
+        <text name="storageMonitor_noChange" text="Hôm nay không đổi"/>
+        <text name="storageMonitor_fallNone" text="Không có"/>
+        <text name="storageMonitor_temperature" text="NHIỆT ĐỘ"/>
+        <text name="storageMonitor_weatherNow" text="Hiện tại"/>
+        <text name="storageMonitor_today" text="Hôm nay"/>
+        <text name="storageMonitor_next" text="Tiếp theo"/>
+        <text name="storageMonitor_tempTrend" text="Nhiệt độ"/>
+        <text name="storageMonitor_precipitation" text="Đang rơi"/>
+        <text name="storageMonitor_crops" text="Cây trồng"/>
+        <text name="storageMonitor_cropsWet" text="Ướt"/>
+        <text name="storageMonitor_cropsDry" text="Khô"/>
+        <text name="storageMonitor_colWhen" text="KHI NÀO"/>
+        <text name="storageMonitor_colWeather" text="THỜI TIẾT"/>
+        <text name="storageMonitor_noForecast" text="Không có dự báo"/>
+        <text name="storageMonitor_helperWorking" text="Nhân công đang làm"/>
+        <text name="storageMonitor_inUse" text="Đang dùng"/>
+        <text name="storageMonitor_engineOn" text="Động cơ bật"/>
+        <text name="storageMonitor_parked" text="Đã đỗ"/>
+        <text name="storageMonitor_alertFuel" text="%s: nhiên liệu %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: hư hỏng %d%%"/>
+        <text name="storageMonitor_damage" text="hư hỏng %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="NHÂN CÔNG ĐANG LÀM"/>
+        <text name="storageMonitor_vehicles" text="Xe"/>
+        <text name="storageMonitor_lowFuel" text="Sắp hết nhiên liệu"/>
+        <text name="storageMonitor_needRepair" text="Cần sửa chữa"/>
+        <text name="storageMonitor_leased" text="Thuê"/>
+        <text name="storageMonitor_colVehicle" text="XE"/>
+        <text name="storageMonitor_colStatus" text="TRẠNG THÁI"/>
+        <text name="storageMonitor_colFuel" text="NHIÊN LIỆU"/>
+        <text name="storageMonitor_noVehicles" text="Trang trại của bạn không có xe"/>
+        <text name="storageMonitor_contractsCaps" text="HỢP ĐỒNG ĐANG CHẠY"/>
+        <text name="storageMonitor_reward" text="Phần thưởng"/>
+        <text name="storageMonitor_almostDone" text="Sắp xong"/>
+        <text name="storageMonitor_average" text="Trung bình"/>
+        <text name="storageMonitor_colContract" text="HỢP ĐỒNG"/>
+        <text name="storageMonitor_colWhere" text="Ở ĐÂU  THƯỞNG"/>
+        <text name="storageMonitor_colDone" text="XONG"/>
+        <text name="storageMonitor_noContracts" text="Không có hợp đồng đang chạy"/>
+        <text name="storageMonitor_pens" text="Chuồng"/>
+        <text name="storageMonitor_places" text="Chỗ"/>
+        <text name="storageMonitor_lowFood" text="Thiếu thức ăn"/>
+        <text name="storageMonitor_lowSupplies" text="Thiếu nước, rơm"/>
+        <text name="storageMonitor_tanksFull" text="Bồn đầy"/>
+        <text name="storageMonitor_foodLasts" text="Thức ăn đủ dùng"/>
+        <text name="storageMonitor_colPen" text="CHUỒNG"/>
+        <text name="storageMonitor_colSupplies" text="VẬT TƯ"/>
+        <text name="storageMonitor_noPens" text="Trang trại của bạn không có chuồng vật nuôi"/>
+        <text name="storageMonitor_missingList" text="Thiếu: %s"/>
+        <text name="storageMonitor_productions" text="Cơ sở sản xuất"/>
+        <text name="storageMonitor_idle" text="Nhàn rỗi"/>
+        <text name="storageMonitor_colProduction" text="SẢN XUẤT"/>
+        <text name="storageMonitor_colLines" text="DÂY CHUYỀN"/>
+        <text name="storageMonitor_noProductions" text="Trang trại của bạn không có cơ sở sản xuất"/>
+        <text name="storageMonitor_last24" text="24 GIỜ GẦN NHẤT TRONG GAME"/>
+        <text name="storageMonitor_nowValue" text="HIỆN %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 giờ"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 giờ"/>
+        <text name="storageMonitor_now" text="hiện tại"/>
+        <text name="storageMonitor_graphFilling" text="Biểu đồ sẽ đầy dần trong ngày tiếp theo trong game"/>
+        <text name="storageMonitor_alertPrice" text="%s bán được %s tại %s"/>
+        <text name="storageMonitor_menuFullAt" text="Gần đầy từ (hiện tại: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Cảnh báo giá (hiện tại: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Trình chiếu (hiện tại: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="Trình chiếu đang bật: màn hình hiển thị các trang riêng của nó. Các kho gần màn hình này, gần nhất trước, sau đó là cả trang trại:"/>
+        <text name="storageMonitor_priceAbove" text="%s từ %s"/>
+        <text name="storageMonitor_slidesNow" text="%d trang, mỗi trang %d giây"/>
+        <text name="storageMonitor_fullAtTitle" text="Gần đầy từ"/>
+        <text name="storageMonitor_fullAtText" text="Từ mức nào thì xi-lô, nhà kho hoặc đống được coi là gần đầy: cảnh báo, và màu đỏ trên màn hình (màu hổ phách từ thấp hơn 15):"/>
+        <text name="storageMonitor_priceNow" text="%s (hiện %s tại %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Cảnh báo giá"/>
+        <text name="storageMonitor_priceAlertText" text="Báo cho tôi khi một sản phẩm bán được giá cao hơn (giá mỗi 1000 l). Sản phẩm:"/>
+        <text name="storageMonitor_priceAlertNone" text="Không có gì ở đây bán được ở bất kỳ đâu. Hãy chọn một kho có sản phẩm trước."/>
+        <text name="storageMonitor_priceStep" text="Từ %s (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s hiện bán được %s mỗi 1000 l. Báo cho tôi từ:"/>
+        <text name="storageMonitor_slideTimeNow" text="Thời gian mỗi trang (hiện tại: %d giây)"/>
+        <text name="storageMonitor_slideTimeOff" text="Thời gian mỗi trang (hiện tại: tắt)"/>
+        <text name="storageMonitor_done" text="Xong"/>
+        <text name="storageMonitor_slideshowTitle" text="Trình chiếu"/>
+        <text name="storageMonitor_slideshowText" text="Đánh dấu các trang mà màn hình sẽ lần lượt hiển thị (tối đa %d):"/>
+        <text name="storageMonitor_slideOff" text="Tắt: hiển thị kho đã chọn"/>
+        <text name="storageMonitor_seconds" text="%d giây"/>
+        <text name="storageMonitor_slideTimeText" text="Mỗi trang hiển thị trong bao lâu:"/>
+    </texts>
+</l10n>

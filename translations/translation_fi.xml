@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>DTM Mods</translationContributors>
+    <texts>
+        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kioski)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Seinä)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Mainostaulu)"/>
+        <text name="function_storageMonitor"           text="Värillinen live-näyttö siiloille, tuotannoille, eläinsuojille, aumasiiloille, varastohalleille, mehiläispesille ja tilan rahoille: kapasiteetti, jokainen tuote, muutosnopeudet, hinnat ja hälytykset."/>
+
+        <text name="storageMonitor_showing"    text="Näyttää"/>
+        <text name="storageMonitor_noStorage"  text="Ei varastoa lähellä"/>
+        <text name="storageMonitor_searching"  text="Etsitään varastoa..."/>
+        <text name="storageMonitor_reading"    text="Luetaan..."/>
+        <text name="storageMonitor_capacity"   text="KAPASITEETTI"/>
+        <text name="storageMonitor_used"       text="KÄYTETTY"/>
+        <text name="storageMonitor_total"      text="YHTEENSÄ"/>
+        <text name="storageMonitor_free"       text="VAPAANA"/>
+        <text name="storageMonitor_products"   text="%d TUOTETTA"/>
+        <text name="storageMonitor_colProduct" text="TUOTE"/>
+        <text name="storageMonitor_colLevel"   text="TÄYTTÖ"/>
+        <text name="storageMonitor_colAmount"  text="MÄÄRÄ"/>
+        <text name="storageMonitor_empty"      text="Tyhjä"/>
+        <text name="storageMonitor_page"       text="SIVU %d/%d"/>
+
+        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Siiloteline)"/>
+        <text name="storageMonitor_settings" text="Näytön asetukset"/>
+        <text name="storageMonitor_plusConnected" text="%s + %d yhdistettyä"/>
+        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuText" text="Näyttää: %s"/>
+        <text name="storageMonitor_menuPick" text="Valitse varasto (nyt: %s)"/>
+        <text name="storageMonitor_menuConnectedOn" text="Näytä myös siihen yhdistetyt siilot"/>
+        <text name="storageMonitor_menuConnectedOff" text="Näytä vain tämä siilo"/>
+        <text name="storageMonitor_pickTitle" text="Valitse varasto"/>
+        <text name="storageMonitor_pickText" text="Varastot tämän näytön lähellä, lähin ensin, sitten koko tilasi:"/>
+        <text name="storageMonitor_pickNearest" text="Aina lähin"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: edellinen sivu"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: seuraava sivu"/>
+        <text name="storageMonitor_menuSize" text="Näytön koko (nyt: %.1f m leveä)"/>
+        <text name="storageMonitor_sizeTitle" text="Näytön koko"/>
+        <text name="storageMonitor_sizeText" text="Näytön koko. Se kasvaa alareunastaan ylöspäin."/>
+        <text name="storageMonitor_sizeOption" text="%.1f m leveä, %.1f m korkea"/>
+        <text name="storageMonitor_menuBrightness" text="Kirkkaus (nyt: %s)"/>
+        <text name="storageMonitor_menuTheme" text="Värit (nyt: %s)"/>
+        <text name="storageMonitor_menuTitleNow" text="Otsikko (nyt: %s)"/>
+        <text name="storageMonitor_menuTitleSet" text="Otsikko: kirjoita oma"/>
+        <text name="storageMonitor_brightnessTitle" text="Kirkkaus"/>
+        <text name="storageMonitor_brightnessText" text="Kuinka voimakkaasti näyttö, sen palkit ja sen teksti hehkuvat:"/>
+        <text name="storageMonitor_themeTitle" text="Värit"/>
+        <text name="storageMonitor_themeText" text="Näytön värit:"/>
+        <text name="storageMonitor_titlePrompt" text="Otsikko näytöllä (tyhjä: varaston nimi)"/>
+        <text name="storageMonitor_sizeTextGround" text="Näytön koko. Se kasvaa maasta ylöspäin."/>
+        <text name="storageMonitor_bright1" text="Hyvin himmeä"/>
+        <text name="storageMonitor_bright2" text="Himmeä"/>
+        <text name="storageMonitor_bright3" text="Normaali"/>
+        <text name="storageMonitor_bright4" text="Kirkas"/>
+        <text name="storageMonitor_bright5" text="Hyvin kirkas"/>
+        <text name="storageMonitor_theme1" text="Yönsininen"/>
+        <text name="storageMonitor_theme2" text="DTM-vihreä"/>
+        <text name="storageMonitor_theme3" text="Meripihkapääte"/>
+        <text name="storageMonitor_theme4" text="Päivänvalo"/>
+        <text name="storageMonitor_farmAll" text="Kaikki tilani siilot"/>
+        <text name="storageMonitor_linesRunning" text="KÄYNNISSÄ"/>
+        <text name="storageMonitor_line_running" text="Käynnissä"/>
+        <text name="storageMonitor_line_missing" text="Raaka-aineita puuttuu"/>
+        <text name="storageMonitor_line_full" text="Tuotevarasto täynnä"/>
+        <text name="storageMonitor_line_off" text="Pois"/>
+        <text name="storageMonitor_more" text="+%d lisää"/>
+        <text name="storageMonitor_animals" text="ELÄIMET"/>
+        <text name="storageMonitor_food" text="Rehu"/>
+        <text name="storageMonitor_bunker_filling" text="Täytetään"/>
+        <text name="storageMonitor_bunker_fermenting" text="Käymässä"/>
+        <text name="storageMonitor_bunker_ready" text="Valmis"/>
+        <text name="storageMonitor_bunkerLevel" text="SIILOSSA"/>
+        <text name="storageMonitor_objects" text="VARASTOSSA  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Varasto"/>
+        <text name="storageMonitor_mode2" text="Hinnat"/>
+        <text name="storageMonitor_menuMode" text="Näkymä (nyt: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Näkymä"/>
+        <text name="storageMonitor_modeText" text="Varasto, sen sisällön tämän päivän parhaat hinnat, tai sen täyttöaste viimeisen pelivuorokauden ajalta (valitse &quot;Kaikki tilani siilot&quot; koko tilalle):"/>
+        <text name="storageMonitor_alerts1" text="Pois"/>
+        <text name="storageMonitor_alerts2" text="Näytöllä"/>
+        <text name="storageMonitor_alerts3" text="Näytöllä ja viestinä"/>
+        <text name="storageMonitor_menuAlerts" text="Hälytykset (nyt: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Hälytykset"/>
+        <text name="storageMonitor_alertsText" text="Varoita, kun se on lähes täynnä, raaka-aine on lopussa tai eläimiltä on loppumassa rehu tai vesi:"/>
+        <text name="storageMonitor_alertFull" text="Täynnä"/>
+        <text name="storageMonitor_alertNearlyFull" text="Lähes täynnä: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s on tyhjä"/>
+        <text name="storageMonitor_alertItemFull" text="%s on täynnä"/>
+        <text name="storageMonitor_alertLow" text="%s vähissä: %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Ei vettä"/>
+        <text name="storageMonitor_alertNoSpawner" text="Ei hunajalavojen paikkaa"/>
+        <text name="storageMonitor_alertPalletFull" text="Hunajalavojen paikka on täynnä"/>
+        <text name="storageMonitor_alertOverdrawn" text="Tili on miinuksella"/>
+        <text name="storageMonitor_minutes" text="%d min"/>
+        <text name="storageMonitor_hours" text="%s h"/>
+        <text name="storageMonitor_days" text="%s pv"/>
+        <text name="storageMonitor_fullIn" text="TÄYNNÄ %s PÄÄSTÄ"/>
+        <text name="storageMonitor_emptyIn" text="TYHJÄ %s PÄÄSTÄ"/>
+        <text name="storageMonitor_runsOut" text="%s: tyhjä %s päästä"/>
+        <text name="storageMonitor_foodFor" text="Rehua: %s"/>
+        <text name="storageMonitor_stockValue" text="VARASTON ARVO"/>
+        <text name="storageMonitor_mostValuable" text="ARVOKKAIN"/>
+        <text name="storageMonitor_bestMarket" text="PARAS MYYNTIPAIKKA"/>
+        <text name="storageMonitor_nextMonth" text="ENSI KUUSSA"/>
+        <text name="storageMonitor_trendCount" text="%d nousee  %d laskee"/>
+        <text name="storageMonitor_colBestAt" text="PARAS HINTA"/>
+        <text name="storageMonitor_colPrice" text="/ 1000 L"/>
+        <text name="storageMonitor_colTrend" text="SUUNTA"/>
+        <text name="storageMonitor_colValue" text="ARVO"/>
+        <text name="storageMonitor_notSold" text="kukaan ei osta"/>
+        <text name="storageMonitor_finance" text="Tilani rahat"/>
+        <text name="storageMonitor_balance" text="SALDO"/>
+        <text name="storageMonitor_loan" text="Laina"/>
+        <text name="storageMonitor_credit" text="Luottoa jäljellä"/>
+        <text name="storageMonitor_incomeToday" text="Tulot tänään"/>
+        <text name="storageMonitor_costsToday" text="Kulut tänään"/>
+        <text name="storageMonitor_netToday" text="Tänään"/>
+        <text name="storageMonitor_colToday" text="TÄNÄÄN"/>
+        <text name="storageMonitor_colAmountMoney" text="SUMMA"/>
+        <text name="storageMonitor_noMoneyToday" text="Ei vielä tuloja tai kuluja tänään"/>
+        <text name="storageMonitor_beehives" text="Mehiläispesät"/>
+        <text name="storageMonitor_beehivesCaps" text="MEHILÄISPESÄT"/>
+        <text name="storageMonitor_honeyPerDay" text="Hunajaa päivässä"/>
+        <text name="storageMonitor_beesStatus" text="Tila"/>
+        <text name="storageMonitor_beesProducing" text="Tuottaa"/>
+        <text name="storageMonitor_beesWinter" text="Talvitauko"/>
+        <text name="storageMonitor_beesFlying" text="Mehiläiset"/>
+        <text name="storageMonitor_beesOut" text="Lentävät"/>
+        <text name="storageMonitor_beesIn" text="Lepäävät"/>
+        <text name="storageMonitor_palletSpot" text="Lavapaikka"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Täynnä"/>
+        <text name="storageMonitor_spotNone" text="Ei ole"/>
+        <text name="storageMonitor_honeyHint" text="Hunaja menee lavoille lavapaikalla"/>
+        <text name="storageMonitor_honeyValue" text="Arvo päivässä"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Seinäteline)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Riippuva)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Kaksipuolinen mainostaulu)"/>
+        <text name="storageMonitor_fields" text="Peltoni"/>
+        <text name="storageMonitor_weather" text="Sää"/>
+        <text name="storageMonitor_fleet" text="Ajoneuvoni"/>
+        <text name="storageMonitor_contracts" text="Sopimukseni"/>
+        <text name="storageMonitor_allPens" text="Kaikki eläinsuojani"/>
+        <text name="storageMonitor_allProductions" text="Kaikki tuotantoni"/>
+        <text name="storageMonitor_mode3" text="Historia (24 h)"/>
+        <text name="storageMonitor_needLime" text="Kalkitus"/>
+        <text name="storageMonitor_needPlow" text="Kyntö"/>
+        <text name="storageMonitor_needFertilizer" text="Lannoitus %d%%"/>
+        <text name="storageMonitor_needRoll" text="Jyräys"/>
+        <text name="storageMonitor_needWeeds" text="Rikat"/>
+        <text name="storageMonitor_fieldNo" text="Pelto %s"/>
+        <text name="storageMonitor_alertReady" text="%s: %s korjuuvalmis"/>
+        <text name="storageMonitor_alertWithered" text="%s: kasvusto on kuihtunut"/>
+        <text name="storageMonitor_alertReadyMany" text="%d peltoa korjuuvalmiina"/>
+        <text name="storageMonitor_cropReady" text="Korjuu"/>
+        <text name="storageMonitor_cropPrepare" text="Valmistele"/>
+        <text name="storageMonitor_cropWithered" text="Kuihtunut"/>
+        <text name="storageMonitor_cropCut" text="Korjattu"/>
+        <text name="storageMonitor_cropNone" text="Ei kasvustoa"/>
+        <text name="storageMonitor_cropGrowing" text="Kasvaa"/>
+        <text name="storageMonitor_readyCaps" text="KORJUUVALMIIT"/>
+        <text name="storageMonitor_fieldsCount" text="Pellot"/>
+        <text name="storageMonitor_area" text="Pinta-ala"/>
+        <text name="storageMonitor_growing" text="Kasvamassa"/>
+        <text name="storageMonitor_toSow" text="Kylvettävä"/>
+        <text name="storageMonitor_needWork" text="Vaatii työtä"/>
+        <text name="storageMonitor_colField" text="PELTO"/>
+        <text name="storageMonitor_colNeeds" text="TARVE"/>
+        <text name="storageMonitor_colState" text="TILA"/>
+        <text name="storageMonitor_noFields" text="Tilallasi ei ole peltoja"/>
+        <text name="storageMonitor_inHours" text="%d h päästä"/>
+        <text name="storageMonitor_tomorrow" text="Huomenna"/>
+        <text name="storageMonitor_inDays" text="%d päivän päästä"/>
+        <text name="storageMonitor_alertWeatherSoon" text="%s %d h päästä"/>
+        <text name="storageMonitor_wSun" text="Aurinkoista"/>
+        <text name="storageMonitor_wCloudy" text="Pilvistä"/>
+        <text name="storageMonitor_wRain" text="Sadetta"/>
+        <text name="storageMonitor_wSnow" text="Lunta"/>
+        <text name="storageMonitor_wFog" text="Sumua"/>
+        <text name="storageMonitor_wHail" text="Raekuuroja"/>
+        <text name="storageMonitor_wStorm" text="Myrsky"/>
+        <text name="storageMonitor_steady" text="Tasainen"/>
+        <text name="storageMonitor_rising" text="Nousee"/>
+        <text name="storageMonitor_falling" text="Laskee"/>
+        <text name="storageMonitor_noChange" text="Ei muutosta tänään"/>
+        <text name="storageMonitor_fallNone" text="Ei mitään"/>
+        <text name="storageMonitor_temperature" text="LÄMPÖTILA"/>
+        <text name="storageMonitor_weatherNow" text="Nyt"/>
+        <text name="storageMonitor_today" text="Tänään"/>
+        <text name="storageMonitor_next" text="Seuraavaksi"/>
+        <text name="storageMonitor_tempTrend" text="Lämpötila"/>
+        <text name="storageMonitor_precipitation" text="Sataa nyt"/>
+        <text name="storageMonitor_crops" text="Kasvustot"/>
+        <text name="storageMonitor_cropsWet" text="Märät"/>
+        <text name="storageMonitor_cropsDry" text="Kuivat"/>
+        <text name="storageMonitor_colWhen" text="MILLOIN"/>
+        <text name="storageMonitor_colWeather" text="SÄÄ"/>
+        <text name="storageMonitor_noForecast" text="Ei ennustetta"/>
+        <text name="storageMonitor_helperWorking" text="Apulainen töissä"/>
+        <text name="storageMonitor_inUse" text="Käytössä"/>
+        <text name="storageMonitor_engineOn" text="Moottori käy"/>
+        <text name="storageMonitor_parked" text="Pysäköity"/>
+        <text name="storageMonitor_alertFuel" text="%s: polttoaine %d%%"/>
+        <text name="storageMonitor_alertDamage" text="%s: vauriot %d%%"/>
+        <text name="storageMonitor_damage" text="vauriot %d%%"/>
+        <text name="storageMonitor_helpersCaps" text="APULAISET TÖISSÄ"/>
+        <text name="storageMonitor_vehicles" text="Ajoneuvot"/>
+        <text name="storageMonitor_lowFuel" text="Vähän polttoainetta"/>
+        <text name="storageMonitor_needRepair" text="Korjattava"/>
+        <text name="storageMonitor_leased" text="Liisattu"/>
+        <text name="storageMonitor_colVehicle" text="AJONEUVO"/>
+        <text name="storageMonitor_colStatus" text="TILA"/>
+        <text name="storageMonitor_colFuel" text="POLTTOAINE"/>
+        <text name="storageMonitor_noVehicles" text="Tilallasi ei ole ajoneuvoja"/>
+        <text name="storageMonitor_contractsCaps" text="KÄYNNISSÄ OLEVAT SOPIMUKSET"/>
+        <text name="storageMonitor_reward" text="Palkkio"/>
+        <text name="storageMonitor_almostDone" text="Lähes valmis"/>
+        <text name="storageMonitor_average" text="Keskimäärin"/>
+        <text name="storageMonitor_colContract" text="SOPIMUS"/>
+        <text name="storageMonitor_colWhere" text="MISSÄ  PALKKIO"/>
+        <text name="storageMonitor_colDone" text="VALMIS"/>
+        <text name="storageMonitor_noContracts" text="Ei käynnissä olevia sopimuksia"/>
+        <text name="storageMonitor_pens" text="Suojat"/>
+        <text name="storageMonitor_places" text="Paikat"/>
+        <text name="storageMonitor_lowFood" text="Vähän rehua"/>
+        <text name="storageMonitor_lowSupplies" text="Vähän vettä, olkea"/>
+        <text name="storageMonitor_tanksFull" text="Säiliöt täynnä"/>
+        <text name="storageMonitor_foodLasts" text="Rehu riittää"/>
+        <text name="storageMonitor_colPen" text="SUOJA"/>
+        <text name="storageMonitor_colSupplies" text="TARVIKKEET"/>
+        <text name="storageMonitor_noPens" text="Tilallasi ei ole eläinsuojia"/>
+        <text name="storageMonitor_missingList" text="Puuttuu: %s"/>
+        <text name="storageMonitor_productions" text="Tuotannot"/>
+        <text name="storageMonitor_idle" text="Seisoo"/>
+        <text name="storageMonitor_colProduction" text="TUOTANTO"/>
+        <text name="storageMonitor_colLines" text="LINJAT"/>
+        <text name="storageMonitor_noProductions" text="Tilallasi ei ole tuotantoja"/>
+        <text name="storageMonitor_last24" text="VIIMEISET 24 PELITUNTIA"/>
+        <text name="storageMonitor_nowValue" text="NYT %s"/>
+        <text name="storageMonitor_hoursAgo24" text="-24 h"/>
+        <text name="storageMonitor_hoursAgo12" text="-12 h"/>
+        <text name="storageMonitor_now" text="nyt"/>
+        <text name="storageMonitor_graphFilling" text="Kaavio täyttyy seuraavan pelivuorokauden aikana"/>
+        <text name="storageMonitor_alertPrice" text="%s: hinta %s, myyntipaikka %s"/>
+        <text name="storageMonitor_menuFullAt" text="Lähes täynnä alkaen (nyt: %d%%)"/>
+        <text name="storageMonitor_menuPriceAlert" text="Hintahälytys (nyt: %s)"/>
+        <text name="storageMonitor_menuSlideshow" text="Diaesitys (nyt: %s)"/>
+        <text name="storageMonitor_pickTextSlides" text="Diaesitys on päällä: se näyttää omat näkymänsä. Varastot tämän näytön lähellä, lähin ensin, sitten koko tilasi:"/>
+        <text name="storageMonitor_priceAbove" text="%s: %s alkaen"/>
+        <text name="storageMonitor_slidesNow" text="%d näkymää, kukin %d s"/>
+        <text name="storageMonitor_fullAtTitle" text="Lähes täynnä alkaen"/>
+        <text name="storageMonitor_fullAtText" text="Mistä täyttöasteesta alkaen siilo, varastohalli tai kasa lasketaan lähes täydeksi: hälytys ja punainen näytöllä (keltainen 15 alempaa):"/>
+        <text name="storageMonitor_priceNow" text="%s (nyt %s, %s)"/>
+        <text name="storageMonitor_priceAlertTitle" text="Hintahälytys"/>
+        <text name="storageMonitor_priceAlertText" text="Ilmoita, kun tuotteesta maksetaan enemmän (hinta / 1000 l). Tuote:"/>
+        <text name="storageMonitor_priceAlertNone" text="Mitään täällä olevaa ei osteta missään. Valitse ensin varasto, jossa on tuotteita."/>
+        <text name="storageMonitor_priceStep" text="%s alkaen (+%d%%)"/>
+        <text name="storageMonitor_priceStepText" text="%s: nyt %s / 1000 l. Ilmoita alkaen:"/>
+        <text name="storageMonitor_slideTimeNow" text="Näkymän kesto (nyt: %d s)"/>
+        <text name="storageMonitor_slideTimeOff" text="Näkymän kesto (nyt: pois)"/>
+        <text name="storageMonitor_done" text="Valmis"/>
+        <text name="storageMonitor_slideshowTitle" text="Diaesitys"/>
+        <text name="storageMonitor_slideshowText" text="Valitse näkymät, joita näyttö näyttää vuorotellen (enintään %d):"/>
+        <text name="storageMonitor_slideOff" text="Pois: näytä valittu varasto"/>
+        <text name="storageMonitor_seconds" text="%d s"/>
+        <text name="storageMonitor_slideTimeText" text="Kuinka kauan kukin näkymä näkyy:"/>
+    </texts>
+</l10n>

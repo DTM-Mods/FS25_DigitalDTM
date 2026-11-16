@@ -379,8 +379,8 @@ def test_world(lua):
     g = lua.globals()
     cands = g.cands
     names = [cands[i].name for i in range(1, len(cands) + 1)]
-    check(names == ["Multifruit Silo", "Bakery", "Multifruit Silo B", "Grain Silo", "All silos of my farm"],
-          "one entry per building, nearest first, other farm and far ones left out, farm overview last: %s" % names)
+    check(names == ["Multifruit Silo", "Bakery", "Multifruit Silo B", "Grain Silo", "All silos of my farm", "All my productions"],
+          "one entry per building, nearest first, other farm and far ones left out, farm screens last: %s" % names)
 
     lua.execute("frame()")
     show_logs(lua)
@@ -493,7 +493,7 @@ def test_mount_size(lua):
     """)
     g = lua.globals()
     spec = g.m.spec_storageMonitor
-    check(len(list(g.menu.values())) == 8, "menu: pick, connected, size, brightness, colours, title, screen, alerts: %s" % list(g.menu.values()))
+    check(len(list(g.menu.values())) == 11, "menu: pick, connected, size, brightness, colours, title, screen, alerts, full at, price alert, slideshow: %s" % list(g.menu.values()))
     check(list(g.sizes.values())[8].startswith("4.8 m wide, 3.0 m high"), "size list: %s" % list(g.sizes.values())[:3])
     check(abs(spec.mountWidth - 4.8) < 1e-6 and abs(spec.sizeScale - 2.0) < 1e-6, "size chosen: %s" % spec.mountWidth)
     sc = g.scales[g.mountNode]
@@ -515,7 +515,7 @@ def test_mount_size(lua):
     sc = g.scales[s2.mountNode]
     check(abs(sc[1] - 0.5) < 1e-6 and abs(sc[3] - 0.5) < 1e-6 and abs(g.nodes[s2.mountNode][2]) < 1e-6,
           "free-standing scaled 0.5 x 0.5 x 0.5 from the ground")
-    check(len(list(g.menuG.values())) == 8, "free-standing monitors have the size entry too")
+    check(len(list(g.menuG.values())) == 11, "free-standing monitors have the size entry too")
     on = [g.names[c.node] for c in s2.collisions.values() if g.rigid[c.node] == "static"]
     check(on == ["collision_120"], "free-standing: only the 1.2 m collision is on: %s" % on)
 
@@ -875,8 +875,8 @@ def test_more_kinds(lua):
     g = lua.globals()
     spec = g.m.spec_storageMonitor
     names = [c.name for c in g.StorageMonitor.collectStorageCandidates(g.m).values()]
-    check(names == ["Manure Heap", "Greenhouse", "Beehives", "Cow Barn", "My farm's money"],
-          "candidates: heap, greenhouse, the beehives as one, barn, money last: %s" % names)
+    check(names == ["Manure Heap", "Greenhouse", "Beehives", "Cow Barn", "My farm's money", "All my animal pens", "All my productions"],
+          "candidates: heap, greenhouse, the beehives as one, barn, then money, all pens, all productions: %s" % names)
 
     lua.execute('show("Manure Heap")')
     t = texts(lua)
@@ -914,6 +914,304 @@ def test_more_kinds(lua):
     # money and prices do not mix: the money screen stays
     lua.execute("set(m, 'mode', 2) StorageMonitor.refreshStorageMonitorData(m) frame()")
     check(spec.snapshot.finance is True and not spec.snapshot.prices, "money ignores the price board setting")
+
+
+FARM = r"""
+local function placeable(name, x, z)
+    local p = {rootNode = newNode(x, 0, z), name = name}
+    function p:getName() return self.name end
+    function p:getOwnerFarmId() return 1 end
+    return p
+end
+ProductionPoint = {PROD_STATUS = {INACTIVE = 0, RUNNING = 1, MISSING_INPUTS = 2, NO_OUTPUT_SPACE = 3}}
+addFillType(150, "FLOUR", "Flour") addFillType(151, "BREAD", "Bread")
+-- two pens and a production of the farm, far from the monitor (the farm screens list them anyway)
+barn = placeable("Cow Barn", 400, 0)
+barn.spec_husbandryAnimals = {}
+barn.spec_husbandry = {storage = makeStorage({}, 100000, {}, 400, 0)}
+barn.spec_husbandryFood = {litersPerHour = 1000}
+function barn:getNumOfAnimals() return 30 end
+function barn:getMaxNumOfAnimals() return 40 end
+function barn:getTotalFood() return 36000 end
+function barn:getFoodCapacity() return 100000 end
+function barn:getConditionInfos() return {{title = "Water", ratio = 0.05}, {title = "Straw", ratio = 0.6}} end
+sty = placeable("Pig Barn", 420, 0)
+sty.spec_husbandryAnimals = {}
+sty.spec_husbandry = {storage = makeStorage({}, 100000, {}, 420, 0)}
+function sty:getNumOfAnimals() return 10 end
+function sty:getMaxNumOfAnimals() return 20 end
+function sty:getTotalFood() return 90000 end
+function sty:getFoodCapacity() return 100000 end
+function sty:getConditionInfos() return {{title = "Water", ratio = 0.9}} end
+bakery = placeable("Mill Bakery", 440, 0)
+local line = {id = "bread", name = "Bread", status = 2}
+bakery.spec_productionPoint = {productionPoint = {storage = makeStorage({[150] = 0, [151] = 10}, 100000, {[150] = 5000, [151] = 5000}, 440, 0),
+    productions = {line}, activeProductions = {line}, inputFillTypeIds = {[150] = true}, outputFillTypeIds = {[151] = true}}}
+table.insert(g_currentMission.placeableSystem.placeables, barn)
+table.insert(g_currentMission.placeableSystem.placeables, sty)
+table.insert(g_currentMission.placeableSystem.placeables, bakery)
+
+-- fields: 12 wheat ready, 7 canola growing (needs lime), 3 withered
+local function fruit(i, name, title)
+    local f = {index = i, name = name, fillType = {name = name, title = title}, minHarvestingGrowthState = 7,
+               maxHarvestingGrowthState = 8, minPreparingGrowthState = -1, maxPreparingGrowthState = -1, cutState = 10}
+    function f:getIsWithered(g) return g == 9 end
+    return f
+end
+fruits = {fruit(1, "WHEAT", "Wheat"), fruit(2, "CANOLA", "Canola")}
+g_fruitTypeManager = {getFruitTypeByIndex = function(self, i) return fruits[i] end}
+local spots = {[1200] = {1, 8}, [700] = {2, 3}, [300] = {1, 9}, [500] = {2, 8}}
+fieldUpdates = 0
+local function field(id, ha, owner, lime)
+    local f = {farmland = {id = id, owner = owner}, areaHa = ha, fieldState = {limeLevel = lime, plowLevel = 1, sprayLevel = 2, rollerLevel = 0, weedState = 0}}
+    function f.fieldState:update(x, z) fieldUpdates = fieldUpdates + 1 end
+    function f:getCenterOfFieldWorldPosition() return id * 100, 0 end
+    function f:getId() return id end
+    return f
+end
+fields = {field(12, 10, 1, 1), field(7, 5, 1, 0), field(3, 2, 1, 1), field(5, 9, 2, 1)}
+g_fieldManager = {getFields = function() return fields end}
+g_farmlandManager = {getFarmlandOwner = function(self, id) for _, f in ipairs(fields) do if f.farmland.id == id then return f.farmland.owner end end end}
+FSDensityMapUtil = {getFruitTypeIndexAtWorldPos = function(x, z) local s = spots[x] return s[1], s[2] end}
+FieldDensityMap = {SPRAY_LEVEL = 1}
+g_currentMission.missionInfo = {limeRequired = true}
+g_currentMission.fieldGroundSystem = {getMaxValue = function() return 2 end}
+
+-- weather: sunny now, rain from 17:00
+WeatherType = {SUN = 1, CLOUDY = 2, RAIN = 3}
+local env = g_currentMission.environment
+env.dayTime, env.currentDay, env.currentHour = 15 * 3600000, 4, 15
+weather = {forecast = {getCurrentWeather = function() return {temperature = 18.4} end}}
+function weather:getCurrentWeatherType() return 1 end
+function weather:getNextWeatherType(dayTime, day)
+    if day == 4 and dayTime >= 17 * 3600000 then return 3 end
+    if day == 4 then return 1 end
+    return 2
+end
+function weather:getCurrentMinMaxTemperatures() return 9, 21 end
+function weather:getIsRaining() return false end
+env.weather = weather
+
+-- vehicles: a helper at 5 % fuel, a parked tractor with 75 % damage, an implement and another farm's truck
+VehiclePropertyState = {OWNED = 1, LEASED = 2, MISSION = 3}
+FillType = {DIESEL = 1}
+local function vehicle(id, name, fuel, damage, ai, farm, extra)
+    local v = {id = id, typeName = "tractor", propertyState = 1}
+    function v:getFullName() return name end
+    function v:getOwnerFarmId() return farm or 1 end
+    function v:getIsControlled() return false end
+    function v:getIsAIActive() return ai end
+    function v:getDamageAmount() return damage end
+    function v:getConsumerFillUnitIndex(ft) return ft == 1 and 1 or nil end
+    function v:getFillUnitFillLevel() return fuel * 400 end
+    function v:getFillUnitCapacity() return 400 end
+    for k, x in pairs(extra or {}) do v[k] = x end
+    return v
+end
+g_currentMission.vehicleSystem = {vehicles = {vehicle(1, "Fendt 942", 0.05, 0.1, true), vehicle(2, "Case Magnum", 0.8, 0.75, false),
+    vehicle(3, "Plough", 0, 0, false, 1, {spec_attachable = {}}), vehicle(4, "Neighbour Truck", 0.5, 0, false, 2),
+    vehicle(5, "Contract Combine", 0.5, 0, false, 1, {propertyState = 3})}}
+
+-- contracts: one running at 95 %, one finished
+MissionStatus = {RUNNING = 2, FINISHED = 3}
+local function mission(title, status, completion, reward)
+    local m = {status = status}
+    function m:getTitle() return title end
+    function m:getLocation() return "Field 9" end
+    function m:getCompletion() return completion end
+    function m:getReward() return reward end
+    return m
+end
+g_missionManager = {getMissionsByFarmId = function() return {mission("Harvesting", 2, 0.95, 40000), mission("Baling", 3, 1, 9000)} end}
+g_i18n.formatMoney = function(self, v) return "$" .. StorageMonitor.groupDigits(v) end
+
+m = newMonitor(false)
+spec = m.spec_storageMonitor
+function showScreen(kind)
+    for _, c in ipairs(StorageMonitor.collectStorageCandidates(m)) do
+        if c.kind == kind then
+            set(m, "pick", {c.anchor[1], c.anchor[2]})
+            m:rescanStorageMonitor()
+            frame()
+            return
+        end
+    end
+    error("no screen " .. kind)
+end
+function alertIds()
+    local ids = {}
+    for _, a in ipairs(spec.alertList) do table.insert(ids, a.key) end
+    return table.concat(ids, ",")
+end
+"""
+
+
+def test_farm_screens(lua):
+    """The screens of the whole farm: fields, weather, vehicles, contracts, all pens, all productions."""
+    lua.execute(WORLD)
+    lua.execute(FARM)
+    g = lua.globals()
+    spec = g.spec
+    kinds = [c.kind for c in g.StorageMonitor.collectStorageCandidates(g.m).values()]
+    check(kinds[-8:] == ["farm", "finance", "fields", "weather", "fleet", "contracts", "allPens", "allProductions"][1 if "finance" not in kinds else 0:][-8:]
+          or kinds[-7:] == ["farm", "fields", "weather", "fleet", "contracts", "allPens", "allProductions"],
+          "farm screens at the end of the list: %s" % kinds)
+    pick_nearest = lua.eval("StorageMonitor.choose(StorageMonitor.collectStorageCandidates(m), nil).kind")
+    check(pick_nearest == "silo", "the nearest is never a farm screen (%s)" % pick_nearest)
+
+    lua.execute('showScreen("fields")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    titles = [panel.rows[i].title for i in range(1, len(panel.rows) + 1)]
+    check(panel.count == 3 and panel.ready == 1 and panel.withered == 1 and panel.growing == 1,
+          "fields: 3 own, 1 ready, 1 withered, 1 growing (%s)" % titles)
+    check(titles == ["Field 12  Wheat", "Field 3  Wheat", "Field 7  Canola"], "ready first, then withered, then growing: %s" % titles)
+    check(abs(panel.area - 17) < 1e-6 and "17.0 ha" in t, "own area 17 ha")
+    check(panel.rows[3].sub == "Lime" and panel.work == 1, "the canola field needs lime: %s" % panel.rows[3].sub)
+    check(g.fieldUpdates == 3, "each own field's ground is read fresh (%d)" % g.fieldUpdates)
+    check("READY TO HARVEST" in t and "Harvest" in t and "Withered" in t and "Growing 43%" in t, "fields text: %s" % t[:30])
+    ids = lua.eval("alertIds()")
+    check(ids == "ready_12,withered_3", "fields alerts: %s" % ids)
+    check(spec.layout.pages == 1 and not spec.snapshot.prices, "a board has no prices")
+    check(lua.eval("overlappingBars()") == 0, "fields: no bar lies on another")
+    # read once for all monitors every 10 s
+    lua.execute("frame() frame()")
+    check(g.fieldUpdates == 3, "fields are read at most every 10 s (%d)" % g.fieldUpdates)
+
+    lua.execute('showScreen("weather")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    check(panel.now.id == "SUN" and panel.change.hours == 2 and panel.change.info.id == "RAIN", "sunny, rain in 2 h")
+    check("18°" in t and "Rain in 2 h" in t and "21° / 9°" in t and "17:00" in t and "Tomorrow" in t, "weather text: %s" % t[:40])
+    check(lua.eval("alertIds()") == "wetSoon", "rain within 3 h is an alert")
+
+    lua.execute('showScreen("fleet")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    names = [panel.rows[i].title for i in range(1, len(panel.rows) + 1)]
+    check(names == ["Fendt 942", "Case Magnum"], "fleet: own driven vehicles, the helper low on fuel first: %s" % names)
+    check(panel.helpers == 1 and panel.lowFuel == 1 and panel.repair == 1, "1 helper, 1 low on fuel, 1 to repair")
+    ids = lua.eval("alertIds()")
+    check(ids == "fuel_Fendt 942,damage_Case Magnum", "fleet alerts: %s" % ids)
+    check("Helper working" in t and "5%" in t and "Parked, damage 75%" in t, "fleet text: %s" % t[:30])
+
+    lua.execute('showScreen("contracts")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    check(panel.count == 1 and panel.almostDone == 1 and panel.reward == 40000, "1 contract running, almost done")
+    check("Harvesting" in t and "95%" in t and "Field 9  $40,000" in t, "contracts text: %s" % t[:24])
+
+    lua.execute('showScreen("allPens")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    check(panel.count == 2 and panel.animals == 40 and panel.maxAnimals == 60 and panel.lowSupply == 1, "pens: 40/60 animals, 1 low on water")
+    check(panel.rows[1].title == "Cow Barn" and panel.rows[1].sub.startswith("Water 5%"), "the pen lowest on a supply first, lowest supply first: %s" % panel.rows[1].sub)
+    check("36 h" in t, "food lasts 36 h (36,000 l at 1,000 l/h): %s" % t[:30])
+    check(any("Cow Barn" in spec.alertList[i].text for i in range(1, len(spec.alertList) + 1)), "a pen low on water is an alert")
+
+    lua.execute('showScreen("allProductions")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    rows = {panel.rows[i].title: panel.rows[i] for i in range(1, len(panel.rows) + 1)}
+    check(panel.count == 2 and panel.missing == 1 and rows["Mill Bakery"].sub == "Missing: Flour" and panel.rows[1].title == "Mill Bakery",
+          "productions: the mill bakery misses flour, first: %s" % list(rows))
+    check("0/1" in t and "Missing: Flour" in t, "productions text: %s" % t[:24])
+    check(lua.eval("overlappingBars()") == 0, "farm screens: no bar lies on another")
+
+
+def test_history_and_settings(lua):
+    """History graph, nearly-full level, price alert, slideshow; all saved and synced."""
+    lua.execute(WORLD)
+    lua.execute("""
+        notes = {}
+        FSBaseMission = {INGAME_NOTIFICATION_CRITICAL = 7}
+        g_currentMission.addIngameNotification = function(self, kind, text) table.insert(notes, text) end
+        local env = g_currentMission.environment
+        env.dayTime, env.currentDay = 6 * 3600000, 2
+        m = newMonitor(false)
+        spec = m.spec_storageMonitor
+        set(m, "mode", 3)
+        frame()
+        for h = 1, 30 do       -- 30 in-game hours, a read every half hour
+            env.dayTime = env.dayTime + 1800000
+            if env.dayTime >= 86400000 then env.dayTime, env.currentDay = env.dayTime - 86400000, env.currentDay + 1 end
+            StorageMonitor.refreshStorageMonitorData(m)
+        end
+        frame()
+    """)
+    g = lua.globals()
+    spec = g.spec
+    t = texts(lua)
+    n = len(spec.snapshot.graph)
+    check(spec.snapshot.showGraph and 30 <= n <= 49, "history: a sample per half hour for 24 h (%d)" % n)
+    check("LAST 24 IN-GAME HOURS" in t and "NOW 10%" in t and "100%" in t, "graph text: %s" % [x for x in t if "%" in x or "HOURS" in x])
+    check(spec.layout.pages == 1, "the graph has no pages")
+    check(lua.eval("overlappingBars()") == 0, "graph: no bar lies on another")
+
+    # nearly full from 10 %: red, an alert
+    lua.execute("set(m, 'fullAt', 50) set(m, 'alerts', 2) StorageMonitor.refreshStorageMonitorData(m)")
+    check(spec.fullAt == 50 and len(spec.alertList) == 0, "10 % is not nearly full at 50 %")
+    lua.execute("sNear.fillLevels[100] = 600000 StorageMonitor.refreshStorageMonitorData(m)")
+    check([spec.alertList[i].key for i in range(1, len(spec.alertList) + 1)] == ["full"], "60 % is nearly full at 50 %")
+    lua.execute("StorageMonitor.fullAt = 50 colorsOk = StorageMonitor.levelColor(60) == StorageMonitor.COLORS.full and StorageMonitor.levelColor(40) == StorageMonitor.COLORS.warn")
+    check(g.colorsOk,
+          "colours follow the level: red from 50, amber from 35")
+    lua.execute("StorageMonitor.fullAt = 90")
+
+    # price alert: wheat from $400 per 1000 l; the elevator pays $420
+    lua.execute("""
+        local p = {getName = function() return "Grain Elevator" end}
+        local st = {owningPlaceable = p, isSellingPoint = true, acceptedFillTypes = {[100] = true}}
+        function st:getEffectiveFillTypePrice(ft) return 0.42 end
+        g_currentMission.storageSystem.getUnloadingStations = function() return {st} end
+        g_fillTypeManager.getFillTypeIndexByName = function(self, name) for i, f in pairs(fillTypes) do if f.name == name then return i end end end
+        StorageMonitor.priceCache = nil
+        set(m, "alerts", 3)
+        set(m, "priceAlert", {fill = "WHEAT", price = 450})
+        StorageMonitor.refreshStorageMonitorData(m)
+        noPrice = #spec.alertList
+        set(m, "priceAlert", {fill = "WHEAT", price = 400})
+        StorageMonitor.refreshStorageMonitorData(m)
+    """)
+    check(g.noPrice == 1, "below the price: no price alert")
+    texts_ = [spec.alertList[i].text for i in range(1, len(spec.alertList) + 1)]
+    check("Wheat sells for $420 at Grain Elevator" in texts_, "price alert: %s" % texts_)
+    check("Wheat sells for $420 at Grain Elevator" in list(g.notes.values()), "the price alert is a game message: %s" % list(g.notes.values()))
+
+    # slideshow: two screens, 10 s each
+    lua.execute("""
+        set(m, "slides", {{30, 0}, {4, 0}})
+        set(m, "slideTime", 2)
+        m:rescanStorageMonitor()
+        first = spec.target.name
+        for i = 1, 700 do frame() end       -- 11 s
+        second = spec.target.name
+        for i = 1, 650 do frame() end
+        third = spec.target.name
+    """)
+    check(g.first == "Grain Silo" and g.second == "Multifruit Silo" and g.third == "Grain Silo",
+          "slideshow takes turns: %s, %s, %s" % (g.first, g.second, g.third))
+    check("2/2" in texts(lua) or "1/2" in texts(lua), "the slideshow counter in the header")
+
+    # saved and synced: write and read the settings
+    lua.execute("""
+        stream = {}
+        StorageMonitor.writeSettings(stream, m:getStorageMonitorSettings())
+        back = StorageMonitor.readSettings(stream)
+        saved = {}
+        local xml = {setValue = function(self, k, v) saved[k] = v end,
+                     getValue = function(self, k, d) if saved[k] == nil then return d end return saved[k] end,
+                     hasProperty = function(self, k) return saved[k .. "#x"] ~= nil end}
+        StorageMonitor.saveToXMLFile(m, xml, "k")
+        m2 = newMonitor(false)
+        StorageMonitor.loadFromXMLFile(m2, xml, "k")
+    """)
+    back = g.back
+    check(back.fullAt == 50 and back.priceAlert.fill == "WHEAT" and back.priceAlert.price == 400 and back.slideTime == 2
+          and len(back.slides) == 2 and back.slides[2][1] == 4, "settings stream round trip")
+    s2 = g.m2.spec_storageMonitor
+    check(s2.fullAt == 50 and s2.priceAlert.price == 400 and s2.slideTime == 2 and len(s2.slides) == 2 and s2.slides[1][1] == 30,
+          "settings saved and loaded")
 
 
 def test_two_faces(lua):
@@ -1032,6 +1330,35 @@ def test_static():
     for lang, t in trans.items():
         for k in keys:
             check('name="%s"' % k in t, "%s missing in %s" % (k, lang))
+    test_all_languages()
+
+
+# every language of the game; each file has the English keys and the same placeholders (a wrong one breaks
+# string.format in the game)
+LANGUAGES = "br cs ct cz da de ea en es fc fi fr hu id it jp kr nl no pl pt ro ru sv tr uk vi".split()
+
+
+def test_all_languages():
+    import xml.dom.minidom
+    placeholder = re.compile(r"%(?:%|[-+ #0]*\d*(?:\.\d+)?[sdif])")
+
+    def read(lang):
+        dom = xml.dom.minidom.parse(os.path.join(ROOT, "translations", "translation_%s.xml" % lang))
+        return [(t.getAttribute("name"), t.getAttribute("text")) for t in dom.getElementsByTagName("text")]
+    en = read("en")
+    for lang in LANGUAGES:
+        path = os.path.join(ROOT, "translations", "translation_%s.xml" % lang)
+        if not os.path.exists(path):
+            check(False, "translation_%s.xml missing" % lang)
+            continue
+        texts_ = dict(read(lang))
+        missing = [k for k, _ in en if k not in texts_]
+        check(not missing, "%s: %d texts missing (%s)" % (lang, len(missing), missing[:3]))
+        bad = [k for k, v in en if k in texts_ and placeholder.findall(v) != placeholder.findall(texts_[k])]
+        check(not bad, "%s: placeholders differ from English in %s" % (lang, bad[:5]))
+    mod = open(os.path.join(ROOT, "modDesc.xml"), encoding="utf-8").read()
+    described = set(re.findall(r"<([a-z]{2})><!\[CDATA\[", mod))
+    check(described >= set(LANGUAGES), "modDesc description missing for %s" % sorted(set(LANGUAGES) - described))
 
 
 def main():
@@ -1047,6 +1374,8 @@ def main():
     test_prices(new_runtime())
     test_alerts(new_runtime())
     test_more_kinds(new_runtime())
+    test_farm_screens(new_runtime())
+    test_history_and_settings(new_runtime())
     test_two_faces(new_runtime())
     test_performance(new_runtime())
     test_errors_do_not_escape(new_runtime())
