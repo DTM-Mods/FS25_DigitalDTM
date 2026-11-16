@@ -35,8 +35,37 @@ StorageMonitor.BRIGHTNESS = {
     {key = "storageMonitor_bright5", fallback = "Very bright", factor = 2.2},
 }
 StorageMonitor.DEFAULT_BRIGHTNESS = 3
+-- what the screen shows: the storage itself, or today's prices of what is in it
+StorageMonitor.MODES = {
+    {key = "storageMonitor_mode1", fallback = "Storage"},
+    {key = "storageMonitor_mode2", fallback = "Prices"},
+}
+StorageMonitor.MODE_PRICES = 2
+-- alerts: off, on the screen, on the screen and as a game message for the farm
+StorageMonitor.ALERT_LEVELS = {
+    {key = "storageMonitor_alerts1", fallback = "Off"},
+    {key = "storageMonitor_alerts2", fallback = "On the screen"},
+    {key = "storageMonitor_alerts3", fallback = "On the screen and as a message"},
+}
+StorageMonitor.DEFAULT_ALERTS = 2
+StorageMonitor.ALERT_FULL = 90              -- % a silo / shed / tank counts as nearly full
+StorageMonitor.ALERT_LOW = 0.10             -- ratio animal food, water, straw count as low
+StorageMonitor.ALERT_REPEAT = 600000        -- ms before the same message is shown again
+StorageMonitor.ALERT_CYCLE = 3000           -- ms each alert stays in the footer when there are several
 StorageMonitor.MIN_LEVEL = 1                -- products below this many litres are not listed
 StorageMonitor.FARM_PICK = -9999999         -- the pick position that means "all silos of my farm"
+StorageMonitor.FINANCE_PICK = -8888888      -- the pick position that means "my farm's money"
+-- rates: a sample of the levels every HISTORY_STEP in-game hours, kept for HISTORY_SPAN hours; a rate needs
+-- RATE_MIN_SPAN hours of samples
+StorageMonitor.HISTORY_STEP = 5 / 60
+StorageMonitor.HISTORY_SPAN = 2
+StorageMonitor.RATE_MIN_SPAN = 0.25
+StorageMonitor.PRICE_INTERVAL = 10000       -- ms between price reads (shared by all monitors)
+-- performance: monitors out of sight read their storage less often, and at most MAX_DRAWN are drawn
+StorageMonitor.FAR_DATA_INTERVAL = 10000    -- ms between reads of a monitor nobody is near (rates, alerts)
+StorageMonitor.MID_DATA_INTERVAL = 2500     -- ms between reads beyond half the draw distance
+StorageMonitor.FAR_SCAN_INTERVAL = 120000   -- ms between looks for storages around a monitor nobody is near
+StorageMonitor.MAX_DRAWN = 8
 StorageMonitor.PANEL_ROWS = 3               -- rows of production lines / conditions in the top panel
 StorageMonitor.OFFSET_BAR = 0.004           -- metres in front of the glass: bars
 StorageMonitor.BAR_GLOW = 0.2               -- glow strength of the bars (emitColor = colour x this); 1.0
@@ -226,6 +255,59 @@ function StorageMonitor.formatVolume(litres)
     return StorageMonitor.groupDigits(litres) .. " l"
 end
 
+function StorageMonitor.formatMoney(amount)
+    amount = math.floor((amount or 0) + 0.5)
+    local sign = amount < 0 and "-" or ""
+    amount = math.abs(amount)
+    if g_i18n ~= nil and g_i18n.formatMoney ~= nil then
+        return sign .. g_i18n:formatMoney(amount, 0, true, true)
+    end
+    return sign .. "$" .. StorageMonitor.groupDigits(amount)
+end
+
+-- 1234 -> "1.2k", 2500000 -> "2.5M" (short numbers for narrow columns)
+function StorageMonitor.shortNumber(n)
+    local a = math.abs(n or 0)
+    local sign = (n or 0) < 0 and "-" or ""
+    if a >= 1000000 then
+        return string.format("%s%.1fM", sign, a / 1000000)
+    elseif a >= 10000 then
+        return string.format("%s%dk", sign, math.floor(a / 1000 + 0.5))
+    elseif a >= 1000 then
+        return string.format("%s%.1fk", sign, a / 1000)
+    end
+    return string.format("%s%d", sign, math.floor(a + 0.5))
+end
+
+-- a rate in litres per in-game hour: "+18,000 l/h"
+function StorageMonitor.formatRate(perHour)
+    local sign = perHour >= 0 and "+" or "-"
+    return sign .. StorageMonitor.formatVolume(math.abs(perHour)) .. "/h"
+end
+
+-- in-game hours: "40 min", "6 h", "2.5 days"
+function StorageMonitor.formatDuration(hours)
+    local T = StorageMonitor.getText
+    if hours < 1 then
+        return string.format(T("storageMonitor_minutes", "%d min"), math.max(1, math.floor(hours * 60 + 0.5)))
+    elseif hours < 10 then
+        return string.format(T("storageMonitor_hours", "%s h"), string.format("%.1f", hours))
+    elseif hours < 48 then
+        return string.format(T("storageMonitor_hours", "%s h"), string.format("%d", math.floor(hours + 0.5)))
+    end
+    return string.format(T("storageMonitor_days", "%s days"), string.format("%.1f", hours / 24))
+end
+
+-- in-game time in hours since the start of the savegame, or nil
+function StorageMonitor.gameHours()
+    local env = g_currentMission ~= nil and g_currentMission.environment or nil
+    if env == nil or type(env.dayTime) ~= "number" then
+        return nil
+    end
+    local day = env.currentMonotonicDay or env.currentDay or 0
+    return day * 24 + env.dayTime / 3600000
+end
+
 function StorageMonitor.getText(key, fallback)
     if g_i18n ~= nil and g_i18n.hasText ~= nil and g_i18n:hasText(key) then
         return g_i18n:getText(key)
@@ -314,6 +396,21 @@ function StorageMonitor.buildSnapshot(sources, roles, fillTypeInfo)
                     counts[ft] = (counts[ft] or 0) + num
                 end
             end
+        elseif src.heap ~= nil then
+            -- a manure heap without getFillLevels: one product and one capacity
+            local heap = src.heap
+            fillLevels = {}
+            local ft = heap.fillTypeIndex
+            if ft ~= nil and heap.getFillLevel ~= nil then
+                fillLevels[ft] = tonumber(heap:getFillLevel(ft)) or 0
+            end
+            local cap = tonumber(heap.capacity)
+            if cap == nil and heap.getCapacity ~= nil then
+                cap = tonumber(heap:getCapacity(ft))
+            end
+            if cap ~= nil and cap > 0 then
+                shared = cap
+            end
         elseif src.storage ~= nil then
             local storage = src.storage
             fillLevels = storage:getFillLevels() or {}
@@ -380,6 +477,61 @@ function StorageMonitor.buildSnapshot(sources, roles, fillTypeInfo)
     end)
 
     return {items = items, used = used, capacity = capacity, count = #items}
+end
+
+--- Remembers the levels of a snapshot every HISTORY_STEP in-game hours (the last HISTORY_SPAN hours) and
+-- puts the rates into it: snapshot.rate (all products, litres per in-game hour), item.rate, snapshot.foodRate.
+-- history is the monitor's table; it starts again when the storage changes or the time jumps.
+function StorageMonitor.updateRates(history, snapshot, now, key, food)
+    if now == nil then
+        return
+    end
+    local samples = history.samples
+    local last = samples ~= nil and samples[#samples] or nil
+    if samples == nil or history.key ~= key or last == nil or now < last.t - 1e-6
+        or now - last.t > StorageMonitor.HISTORY_SPAN then
+        samples = {}
+        history.samples, history.key = samples, key
+    end
+    last = samples[#samples]
+    if last == nil or now - last.t >= StorageMonitor.HISTORY_STEP - 1e-6 then
+        local levels = {}
+        for _, item in ipairs(snapshot.items) do
+            levels[item.fillType] = item.level
+        end
+        table.insert(samples, {t = now, used = snapshot.used, levels = levels, food = food})
+        while #samples > 1 and now - samples[1].t > StorageMonitor.HISTORY_SPAN + 1e-6 do
+            table.remove(samples, 1)
+        end
+    end
+    local first = samples[1]
+    local span = now - first.t
+    if span < StorageMonitor.RATE_MIN_SPAN - 1e-6 then
+        return
+    end
+    snapshot.rate = (snapshot.used - first.used) / span
+    for _, item in ipairs(snapshot.items) do
+        local before = first.levels[item.fillType]
+        if before ~= nil then
+            item.rate = (item.level - before) / span
+        end
+    end
+    if food ~= nil and first.food ~= nil then
+        snapshot.foodRate = (food - first.food) / span
+    end
+end
+
+-- hours until a level reaches 0 (falling) or the capacity (rising); nil when it does not change
+function StorageMonitor.hoursLeft(level, capacity, rate)
+    if rate == nil or math.abs(rate) < 1 then
+        return nil
+    end
+    if rate < 0 then
+        return math.max(0, level) / -rate, "empty"
+    elseif capacity ~= nil and capacity > 0 then
+        return math.max(0, capacity - level) / rate, "full"
+    end
+    return nil
 end
 
 --- How the product list fits the panel: as many columns and as small text as needed to show everything
@@ -453,6 +605,10 @@ function StorageMonitor.registerXMLPaths(schema, basePath)
     schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor#iconTemplate", "Hidden 1 x 1 m rectangle with UVs, copied for every product icon")
     schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor#glassNode", "The screen glass (theme texture, glow)")
     schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor#collisions", "Group of collisions, one per screen size, named collision_<width in cm>")
+    schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor.back#screenNode", "Second screen on the back (two-sided billboard)")
+    schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor.back#barTemplate", "Bar template of the back screen")
+    schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor.back#iconTemplate", "Icon template of the back screen")
+    schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor.back#glassNode", "Glass of the back screen")
     schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor.mount#node", "Node scaled to the chosen screen size")
     schema:register(XMLValueType.STRING, basePath .. ".storageMonitor.mount#mode", "silo: grows upwards from its bottom edge, z kept; ground: grows from the ground", "ground")
     schema:register(XMLValueType.FLOAT, basePath .. ".storageMonitor.mount#bottom", "Height of the screen's bottom edge above the ground", 2)
@@ -471,6 +627,8 @@ function StorageMonitor.initSpecialization()
     schema:register(XMLValueType.INT, key .. "#brightness", "Brightness level 1..5", StorageMonitor.DEFAULT_BRIGHTNESS)
     schema:register(XMLValueType.INT, key .. "#theme", "Colour theme 1..4", 1)
     schema:register(XMLValueType.STRING, key .. "#title", "Custom title, empty = the storage's name", "")
+    schema:register(XMLValueType.INT, key .. "#mode", "1 = the storage, 2 = prices", 1)
+    schema:register(XMLValueType.INT, key .. "#alerts", "1 = off, 2 = on the screen, 3 = also as a message", StorageMonitor.DEFAULT_ALERTS)
 end
 
 function StorageMonitor:onLoad(savegame)
@@ -499,8 +657,20 @@ function StorageMonitor:onLoad(savegame)
             end
         end
     end
-    spec.bars = {}
-    spec.icons = {}
+    -- the screens: the front one, and a second one on the back of a two-sided billboard; each has its own
+    -- templates, glass, bars and icons
+    spec.faces = {{screenNode = spec.screenNode, barTemplate = spec.barTemplate, iconTemplate = spec.iconTemplate,
+                   glassNode = spec.glassNode, bars = {}, icons = {}}}
+    local backScreen = xmlFile:getValue("placeable.storageMonitor.back#screenNode", nil, self.components, self.i3dMappings)
+    if backScreen ~= nil then
+        table.insert(spec.faces, {screenNode = backScreen,
+            barTemplate = xmlFile:getValue("placeable.storageMonitor.back#barTemplate", nil, self.components, self.i3dMappings),
+            iconTemplate = xmlFile:getValue("placeable.storageMonitor.back#iconTemplate", nil, self.components, self.i3dMappings),
+            glassNode = xmlFile:getValue("placeable.storageMonitor.back#glassNode", nil, self.components, self.i3dMappings),
+            bars = {}, icons = {}})
+    end
+    spec.bars = spec.faces[1].bars
+    spec.icons = spec.faces[1].icons
 
     spec.mountNode = xmlFile:getValue("placeable.storageMonitor.mount#node", nil, self.components, self.i3dMappings)
     spec.mountMode = xmlFile:getValue("placeable.storageMonitor.mount#mode", "ground")
@@ -515,6 +685,13 @@ function StorageMonitor:onLoad(savegame)
     spec.brightness = StorageMonitor.DEFAULT_BRIGHTNESS
     spec.theme = 1
     spec.title = ""
+    spec.mode = 1
+    spec.alerts = StorageMonitor.DEFAULT_ALERTS
+    spec.history = {}
+    spec.alertList = {}
+    spec.alertKnown = nil           -- alerts seen at the last read (nil: no read yet, nothing is announced)
+    spec.alertTime = 0
+    spec.distance = math.huge
     self:setStorageMonitorSize(spec.width)
     StorageMonitor.applyLook(self)
     spec.candidates = {}
@@ -585,6 +762,8 @@ function StorageMonitor:loadFromXMLFile(xmlFile, key)
     settings.brightness = xmlFile:getValue(key .. "#brightness", settings.brightness)
     settings.theme = xmlFile:getValue(key .. "#theme", settings.theme)
     settings.title = xmlFile:getValue(key .. "#title", "") or ""
+    settings.mode = xmlFile:getValue(key .. "#mode", settings.mode)
+    settings.alerts = xmlFile:getValue(key .. "#alerts", settings.alerts)
     self:setStorageMonitorSettings(settings, true)
 end
 
@@ -605,6 +784,8 @@ function StorageMonitor:saveToXMLFile(xmlFile, key, usedModNames)
     if spec.title ~= "" then
         xmlFile:setValue(key .. "#title", spec.title)
     end
+    xmlFile:setValue(key .. "#mode", spec.mode)
+    xmlFile:setValue(key .. "#alerts", spec.alerts)
 end
 
 -- the monitor's settings as a new table: change it and pass it to setStorageMonitorSettings
@@ -612,7 +793,7 @@ function StorageMonitor:getStorageMonitorSettings()
     local spec = self.spec_storageMonitor
     local pick = spec.pick ~= nil and {spec.pick[1], spec.pick[2]} or nil
     return {pick = pick, connected = spec.connected, size = spec.mountWidth, brightness = spec.brightness,
-            theme = spec.theme, title = spec.title}
+            theme = spec.theme, title = spec.title, mode = spec.mode, alerts = spec.alerts}
 end
 
 function StorageMonitor.writeSettings(streamId, settings)
@@ -626,6 +807,8 @@ function StorageMonitor.writeSettings(streamId, settings)
     streamWriteUInt8(streamId, settings.brightness or StorageMonitor.DEFAULT_BRIGHTNESS)
     streamWriteUInt8(streamId, settings.theme or 1)
     streamWriteString(streamId, settings.title or "")
+    streamWriteUInt8(streamId, settings.mode or 1)
+    streamWriteUInt8(streamId, settings.alerts or StorageMonitor.DEFAULT_ALERTS)
 end
 
 function StorageMonitor.readSettings(streamId)
@@ -638,6 +821,8 @@ function StorageMonitor.readSettings(streamId)
     settings.brightness = streamReadUInt8(streamId)
     settings.theme = streamReadUInt8(streamId)
     settings.title = streamReadString(streamId)
+    settings.mode = streamReadUInt8(streamId)
+    settings.alerts = streamReadUInt8(streamId)
     return settings
 end
 
@@ -679,6 +864,9 @@ function StorageMonitor:setStorageMonitorSize(width)
         end
     end
     spec.frame = nil
+    for _, face in ipairs(spec.faces or {}) do
+        face.frame = nil
+    end
     spec.rowCache = {}
     spec.headerTitle = nil
 end
@@ -693,34 +881,39 @@ end
 -- texture, lightControl sets how much
 function StorageMonitor:applyLook()
     local spec = self.spec_storageMonitor
-    local glass = spec.glassNode
-    if glass == nil or getMaterial == nil then
+    if getMaterial == nil then
         return
     end
-    if spec.glassMaterial == nil then
-        spec.glassMaterial = getMaterial(glass, 0)
-    end
     local theme = StorageMonitor.THEMES[spec.theme] or StorageMonitor.THEMES[1]
-    local material = spec.glassMaterial
-    if spec.theme ~= 1 and setMaterialDiffuseMapFromFile ~= nil and StorageMonitor.MOD_DIR ~= nil then
-        StorageMonitor.themeMaterials = StorageMonitor.themeMaterials or {}
-        local cached = StorageMonitor.themeMaterials[theme.id]
-        if cached == nil then
-            local ok, result = pcall(setMaterialDiffuseMapFromFile, spec.glassMaterial, StorageMonitor.MOD_DIR .. theme.texture, true, true, false)
-            if ok and result ~= nil and result ~= 0 then
-                cached = result
-                StorageMonitor.themeMaterials[theme.id] = cached
-            else
-                StorageMonitor.log("Warning: theme texture %s not loaded", tostring(theme.texture))
+    for _, face in ipairs(spec.faces or {}) do
+        local glass = face.glassNode
+        if glass ~= nil then
+            if face.glassMaterial == nil then
+                face.glassMaterial = getMaterial(glass, 0)
             end
+            local material = face.glassMaterial
+            if spec.theme ~= 1 and setMaterialDiffuseMapFromFile ~= nil and StorageMonitor.MOD_DIR ~= nil then
+                StorageMonitor.themeMaterials = StorageMonitor.themeMaterials or {}
+                local cached = StorageMonitor.themeMaterials[theme.id]
+                if cached == nil then
+                    local ok, result = pcall(setMaterialDiffuseMapFromFile, face.glassMaterial, StorageMonitor.MOD_DIR .. theme.texture, true, true, false)
+                    if ok and result ~= nil and result ~= 0 then
+                        cached = result
+                        StorageMonitor.themeMaterials[theme.id] = cached
+                    else
+                        StorageMonitor.log("Warning: theme texture %s not loaded", tostring(theme.texture))
+                        StorageMonitor.themeMaterials[theme.id] = false
+                    end
+                end
+                material = cached or material
+            end
+            if face.appliedMaterial ~= material then
+                setMaterial(glass, material, 0)
+                face.appliedMaterial = material
+            end
+            setShaderParameter(glass, "lightControl", StorageMonitor.GLASS_GLOW * StorageMonitor.brightnessFactor(spec), 0, 0, 0, false)
         end
-        material = cached or material
     end
-    if spec.appliedMaterial ~= material then
-        setMaterial(glass, material, 0)
-        spec.appliedMaterial = material
-    end
-    setShaderParameter(glass, "lightControl", StorageMonitor.GLASS_GLOW * StorageMonitor.brightnessFactor(spec), 0, 0, 0, false)
 end
 
 -- settings: see getStorageMonitorSettings. pick: {x, z} of the storage to show, or nil for the nearest;
@@ -739,6 +932,8 @@ function StorageMonitor:setStorageMonitorSettings(settings, noEventSend)
         title = string.sub(title, 1, StorageMonitor.TITLE_MAX * 4)
     end
     spec.title = title
+    spec.mode = math.max(1, math.min(#StorageMonitor.MODES, math.floor(settings.mode or 1)))
+    spec.alerts = math.max(1, math.min(#StorageMonitor.ALERT_LEVELS, math.floor(settings.alerts or StorageMonitor.DEFAULT_ALERTS)))
     self:setStorageMonitorSize(settings.size)
     StorageMonitor.applyLook(self)
     spec.headerTitle = nil
@@ -903,8 +1098,19 @@ function StorageMonitor:collectStorageCandidates()
 
     -- buildings with storages: silos, silo extensions, animal pens, productions
     local placeables = mission.placeableSystem ~= nil and mission.placeableSystem.placeables or {}
+    local hives = nil       -- the farm's beehives, one entry for all of them
     for _, p in ipairs(placeables) do
-        if p ~= self then
+        local ownHive = p ~= self and (p.spec_beehive ~= nil or p.spec_beehivePalletSpawner ~= nil)
+            and p.getOwnerFarmId ~= nil and p:getOwnerFarmId() == farmId
+        if ownHive then
+            if hives == nil then
+                hives = candidateFor("beehives", StorageMonitor.getText("storageMonitor_beehives", "Beehives"))
+                hives.kind, hives.hives, hives.spawners = "beehive", {}, {}
+            end
+            table.insert(p.spec_beehive ~= nil and hives.hives or hives.spawners, p)
+            near(hives, nodePosition(p.rootNode))
+        end
+        if p ~= self and not ownHive then
             local storages = {}
             local function take(storage)
                 if type(storage) == "table" and storage.getFillLevels ~= nil and isAccessible(storage, farmId) then
@@ -938,13 +1144,31 @@ function StorageMonitor:collectStorageCandidates()
                 bunkers = p.spec_multiBunkerSilo.bunkerSilos
             end
             local objectStorage = ownFarm and p.spec_objectStorage or nil
+            -- a manure heap: a Storage when it has getFillLevels, else read through its own functions
+            local heap = p.spec_manureHeap ~= nil and p.spec_manureHeap.manureHeap or nil
+            local heapSource = nil
+            if heap ~= nil and type(heap) == "table" then
+                if heap.getFillLevels ~= nil then
+                    take(heap)
+                elseif isAccessible(heap, farmId) then
+                    heapSource = {heap = heap}
+                    owned[heap] = true
+                end
+            end
 
-            if #storages > 0 or hasFood or isHusbandry or #bunkers > 0 or objectStorage ~= nil then
+            if #storages > 0 or hasFood or isHusbandry or #bunkers > 0 or objectStorage ~= nil or heapSource ~= nil then
                 local c = candidateFor(p, placeableName(p, "Storage"))
                 near(c, nodePosition(p.rootNode))
                 c.placeable = p
+                if heap ~= nil and pp == nil and not isHusbandry then
+                    c.kind = "manure"
+                    if heapSource ~= nil then
+                        table.insert(c.extra, heapSource)
+                    end
+                end
                 if pp ~= nil then
                     c.kind, c.pp = "production", pp
+                    c.greenhouse = p.spec_greenhouse
                 elseif isHusbandry then
                     c.kind = "husbandry"
                 elseif #bunkers > 0 then
@@ -1033,6 +1257,12 @@ function StorageMonitor:collectStorageCandidates()
             name = StorageMonitor.getText("storageMonitor_farmAll", "All silos of my farm"),
             anchor = {StorageMonitor.FARM_PICK, StorageMonitor.FARM_PICK}})
     end
+    -- and the farm's money and loan, also only when picked
+    if g_farmManager ~= nil and g_farmManager.getFarmById ~= nil then
+        table.insert(result, {owner = "finance", kind = "finance", storages = {}, extra = {}, distance = math.huge,
+            name = StorageMonitor.getText("storageMonitor_finance", "My farm's money"),
+            anchor = {StorageMonitor.FINANCE_PICK, StorageMonitor.FINANCE_PICK}})
+    end
     return result
 end
 
@@ -1051,8 +1281,8 @@ function StorageMonitor.choose(candidates, pick)
             return best
         end
     end
-    for _, c in ipairs(candidates) do      -- the nearest real building, never the farm overview
-        if c.kind ~= "farm" then
+    for _, c in ipairs(candidates) do      -- the nearest real building, never the farm overview or money
+        if c.kind ~= "farm" and c.kind ~= "finance" then
             return c
         end
     end
@@ -1086,11 +1316,13 @@ function StorageMonitor:rescanStorageMonitor()
         end
         spec.target = {name = c.name, title = title, sources = sources, roles = c.roles, owner = c.owner,
                        anchor = c.anchor, connectedCount = #storages - #c.storages, kind = c.kind,
-                       placeable = c.placeable, pp = c.pp, bunkers = c.bunkers, objectStorage = c.objectStorage}
+                       placeable = c.placeable, pp = c.pp, bunkers = c.bunkers, objectStorage = c.objectStorage,
+                       greenhouse = c.greenhouse, hives = c.hives, spawners = c.spawners}
     end
     if previous == nil or spec.target == nil or previous.owner ~= spec.target.owner then
         spec.page = 1
         spec.pageTime = 0
+        spec.alertKnown = nil       -- what a newly shown storage already has is not announced
     end
     spec.scanTimer = 0
     spec.dataTimer = math.huge      -- read the levels right away
@@ -1164,6 +1396,10 @@ function StorageMonitor.buildPanel(target)
                 or T("storageMonitor_line_" .. line.state, StorageMonitor.LINE_TEXTS[line.state])
             table.insert(panel.lines, line)
         end
+        if target.greenhouse ~= nil then       -- a greenhouse: its plants need water
+            panel.greenhouse = true
+            panel.noWater = target.greenhouse.hasWater == false
+        end
         return panel
     elseif target.kind == "husbandry" and target.placeable ~= nil then
         local p = target.placeable
@@ -1171,13 +1407,94 @@ function StorageMonitor.buildPanel(target)
                        maxAnimals = call(p, "getMaxNumOfAnimals") or 0, conditions = {}}
         local food, foodCap = call(p, "getTotalFood"), call(p, "getFoodCapacity")
         if foodCap ~= nil and foodCap > 0 then
-            table.insert(panel.conditions, {title = T("storageMonitor_food", "Food"), ratio = ratioOf(food, foodCap)})
+            panel.food = tonumber(food) or 0
+            table.insert(panel.conditions, {title = T("storageMonitor_food", "Food"), ratio = ratioOf(food, foodCap), isFood = true})
+        end
+        -- what the animals eat per in-game hour (the game's own number); else the rate seen on the screen
+        local foodSpec = p.spec_husbandryFood
+        if foodSpec ~= nil and type(foodSpec.litersPerHour) == "number" and foodSpec.litersPerHour > 0 then
+            local env = g_currentMission ~= nil and g_currentMission.environment or nil
+            panel.foodPerHour = foodSpec.litersPerHour * ((env ~= nil and tonumber(env.timeAdjustment)) or 1)
         end
         for _, info in ipairs(call(p, "getConditionInfos") or {}) do
             if not info.disabled then
                 table.insert(panel.conditions, {title = tostring(info.title or ""), ratio = math.max(0, math.min(1, info.ratio or 0)),
-                    inverted = info.invertedBar == true, valueText = info.valueText})
+                    inverted = info.invertedBar == true, valueText = info.valueText,
+                    supply = info.invertedBar ~= true and info.valueText == nil})
             end
+        end
+        return panel
+    elseif target.kind == "beehive" then
+        local panel = {kind = "beehive", hives = #(target.hives or {}), honeyPerDay = 0, active = true, flying = false,
+                       spawner = #(target.spawners or {}) > 0, palletFull = false}
+        local system = g_currentMission ~= nil and g_currentMission.beehiveSystem or nil
+        if system ~= nil then
+            panel.active = system.isProductionActive ~= false
+            panel.flying = system.isFxActive == true
+        end
+        for _, hive in ipairs(target.hives or {}) do
+            local s = hive.spec_beehive
+            if s ~= nil and type(s.honeyPerHour) == "number" then
+                panel.honeyPerDay = panel.honeyPerDay + s.honeyPerHour * 24
+            end
+        end
+        for _, spawner in ipairs(target.spawners or {}) do
+            local s = spawner.spec_beehivePalletSpawner
+            if s ~= nil and s.palletLimitReached then
+                panel.palletFull = true
+            end
+        end
+        -- what a day's honey is worth at the best price
+        local honey = g_fillTypeManager ~= nil and g_fillTypeManager.getFillTypeIndexByName ~= nil
+            and g_fillTypeManager:getFillTypeIndexByName("HONEY") or nil
+        local best = honey ~= nil and StorageMonitor.bestPrice(honey) or nil
+        if best ~= nil then
+            panel.honeyValue = panel.honeyPerDay * best.price
+        end
+        return panel
+    elseif target.kind == "finance" then
+        local farm = g_farmManager ~= nil and g_farmManager:getFarmById(getPlayerFarmId()) or nil
+        if farm == nil then
+            return nil
+        end
+        local panel = {kind = "finance", money = tonumber(farm.money) or 0, loan = tonumber(farm.loan) or 0,
+                       loanMax = tonumber(farm.loanMax), income = 0, expenses = 0, lines = {}}
+        if farm.getBalance ~= nil then
+            panel.money = tonumber(call(farm, "getBalance")) or panel.money
+        end
+        -- today's finances by category, as the game's finances page lists them
+        local finances = farm.stats ~= nil and farm.stats.finances or nil
+        if type(finances) == "table" then
+            local names = (FinanceStats ~= nil and type(FinanceStats.statNames) == "table") and FinanceStats.statNames or nil
+            local function add(name, value)
+                value = tonumber(value)
+                if value ~= nil and math.abs(value) >= 0.5 then
+                    if value > 0 then
+                        panel.income = panel.income + value
+                    else
+                        panel.expenses = panel.expenses + value
+                    end
+                    table.insert(panel.lines, {name = name, value = value,
+                        title = T("finance_" .. name, (string.gsub(string.gsub(name, "(%l)(%u)", "%1 %2"), "^%l", string.upper)))})
+                end
+            end
+            if names ~= nil then
+                for _, name in ipairs(names) do
+                    add(name, finances[name])
+                end
+            else
+                for name, value in pairs(finances) do
+                    if type(name) == "string" and type(value) == "number" then
+                        add(name, value)
+                    end
+                end
+            end
+            table.sort(panel.lines, function(a, b)
+                if math.abs(math.abs(a.value) - math.abs(b.value)) > 0.5 then
+                    return math.abs(a.value) > math.abs(b.value)
+                end
+                return a.name < b.name
+            end)
         end
         return panel
     elseif target.kind == "bunker" and target.bunkers ~= nil then
@@ -1204,6 +1521,232 @@ function StorageMonitor.buildPanel(target)
     return nil
 end
 
+-- ---------------------------------------------------------------------------------------------------
+-- prices: the best price for a product at the map's selling points, read for all monitors at most every
+-- PRICE_INTERVAL; the trend is the game's seasonal price curve (this month to next)
+-- ---------------------------------------------------------------------------------------------------
+
+StorageMonitor.clock = 0                -- ms, advanced by the listener
+StorageMonitor.priceCache = nil
+
+-- the selling points: unloading stations that sell (as the game counts them for a silo's sell value), not the
+-- farm's own productions or animal pens
+function StorageMonitor.getSellingStations()
+    local list = {}
+    local storageSystem = g_currentMission ~= nil and g_currentMission.storageSystem or nil
+    if storageSystem == nil or storageSystem.getUnloadingStations == nil then
+        return list
+    end
+    for _, station in pairs(storageSystem:getUnloadingStations() or {}) do
+        local p = type(station) == "table" and station.owningPlaceable or nil
+        if p ~= nil and station.isSellingPoint and type(station.acceptedFillTypes) == "table"
+            and station.getEffectiveFillTypePrice ~= nil and p.spec_productionPoint == nil and p.spec_husbandry == nil then
+            table.insert(list, station)
+        end
+    end
+    return list
+end
+
+local function stationName(station)
+    local name = call(station, "getName")
+    if name == nil or name == "" then
+        name = placeableName(station.owningPlaceable, "?")
+    end
+    return tostring(name)
+end
+
+--- Best price per litre of a fill type and where: {price, station}, or nil when nobody buys it.
+function StorageMonitor.bestPrice(fillTypeIndex)
+    local cache = StorageMonitor.priceCache
+    if cache == nil or StorageMonitor.clock - cache.time >= StorageMonitor.PRICE_INTERVAL then
+        cache = {time = StorageMonitor.clock, stations = StorageMonitor.getSellingStations(), best = {}}
+        StorageMonitor.priceCache = cache
+    end
+    local best = cache.best[fillTypeIndex]
+    if best == nil then
+        best = false
+        for _, station in ipairs(cache.stations) do
+            if station.acceptedFillTypes[fillTypeIndex] then
+                local price = tonumber(call(station, "getEffectiveFillTypePrice", fillTypeIndex)) or 0
+                if price > 0 and (not best or price > best.price) then
+                    best = {price = price, station = stationName(station)}
+                end
+            end
+        end
+        cache.best[fillTypeIndex] = best
+    end
+    return best or nil
+end
+
+--- The seasonal trend of a fill type's price, in percent from this month to the next (nil without a curve).
+function StorageMonitor.priceTrend(fillTypeIndex)
+    local fillType = g_fillTypeManager ~= nil and g_fillTypeManager:getFillTypeByIndex(fillTypeIndex) or nil
+    local factors = fillType ~= nil and fillType.economy ~= nil and fillType.economy.factors or nil
+    local env = g_currentMission ~= nil and g_currentMission.environment or nil
+    local period = env ~= nil and tonumber(env.currentPeriod) or nil
+    if type(factors) ~= "table" or period == nil then
+        return nil
+    end
+    local periods = (Environment ~= nil and Environment.PERIODS_IN_YEAR) or 12
+    local now = tonumber(factors[period])
+    local nextFactor = tonumber(factors[period % periods + 1])
+    if now == nil or nextFactor == nil or now <= 0 then
+        return nil
+    end
+    return (nextFactor / now - 1) * 100
+end
+
+--- Puts prices into the snapshot's items: price (per litre), station, value (level x price), trend; and the
+-- totals: snapshot.value, snapshot.rising, snapshot.falling, snapshot.topItem, snapshot.topStation.
+function StorageMonitor.addPrices(snapshot)
+    local value, rising, falling = 0, 0, 0
+    local byStation = {}
+    local top = nil
+    for _, item in ipairs(snapshot.items) do
+        local best = StorageMonitor.bestPrice(item.fillType)
+        item.price, item.station, item.value = nil, nil, 0
+        if best ~= nil then
+            item.price, item.station = best.price, best.station
+            item.value = item.level * best.price
+            value = value + item.value
+            byStation[best.station] = (byStation[best.station] or 0) + item.value
+            if top == nil or item.value > top.value then
+                top = item
+            end
+        end
+        item.trend = StorageMonitor.priceTrend(item.fillType)
+        if item.trend ~= nil and item.trend >= 0.5 then
+            rising = rising + 1
+        elseif item.trend ~= nil and item.trend <= -0.5 then
+            falling = falling + 1
+        end
+    end
+    local topStation, topValue = nil, 0
+    for name, v in pairs(byStation) do
+        if v > topValue or (v == topValue and topStation ~= nil and name < topStation) then
+            topStation, topValue = name, v
+        end
+    end
+    snapshot.value, snapshot.rising, snapshot.falling = value, rising, falling
+    snapshot.topItem, snapshot.topStation, snapshot.topStationValue = top, topStation, topValue
+    -- most valuable first; products nobody buys last
+    table.sort(snapshot.items, function(a, b)
+        if math.abs((a.value or 0) - (b.value or 0)) > 0.5 then
+            return (a.value or 0) > (b.value or 0)
+        end
+        return tostring(a.title) < tostring(b.title)
+    end)
+end
+
+-- ---------------------------------------------------------------------------------------------------
+-- alerts: what needs attention at the storage shown
+-- ---------------------------------------------------------------------------------------------------
+
+-- what an animal pen makes: a full tank of these loses production (a full water or straw store does not)
+StorageMonitor.ANIMAL_OUTPUTS = {MILK = true, GOATMILK = true, BUFFALOMILK = true, EGG = true, WOOL = true,
+    LIQUIDMANURE = true, MANURE = true, SLURRY = true}
+
+--- The alerts of a snapshot: {key, text}, most important first.
+function StorageMonitor.computeAlerts(target, snapshot)
+    local T = StorageMonitor.getText
+    local alerts = {}
+    local function add(key, text)
+        table.insert(alerts, {key = key, text = text})
+    end
+    local panel = snapshot.panel
+    local kind = target.kind
+    if panel == nil and snapshot.capacity > 0 and kind ~= "finance" and kind ~= "beehive" then
+        local pct = StorageMonitor.percent(snapshot.used, snapshot.capacity)
+        if pct >= 100 then
+            add("full", T("storageMonitor_alertFull", "Full"))
+        elseif pct >= StorageMonitor.ALERT_FULL then
+            add("full", string.format(T("storageMonitor_alertNearlyFull", "Nearly full: %d%%"), pct))
+        end
+    end
+    if kind == "production" or kind == "husbandry" then
+        for _, item in ipairs(snapshot.items) do
+            if item.missing then
+                add("empty_" .. tostring(item.fillType), string.format(T("storageMonitor_alertEmpty", "%s is empty"), tostring(item.title)))
+            elseif item.capacity ~= nil and item.capacity > 0 and item.level >= item.capacity * 0.98
+                and ((kind == "production" and item.role ~= "in") or StorageMonitor.ANIMAL_OUTPUTS[item.name]) then
+                add("itemFull_" .. tostring(item.fillType), string.format(T("storageMonitor_alertItemFull", "%s is full"), tostring(item.title)))
+            end
+        end
+    end
+    if panel ~= nil and panel.kind == "production" then
+        if panel.noWater then
+            add("noWater", T("storageMonitor_alertNoWater", "No water"))
+        end
+        local missing = false
+        for _, item in ipairs(snapshot.items) do
+            missing = missing or item.missing
+        end
+        if not missing then
+            for _, line in ipairs(panel.lines) do
+                if line.state == "missing" then
+                    add("missingInputs", T("storageMonitor_line_missing", "Missing inputs"))
+                    break
+                end
+            end
+        end
+    elseif panel ~= nil and panel.kind == "husbandry" then
+        for _, cond in ipairs(panel.conditions) do
+            if (cond.isFood or cond.supply) and cond.ratio < StorageMonitor.ALERT_LOW then
+                add("low_" .. cond.title, string.format(T("storageMonitor_alertLow", "Low %s: %d%%"), cond.title, math.floor(cond.ratio * 100 + 0.5)))
+            elseif cond.inverted and cond.ratio >= 0.95 then
+                add("condFull_" .. cond.title, string.format(T("storageMonitor_alertItemFull", "%s is full"), cond.title))
+            end
+        end
+    elseif panel ~= nil and panel.kind == "objects" then
+        local pct = StorageMonitor.percent(panel.count, panel.capacity)
+        if panel.capacity > 0 and pct >= StorageMonitor.ALERT_FULL then
+            add("full", string.format(T("storageMonitor_alertNearlyFull", "Nearly full: %d%%"), pct))
+        end
+    elseif panel ~= nil and panel.kind == "beehive" then
+        if not panel.spawner then
+            add("noSpawner", T("storageMonitor_alertNoSpawner", "No honey pallet spot"))
+        elseif panel.palletFull then
+            add("palletFull", T("storageMonitor_alertPalletFull", "Honey pallet spot is full"))
+        end
+    elseif panel ~= nil and panel.kind == "finance" then
+        if panel.money < 0 then
+            add("overdrawn", T("storageMonitor_alertOverdrawn", "Account overdrawn"))
+        end
+    end
+    return alerts
+end
+
+-- a game message for each alert that is new since the last read, on the monitor's own farm only, at most once
+-- per storage and alert every ALERT_REPEAT (several monitors at one storage give one message)
+function StorageMonitor.announceAlerts(monitor, target, alerts)
+    local spec = monitor.spec_storageMonitor
+    local known = spec.alertKnown
+    local now = {}
+    for _, a in ipairs(alerts) do
+        now[a.key] = true
+    end
+    spec.alertKnown = now
+    if known == nil or spec.alerts < 3 or g_currentMission == nil or g_currentMission.addIngameNotification == nil then
+        return
+    end
+    local owner = call(monitor, "getOwnerFarmId")
+    if owner ~= nil and owner ~= getPlayerFarmId() then
+        return
+    end
+    StorageMonitor.announced = StorageMonitor.announced or {}
+    for _, a in ipairs(alerts) do
+        if not known[a.key] then
+            local id = tostring(target.owner) .. "|" .. a.key
+            local last = StorageMonitor.announced[id]
+            if last == nil or StorageMonitor.clock - last >= StorageMonitor.ALERT_REPEAT then
+                StorageMonitor.announced[id] = StorageMonitor.clock
+                local kind = FSBaseMission ~= nil and FSBaseMission.INGAME_NOTIFICATION_CRITICAL or 1
+                g_currentMission:addIngameNotification(kind, string.format("%s: %s", tostring(target.title or target.name), a.text))
+            end
+        end
+    end
+end
+
 function StorageMonitor:refreshStorageMonitorData()
     local spec = self.spec_storageMonitor
     spec.dataTimer = 0
@@ -1223,6 +1766,48 @@ function StorageMonitor:refreshStorageMonitorData()
     snapshot.panel = okPanel and panel or nil
     snapshot.countMode = spec.target.kind == "objects"
     snapshot.noPercent = spec.target.kind == "bunker"
+    if not okPanel and not spec.loggedPanel then
+        spec.loggedPanel = true
+        StorageMonitor.log("Warning: could not read %s: %s", tostring(spec.target.name), tostring(panel))
+    end
+
+    -- money: the list is the day's finances; no rates, no prices
+    if snapshot.panel ~= nil and snapshot.panel.kind == "finance" then
+        snapshot.finance = true
+        snapshot.count = #snapshot.panel.lines
+    else
+        -- rates and time left from the levels over the last in-game hours
+        local food = snapshot.panel ~= nil and snapshot.panel.food or nil
+        StorageMonitor.updateRates(spec.history, snapshot, StorageMonitor.gameHours(), spec.target.owner, food)
+        if snapshot.panel ~= nil and snapshot.panel.kind == "husbandry" and snapshot.panel.food ~= nil then
+            local perHour = snapshot.panel.foodPerHour
+            if perHour == nil and snapshot.foodRate ~= nil and snapshot.foodRate < -1 then
+                perHour = -snapshot.foodRate
+            end
+            if perHour ~= nil and perHour > 0 then
+                snapshot.panel.foodHours = snapshot.panel.food / perHour
+            end
+        end
+        -- prices: the price board, and the value of the stock
+        if spec.mode == StorageMonitor.MODE_PRICES and snapshot.count > 0 then
+            local okPrices, err = pcall(StorageMonitor.addPrices, snapshot)
+            snapshot.prices = okPrices
+            if not okPrices and not spec.loggedPrices then
+                spec.loggedPrices = true
+                StorageMonitor.log("Warning: could not read prices: %s", tostring(err))
+            end
+        end
+    end
+
+    -- alerts
+    if spec.alerts > 1 then
+        local okAlerts, alerts = pcall(StorageMonitor.computeAlerts, spec.target, snapshot)
+        spec.alertList = okAlerts and alerts or {}
+        pcall(StorageMonitor.announceAlerts, self, spec.target, spec.alertList)
+    else
+        spec.alertList = {}
+        spec.alertKnown = nil
+    end
     spec.layout = StorageMonitor.computeListLayout(snapshot.count)
     spec.rowCache = {}          -- shortened titles are measured again on the next frame
     if spec.page > spec.layout.pages then
@@ -1243,6 +1828,23 @@ end
 -- drawing
 -- ---------------------------------------------------------------------------------------------------
 
+-- the way the camera looks (unit vector), or nil
+function StorageMonitor.getCameraForward()
+    local camera = getCamera ~= nil and getCamera() or nil
+    if (camera == nil or camera == 0) and g_cameraManager ~= nil and g_cameraManager.getActiveCamera ~= nil then
+        camera = g_cameraManager:getActiveCamera()
+    end
+    if camera == nil or camera == 0 or localDirectionToWorld == nil then
+        return nil
+    end
+    local x, y, z = localDirectionToWorld(camera, 0, 0, -1)
+    local l = math.sqrt(x * x + y * y + z * z)
+    if l < 1e-6 then
+        return nil
+    end
+    return x / l, y / l, z / l
+end
+
 local function getCameraPosition()
     local camera = nil
     if getCamera ~= nil then
@@ -1260,11 +1862,13 @@ local function getCameraPosition()
     return nil
 end
 
--- world frame of the screen; placeables do not move once placed, so it is read once
-function StorageMonitor:getScreenFrame()
+-- world frame of a screen face (the front one by default); placeables do not move once placed, so it is read
+-- once
+function StorageMonitor:getScreenFrame(face)
     local spec = self.spec_storageMonitor
-    if spec.frame == nil then
-        local node = spec.screenNode
+    face = face or (spec.faces ~= nil and spec.faces[1]) or spec
+    if face.frame == nil then
+        local node = face.screenNode
         local function unit(x, y, z)
             local l = math.sqrt(x * x + y * y + z * z)
             if l < 1e-6 then
@@ -1279,10 +1883,10 @@ function StorageMonitor:getScreenFrame()
         local rx, ry, rz = getWorldRotation(node)
         -- scale: screen height in the world (text); localScale: in the screen node's own space (bars, which
         -- are children of the screen node and so already resized with a silo mount)
-        spec.frame = {o = {ox, oy, oz}, ex = {xx, xy, xz}, ey = {yx, yy, yz}, ez = {zx, zy, zz}, rot = {rx, ry, rz},
+        face.frame = {o = {ox, oy, oz}, ex = {xx, xy, xz}, ey = {yx, yy, yz}, ez = {zx, zy, zz}, rot = {rx, ry, rz},
                       scale = spec.height * (spec.sizeScale or 1), localScale = spec.height}
     end
-    return spec.frame
+    return face.frame
 end
 
 -- design units -> world
@@ -1298,16 +1902,19 @@ end
 -- each placed, sized and coloured by the script. The game does not draw debug triangles in normal play.
 -- A frame fills slots from 1; endBars hides the slots not used this frame.
 local barSpec = nil     -- the monitor being drawn
+local barFace = nil     -- the screen face being drawn (its templates, bars and icons)
 local currentTheme = StorageMonitor.THEMES[1]     -- the theme being drawn
 
-function StorageMonitor.beginBars(spec)
+function StorageMonitor.beginBars(spec, face)
     barSpec = spec
-    spec.barUsed = 0
-    spec.iconUsed = 0
+    barFace = face or (spec.faces ~= nil and spec.faces[1]) or spec
+    barFace.barUsed = 0
+    barFace.iconUsed = 0
 end
 
-function StorageMonitor.endBars(spec)
-    for _, pool in ipairs({{spec.bars, spec.barUsed}, {spec.icons, spec.iconUsed}}) do
+function StorageMonitor.endBars(spec, face)
+    face = face or barFace or (spec.faces ~= nil and spec.faces[1]) or spec
+    for _, pool in ipairs({{face.bars, face.barUsed}, {face.icons, face.iconUsed}}) do
         for k = (pool[2] or 0) + 1, #(pool[1] or {}) do
             local slot = pool[1][k]
             if slot.visible then
@@ -1317,21 +1924,22 @@ function StorageMonitor.endBars(spec)
         end
     end
     barSpec = nil
+    barFace = nil
 end
 
 local function rect(f, u0, v0, u1, v1, c, brightness)
-    local spec = barSpec
-    if spec == nil or spec.barTemplate == nil or u1 - u0 <= 0.0005 or v1 - v0 <= 0.0005 then
+    local face = barFace
+    if face == nil or face.barTemplate == nil or u1 - u0 <= 0.0005 or v1 - v0 <= 0.0005 then
         return
     end
-    spec.bars = spec.bars or {}
-    spec.barUsed = spec.barUsed + 1
-    local slot = spec.bars[spec.barUsed]
+    face.bars = face.bars or {}
+    face.barUsed = (face.barUsed or 0) + 1
+    local slot = face.bars[face.barUsed]
     if slot == nil then
-        local node = clone(spec.barTemplate, false, false, false)
-        link(getParent(spec.barTemplate), node)
+        local node = clone(face.barTemplate, false, false, false)
+        link(getParent(face.barTemplate), node)
         slot = {node = node, visible = false}
-        spec.bars[spec.barUsed] = slot
+        face.bars[face.barUsed] = slot
     end
     StorageMonitor.placeSlot(f, slot, u0, v0, u1, v1, c, brightness)
 end
@@ -1362,7 +1970,7 @@ end
 -- glowing in colour c; the same way DashboardLive puts fill type icons on vehicle screens. Returns false
 -- when there is no icon to show, the caller then draws a coloured square.
 local function icon(f, u0, v0, side, path, c)
-    local spec = barSpec
+    local spec = barFace
     if spec == nil or spec.iconTemplate == nil or path == nil or path == "" or getMaterial == nil
         or setMaterialDiffuseMapFromFile == nil then
         return false
@@ -1496,6 +2104,15 @@ function StorageMonitor:drawWideList(f, snapshot, layout, first)
     text(f, L.rowBarU[1], L.listHeadV, headSize, StorageMonitor.getText("storageMonitor_colLevel", "FILL"), COLORS.dim, RenderText.ALIGN_LEFT, true)
     text(f, 1.385, L.listHeadV, headSize, StorageMonitor.getText("storageMonitor_colAmount", "AMOUNT"), COLORS.dim, RenderText.ALIGN_RIGHT, true)
     text(f, 1.535, L.listHeadV, headSize, "%", COLORS.dim, RenderText.ALIGN_RIGHT, true)
+    -- a rate per product (litres per in-game hour) when any of them changes: the bar gets shorter for it
+    local withRates = false
+    for row = 1, layout.rows do
+        local item = snapshot.items[first + row]
+        if item ~= nil and item.rate ~= nil and math.abs(item.rate) >= 1 then
+            withRates = true
+        end
+    end
+    local barRight = withRates and 1.050 or L.rowBarU[2]
 
     for row = 1, layout.rows do
         local item = snapshot.items[first + row]
@@ -1521,7 +2138,7 @@ function StorageMonitor:drawWideList(f, snapshot, layout, first)
             text(f, 0.675, vc + size * 0.25, size * 0.65, tag, color, RenderText.ALIGN_RIGHT, true)
         end
 
-        local u0, u1 = L.rowBarU[1], L.rowBarU[2]
+        local u0, u1 = L.rowBarU[1], barRight
         local h = math.min(L.rowBarHalfH, layout.rowH * 0.18)
         local fraction = itemFraction(item, snapshot)
         local split = u0
@@ -1530,6 +2147,11 @@ function StorageMonitor:drawWideList(f, snapshot, layout, first)
             rect(f, u0, vc - h, split, vc + h, item.color)
         end
         rect(f, split, vc - h, u1, vc + h, COLORS.track)     -- side by side, never on top: no flicker
+        if item.rate ~= nil and math.abs(item.rate) >= 1 then
+            local sign = item.rate > 0 and "+" or ""
+            text(f, L.rowBarU[2], vc + size * 0.25, size * 0.7, sign .. StorageMonitor.shortNumber(item.rate) .. "/h",
+                item.rate > 0 and COLORS.ok or COLORS.warn, RenderText.ALIGN_RIGHT, true)
+        end
         text(f, 1.385, baseline, size, StorageMonitor.formatVolume(item.level), item.missing and COLORS.full or COLORS.text, RenderText.ALIGN_RIGHT, false)
         text(f, 1.535, baseline, size * 0.92, percentText(item, snapshot), percentColor(item), RenderText.ALIGN_RIGHT, true)
     end
@@ -1598,11 +2220,20 @@ function StorageMonitor:drawColumnList(f, snapshot, layout, first)
     end
 end
 
-function StorageMonitor:drawStorageMonitor()
+-- a bar for a 0..1 ratio: the filled part and the rest side by side (never on top: flicker)
+local function ratioBarRow(f, u0, v0, u1, v1, ratio, color)
+    local split = u0 + (u1 - u0) * math.max(0, math.min(1, ratio))
+    if split - u0 > 0.002 then
+        rect(f, u0, v0, split, v1, color)
+    end
+    rect(f, split, v0, u1, v1, COLORS.track)
+end
+
+function StorageMonitor:drawStorageMonitor(face)
     local spec = self.spec_storageMonitor
     currentTheme = StorageMonitor.applyTheme(spec.theme or 1)
     textScale = math.max(0.45, math.min(1, 0.45 + 0.55 * StorageMonitor.brightnessFactor(spec)))
-    local f = StorageMonitor.getScreenFrame(self)
+    local f = StorageMonitor.getScreenFrame(self, face)
     local L = LAYOUT
     local snapshot = spec.snapshot
 
@@ -1637,8 +2268,11 @@ function StorageMonitor:drawStorageMonitor()
         return
     end
 
-    -- top panel: production lines, animals, bunkers, sheds; or the capacity of a silo
-    if snapshot.panel ~= nil then
+    -- top panel: the value of the stock (price board); production lines, animals, bunkers, sheds, beehives,
+    -- money; or the capacity of a silo
+    if snapshot.prices then
+        StorageMonitor.drawPricePanel(self, f, snapshot)
+    elseif snapshot.panel ~= nil then
         StorageMonitor.drawKindPanel(self, f, snapshot)
     else
         StorageMonitor.drawCapacityPanel(self, f, snapshot)
@@ -1646,6 +2280,207 @@ function StorageMonitor:drawStorageMonitor()
 
     -- product list: everything at once if it fits, else pages
     StorageMonitor.drawList(self, f, snapshot)
+    StorageMonitor.drawAlerts(self, f)
+    StorageMonitor.resetTextState(self)
+end
+
+-- alerts: a blinking red stripe under the header and the alert in the footer (several take turns)
+function StorageMonitor:drawAlerts(f)
+    local spec = self.spec_storageMonitor
+    local alerts = spec.alertList
+    if spec.alerts < 2 or alerts == nil or #alerts == 0 then
+        return
+    end
+    if StorageMonitor.clock % 1000 < 650 then
+        rect(f, 0.000, 0.108, 1.600, 0.123, COLORS.full)
+    end
+    local index = math.floor(StorageMonitor.clock / StorageMonitor.ALERT_CYCLE) % #alerts + 1
+    local str = "! " .. alerts[index].text
+    if #alerts > 1 then
+        str = string.format("%s  (%d/%d)", str, index, #alerts)
+    end
+    local maxW = spec.layout.pages > 1 and 1.05 or 1.22
+    text(f, 0.300, 0.973, 0.030, fitText(f, str, 0.030, maxW, true), COLORS.full, RenderText.ALIGN_LEFT, true)
+end
+
+-- a label on the left of a panel row and its value on the right
+local function panelRow(f, u0, u1, base, label, value, color)
+    local labelW = textWidth(f, 0.028, label, true)
+    text(f, u0, base, 0.028, label, COLORS.dim, RenderText.ALIGN_LEFT, true)
+    text(f, u1, base, 0.032, fitText(f, value, 0.032, u1 - u0 - labelW - 0.03, true), color or COLORS.text, RenderText.ALIGN_RIGHT, true)
+end
+
+-- a big number on the left of the top panel, as large as fits
+local function bigNumber(f, str, color, maxSize)
+    local size = maxSize or 0.125
+    local w = textWidth(f, size, str, true)
+    if w > 0.30 then
+        size = size * 0.30 / w
+    end
+    text(f, 0.070, 0.318 - (0.125 - size) * 0.35, size, str, color, RenderText.ALIGN_LEFT, true)
+end
+
+local function trendText(trend)
+    if trend == nil then
+        return "", COLORS.dim
+    elseif trend >= 0.5 then
+        return string.format("+%d%%", math.floor(trend + 0.5)), COLORS.ok
+    elseif trend <= -0.5 then
+        return string.format("-%d%%", math.floor(-trend + 0.5)), COLORS.full
+    end
+    return "0%", COLORS.dim
+end
+
+-- price board: what the stock is worth at the best prices, the most valuable product and the best market
+function StorageMonitor:drawPricePanel(f, snapshot)
+    local T = StorageMonitor.getText
+    text(f, 0.070, 0.185, 0.032, T("storageMonitor_stockValue", "STOCK VALUE"), COLORS.dim, RenderText.ALIGN_LEFT, true)
+    bigNumber(f, StorageMonitor.formatMoney(snapshot.value or 0), COLORS.ok, 0.080)
+    local x0, x1 = 0.420, 1.530
+    local top = snapshot.topItem
+    panelRow(f, x0, x1, 0.200, T("storageMonitor_mostValuable", "MOST VALUABLE"),
+        top ~= nil and string.format("%s  %s", tostring(top.title), StorageMonitor.formatMoney(top.value)) or "--", COLORS.text)
+    panelRow(f, x0, x1, 0.272, T("storageMonitor_bestMarket", "BEST MARKET"),
+        snapshot.topStation ~= nil and tostring(snapshot.topStation) or "--", COLORS.accent)
+    local trend = string.format(T("storageMonitor_trendCount", "%d rising  %d falling"), snapshot.rising or 0, snapshot.falling or 0)
+    panelRow(f, x0, x1, 0.344, T("storageMonitor_nextMonth", "NEXT MONTH"), trend,
+        (snapshot.rising or 0) >= (snapshot.falling or 0) and COLORS.ok or COLORS.warn)
+end
+
+-- price board rows: product, best price and where, the trend to next month, what it is worth
+function StorageMonitor:drawPriceList(f, snapshot, layout, first)
+    local spec = self.spec_storageMonitor
+    local T = StorageMonitor.getText
+    local L = LAYOUT
+    local size = layout.size
+    if layout.cols == 1 then
+        local headSize = math.min(0.026, size * 0.75)
+        text(f, 0.070, L.listHeadV, headSize, T("storageMonitor_colProduct", "PRODUCT"), COLORS.dim, RenderText.ALIGN_LEFT, true)
+        text(f, 0.520, L.listHeadV, headSize, T("storageMonitor_colBestAt", "BEST PRICE AT"), COLORS.dim, RenderText.ALIGN_LEFT, true)
+        text(f, 1.150, L.listHeadV, headSize, T("storageMonitor_colPrice", "PER 1000 L"), COLORS.dim, RenderText.ALIGN_RIGHT, true)
+        text(f, 1.300, L.listHeadV, headSize, T("storageMonitor_colTrend", "TREND"), COLORS.dim, RenderText.ALIGN_RIGHT, true)
+        text(f, 1.535, L.listHeadV, headSize, T("storageMonitor_colValue", "VALUE"), COLORS.dim, RenderText.ALIGN_RIGHT, true)
+        for row = 1, layout.rows do
+            local item = snapshot.items[first + row]
+            if item == nil then
+                break
+            end
+            local vc = L.listTopV + layout.rowH * (row - 0.5)
+            local baseline = vc + size * 0.36
+            local side = size * 0.95
+            if not icon(f, 0.066, vc - side * 0.5, side, item.icon, iconColor(item)) then
+                rect(f, 0.070, vc - size * 0.36, 0.070 + size * 0.72, vc + size * 0.36, item.color)
+            end
+            local rowKey = "price" .. tostring(item.fillType)
+            local cached = spec.rowCache[rowKey]
+            local station = item.station or T("storageMonitor_notSold", "nobody buys it")
+            if cached == nil or cached.station ~= station then
+                cached = {title = fitText(f, tostring(item.title), size, 0.38, false), station = station,
+                          stationText = fitText(f, station, size * 0.85, 0.40, false)}
+                spec.rowCache[rowKey] = cached
+            end
+            text(f, 0.120, baseline, size, cached.title, COLORS.text, RenderText.ALIGN_LEFT, false)
+            text(f, 0.520, baseline, size * 0.85, cached.stationText, item.station ~= nil and COLORS.accent or COLORS.dim, RenderText.ALIGN_LEFT, false)
+            text(f, 1.150, baseline, size, item.price ~= nil and StorageMonitor.formatMoney(item.price * 1000) or "--", COLORS.text, RenderText.ALIGN_RIGHT, false)
+            local tr, tc = trendText(item.trend)
+            text(f, 1.300, baseline, size * 0.9, tr, tc, RenderText.ALIGN_RIGHT, true)
+            text(f, 1.535, baseline, size * 0.92, item.price ~= nil and StorageMonitor.formatMoney(item.value) or "--",
+                item.price ~= nil and percentColor(item) or COLORS.dim, RenderText.ALIGN_RIGHT, true)
+        end
+        return
+    end
+    -- 2 or 3 columns: product, price per 1000 l, trend
+    local headSize = math.min(0.026, size * 0.85)
+    local trendW = size * 2.6
+    for c = 1, layout.cols do
+        local x0, x1 = StorageMonitor.columnBounds(layout, c)
+        local priceRight = x1 - trendW
+        text(f, x0, L.listHeadV, headSize, T("storageMonitor_colProduct", "PRODUCT"), COLORS.dim, RenderText.ALIGN_LEFT, true)
+        text(f, priceRight, L.listHeadV, headSize, T("storageMonitor_colPrice", "PER 1000 L"), COLORS.dim, RenderText.ALIGN_RIGHT, true)
+        if c < layout.cols then
+            local sx = x1 + L.colGap * 0.5
+            rect(f, sx - 0.0015, L.listTopV - 0.035, sx + 0.0015, L.listBottomV, COLORS.track)
+        end
+        for row = 1, layout.rows do
+            local item = snapshot.items[first + (c - 1) * layout.rows + row]
+            if item == nil then
+                break
+            end
+            local vc = L.listTopV + layout.rowH * (row - 0.5)
+            local baseline = vc + size * 0.22
+            local sw = size * 0.62
+            if icon(f, x0 - size * 0.12, baseline - size * 0.82, size * 0.92, item.icon, iconColor(item)) then
+                sw = size * 0.72
+            else
+                rect(f, x0, baseline - sw, x0 + sw, baseline, item.color)
+            end
+            local nameX = x0 + sw + size * 0.45
+            local price = item.price ~= nil and StorageMonitor.formatMoney(item.price * 1000) or "--"
+            local rowKey = "price" .. tostring(item.fillType)
+            local cached = spec.rowCache[rowKey]
+            if cached == nil or cached.price ~= price then
+                cached = {title = fitText(f, tostring(item.title), size, priceRight - textWidth(f, size, price, false) - size * 0.6 - nameX, false),
+                          price = price}
+                spec.rowCache[rowKey] = cached
+            end
+            text(f, nameX, baseline, size, cached.title, COLORS.text, RenderText.ALIGN_LEFT, false)
+            text(f, priceRight, baseline, size, price, item.price ~= nil and COLORS.text or COLORS.dim, RenderText.ALIGN_RIGHT, false)
+            local tr, tc = trendText(item.trend)
+            text(f, x1, baseline, size * 0.92, tr, tc, RenderText.ALIGN_RIGHT, true)
+        end
+    end
+end
+
+-- money: today's income and costs by category
+function StorageMonitor:drawFinanceList(f, snapshot, layout, first)
+    local spec = self.spec_storageMonitor
+    local T = StorageMonitor.getText
+    local L = LAYOUT
+    local size = layout.size
+    local lines = snapshot.panel.lines
+    local biggest = 1
+    for _, line in ipairs(lines) do
+        biggest = math.max(biggest, math.abs(line.value))
+    end
+    local headSize = math.min(0.026, size * 0.85)
+    for c = 1, layout.cols do
+        local x0, x1 = StorageMonitor.columnBounds(layout, c)
+        text(f, x0, L.listHeadV, headSize, T("storageMonitor_colToday", "TODAY"), COLORS.dim, RenderText.ALIGN_LEFT, true)
+        text(f, x1, L.listHeadV, headSize, T("storageMonitor_colAmountMoney", "AMOUNT"), COLORS.dim, RenderText.ALIGN_RIGHT, true)
+        if c < layout.cols then
+            local sx = x1 + L.colGap * 0.5
+            rect(f, sx - 0.0015, L.listTopV - 0.035, sx + 0.0015, L.listBottomV, COLORS.track)
+        end
+        for row = 1, layout.rows do
+            local line = lines[first + (c - 1) * layout.rows + row]
+            if line == nil then
+                break
+            end
+            local vc = L.listTopV + layout.rowH * (row - 0.5)
+            local baseline = vc + size * (layout.cols == 1 and 0.36 or 0.22)
+            local color = line.value >= 0 and COLORS.ok or COLORS.full
+            local amount = (line.value >= 0 and "+" or "") .. StorageMonitor.formatMoney(line.value)
+            local rowKey = "fin" .. line.name
+            local cached = spec.rowCache[rowKey]
+            local barU0 = layout.cols == 1 and 0.700 or x0
+            if cached == nil or cached.amount ~= amount then
+                local maxW = (layout.cols == 1 and barU0 - 0.03 or x1 - textWidth(f, size, amount, true) - size * 0.6) - x0
+                cached = {title = fitText(f, tostring(line.title), size, maxW, false), amount = amount}
+                spec.rowCache[rowKey] = cached
+            end
+            text(f, x0, baseline, size, cached.title, COLORS.text, RenderText.ALIGN_LEFT, false)
+            text(f, x1, baseline, size, amount, color, RenderText.ALIGN_RIGHT, true)
+            -- a bar for the size of the amount: in the row (one column) or under it
+            local fraction = math.abs(line.value) / biggest
+            if layout.cols == 1 then
+                local h = math.min(L.rowBarHalfH, layout.rowH * 0.18)
+                ratioBarRow(f, barU0, vc - h, 1.170, vc + h, fraction, color)
+            else
+                local b0 = vc + size * 0.55
+                ratioBarRow(f, x0, b0, x1, b0 + math.max(0.003, layout.rowH * 0.09), fraction, color)
+            end
+        end
+    end
 end
 
 function StorageMonitor:drawCapacityPanel(f, snapshot)
@@ -1696,19 +2531,28 @@ function StorageMonitor:drawCapacityPanel(f, snapshot)
             StorageMonitor.getText("storageMonitor_free", "FREE") .. "  " .. StorageMonitor.formatVolume(free),
             COLORS.ok, RenderText.ALIGN_LEFT, false)
     end
-    text(f, sb[3], 0.338, 0.034,
-        string.format(StorageMonitor.getText("storageMonitor_products", "%d PRODUCTS"), snapshot.count),
-        COLORS.dim, RenderText.ALIGN_RIGHT, false)
+    -- how fast it fills or empties and when it is full / empty; else the number of products
+    local left, toward = StorageMonitor.hoursLeft(snapshot.used, snapshot.capacity, snapshot.rate)
+    if snapshot.rate ~= nil and math.abs(snapshot.rate) >= 1 then
+        local str = StorageMonitor.formatRate(snapshot.rate)
+        local color = snapshot.rate > 0 and COLORS.accent or COLORS.warn
+        if left ~= nil then
+            local key = toward == "full" and "storageMonitor_fullIn" or "storageMonitor_emptyIn"
+            str = str .. "   " .. string.format(StorageMonitor.getText(key, toward == "full" and "FULL IN %s" or "EMPTY IN %s"),
+                StorageMonitor.formatDuration(left))
+            if left < 6 then
+                color = COLORS.full
+            end
+        end
+        text(f, sb[3], 0.338, 0.034, str, color, RenderText.ALIGN_RIGHT, true)
+    else
+        text(f, sb[3], 0.338, 0.034,
+            string.format(StorageMonitor.getText("storageMonitor_products", "%d PRODUCTS"), snapshot.count),
+            COLORS.dim, RenderText.ALIGN_RIGHT, false)
+    end
 end
 
--- a bar for a 0..1 ratio, value side by side with the rest (never on top: flicker)
-local function ratioBar(f, u0, v0, u1, v1, ratio, color)
-    local split = u0 + (u1 - u0) * math.max(0, math.min(1, ratio))
-    if split - u0 > 0.002 then
-        rect(f, u0, v0, split, v1, color)
-    end
-    rect(f, split, v0, u1, v1, COLORS.track)
-end
+local ratioBar = ratioBarRow
 
 -- colour of a condition: full is good, unless inverted (manure: full is bad)
 local function conditionColor(ratio, inverted)
@@ -1740,12 +2584,26 @@ function StorageMonitor:drawKindPanel(f, snapshot)
         return u0, u0 + colW, rowV[row]
     end
     local maxCells = StorageMonitor.PANEL_ROWS * 2
+    local cache = self.spec_storageMonitor.rowCache
+    -- fitted texts are measured once per read of the storage, not every frame
+    local function fitted(key, str, size, width, bold)
+        local c = cache[key]
+        if c == nil or c.source ~= str or math.abs(c.width - width) > 1e-6 then
+            c = {source = str, width = width, text = fitText(f, str, size, width, bold)}
+            cache[key] = c
+        end
+        return c.text
+    end
+    -- a small line under the big number on the left
+    local function note(str, color)
+        text(f, 0.070, 0.356, 0.022, fitted("note", str, 0.022, 0.30, true), color or COLORS.dim, RenderText.ALIGN_LEFT, true)
+    end
 
     if panel.kind == "production" then
         local n = #panel.lines
         text(f, 0.070, 0.185, 0.032, T("storageMonitor_linesRunning", "RUNNING"), COLORS.dim, RenderText.ALIGN_LEFT, true)
         local color = (n > 0 and panel.running == n) and COLORS.ok or (panel.running > 0 and COLORS.warn or COLORS.full)
-        text(f, 0.070, 0.310, 0.100, string.format("%d/%d", panel.running, n), color, RenderText.ALIGN_LEFT, true)
+        text(f, 0.070, 0.300, 0.090, string.format("%d/%d", panel.running, n), color, RenderText.ALIGN_LEFT, true)
         for i, line in ipairs(panel.lines) do
             if i > maxCells then
                 break
@@ -1757,26 +2615,84 @@ function StorageMonitor:drawKindPanel(f, snapshot)
             else
                 rect(f, u0, base - 0.024, u0 + 0.016, base - 0.008, c)
                 local statusW = textWidth(f, 0.026, line.text, true)
-                local name = fitText(f, line.name, 0.032, u1 - u0 - 0.03 - statusW - 0.02, false)
+                local name = fitted("line" .. i, line.name, 0.032, u1 - u0 - 0.03 - statusW - 0.02, false)
                 text(f, u0 + 0.028, base, 0.032, name, COLORS.text, RenderText.ALIGN_LEFT, false)
                 text(f, u1, base, 0.026, line.text, c, RenderText.ALIGN_RIGHT, true)
             end
         end
+        -- the input that runs out first, or "no water" in a greenhouse
+        local first, firstHours = nil, math.huge
+        for _, item in ipairs(snapshot.items) do
+            if item.role == "in" or item.role == "inout" then
+                local hours, toward = StorageMonitor.hoursLeft(item.level, item.capacity, item.rate)
+                if hours ~= nil and toward == "empty" and hours < firstHours then
+                    first, firstHours = item, hours
+                end
+            end
+        end
+        if panel.noWater then
+            note(T("storageMonitor_alertNoWater", "No water"), COLORS.full)
+        elseif first ~= nil then
+            note(string.format(T("storageMonitor_runsOut", "%s: empty in %s"), tostring(first.title), StorageMonitor.formatDuration(firstHours)),
+                firstHours < 6 and COLORS.full or COLORS.warn)
+        end
     elseif panel.kind == "husbandry" then
         text(f, 0.070, 0.185, 0.032, T("storageMonitor_animals", "ANIMALS"), COLORS.dim, RenderText.ALIGN_LEFT, true)
         local full = panel.maxAnimals > 0 and panel.animals >= panel.maxAnimals
-        text(f, 0.070, 0.305, panel.maxAnimals >= 100 and 0.068 or 0.090,
+        text(f, 0.070, 0.300, panel.maxAnimals >= 100 and 0.064 or 0.085,
             string.format("%d/%d", panel.animals, panel.maxAnimals), full and COLORS.warn or COLORS.ok, RenderText.ALIGN_LEFT, true)
         for i, cond in ipairs(panel.conditions) do
             if i > maxCells then
                 break
             end
             local u0, u1, base = cell(i)
-            local pct = string.format("%d%%", math.floor(cond.ratio * 100 + 0.5))
-            local title = fitText(f, cond.title, 0.028, u1 - u0 - 0.08, false)
+            local value = cond.valueText or string.format("%d%%", math.floor(cond.ratio * 100 + 0.5))
+            local title = fitted("cond" .. i, cond.title, 0.028, u1 - u0 - 0.08, false)
             text(f, u0, base - 0.018, 0.028, title, COLORS.text, RenderText.ALIGN_LEFT, false)
-            text(f, u1, base - 0.018, 0.028, cond.valueText or pct, COLORS.dim, RenderText.ALIGN_RIGHT, true)
+            text(f, u1, base - 0.018, 0.028, value, COLORS.dim, RenderText.ALIGN_RIGHT, true)
             ratioBar(f, u0, base - 0.008, u1, base + 0.006, cond.ratio, conditionColor(cond.ratio, cond.inverted))
+        end
+        -- how long the food lasts
+        if panel.foodHours ~= nil then
+            note(string.format(T("storageMonitor_foodFor", "Food for %s"), StorageMonitor.formatDuration(panel.foodHours)),
+                panel.foodHours < 12 and COLORS.full or (panel.foodHours < 48 and COLORS.warn or COLORS.ok))
+        end
+    elseif panel.kind == "beehive" then
+        text(f, 0.070, 0.185, 0.032, T("storageMonitor_beehivesCaps", "BEEHIVES"), COLORS.dim, RenderText.ALIGN_LEFT, true)
+        bigNumber(f, tostring(panel.hives), COLORS.ok, 0.110)
+        local status = panel.active and T("storageMonitor_beesProducing", "Producing") or T("storageMonitor_beesWinter", "Winter break")
+        local spot = not panel.spawner and T("storageMonitor_spotNone", "None") or
+            (panel.palletFull and T("storageMonitor_spotFull", "Full") or T("storageMonitor_spotOk", "OK"))
+        local cells = {
+            {T("storageMonitor_honeyPerDay", "Honey per day"), StorageMonitor.formatVolume(panel.honeyPerDay), COLORS.text},
+            {T("storageMonitor_beesStatus", "Status"), status, panel.active and COLORS.ok or COLORS.warn},
+            {T("storageMonitor_beesFlying", "Bees"), panel.flying and T("storageMonitor_beesOut", "Flying") or T("storageMonitor_beesIn", "Resting"), COLORS.dim},
+            {T("storageMonitor_palletSpot", "Pallet spot"), spot, (panel.spawner and not panel.palletFull) and COLORS.ok or COLORS.full},
+        }
+        if panel.honeyValue ~= nil then
+            table.insert(cells, {T("storageMonitor_honeyValue", "Worth per day"), StorageMonitor.formatMoney(panel.honeyValue), COLORS.ok})
+        end
+        for i, c in ipairs(cells) do
+            local u0, u1, base = cell(i)
+            text(f, u0, base, 0.028, fitted("bee" .. i, c[1], 0.028, colW * 0.55, false), COLORS.text, RenderText.ALIGN_LEFT, false)
+            text(f, u1, base, 0.028, c[2], c[3], RenderText.ALIGN_RIGHT, true)
+        end
+    elseif panel.kind == "finance" then
+        text(f, 0.070, 0.185, 0.032, T("storageMonitor_balance", "BALANCE"), COLORS.dim, RenderText.ALIGN_LEFT, true)
+        bigNumber(f, StorageMonitor.formatMoney(panel.money), panel.money >= 0 and COLORS.ok or COLORS.full, 0.080)
+        local net = panel.income + panel.expenses
+        local cells = {
+            {T("storageMonitor_loan", "Loan"), StorageMonitor.formatMoney(panel.loan), panel.loan > 0 and COLORS.warn or COLORS.ok},
+            {T("storageMonitor_credit", "Credit left"), panel.loanMax ~= nil and StorageMonitor.formatMoney(math.max(0, panel.loanMax - panel.loan)) or "--", COLORS.text},
+            {T("storageMonitor_incomeToday", "Income today"), "+" .. StorageMonitor.formatMoney(panel.income), COLORS.ok},
+            {T("storageMonitor_costsToday", "Costs today"), StorageMonitor.formatMoney(panel.expenses), COLORS.full},
+            {T("storageMonitor_netToday", "Today"), (net >= 0 and "+" or "") .. StorageMonitor.formatMoney(net), net >= 0 and COLORS.ok or COLORS.full},
+        }
+        for i, c in ipairs(cells) do
+            local u0, u1, base = cell(i)
+            local valueW = textWidth(f, 0.028, c[2], true)
+            text(f, u0, base, 0.028, fitted("fin" .. i, c[1], 0.028, u1 - u0 - valueW - 0.02, false), COLORS.text, RenderText.ALIGN_LEFT, false)
+            text(f, u1, base, 0.028, c[2], c[3], RenderText.ALIGN_RIGHT, true)
         end
     elseif panel.kind == "bunker" then
         local single = #panel.bunkers == 1 and panel.bunkers[1] or nil
@@ -1821,16 +2737,33 @@ function StorageMonitor:drawList(f, snapshot)
     local spec = self.spec_storageMonitor
     local L = LAYOUT
     local layout = spec.layout
+    local first = (spec.page - 1) * layout.perPage
     if snapshot.count == 0 then
-        text(f, 0.800, 0.680, 0.050, StorageMonitor.getText("storageMonitor_empty", "Empty"), COLORS.dim, RenderText.ALIGN_CENTER, true)
+        local kind = snapshot.panel ~= nil and snapshot.panel.kind or nil
+        local msg = StorageMonitor.getText("storageMonitor_empty", "Empty")
+        if kind == "beehive" then
+            msg = StorageMonitor.getText("storageMonitor_honeyHint", "Honey goes onto pallets at the pallet spot")
+        elseif kind == "finance" then
+            msg = StorageMonitor.getText("storageMonitor_noMoneyToday", "No income or costs today yet")
+        end
+        text(f, 0.800, 0.680, 0.040, fitText(f, msg, 0.040, 1.40, true), COLORS.dim, RenderText.ALIGN_CENTER, true)
+    elseif snapshot.finance then
+        StorageMonitor.drawFinanceList(self, f, snapshot, layout, first)
+    elseif snapshot.prices then
+        StorageMonitor.drawPriceList(self, f, snapshot, layout, first)
     elseif layout.cols == 1 then
-        StorageMonitor.drawWideList(self, f, snapshot, layout, (spec.page - 1) * layout.perPage)
+        StorageMonitor.drawWideList(self, f, snapshot, layout, first)
     else
-        StorageMonitor.drawColumnList(self, f, snapshot, layout, (spec.page - 1) * layout.perPage)
+        StorageMonitor.drawColumnList(self, f, snapshot, layout, first)
     end
 
-    -- page indicator and timer
-    if layout.pages > 1 then
+    -- page indicator and timer (no timer bar while an alert is in the footer)
+    local alerting = spec.alerts > 1 and spec.alertList ~= nil and #spec.alertList > 0
+    if layout.pages > 1 and alerting then
+        text(f, 1.550, 0.973, 0.028,
+            string.format(StorageMonitor.getText("storageMonitor_page", "PAGE %d/%d"), spec.page, layout.pages),
+            COLORS.dim, RenderText.ALIGN_RIGHT, true)
+    elseif layout.pages > 1 then
         text(f, 1.550, 0.973, 0.028,
             string.format(StorageMonitor.getText("storageMonitor_page", "PAGE %d/%d"), spec.page, layout.pages),
             COLORS.dim, RenderText.ALIGN_RIGHT, true)
@@ -1871,18 +2804,49 @@ function StorageMonitor:updateStorageMonitor(dt)
     local f = StorageMonitor.getScreenFrame(self)
     local dx, dy, dz = cx - f.o[1], cy - f.o[2], cz - f.o[3]
     local distance = math.sqrt(dx * dx + dy * dy + dz * dz)
-    if distance > spec.drawDistance * math.max(1, spec.sizeScale or 1) then
+    spec.distance = distance
+    local drawDistance = spec.drawDistance * math.max(1, spec.sizeScale or 1)
+    for _, face in ipairs(spec.faces) do
+        face.visible = false
+    end
+
+    -- nobody near: read the storage now and then (rates, alerts), draw nothing
+    if distance > drawDistance then
+        spec.scanTimer = spec.scanTimer + dt
+        if spec.scanTimer >= StorageMonitor.FAR_SCAN_INTERVAL then      -- also the very first update
+            self:rescanStorageMonitor()
+        end
+        spec.dataTimer = spec.dataTimer + dt
+        if spec.dataTimer >= StorageMonitor.FAR_DATA_INTERVAL then
+            StorageMonitor.refreshStorageMonitorData(self)
+        end
         return
     end
-    -- in front of the glass only
-    spec.isNear = (dx * f.ez[1] + dy * f.ez[2] + dz * f.ez[3]) > 0.02
+
+    -- the faces the camera is in front of, and not behind the camera
+    local fx, fy, fz = StorageMonitor.getCameraForward()
+    local radius = spec.width * (spec.sizeScale or 1) * 0.6 + 1
+    for _, face in ipairs(spec.faces) do
+        local ff = StorageMonitor.getScreenFrame(self, face)
+        local ox, oy, oz = cx - ff.o[1], cy - ff.o[2], cz - ff.o[3]
+        local inFront = (ox * ff.ez[1] + oy * ff.ez[2] + oz * ff.ez[3]) > 0.02
+        local ahead = fx == nil or (-ox * fx - oy * fy - oz * fz) > -radius
+        face.visible = inFront and ahead
+        spec.isNear = spec.isNear or face.visible
+    end
 
     spec.scanTimer = spec.scanTimer + dt
     if spec.scanTimer >= StorageMonitor.SCAN_INTERVAL then
         self:rescanStorageMonitor()
     end
     spec.dataTimer = spec.dataTimer + dt
-    if spec.dataTimer >= StorageMonitor.DATA_INTERVAL then
+    local interval = StorageMonitor.DATA_INTERVAL
+    if not spec.isNear then
+        interval = StorageMonitor.FAR_DATA_INTERVAL
+    elseif distance > drawDistance * 0.5 then
+        interval = StorageMonitor.MID_DATA_INTERVAL
+    end
+    if spec.dataTimer >= interval then
         StorageMonitor.refreshStorageMonitorData(self)
     end
 
@@ -2039,6 +3003,12 @@ function StorageMonitor.openSettings(monitor)
     table.insert(entries, {text = spec.title ~= "" and string.format(T("storageMonitor_menuTitleNow", "Title (now: %s)"), spec.title)
         or T("storageMonitor_menuTitleSet", "Title: type your own"),
         run = function() StorageMonitor.openTitle(monitor) end})
+    local mode = StorageMonitor.MODES[spec.mode] or StorageMonitor.MODES[1]
+    table.insert(entries, {text = string.format(T("storageMonitor_menuMode", "Screen shows (now: %s)"), T(mode.key, mode.fallback)),
+        run = function() StorageMonitor.openMode(monitor) end})
+    local alerts = StorageMonitor.ALERT_LEVELS[spec.alerts] or StorageMonitor.ALERT_LEVELS[1]
+    table.insert(entries, {text = string.format(T("storageMonitor_menuAlerts", "Alerts (now: %s)"), T(alerts.key, alerts.fallback)),
+        run = function() StorageMonitor.openAlerts(monitor) end})
 
     local options = {}
     for _, e in ipairs(entries) do
@@ -2123,6 +3093,38 @@ function StorageMonitor.openTheme(monitor)
         end)
 end
 
+function StorageMonitor.openMode(monitor)
+    local spec = monitor.spec_storageMonitor
+    local options = {}
+    for i, mode in ipairs(StorageMonitor.MODES) do
+        table.insert(options, StorageMonitor.getText(mode.key, mode.fallback) .. mark(i == spec.mode))
+    end
+    StorageMonitor.showOptions(StorageMonitor.getText("storageMonitor_modeTitle", "Screen shows"),
+        StorageMonitor.getText("storageMonitor_modeText", "The storage, or today's best prices for what is in it (pick \"All silos of my farm\" for a price board of the whole farm):"),
+        options,
+        function(index)
+            if StorageMonitor.MODES[index] ~= nil then
+                change(monitor, "mode", index)
+            end
+        end)
+end
+
+function StorageMonitor.openAlerts(monitor)
+    local spec = monitor.spec_storageMonitor
+    local options = {}
+    for i, level in ipairs(StorageMonitor.ALERT_LEVELS) do
+        table.insert(options, StorageMonitor.getText(level.key, level.fallback) .. mark(i == spec.alerts))
+    end
+    StorageMonitor.showOptions(StorageMonitor.getText("storageMonitor_alertsTitle", "Alerts"),
+        StorageMonitor.getText("storageMonitor_alertsText", "Warn when it is nearly full, an input is empty, or animals run low on food or water:"),
+        options,
+        function(index)
+            if StorageMonitor.ALERT_LEVELS[index] ~= nil then
+                change(monitor, "alerts", index)
+            end
+        end)
+end
+
 -- the custom title: typed in the game's text input dialog; empty = the storage's own name
 function StorageMonitor.openTitle(monitor)
     local spec = monitor.spec_storageMonitor
@@ -2144,6 +3146,7 @@ function StorageMonitor.Listener:update(dt)
     if g_currentMission == nil or not g_currentMission:getIsClient() then
         return
     end
+    StorageMonitor.clock = StorageMonitor.clock + (dt or 0)
     -- an error here must never stop the game's own update (that freezes the player), so every step is
     -- protected and a monitor that fails is switched off with one log line
     for _, monitor in ipairs(StorageMonitor.instances) do
@@ -2171,27 +3174,48 @@ function StorageMonitor.Listener:draw()
     if g_currentMission == nil or not g_currentMission:getIsClient() then
         return
     end
+    -- the nearest MAX_DRAWN monitors in sight are drawn; the others only hide their bars
+    local near = {}
+    for _, monitor in ipairs(StorageMonitor.instances) do
+        local spec = monitor.spec_storageMonitor
+        if spec ~= nil and spec.isNear and not spec.failed then
+            table.insert(near, monitor)
+        end
+    end
+    local drawn = {}
+    if #near > StorageMonitor.MAX_DRAWN then
+        table.sort(near, function(a, b)
+            return (a.spec_storageMonitor.distance or 0) < (b.spec_storageMonitor.distance or 0)
+        end)
+    end
+    for i = 1, math.min(#near, StorageMonitor.MAX_DRAWN) do
+        drawn[near[i]] = true
+    end
+
     local depthSet = false
     for _, monitor in ipairs(StorageMonitor.instances) do
         local spec = monitor.spec_storageMonitor
         if spec ~= nil then
-            StorageMonitor.beginBars(spec)
-            if spec.isNear and not spec.failed then
-                if not depthSet and setTextDepthTestEnabled ~= nil then
-                    setTextDepthTestEnabled(true)
-                    depthSet = true
+            for _, face in ipairs(spec.faces or {}) do
+                StorageMonitor.beginBars(spec, face)
+                if drawn[monitor] and face.visible and not spec.failed then
+                    if not depthSet and setTextDepthTestEnabled ~= nil then
+                        setTextDepthTestEnabled(true)
+                        depthSet = true
+                    end
+                    local ok, err = pcall(StorageMonitor.drawStorageMonitor, monitor, face)
+                    if not ok then
+                        spec.isNear = false
+                        spec.failed = true
+                        face.barUsed = 0
+                        face.iconUsed = 0
+                        StorageMonitor.log("Error drawing, monitor switched off: %s", tostring(err))
+                        pcall(StorageMonitor.resetTextState, monitor)
+                    end
                 end
-                local ok, err = pcall(StorageMonitor.drawStorageMonitor, monitor)
-                if not ok then
-                    spec.isNear = false
-                    spec.failed = true
-                    spec.barUsed = 0
-                    StorageMonitor.log("Error drawing, monitor switched off: %s", tostring(err))
-                    pcall(StorageMonitor.resetTextState, monitor)
-                end
+                -- bars of a face nobody looks at are hidden, like its text
+                pcall(StorageMonitor.endBars, spec, face)
             end
-            -- bars of a monitor nobody looks at are hidden, like its text
-            pcall(StorageMonitor.endBars, spec)
         end
     end
     if depthSet then

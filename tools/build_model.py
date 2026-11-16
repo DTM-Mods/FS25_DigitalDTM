@@ -7,6 +7,10 @@ Variants (all screens are 16:10):
     kiosk      1.20 m screen on a pedestal, tilted back 10 degrees
     wall       2.40 m screen on two posts, to stand against a silo or wall
     billboard  4.00 m screen on two tall posts, readable from a tractor
+    wallMount  2.40 m screen on a bracket against a silo (grows upwards from 2 m)
+    buildingMount  2.40 m screen flat against a building wall (grows upwards from 2 m)
+    hanging    2.40 m screen hanging on two rods, for inside a shed (grows upwards from 2.5 m)
+    billboard2 4.00 m two-sided billboard: a screen on the front and one on the back
 
 Geometry is written in i3d coordinates (x right, y up, +z towards the viewer) and converted to Blender's
 z-up axes (x, -z, y) only when an object is created; the exporter converts back.
@@ -51,8 +55,19 @@ VARIANTS = {
     # silo mount: no posts; the screen hangs on a bracket whose back touches the silo wall, and the game
     # scales the "mount" node to the screen size chosen in the monitor's settings (bottom edge at 2 m)
     "wallMount": dict(width=2.40, center_y=2.846, lower_extent=0.846, tilt=0.0, bezel=0.06, depth=0.07, housing=0.08,
-                      mount="silo", arm=0.30, trigger=((0.0, 1.0, 1.6), (3.0, 2.0, 2.6)), clip=300),
+                      mount="silo", arm=0.30, trigger=((0.0, 1.0, 1.6), (3.0, 2.0, 2.6)), clip=300, backdrop="silo"),
+    # the same, flat against a building wall: short arms, a plate the full height of the screen
+    "buildingMount": dict(width=2.40, center_y=2.846, lower_extent=0.846, tilt=0.0, bezel=0.06, depth=0.07, housing=0.08,
+                          mount="silo", arm=0.05, trigger=((0.0, 1.0, 1.4), (3.0, 2.0, 2.4)), clip=300, backdrop="wall"),
+    # hangs from a ceiling or beam on two rods; its bottom edge stays at 2.5 m, it grows upwards (rods and all)
+    "hanging": dict(width=2.40, center_y=3.346, lower_extent=0.846, bottom=2.5, tilt=0.0, bezel=0.06, depth=0.07,
+                    housing=0.08, mount="hang", rod=1.2, trigger=((0.0, 1.0, 1.4), (3.0, 2.0, 2.8)), clip=300,
+                    backdrop="beam"),
+    # two screens back to back between two tall posts
+    "billboard2": dict(width=4.00, center_y=3.80, tilt=0.0, bezel=0.09, depth=0.10, housing=0.12, mount="posts2",
+                       post=0.14, post_x=1.30, two_sided=True, trigger=((0.0, 1.0, 0.0), (5.0, 2.0, 9.2)), clip=500),
 }
+RAISED = ("silo", "hang")       # mounts whose bottom edge stays put and that grow upwards
 
 MATERIALS = {   # name: (base colour, emission, roughness)
     "monitor_frame": ((0.035, 0.038, 0.045), None, 0.45),
@@ -169,18 +184,19 @@ class Mesh:
         return add_object(name, me, parent)
 
 
-def add_object(name, data, parent, location=(0.0, 0.0, 0.0), rot_x=0.0):
+def add_object(name, data, parent, location=(0.0, 0.0, 0.0), rot_x=0.0, rot_y=0.0):
     obj = bpy.data.objects.new(name, data)
     assert obj.name == name, "duplicate node name " + name
     bpy.context.scene.collection.objects.link(obj)
     obj.parent = parent
     obj.location = to_blender(location)
-    obj.rotation_euler = (math.radians(rot_x), 0.0, 0.0)    # i3d x rotation == Blender x rotation
+    # i3d x rotation == Blender x rotation; i3d y (up) == Blender z (up)
+    obj.rotation_euler = (math.radians(rot_x), 0.0, math.radians(rot_y))
     return obj
 
 
-def node(name, parent=None, location=(0.0, 0.0, 0.0), rot_x=0.0):
-    obj = add_object(name, None, parent, location, rot_x)
+def node(name, parent=None, location=(0.0, 0.0, 0.0), rot_x=0.0, rot_y=0.0):
+    obj = add_object(name, None, parent, location, rot_x, rot_y)
     obj.empty_display_size = 0.2
     return obj
 
@@ -228,7 +244,23 @@ def mount(v):
     d, hd, b = v["depth"], v["housing"], v["bezel"]
     back_z = -d / 2 - hd
     bottom_y = v["center_y"] - h / 2 - b * 1.6
-    if v["mount"] == "posts":
+    if v["mount"] == "posts2":   # two-sided: the posts stand between the two screens
+        p = v["post"]
+        top = v["center_y"] + h / 2 - b
+        for sx in (-1, 1):
+            x = sx * v["post_x"]
+            m.box((x - p / 2, 0.0, -p / 2), (x + p / 2, top, p / 2), "monitor_metal", skip=("-y",))
+            m.box((x - p * 2, 0.0, -p * 3), (x + p * 2, 0.02, p * 3), "monitor_base", skip=("-y",))
+        m.box((-v["post_x"], bottom_y - p * 1.4, -p * 0.3), (v["post_x"], bottom_y - p * 0.6, p * 0.3), "monitor_metal")
+    elif v["mount"] == "hang":   # in the mount node's space: screen centre at y = 0; two rods up to ceiling plates
+        rod, r = v["rod"], 0.03
+        top_y = h / 2 + b
+        for sx in (-1, 1):
+            x = sx * w * 0.3
+            m.box((x - r / 2, top_y, -r / 2), (x + r / 2, top_y + rod, r / 2), "monitor_metal", skip=("-y",))
+            m.box((x - 0.05, top_y, -0.04), (x + 0.05, top_y + 0.03, 0.04), "monitor_base")             # clamp
+            m.box((x - 0.09, top_y + rod, -0.09), (x + 0.09, top_y + rod + 0.015, 0.09), "monitor_base")  # ceiling plate
+    elif v["mount"] == "posts":
         p = v["post"]
         top = v["center_y"] + h / 2 - b
         for sx in (-1, 1):
@@ -265,13 +297,19 @@ def build(name, v):
     make_materials(img)
 
     tilt = math.radians(v["tilt"])
-    silo = v["mount"] == "silo"
-    cy = 0.0 if silo else v["center_y"]     # a silo mount's head is lifted by its mount node instead
+    silo = v["mount"] in RAISED
+    cy = 0.0 if silo else v["center_y"]     # a raised mount's head is lifted by its mount node instead
+    two = v.get("two_sided", False)
+    zo = (v["depth"] / 2 + v["housing"] + v["post"] / 2) if two else 0.0    # back to back, posts between
 
     def place(p):      # head local -> model: tilt about x, then lift to the screen centre
         y = p.y * math.cos(tilt) - p.z * math.sin(tilt)
         z = p.y * math.sin(tilt) + p.z * math.cos(tilt)
-        return Vector((p.x, y + cy, z))
+        return Vector((p.x, y + cy, z + zo))
+
+    def place_back(p):     # the back screen: the front one turned 180 degrees about y
+        q = place(p)
+        return Vector((-q.x, q.y, -q.z))
 
     # Everything visible hangs below "mount", which the script scales to the chosen screen size: a silo
     # mount from its bottom edge (the node sits at the screen centre), a free-standing one from the ground.
@@ -279,6 +317,8 @@ def build(name, v):
     parent = node("mount", root, (0.0, v["center_y"] if silo else 0.0, 0.0))
     body, glass, glass_z = head(v)
     full = body.transformed(place)
+    if two:
+        full.extend(body.transformed(place_back))
     full.extend(mount(v))
     attrs(full.to_object("body", parent), clipDistance=float(v["clip"]))      # visual only: it is resized
     # Collision for every screen size (StorageMonitor.SIZE_WIDTHS), outside "mount": a static body cannot be
@@ -288,7 +328,7 @@ def build(name, v):
     for width in SIZE_WIDTHS:
         s = width / v["width"]
         if silo:     # grows upwards from its bottom edge, depth kept (as setStorageMonitorSize does)
-            lift = SILO_BOTTOM + v["lower_extent"] * s
+            lift = v.get("bottom", SILO_BOTTOM) + v["lower_extent"] * s
 
             def sized(p, s=s, lift=lift):
                 return Vector((p.x * s, p.y * s + lift, p.z))
@@ -298,24 +338,28 @@ def build(name, v):
         attrs(full.transformed(sized).to_object("collision_%03d" % round(width * 100), collisions), static=True,
               nonRenderable=True, castsShadows=False, receiveShadows=False,
               collisionFilterGroup=COL_BUILDING[0], collisionFilterMask=COL_BUILDING[1])
-    attrs(glass.transformed(place).to_object("screenGlass", parent), castsShadows=False, receiveShadows=True,
-          clipDistance=float(v["clip"]))
-    screen = node("screen", parent, tuple(place(Vector((0.0, 0.0, glass_z)))), rot_x=v["tilt"])
-    # 1 x 1 m rectangle, top-left corner at the node, spanning +x and -y, facing +z; hidden: the script
-    # copies it for every bar and sets each copy's place, size and colour
-    bar = Mesh()
-    bar.quad([(0.0, -1.0, 0.0), (1.0, -1.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 0.0)], "monitor_bar",
-             uv=((0.5, 0.5),) * 4)
-    template = attrs(bar.to_object("barTemplate", screen), castsShadows=False, receiveShadows=False,
-                     clipDistance=float(v["clip"]))
-    template["i3d_hidden"] = True
-    # the same with real UVs: product icons (the script puts each product's HUD icon on a copy)
-    icon = Mesh()
-    icon.quad([(0.0, -1.0, 0.0), (1.0, -1.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 0.0)], "monitor_bar",
-              uv=((0.001, 0.0), (1.0, 0.0), (1.0, 1.0), (0.001, 1.0)))
-    template = attrs(icon.to_object("iconTemplate", screen), castsShadows=False, receiveShadows=False,
-                     clipDistance=float(v["clip"]))
-    template["i3d_hidden"] = True
+    faces = [("", place, 0.0)]
+    if two:
+        faces.append(("Back", place_back, 180.0))
+    for suffix, fn, rot_y in faces:
+        attrs(glass.transformed(fn).to_object("screenGlass" + suffix, parent), castsShadows=False, receiveShadows=True,
+              clipDistance=float(v["clip"]))
+        screen = node("screen" + suffix, parent, tuple(fn(Vector((0.0, 0.0, glass_z)))), rot_x=v["tilt"], rot_y=rot_y)
+        # 1 x 1 m rectangle, top-left corner at the node, spanning +x and -y, facing +z; hidden: the script
+        # copies it for every bar and sets each copy's place, size and colour
+        bar = Mesh()
+        bar.quad([(0.0, -1.0, 0.0), (1.0, -1.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 0.0)], "monitor_bar",
+                 uv=((0.5, 0.5),) * 4)
+        template = attrs(bar.to_object("barTemplate" + suffix, screen), castsShadows=False, receiveShadows=False,
+                         clipDistance=float(v["clip"]))
+        template["i3d_hidden"] = True
+        # the same with real UVs: product icons (the script puts each product's HUD icon on a copy)
+        icon = Mesh()
+        icon.quad([(0.0, -1.0, 0.0), (1.0, -1.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 0.0)], "monitor_bar",
+                  uv=((0.001, 0.0), (1.0, 0.0), (1.0, 1.0), (0.001, 1.0)))
+        template = attrs(icon.to_object("iconTemplate" + suffix, screen), castsShadows=False, receiveShadows=False,
+                         clipDistance=float(v["clip"]))
+        template["i3d_hidden"] = True
 
     (tc, ts) = v["trigger"]
     for tname in ("infoTrigger", "playerTrigger"):
@@ -367,7 +411,31 @@ def render_store(name, v, out_png):
     preview = bpy.data.images.load(os.path.join(SRC, "textures", "monitor_preview_tex.png"))
     bpy.data.materials["monitor_screen"].node_tree.nodes["screenTexture"].image = preview
 
-    if v["mount"] == "silo":
+    backdrop = v.get("backdrop")
+    if backdrop == "wall":
+        # shop picture only: a plank wall behind the flat mount
+        wallmat = bpy.data.materials.new("render_plankWall")
+        wallmat.diffuse_color = (0.42, 0.30, 0.20, 1.0)
+        h = v["width"] / 1.6
+        plate_z = -v["depth"] / 2 - v["housing"] - v["arm"] - 0.015
+        y0, y1 = v["center_y"] - h * 0.95, v["center_y"] + h * 0.95
+        m = Mesh()
+        planks = 12
+        for i in range(planks):
+            x0 = -2.2 + 4.4 * i / planks
+            x1 = -2.2 + 4.4 * (i + 1) / planks - 0.012
+            m.quad([(x0, y0, plate_z), (x1, y0, plate_z), (x1, y1, plate_z), (x0, y1, plate_z)], "render_plankWall")
+        m.to_object("renderWall", None).data.materials[0] = wallmat
+    elif backdrop == "beam":
+        # shop picture only: the roof beam the rods hang from
+        beammat = bpy.data.materials.new("render_beam")
+        beammat.diffuse_color = (0.30, 0.32, 0.35, 1.0)
+        h = v["width"] / 1.6
+        top = v["center_y"] + h / 2 + v["bezel"] + v["rod"] + 0.015
+        m = Mesh()
+        m.box((-2.0, top, -0.12), (2.0, top + 0.25, 0.12), "render_beam")
+        m.to_object("renderBeam", None).data.materials[0] = beammat
+    if backdrop == "silo":
         # shop picture only (added after the export): a piece of corrugated silo wall behind the bracket,
         # so the Silo Mount reads as "hangs on a silo"
         wall = bpy.data.materials.new("render_siloWall")
@@ -408,8 +476,8 @@ def render_store(name, v, out_png):
     scene.collection.objects.link(cam)
     scene.camera = cam
     w = v["width"]
-    hi = v["center_y"] + w / 3.2 + v["bezel"]
-    lo = v["center_y"] - w / 3.2 - v["bezel"] * 2 if v["mount"] == "silo" else 0.0
+    hi = v["center_y"] + w / 3.2 + v["bezel"] + (v["rod"] + 0.3 if v["mount"] == "hang" else 0.0)
+    lo = v["center_y"] - w / 3.2 - v["bezel"] * (5 if v["mount"] == "hang" else 2) if v["mount"] in RAISED else 0.0
     total_h = hi - lo
     target = Vector(to_blender((0.0, lo + total_h * 0.5, 0.0)))
     dist = max(total_h, w) * 1.55

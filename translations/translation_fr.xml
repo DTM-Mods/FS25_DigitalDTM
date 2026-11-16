@@ -5,7 +5,7 @@
         <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kiosque)"/>
         <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Mural)"/>
         <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Panneau)"/>
-        <text name="function_storageMonitor"           text="Écran couleur en direct pour le silo, la production ou le stockage animal le plus proche : capacité utilisée et libre, remplissage en pour cent et chaque produit avec sa quantité."/>
+        <text name="function_storageMonitor"           text="Écran couleur en direct pour silos, productions, élevages, silos couloirs, hangars, ruches et l'argent de la ferme : capacité, chaque produit, débits, prix et alertes."/>
 
         <text name="storageMonitor_showing"    text="Affiche"/>
         <text name="storageMonitor_noStorage"  text="Aucun stockage à proximité"/>
@@ -72,5 +72,70 @@
         <text name="storageMonitor_bunker_ready" text="Prêt"/>
         <text name="storageMonitor_bunkerLevel" text="DANS LE SILO"/>
         <text name="storageMonitor_objects" text="STOCKÉS  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Stockage"/>
+        <text name="storageMonitor_mode2" text="Prix"/>
+        <text name="storageMonitor_menuMode" text="L'écran affiche (actuel : %s)"/>
+        <text name="storageMonitor_modeTitle" text="L'écran affiche"/>
+        <text name="storageMonitor_modeText" text="Le stockage, ou les meilleurs prix du jour pour son contenu (choisir « Tous les silos de ma ferme » pour un tableau des prix de toute la ferme) :"/>
+        <text name="storageMonitor_alerts1" text="Désactivées"/>
+        <text name="storageMonitor_alerts2" text="Sur l'écran"/>
+        <text name="storageMonitor_alerts3" text="Sur l'écran et en message"/>
+        <text name="storageMonitor_menuAlerts" text="Alertes (actuel : %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Alertes"/>
+        <text name="storageMonitor_alertsText" text="Avertir quand c'est presque plein, qu'un intrant manque ou que les animaux manquent de nourriture ou d'eau :"/>
+        <text name="storageMonitor_alertFull" text="Plein"/>
+        <text name="storageMonitor_alertNearlyFull" text="Presque plein : %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s est vide"/>
+        <text name="storageMonitor_alertItemFull" text="%s est plein"/>
+        <text name="storageMonitor_alertLow" text="%s bas : %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="Pas d'eau"/>
+        <text name="storageMonitor_alertNoSpawner" text="Pas d'emplacement de palettes de miel"/>
+        <text name="storageMonitor_alertPalletFull" text="L'emplacement de palettes de miel est plein"/>
+        <text name="storageMonitor_alertOverdrawn" text="Compte à découvert"/>
+        <text name="storageMonitor_minutes" text="%d min"/>
+        <text name="storageMonitor_hours" text="%s h"/>
+        <text name="storageMonitor_days" text="%s jours"/>
+        <text name="storageMonitor_fullIn" text="PLEIN DANS %s"/>
+        <text name="storageMonitor_emptyIn" text="VIDE DANS %s"/>
+        <text name="storageMonitor_runsOut" text="%s : vide dans %s"/>
+        <text name="storageMonitor_foodFor" text="Nourriture pour %s"/>
+        <text name="storageMonitor_stockValue" text="VALEUR DU STOCK"/>
+        <text name="storageMonitor_mostValuable" text="LE PLUS PRÉCIEUX"/>
+        <text name="storageMonitor_bestMarket" text="MEILLEUR MARCHÉ"/>
+        <text name="storageMonitor_nextMonth" text="MOIS PROCHAIN"/>
+        <text name="storageMonitor_trendCount" text="%d en hausse  %d en baisse"/>
+        <text name="storageMonitor_colBestAt" text="MEILLEUR PRIX À"/>
+        <text name="storageMonitor_colPrice" text="PAR 1000 L"/>
+        <text name="storageMonitor_colTrend" text="TENDANCE"/>
+        <text name="storageMonitor_colValue" text="VALEUR"/>
+        <text name="storageMonitor_notSold" text="personne ne l'achète"/>
+        <text name="storageMonitor_finance" text="L'argent de ma ferme"/>
+        <text name="storageMonitor_balance" text="SOLDE"/>
+        <text name="storageMonitor_loan" text="Prêt"/>
+        <text name="storageMonitor_credit" text="Crédit restant"/>
+        <text name="storageMonitor_incomeToday" text="Recettes du jour"/>
+        <text name="storageMonitor_costsToday" text="Dépenses du jour"/>
+        <text name="storageMonitor_netToday" text="Aujourd'hui"/>
+        <text name="storageMonitor_colToday" text="AUJOURD'HUI"/>
+        <text name="storageMonitor_colAmountMoney" text="MONTANT"/>
+        <text name="storageMonitor_noMoneyToday" text="Pas encore de recettes ni de dépenses aujourd'hui"/>
+        <text name="storageMonitor_beehives" text="Ruches"/>
+        <text name="storageMonitor_beehivesCaps" text="RUCHES"/>
+        <text name="storageMonitor_honeyPerDay" text="Miel par jour"/>
+        <text name="storageMonitor_beesStatus" text="État"/>
+        <text name="storageMonitor_beesProducing" text="En production"/>
+        <text name="storageMonitor_beesWinter" text="Pause hivernale"/>
+        <text name="storageMonitor_beesFlying" text="Abeilles"/>
+        <text name="storageMonitor_beesOut" text="En vol"/>
+        <text name="storageMonitor_beesIn" text="Au repos"/>
+        <text name="storageMonitor_palletSpot" text="Emplacement palettes"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Plein"/>
+        <text name="storageMonitor_spotNone" text="Aucun"/>
+        <text name="storageMonitor_honeyHint" text="Le miel est mis sur palettes à l'emplacement des palettes"/>
+        <text name="storageMonitor_honeyValue" text="Valeur par jour"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Fixation murale)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Suspendu)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Panneau double face)"/>
     </texts>
 </l10n>

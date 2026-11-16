@@ -12,16 +12,20 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 TEXTURE_TOOL = r"C:\Program Files\GIANTS Software\GIANTS_Editor_10.0.14\tools\textureTool.exe"
 
-# name, screen width (m), draw distance (m), price, daily upkeep, silo mount (bottom edge height, centre to
-# bottom edge of the model at size 1) or None
+# name, screen width (m), draw distance (m), price, daily upkeep, raised mount (bottom edge height, centre to
+# bottom edge of the model at size 1) or None, two-sided
 VARIANTS = [
-    ("kiosk", 1.20, 30, 3500, 2, None),
-    ("wall", 2.40, 50, 6500, 3, None),
-    ("billboard", 4.00, 90, 12000, 5, None),
-    ("wallMount", 2.40, 50, 6000, 3, (2.0, 0.846)),
+    ("kiosk", 1.20, 30, 3500, 2, None, False),
+    ("wall", 2.40, 50, 6500, 3, None, False),
+    ("billboard", 4.00, 90, 12000, 5, None, False),
+    ("wallMount", 2.40, 50, 6000, 3, (2.0, 0.846), False),
+    ("buildingMount", 2.40, 50, 5500, 3, (2.0, 0.846), False),
+    ("hanging", 2.40, 50, 5500, 3, (2.5, 0.846), False),
+    ("billboard2", 4.00, 90, 18000, 7, None, True),
 ]
 NODES = ("body", "screenGlass", "screen", "barTemplate", "iconTemplate", "collisions", "mount", "infoTrigger",
          "playerTrigger")
+BACK_NODES = ("screenBack", "screenGlassBack", "barTemplateBack", "iconTemplateBack")
 
 TEMPLATE = """<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <placeable type="storageMonitor" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/placeable.xsd">
@@ -77,7 +81,7 @@ TEMPLATE = """<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 """
 
 
-def mappings(i3d_path):
+def mappings(i3d_path, nodes):
     scene = ET.parse(i3d_path).getroot().find("Scene")
     roots = [c for c in scene if c.tag in ("TransformGroup", "Shape")]
     if len(roots) != 1:
@@ -90,7 +94,7 @@ def mappings(i3d_path):
             out[child.get("name")] = "0>" + "|".join(p)
             walk(child, p)
     walk(roots[0], [])
-    missing = [n for n in NODES if n not in out]
+    missing = [n for n in nodes if n not in out]
     if missing:
         sys.exit("%s: missing nodes %s" % (i3d_path, missing))
     return out
@@ -106,13 +110,17 @@ def to_dds(png, dds):
 def main():
     os.makedirs(os.path.join(ROOT, "placeables"), exist_ok=True)
     os.makedirs(os.path.join(ROOT, "store"), exist_ok=True)
-    for name, width, draw, price, upkeep, silo in VARIANTS:
-        m = mappings(os.path.join(ROOT, "i3d", "monitor_%s.i3d" % name))
-        lines = "\n".join('        <i3dMapping id="%s" node="%s"/>' % (n, m[n]) for n in NODES)
+    for name, width, draw, price, upkeep, silo, two in VARIANTS:
+        nodes = NODES + (BACK_NODES if two else ())
+        m = mappings(os.path.join(ROOT, "i3d", "monitor_%s.i3d" % name), nodes)
+        lines = "\n".join('        <i3dMapping id="%s" node="%s"/>' % (n, m[n]) for n in nodes)
         if silo:      # grows upwards from its bottom edge
             mount = '\n        <mount node="mount" mode="silo" bottom="%.2f" lowerExtent="%.3f"/>' % silo
         else:         # grows from the ground
             mount = '\n        <mount node="mount" mode="ground"/>'
+        if two:       # the second screen on the back
+            mount += ('\n        <back screenNode="screenBack" barTemplate="barTemplateBack" iconTemplate="iconTemplateBack"'
+                      ' glassNode="screenGlassBack"/>')
         xml = TEMPLATE.format(name=name, price=price, upkeep=upkeep, width="%.2f" % width, draw=draw, mappings=lines,
                               mount=mount)
         path = os.path.join(ROOT, "placeables", "monitor_%s.xml" % name)

@@ -125,7 +125,9 @@ def render(count, out, theme=1, scene=None):
     lua.execute("""
         local frame = {o = {0, 0, 0}, ex = {1, 0, 0}, ey = {0, 1, 0}, ez = {0, 0, 1}, rot = {0, 0, 0}, scale = 1.5}
         local m = setmetatable({}, {__index = StorageMonitor})
-        m.spec_storageMonitor = {frame = frame, rowCache = {}, page = 1, pageTime = 3000, manualTime = 0, barTemplate = 1, bars = {}}
+        local face = {frame = frame, barTemplate = 1, bars = {}, icons = {}}
+        m.spec_storageMonitor = {faces = {face}, rowCache = {}, page = 1, pageTime = 3000, manualTime = 0, mode = 1,
+                                 alerts = 2, alertList = {}, brightness = 3}
         local levels, info = {}, {}
         for i = 1, count do
             levels[i] = math.floor(400000 / (i ^ 1.15))
@@ -143,12 +145,15 @@ def render(count, out, theme=1, scene=None):
             snap.countMode = sceneTarget.kind == "objects"
             snap.noPercent = sceneTarget.kind == "bunker"
             spec.target = sceneTarget
+            if scenePost ~= nil then        -- prices, rates, alerts, money
+                scenePost(snap, spec)
+            end
         end
         spec.snapshot = snap
         spec.layout = StorageMonitor.computeListLayout(snap.count)
-        StorageMonitor.beginBars(spec)
-        StorageMonitor.drawStorageMonitor(m)
-        StorageMonitor.endBars(spec)
+        StorageMonitor.beginBars(spec, face)
+        StorageMonitor.drawStorageMonitor(m, face)
+        StorageMonitor.endBars(spec, face)
     """)
 
     img = Image.open(os.path.join(mt.SRC, "screen_%s_full.png" % mt.THEME_ORDER[theme - 1])).convert("RGBA")
@@ -176,6 +181,7 @@ def render(count, out, theme=1, scene=None):
 
 
 SCALE = 1.5     # screen height in metres for the frame above (any value works)
+NEW_KINDS = ("prices", "alert", "finance", "beehive")
 
 KIND_SCENES = {
     "production": """
@@ -213,6 +219,87 @@ KIND_SCENES = {
         local b = {state = 1, fillLevel = 412000, fermentingPercent = 0.62, inputFillType = 1, outputFillType = 2}
         sceneTarget = {name = "Bunker Silo", title = "Bunker Silo North", kind = "bunker", bunkers = {b}, sources = {{bunker = b}}}
     """,
+    "prices": """
+        sceneInfo = {}
+        local names = {{"WHEAT", "Wheat", 412000, 0.42, "Grain Elevator", 1.08}, {"CANOLA", "Canola", 168500, 0.81, "Oil Mill", 0.95},
+                       {"BARLEY", "Barley", 96200, 0.37, "Grain Elevator", 1.02}, {"SOYBEAN", "Soybeans", 61800, 0.78, "Harbour", 1.12},
+                       {"MAIZE", "Corn", 40250, 0.36, "Biogas Plant", 0.97}, {"SORGHUM", "Sorghum", 18400, 0.40, "Harbour", 1.0},
+                       {"CHAFF", "Chaff", 2100, nil, nil, 1.0}}
+        local levels, stations = {}, {}
+        for i, n in ipairs(names) do
+            levels[i] = n[3]
+            sceneInfo[i] = {name = n[1], title = n[2]}
+            if n[4] ~= nil then
+                local st = stations[n[5]]
+                if st == nil then
+                    st = {owningPlaceable = {getName = function() return n[5] end}, isSellingPoint = true, acceptedFillTypes = {}, prices = {}}
+                    st.getName = function() return n[5] end
+                    function st:getEffectiveFillTypePrice(ft) return self.prices[ft] end
+                    stations[n[5]] = st
+                end
+                st.acceptedFillTypes[i], st.prices[i] = true, n[4]
+            end
+        end
+        local list = {}
+        for _, st in pairs(stations) do table.insert(list, st) end
+        g_currentMission.storageSystem = {getUnloadingStations = function() return list end}
+        g_currentMission.environment.currentPeriod = 3
+        g_fillTypeManager = {getFillTypeByIndex = function(self, i)
+            return {economy = {factors = {1, 1, 1, names[i][6], 1, 1, 1, 1, 1, 1, 1, 1}}} end}
+        local storage = {capacity = 1000000, getFillLevels = function() return levels end}
+        sceneTarget = {name = "Multifruit Silo", title = "Multifruit Silo", kind = "silo", sources = {{storage = storage}}}
+        function scenePost(snap)
+            StorageMonitor.addPrices(snap)
+            snap.prices = true
+        end
+    """,
+    "finance": """
+        sceneInfo = {}
+        FinanceStats = {statNames = {"harvestIncome", "soldAnimals", "newVehiclesCost", "fuelCost", "wagePayment",
+                                     "loanInterest", "productionCosts", "purchaseSeeds"}}
+        local farm = {money = 1846250, loan = 300000, loanMax = 2000000, stats = {finances = {harvestIncome = 184200,
+            soldAnimals = 36400, newVehiclesCost = -248000, fuelCost = -3120, wagePayment = -8650, loanInterest = -410,
+            productionCosts = -1240, purchaseSeeds = -12800}}}
+        g_farmManager = {getFarmById = function() return farm end}
+        local titles = {harvestIncome = "Harvest income", soldAnimals = "Animal sales", newVehiclesCost = "New vehicles",
+            fuelCost = "Fuel", wagePayment = "Wages", loanInterest = "Loan interest", productionCosts = "Production costs",
+            purchaseSeeds = "Seeds"}
+        g_i18n.hasText = function(self, k) return string.sub(k, 1, 8) == "finance_" and titles[string.sub(k, 9)] ~= nil end
+        g_i18n.getText = function(self, k) return titles[string.sub(k, 9)] end
+        sceneTarget = {name = "My farm's money", title = "My farm's money", kind = "finance", sources = {}}
+        function scenePost(snap)
+            snap.finance = true
+            snap.count = #snap.panel.lines
+        end
+    """,
+    "beehive": """
+        sceneInfo = {}
+        g_currentMission.beehiveSystem = {isProductionActive = true, isFxActive = true}
+        local hives = {}
+        for i = 1, 12 do hives[i] = {spec_beehive = {honeyPerHour = 10 / 24}} end
+        sceneTarget = {name = "Beehives", title = "Beehives", kind = "beehive", sources = {}, hives = hives,
+            spawners = {{spec_beehivePalletSpawner = {palletLimitReached = true}}}}
+        function scenePost(snap, spec)
+            spec.alertList = StorageMonitor.computeAlerts(sceneTarget, snap)
+        end
+    """,
+    "alert": """
+        sceneInfo = {}
+        local names = {{"WHEAT", "Wheat", 512000, 48000}, {"CANOLA", "Canola", 238500, 6000}, {"BARLEY", "Barley", 126200, 0},
+                       {"SOYBEAN", "Soybeans", 61800, -2500}, {"MAIZE", "Corn", 3250, 0}}
+        local levels = {}
+        for i, n in ipairs(names) do levels[i] = n[3] sceneInfo[i] = {name = n[1], title = n[2]} end
+        local storage = {capacity = 1000000, getFillLevels = function() return levels end}
+        sceneTarget = {name = "Multifruit Silo", title = "Multifruit Silo", kind = "silo", sources = {{storage = storage}}}
+        function scenePost(snap, spec)
+            snap.rate = 0
+            for _, item in ipairs(snap.items) do
+                for _, n in ipairs(names) do if n[2] == item.title then item.rate = n[4] snap.rate = snap.rate + n[4] end end
+            end
+            StorageMonitor.clock = 0
+            spec.alertList = StorageMonitor.computeAlerts(sceneTarget, snap)
+        end
+    """,
     "objects": """
         sceneInfo = {{name = "DRYGRASS_WINDROW", title = "Hay"}, {name = "SILAGE", title = "Silage"}, {name = "STRAW", title = "Straw"},
                      {name = "COTTON", title = "Cotton"}}
@@ -232,6 +319,8 @@ def main():
     if "--kinds" in sys.argv:           # production, animal pen, bunker silo, bale shed
         tiles = []
         for name, scene in KIND_SCENES.items():
+            if name in NEW_KINDS:
+                continue
             path = os.path.join(out_dir, "kind_%s.png" % name)
             render(0, path, 1, scene)
             tiles.append(Image.open(path))
@@ -240,6 +329,18 @@ def main():
             sheet.paste(tile.resize((800, 500), Image.LANCZOS), ((i % 2) * 800, (i // 2) * 500))
         sheet.save(os.path.join(out_dir, "kinds.png"))
         print("wrote", os.path.join(out_dir, "kinds.png"))
+        return
+    if "--new" in sys.argv:             # 1.2: price board, money, beehives, rates and an alert
+        tiles = []
+        for name in NEW_KINDS:
+            path = os.path.join(out_dir, "kind_%s.png" % name)
+            render(0, path, 1, KIND_SCENES[name])
+            tiles.append(Image.open(path))
+        sheet = Image.new("RGB", (1600, 1000))
+        for i, tile in enumerate(tiles):
+            sheet.paste(tile.resize((800, 500), Image.LANCZOS), ((i % 2) * 800, (i // 2) * 500))
+        sheet.save(os.path.join(out_dir, "new.png"))
+        print("wrote", os.path.join(out_dir, "new.png"))
         return
     if "--themes" in sys.argv:          # the same 12 products in every theme, side by side
         tiles = []

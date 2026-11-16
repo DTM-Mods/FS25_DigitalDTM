@@ -5,7 +5,7 @@
         <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kiosk)"/>
         <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Wall)"/>
         <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Billboard)"/>
-        <text name="function_storageMonitor"           text="Live colour screen for the nearest silo, production or animal storage: capacity used and free, percent full and every product with its amount."/>
+        <text name="function_storageMonitor"           text="Live colour screen for silos, productions, animal pens, bunker silos, sheds, beehives and the farm's money: capacity, every product, rates, prices and alerts."/>
 
         <text name="storageMonitor_showing"    text="Showing"/>
         <text name="storageMonitor_noStorage"  text="No storage nearby"/>
@@ -72,5 +72,70 @@
         <text name="storageMonitor_bunker_ready" text="Ready"/>
         <text name="storageMonitor_bunkerLevel" text="IN THE SILO"/>
         <text name="storageMonitor_objects" text="STORED  %d / %d"/>
+        <text name="storageMonitor_mode1" text="Storage"/>
+        <text name="storageMonitor_mode2" text="Prices"/>
+        <text name="storageMonitor_menuMode" text="Screen shows (now: %s)"/>
+        <text name="storageMonitor_modeTitle" text="Screen shows"/>
+        <text name="storageMonitor_modeText" text="The storage, or today's best prices for what is in it (pick &quot;All silos of my farm&quot; for a price board of the whole farm):"/>
+        <text name="storageMonitor_alerts1" text="Off"/>
+        <text name="storageMonitor_alerts2" text="On the screen"/>
+        <text name="storageMonitor_alerts3" text="On the screen and as a message"/>
+        <text name="storageMonitor_menuAlerts" text="Alerts (now: %s)"/>
+        <text name="storageMonitor_alertsTitle" text="Alerts"/>
+        <text name="storageMonitor_alertsText" text="Warn when it is nearly full, an input is empty, or animals run low on food or water:"/>
+        <text name="storageMonitor_alertFull" text="Full"/>
+        <text name="storageMonitor_alertNearlyFull" text="Nearly full: %d%%"/>
+        <text name="storageMonitor_alertEmpty" text="%s is empty"/>
+        <text name="storageMonitor_alertItemFull" text="%s is full"/>
+        <text name="storageMonitor_alertLow" text="Low %s: %d%%"/>
+        <text name="storageMonitor_alertNoWater" text="No water"/>
+        <text name="storageMonitor_alertNoSpawner" text="No honey pallet spot"/>
+        <text name="storageMonitor_alertPalletFull" text="Honey pallet spot is full"/>
+        <text name="storageMonitor_alertOverdrawn" text="Account overdrawn"/>
+        <text name="storageMonitor_minutes" text="%d min"/>
+        <text name="storageMonitor_hours" text="%s h"/>
+        <text name="storageMonitor_days" text="%s days"/>
+        <text name="storageMonitor_fullIn" text="FULL IN %s"/>
+        <text name="storageMonitor_emptyIn" text="EMPTY IN %s"/>
+        <text name="storageMonitor_runsOut" text="%s: empty in %s"/>
+        <text name="storageMonitor_foodFor" text="Food for %s"/>
+        <text name="storageMonitor_stockValue" text="STOCK VALUE"/>
+        <text name="storageMonitor_mostValuable" text="MOST VALUABLE"/>
+        <text name="storageMonitor_bestMarket" text="BEST MARKET"/>
+        <text name="storageMonitor_nextMonth" text="NEXT MONTH"/>
+        <text name="storageMonitor_trendCount" text="%d rising  %d falling"/>
+        <text name="storageMonitor_colBestAt" text="BEST PRICE AT"/>
+        <text name="storageMonitor_colPrice" text="PER 1000 L"/>
+        <text name="storageMonitor_colTrend" text="TREND"/>
+        <text name="storageMonitor_colValue" text="VALUE"/>
+        <text name="storageMonitor_notSold" text="nobody buys it"/>
+        <text name="storageMonitor_finance" text="My farm's money"/>
+        <text name="storageMonitor_balance" text="BALANCE"/>
+        <text name="storageMonitor_loan" text="Loan"/>
+        <text name="storageMonitor_credit" text="Credit left"/>
+        <text name="storageMonitor_incomeToday" text="Income today"/>
+        <text name="storageMonitor_costsToday" text="Costs today"/>
+        <text name="storageMonitor_netToday" text="Today"/>
+        <text name="storageMonitor_colToday" text="TODAY"/>
+        <text name="storageMonitor_colAmountMoney" text="AMOUNT"/>
+        <text name="storageMonitor_noMoneyToday" text="No income or costs today yet"/>
+        <text name="storageMonitor_beehives" text="Beehives"/>
+        <text name="storageMonitor_beehivesCaps" text="BEEHIVES"/>
+        <text name="storageMonitor_honeyPerDay" text="Honey per day"/>
+        <text name="storageMonitor_beesStatus" text="Status"/>
+        <text name="storageMonitor_beesProducing" text="Producing"/>
+        <text name="storageMonitor_beesWinter" text="Winter break"/>
+        <text name="storageMonitor_beesFlying" text="Bees"/>
+        <text name="storageMonitor_beesOut" text="Flying"/>
+        <text name="storageMonitor_beesIn" text="Resting"/>
+        <text name="storageMonitor_palletSpot" text="Pallet spot"/>
+        <text name="storageMonitor_spotOk" text="OK"/>
+        <text name="storageMonitor_spotFull" text="Full"/>
+        <text name="storageMonitor_spotNone" text="None"/>
+        <text name="storageMonitor_honeyHint" text="Honey goes onto pallets at the pallet spot"/>
+        <text name="storageMonitor_honeyValue" text="Worth per day"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Wall Mount)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Hanging)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Two-Sided Billboard)"/>
     </texts>
 </l10n>

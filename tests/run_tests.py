@@ -139,7 +139,8 @@ function newNode(x, y, z) table.insert(nodes, {x, y, z}) return #nodes end
 function getWorldTranslation(n) local p = nodes[n] return p[1], p[2], p[3] end
 function getTranslation(n) local p = nodes[n] return p[1], p[2], p[3] end
 function setTranslation(n, x, y, z) nodes[n] = {x, y, z} end
-function localDirectionToWorld(n, x, y, z) return x, y, z end
+flipped = {}     -- nodes turned 180 degrees about y (a back screen; a camera looking +z)
+function localDirectionToWorld(n, x, y, z) if flipped[n] then return -x, y, -z end return x, y, z end
 function getWorldRotation(n) return 0, 0, 0 end
 function entityExists(n) return nodes[n] ~= nil end
 function getCamera() return camera end
@@ -217,7 +218,7 @@ camera = newNode(0, 2, 6)
 
 -- a monitor at the origin, screen facing +z
 -- kind: "silo" (silo mount), "ground" (free-standing, resizable) or nil/false (no mount node)
-function newMonitor(withMount)
+function newMonitor(withMount, back)
     -- like the game: the placeable only has the functions the specialization registers, nothing else
     local placeableType = {functions = {}}
     StorageMonitor.registerFunctions(placeableType)
@@ -246,6 +247,14 @@ function newMonitor(withMount)
             ["placeable.storageMonitor.mount#bottom"] = 2,
             ["placeable.storageMonitor.mount#lowerExtent"] = 0.846,
         }
+        if back then
+            local screen = newNode(0, 2, -0.3)
+            flipped[screen] = true
+            values["placeable.storageMonitor.back#screenNode"] = screen
+            values["placeable.storageMonitor.back#barTemplate"] = newNode(0, 0, 0)
+            values["placeable.storageMonitor.back#iconTemplate"] = newNode(0, 0, 0)
+            values["placeable.storageMonitor.back#glassNode"] = newNode(0, 0, 0)
+        end
         local v = values[key]
         if v == nil then return default end
         return v
@@ -484,7 +493,7 @@ def test_mount_size(lua):
     """)
     g = lua.globals()
     spec = g.m.spec_storageMonitor
-    check(len(list(g.menu.values())) == 6, "menu: pick, connected, size, brightness, colours, title: %s" % list(g.menu.values()))
+    check(len(list(g.menu.values())) == 8, "menu: pick, connected, size, brightness, colours, title, screen, alerts: %s" % list(g.menu.values()))
     check(list(g.sizes.values())[8].startswith("4.8 m wide, 3.0 m high"), "size list: %s" % list(g.sizes.values())[:3])
     check(abs(spec.mountWidth - 4.8) < 1e-6 and abs(spec.sizeScale - 2.0) < 1e-6, "size chosen: %s" % spec.mountWidth)
     sc = g.scales[g.mountNode]
@@ -506,7 +515,7 @@ def test_mount_size(lua):
     sc = g.scales[s2.mountNode]
     check(abs(sc[1] - 0.5) < 1e-6 and abs(sc[3] - 0.5) < 1e-6 and abs(g.nodes[s2.mountNode][2]) < 1e-6,
           "free-standing scaled 0.5 x 0.5 x 0.5 from the ground")
-    check(len(list(g.menuG.values())) == 6, "free-standing monitors have the size entry too")
+    check(len(list(g.menuG.values())) == 8, "free-standing monitors have the size entry too")
     on = [g.names[c.node] for c in s2.collisions.values() if g.rigid[c.node] == "static"]
     check(on == ["collision_120"], "free-standing: only the 1.2 m collision is on: %s" % on)
 
@@ -664,6 +673,315 @@ def test_kinds(lua):
     check(lua.eval("overlappingBars()") == 0, "kind panels: no bar lies on another")
 
 
+def test_rates(lua):
+    """Rates per in-game hour, time to full, and a rate per product in the list."""
+    lua.execute(WORLD)
+    lua.execute("""
+        local env = g_currentMission.environment
+        env.dayTime, env.currentDay = 8 * 3600000, 3
+        m = newMonitor(false)
+        frame()
+        spec = m.spec_storageMonitor
+        noRate = spec.snapshot.rate
+        -- an hour later 50,000 l more wheat came in
+        sNear.fillLevels[100] = sNear.fillLevels[100] + 50000
+        env.dayTime = 9 * 3600000
+        StorageMonitor.refreshStorageMonitorData(m)
+        frame()
+    """)
+    g = lua.globals()
+    spec = g.spec
+    t = texts(lua)
+    check(g.noRate is None, "no rate before a quarter of an in-game hour")
+    check(abs(spec.snapshot.rate - 50000) < 1e-6, "silo rate 50,000 l/h (%s)" % spec.snapshot.rate)
+    wheat = [spec.snapshot["items"][i] for i in range(1, spec.snapshot.count + 1) if spec.snapshot["items"][i].title == "Wheat"][0]
+    check(abs(wheat.rate - 50000) < 1e-6, "wheat rate")
+    # 1,000,000 - 150,021 free at 50,000 l/h: full in 17 h
+    check(any(x.startswith("+50000 l/h") and "FULL IN 17 h" in x for x in t), "rate and time to full: %s" % [x for x in t if "/h" in x])
+    check("+50k/h" in t, "rate in the product row: %s" % [x for x in t if "/h" in x])
+    check(lua.eval("overlappingBars()") == 0, "rates: no bar lies on another")
+    SM = g.StorageMonitor
+    check(SM.formatDuration(0.5) == "30 min" and SM.formatDuration(3.25) == "3.2 h" and SM.formatDuration(60) == "2.5 days",
+          "durations: %s %s %s" % (SM.formatDuration(0.5), SM.formatDuration(3.25), SM.formatDuration(60)))
+    # the storage changes: the history starts again
+    lua.execute("set(m, 'pick', {30, 0}) m:rescanStorageMonitor() StorageMonitor.refreshStorageMonitorData(m)")
+    check(spec.snapshot.rate is None, "another storage: no rate from the old one")
+
+
+def test_prices(lua):
+    """Price board: best price and where, value of the stock, seasonal trend."""
+    lua.execute(WORLD)
+    lua.execute("""
+        local env = g_currentMission.environment
+        env.currentPeriod = 3
+        fillTypes[100].economy = {factors = {1, 1, 1.0, 1.1, 1, 1, 1, 1, 1, 1, 1, 1}}
+        fillTypes[101].economy = {factors = {1, 1, 1.0, 0.8, 1, 1, 1, 1, 1, 1, 1, 1}}
+        local function station(name, prices, farm)
+            local p = {rootNode = newNode(500, 0, 0), getName = function() return name end, getOwnerFarmId = function() return farm or 0 end}
+            local st = {owningPlaceable = p, isSellingPoint = true, acceptedFillTypes = {}}
+            for ft in pairs(prices) do st.acceptedFillTypes[ft] = true end
+            function st:getEffectiveFillTypePrice(ft) return prices[ft] end
+            return st, p
+        end
+        local a = station("Grain Elevator", {[100] = 0.42})
+        local b = station("Mill", {[100] = 0.38, [101] = 0.10})
+        local c, cp = station("My Bakery", {[100] = 9.99}, 1)
+        cp.spec_productionPoint = {}
+        g_currentMission.storageSystem.getUnloadingStations = function() return {a, b, c} end
+        g_i18n.formatMoney = function(self, v) return "$" .. StorageMonitor.groupDigits(v) end
+        m = newMonitor(false)
+        set(m, "mode", 2)
+        m:rescanStorageMonitor()
+        StorageMonitor.clock = StorageMonitor.clock + StorageMonitor.PRICE_INTERVAL
+        frame()
+        spec = m.spec_storageMonitor
+    """)
+    g = lua.globals()
+    spec = g.spec
+    snap = spec.snapshot
+    t = texts(lua)
+    items = {snap["items"][i].title: snap["items"][i] for i in range(1, snap.count + 1)}
+    wheat, chaff = items["Wheat"], items["Chaff"]
+    check(abs(wheat.price - 0.42) < 1e-9 and wheat.station == "Grain Elevator", "wheat: best price at the elevator, not the own production")
+    check(abs(wheat.value - 42000) < 1e-6 and abs(snap.value - 42002.1) < 1e-6, "stock value %s" % snap.value)
+    check(abs(wheat.trend - 10) < 1e-6 and abs(chaff.trend + 20) < 1e-6, "seasonal trends %s %s" % (wheat.trend, chaff.trend))
+    check(snap["items"][1].title == "Wheat", "most valuable first")
+    check("$42,002" in t and "Grain Elevator" in t and "$420" in t and "+10%" in t and "-20%" in t,
+          "price board text: %s" % t[:30])
+    check("1 rising  1 falling" in t, "rising / falling count")
+    check(lua.eval("overlappingBars()") == 0, "price board: no bar lies on another")
+    lua.execute("set(m, 'mode', 1) StorageMonitor.refreshStorageMonitorData(m) frame()")
+    check(not spec.snapshot.prices and "STOCK VALUE" not in texts(lua), "back to the storage")
+
+
+def test_alerts(lua):
+    """Nearly full: a blinking stripe and the alert in the footer; a game message only for new alerts."""
+    lua.execute(WORLD)
+    lua.execute("""
+        notes = {}
+        FSBaseMission = {INGAME_NOTIFICATION_CRITICAL = 7}
+        g_currentMission.addIngameNotification = function(self, kind, text) table.insert(notes, {kind = kind, text = text}) end
+        sNear.fillLevels[100] = 940000      -- 94 %
+        m = newMonitor(false)
+        spec = m.spec_storageMonitor
+        set(m, "alerts", 3)
+        StorageMonitor.clock = 0
+        frame()
+        stripe = visibleBars()
+        afterFirst = #notes
+        -- a production next to it runs out of an input: a new alert, one message
+        sNear.fillLevels[100] = 990000
+        StorageMonitor.refreshStorageMonitorData(m)
+        StorageMonitor.refreshStorageMonitorData(m)
+        afterFull = #notes
+        StorageMonitor.clock = 700        -- the stripe blinks
+        frame()
+        stripeOff = visibleBars()
+    """)
+    g = lua.globals()
+    spec = g.spec
+    keys = [spec.alertList[i].key for i in range(1, len(spec.alertList) + 1)]
+    check(keys == ["full"], "silo at 94 %%: one alert (%s)" % keys)
+    check(g.afterFirst == 0, "what is already there when the monitor starts is not announced")
+    lua.execute("sNear.fillLevels[100] = 100000 StorageMonitor.refreshStorageMonitorData(m) sNear.fillLevels[100] = 990000 StorageMonitor.refreshStorageMonitorData(m)")
+    check(len(g.notes) == 1 and "Multifruit Silo: Nearly full: 99%" == g.notes[1].text and g.notes[1].kind == 7,
+          "a new alert gives one message: %s" % [g.notes[i].text for i in range(1, len(g.notes) + 1)])
+    lua.execute("sNear.fillLevels[100] = 100000 StorageMonitor.refreshStorageMonitorData(m) sNear.fillLevels[100] = 990000 StorageMonitor.refreshStorageMonitorData(m)")
+    check(len(g.notes) == 1, "the same alert again within 10 minutes: no second message")
+    lua.execute("frame()")
+    t = texts(lua)
+    check(any(x.startswith("! Nearly full: 99%") for x in t), "alert in the footer: %s" % [x for x in t if x.startswith("!")])
+    check(g.stripe > g.stripeOff, "the stripe blinks (%s / %s bars)" % (g.stripe, g.stripeOff))
+    lua.execute("set(m, 'alerts', 1) StorageMonitor.refreshStorageMonitorData(m) frame()")
+    check(len(spec.alertList) == 0 and not any(x.startswith("!") for x in texts(lua)), "alerts off")
+    # another farm's monitor never sends a message
+    lua.execute("""
+        m2 = newMonitor(false)
+        function m2:getOwnerFarmId() return 2 end
+        set(m2, "alerts", 3)
+        StorageMonitor.refreshStorageMonitorData(m2)
+        sNear.fillLevels[100] = 100 StorageMonitor.refreshStorageMonitorData(m2)
+        sNear.fillLevels[100] = 990000 StorageMonitor.announced = {} StorageMonitor.refreshStorageMonitorData(m2)
+    """)
+    check(len(g.notes) == 1, "another farm's monitor: no message")
+
+
+KINDS2 = r"""
+local function placeable(name, x, z)
+    local p = {rootNode = newNode(x, 0, z), name = name}
+    function p:getName() return self.name end
+    function p:getOwnerFarmId() return 1 end
+    return p
+end
+addFillType(140, "MANURE", "Manure")
+addFillType(141, "WATER", "Water")
+addFillType(142, "LETTUCE", "Lettuce")
+-- a manure heap without getFillLevels
+heap = placeable("Manure Heap", 6, 0)
+heap.spec_manureHeap = {manureHeap = {fillTypeIndex = 140, capacity = 200000,
+    getFillLevel = function(self, ft) return 150000 end, getOwnerFarmId = function() return 1 end}}
+-- a greenhouse without water
+greenhouse = placeable("Greenhouse", 12, 0)
+local line = {id = "lettuce", name = "Lettuce", status = 2}
+greenhouse.spec_productionPoint = {productionPoint = {
+    storage = makeStorage({[141] = 0, [142] = 900}, 100000, {[141] = 20000, [142] = 50000}, 12, 0),
+    productions = {line}, activeProductions = {line}, inputFillTypeIds = {[141] = true}, outputFillTypeIds = {[142] = true}}}
+greenhouse.spec_greenhouse = {hasWater = false}
+-- two beehives and a pallet spot that is full
+hive1 = placeable("Beehive", 18, 0) hive1.spec_beehive = {honeyPerHour = 10 / 24}
+hive2 = placeable("Beehive", 19, 0) hive2.spec_beehive = {honeyPerHour = 20 / 24}
+spot = placeable("Honey Pallets", 30, 0) spot.spec_beehivePalletSpawner = {palletLimitReached = true}
+g_currentMission.beehiveSystem = {isProductionActive = true, isFxActive = true}
+-- the farm's money
+g_farmManager = {getFarmById = function(self, id) return farm end}
+farm = {money = 1250000, loan = 300000, loanMax = 500000,
+        stats = {finances = {harvestIncome = 42000, newVehiclesCost = -150000, fuelCost = -1200, other = 0}}}
+function farm:getBalance() return self.money end
+FinanceStats = {statNames = {"newVehiclesCost", "harvestIncome", "fuelCost", "other"}}
+g_i18n.formatMoney = function(self, v) return "$" .. StorageMonitor.groupDigits(v) end
+-- a cow barn whose cows eat 1,000 l an hour
+barn = placeable("Cow Barn", 40, 0)
+barn.spec_husbandryAnimals = {}
+barn.spec_husbandry = {storage = makeStorage({[141] = 5000}, 100000, {[141] = 100000}, 40, 0)}
+barn.spec_husbandryFood = {litersPerHour = 1000}
+function barn:getNumOfAnimals() return 30 end
+function barn:getMaxNumOfAnimals() return 40 end
+function barn:getTotalFood() return 36000 end
+function barn:getFoodCapacity() return 100000 end
+function barn:getConditionInfos()
+    return {{title = "Productivity", ratio = 0.9, valueText = "90 %"}, {title = "Water", ratio = 0.05}}
+end
+
+g_currentMission.placeableSystem.placeables = {heap, greenhouse, hive1, hive2, spot, barn}
+g_currentMission.storageSystem = {getLoadingStations = function() return {} end, getUnloadingStations = function() return {} end}
+m = newMonitor(false)
+function show(name)
+    for _, c in ipairs(StorageMonitor.collectStorageCandidates(m)) do
+        if c.name == name then
+            set(m, "pick", {c.anchor[1], c.anchor[2]})
+            m:rescanStorageMonitor()
+            frame()
+            return
+        end
+    end
+    error("no candidate " .. name)
+end
+"""
+
+
+def test_more_kinds(lua):
+    lua.execute(WORLD)
+    lua.execute(KINDS2)
+    g = lua.globals()
+    spec = g.m.spec_storageMonitor
+    names = [c.name for c in g.StorageMonitor.collectStorageCandidates(g.m).values()]
+    check(names == ["Manure Heap", "Greenhouse", "Beehives", "Cow Barn", "My farm's money"],
+          "candidates: heap, greenhouse, the beehives as one, barn, money last: %s" % names)
+
+    lua.execute('show("Manure Heap")')
+    t = texts(lua)
+    check(spec.snapshot.capacity == 200000 and spec.snapshot.used == 150000 and "75%" in t, "manure heap 150,000 of 200,000 l")
+
+    lua.execute('show("Greenhouse")')
+    t = texts(lua)
+    keys = [spec.alertList[i].key for i in range(1, len(spec.alertList) + 1)]
+    check(spec.snapshot.panel.noWater is True and "No water" in t, "greenhouse without water: %s" % t[:12])
+    check("noWater" in keys and "empty_141" in keys, "greenhouse alerts: %s" % keys)
+
+    lua.execute('show("Beehives")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    check(panel.kind == "beehive" and panel.hives == 2 and abs(panel.honeyPerDay - 30) < 1e-6 and panel.palletFull,
+          "beehives: 2 hives, 30 l a day, pallet spot full")
+    check("2" in t and "30 l" in t and "Full" in t, "beehive panel text: %s" % t[:16])
+    check([spec.alertList[i].key for i in range(1, len(spec.alertList) + 1)] == ["palletFull"], "beehive alert")
+
+    lua.execute('show("Cow Barn")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    check(abs(panel.foodHours - 36) < 1e-6 and "Food for 36 h" in t, "36,000 l of food at 1,000 l/h: 36 h (%s)" % panel.foodHours)
+    keys = [spec.alertList[i].key for i in range(1, len(spec.alertList) + 1)]
+    check(keys == ["low_Water"], "barn: water low; productivity is not a supply (%s)" % keys)
+
+    lua.execute('show("My farm\'s money")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    check(panel.kind == "finance" and panel.money == 1250000 and panel.income == 42000 and panel.expenses == -151200,
+          "finance panel %s %s %s" % (panel.money, panel.income, panel.expenses))
+    check(spec.snapshot.count == 3 and panel.lines[1].name == "newVehiclesCost", "finance lines, biggest first, zero left out")
+    check("$1,250,000" in t and "$200,000" in t and "+$42,000" in t and "-$109,200" in t, "finance text: %s" % t[:22])
+    check(lua.eval("overlappingBars()") == 0, "new kinds: no bar lies on another")
+    # money and prices do not mix: the money screen stays
+    lua.execute("set(m, 'mode', 2) StorageMonitor.refreshStorageMonitorData(m) frame()")
+    check(spec.snapshot.finance is True and not spec.snapshot.prices, "money ignores the price board setting")
+
+
+def test_two_faces(lua):
+    """A two-sided billboard draws on the side the camera is in front of, with that side's own bars."""
+    lua.execute(WORLD)
+    lua.execute("""
+        m = newMonitor(false, true)
+        spec = m.spec_storageMonitor
+        frame()
+        frontBars, frontTexts = 0, #calls.text
+        for _, slot in ipairs(spec.faces[1].bars) do if shapes[slot.node].visible then frontBars = frontBars + 1 end end
+        backBefore = #spec.faces[2].bars
+        nodes[camera] = {0, 2, -6} flipped[camera] = true
+        frame()
+        backBars, backTexts = 0, #calls.text
+        for _, slot in ipairs(spec.faces[2].bars) do if shapes[slot.node].visible then backBars = backBars + 1 end end
+        frontAfter = 0
+        for _, slot in ipairs(spec.faces[1].bars) do if shapes[slot.node].visible then frontAfter = frontAfter + 1 end end
+        set(m, "theme", 2)
+        nodes[camera] = {0, 2, 6} flipped[camera] = nil
+    """)
+    g = lua.globals()
+    spec = g.spec
+    check(len(spec.faces) == 2, "two faces")
+    check(g.frontBars > 0 and g.frontTexts > 0 and g.backBefore == 0, "in front: the front face only")
+    check(g.backBars > 0 and g.backTexts > 0 and g.frontAfter == 0, "behind: the back face, the front's bars hidden")
+    tex = [str(lua.eval("materials[nodeMaterial[%d]].texture" % spec.faces[i].glassNode)) for i in (1, 2)]
+    check(all(x.endswith("screen_field.dds") for x in tex), "theme on both glasses: %s" % tex)
+
+
+def test_performance(lua):
+    """Far monitors read their storage every 10 s, not every second; at most MAX_DRAWN are drawn."""
+    lua.execute(WORLD)
+    lua.execute("""
+        m = newMonitor(false)
+        spec = m.spec_storageMonitor
+        nodes[camera] = {0, 2, 300}
+        reads = 0
+        local real = StorageMonitor.refreshStorageMonitorData
+        StorageMonitor.refreshStorageMonitorData = function(...) reads = reads + 1 return real(...) end
+        for i = 1, 600 do for _, l in ipairs(listeners) do l:update(50) end end     -- 30 s far away
+        farReads = reads
+        farTarget = spec.target ~= nil and spec.target.name
+        nodes[camera] = {0, 2, 6}
+        reads = 0
+        for i = 1, 600 do for _, l in ipairs(listeners) do l:update(50) end end     -- 30 s in front of it
+        nearReads = reads
+        StorageMonitor.refreshStorageMonitorData = real
+        -- 12 monitors in sight: 8 are drawn
+        StorageMonitor.instances = {}
+        for i = 1, 12 do newMonitor(false) end
+        frame()
+        headers = 0
+        for _, s in ipairs(calls.text) do if s == "MULTIFRUIT SILO" then headers = headers + 1 end end
+        -- the camera looks away: nothing is drawn
+        flipped[camera] = true
+        frame()
+        awayTexts = #calls.text
+        flipped[camera] = nil
+    """)
+    g = lua.globals()
+    check(g.farTarget == "Multifruit Silo", "a far monitor still finds its storage (rates, alerts)")
+    check(3 <= g.farReads <= 4, "far: a read every 10 s (%d in 30 s)" % g.farReads)
+    check(g.nearReads >= 29, "near: a read every second (%d in 30 s)" % g.nearReads)
+    check(g.headers == 8, "at most 8 monitors drawn (%d)" % g.headers)
+    check(g.awayTexts == 0, "monitors behind the camera are not drawn (%d texts)" % g.awayTexts)
+
+
 def test_errors_do_not_escape(lua):
     """A failing monitor must never raise out of the listener: that stops the game's update (frozen player)."""
     lua.execute(WORLD)
@@ -700,7 +1018,10 @@ def test_static():
     check("goto" not in code, "no goto (Lua 5.1)")
     keys = set(re.findall(r'getText\("([A-Za-z0-9_]+)"', src))
     keys |= set(re.findall(r'key = "([A-Za-z0-9_]+)"', src))
+    keys |= set(re.findall(r'\bT\("([A-Za-z0-9_]+)"', src))       # local T = StorageMonitor.getText
     keys -= {"button_ok"}          # the game's own texts
+    keys = {k for k in keys if not k.endswith("_")}      # prefixes of built keys ("storageMonitor_line_" .. state)
+    keys |= {"storageMonitor_fullIn", "storageMonitor_emptyIn"}
     trans = {lang: open(os.path.join(ROOT, "translations", "translation_%s.xml" % lang), encoding="utf-8").read()
              for lang in ("en", "de", "fr")}
     mod = open(os.path.join(ROOT, "modDesc.xml"), encoding="utf-8").read()
@@ -722,6 +1043,12 @@ def main():
     test_mount_size(new_runtime())
     test_look_and_title(new_runtime())
     test_kinds(new_runtime())
+    test_rates(new_runtime())
+    test_prices(new_runtime())
+    test_alerts(new_runtime())
+    test_more_kinds(new_runtime())
+    test_two_faces(new_runtime())
+    test_performance(new_runtime())
     test_errors_do_not_escape(new_runtime())
     test_layout_matches_texture(new_runtime())
     test_static()
