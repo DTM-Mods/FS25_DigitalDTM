@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Ki: a kiválasztott tárolót mutatja"/>
         <text name="storageMonitor_seconds" text="%d mp"/>
         <text name="storageMonitor_slideTimeText" text="Mennyi ideig látszik egy képernyő:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: előző képernyő"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: következő képernyő"/>
+        <text name="storageMonitor_sellPlan" text="Mikor eladni"/>
+        <text name="storageMonitor_message" text="Üzenőtábla"/>
+        <text name="storageMonitor_profit" text="Termelési nyereség"/>
+        <text name="storageMonitor_openContracts" text="Elérhető szerződések"/>
+        <text name="storageMonitor_farms" text="Összes farm"/>
+        <text name="storageMonitor_fieldMap" text="Földjeim térképe"/>
+        <text name="storageMonitor_alertHarvestRain" text="%d föld aratható, %d ó múlva eső"/>
+        <text name="storageMonitor_rainingNow" text="Most esik"/>
+        <text name="storageMonitor_dryDay" text="Egy napig vagy tovább száraz"/>
+        <text name="storageMonitor_dryFor" text="Még %d ó száraz"/>
+        <text name="storageMonitor_harvestWorth" text="A termés értéke"/>
+        <text name="storageMonitor_noSeason" text="Nincsenek szezonális árak"/>
+        <text name="storageMonitor_sellNow" text="Add el most: ez a legjobb hónap"/>
+        <text name="storageMonitor_bestIn" text="Legjobb %d hónap múlva: +%d%%"/>
+        <text name="storageMonitor_atBest" text="A legjobb hónapokban"/>
+        <text name="storageMonitor_waitGain" text="Többlet, ha vársz"/>
+        <text name="storageMonitor_sellNowCount" text="Add el most"/>
+        <text name="storageMonitor_holdCount" text="Később jobb"/>
+        <text name="storageMonitor_productsCount" text="Termékek"/>
+        <text name="storageMonitor_colBestTime" text="LEGJOBB IDŐ"/>
+        <text name="storageMonitor_colGain" text="TÖBBLET"/>
+        <text name="storageMonitor_noSellable" text="A silóidból semmit nem vesznek meg sehol"/>
+        <text name="storageMonitor_profitParts" text="be %s  ki %s  fenntartás %s"/>
+        <text name="storageMonitor_profitCaps" text="NYERESÉG ÓRÁNKÉNT"/>
+        <text name="storageMonitor_bestLine" text="Legjobb: %s"/>
+        <text name="storageMonitor_perDay" text="Naponta"/>
+        <text name="storageMonitor_linesCount" text="Sorok"/>
+        <text name="storageMonitor_losing" text="Veszteséges"/>
+        <text name="storageMonitor_colLine" text="SOR"/>
+        <text name="storageMonitor_colInOut" text="JÁTÉKÓRÁNKÉNT"/>
+        <text name="storageMonitor_colProfit" text="NYERESÉG"/>
+        <text name="storageMonitor_noLines" text="Egyetlen termelési sor sincs bekapcsolva"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="ELÉRHETŐ SZERZŐDÉSEK"/>
+        <text name="storageMonitor_limitReached" text="A farmod elérte a korlátot"/>
+        <text name="storageMonitor_bestReward" text="Legjobb jutalom"/>
+        <text name="storageMonitor_bestPerHa" text="Legjobb hektáronként"/>
+        <text name="storageMonitor_taken" text="Futó"/>
+        <text name="storageMonitor_allRewards" text="Összes jutalom"/>
+        <text name="storageMonitor_colReward" text="JUTALOM"/>
+        <text name="storageMonitor_noOpenContracts" text="Most nincs elérhető szerződés"/>
+        <text name="storageMonitor_myFarm" text="%s (te)"/>
+        <text name="storageMonitor_farmParts" text="%d föld (%s)  %d jármű  %d állat"/>
+        <text name="storageMonitor_myPlace" text="HELYEZÉSEM"/>
+        <text name="storageMonitor_ofFarms" text="%d farmból"/>
+        <text name="storageMonitor_myBalance" text="Egyenlegem"/>
+        <text name="storageMonitor_richest" text="Leggazdagabb"/>
+        <text name="storageMonitor_farmsCount" text="Farmok"/>
+        <text name="storageMonitor_colFarm" text="FARM"/>
+        <text name="storageMonitor_colFarmParts" text="FÖLDEK  JÁRMŰVEK  ÁLLATOK"/>
+        <text name="storageMonitor_colBalance" text="EGYENLEG"/>
+        <text name="storageMonitor_noFarms" text="Nincsenek farmok"/>
+        <text name="storageMonitor_messageEmpty" text="Még nincs üzenet"/>
+        <text name="storageMonitor_messageHint" text="Állj ide, és nyomd meg az aktiválás gombot egy üzenet írásához"/>
+        <text name="storageMonitor_messageWritten" text="Írva: %d. nap, %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Üzenet írása"/>
+        <text name="storageMonitor_messagePrompt" text="Üzenet mindenkinek (a | új sort kezd, az üres törli)"/>
+        <text name="storageMonitor_worthAt" text="Értéke %s itt: %s"/>
+        <text name="storageMonitor_menuOnly" text="Látható termékek (most: %s)"/>
+        <text name="storageMonitor_onlyAll" text="mind"/>
+        <text name="storageMonitor_onlyCount" text="%d termék"/>
+        <text name="storageMonitor_onlyAllOption" text="Összes termék"/>
+        <text name="storageMonitor_onlyTitle" text="Látható termékek"/>
+        <text name="storageMonitor_onlyText" text="Jelöld be a megjelenítendő termékeket (legfeljebb %d). Egyetlen termék nagyban látszik:"/>
+        <text name="storageMonitor_bestNext" text="Legjobb a jövő hónapban: +%d%%"/>
     </texts>
 </l10n>

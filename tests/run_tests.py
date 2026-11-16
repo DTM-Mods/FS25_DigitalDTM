@@ -379,7 +379,7 @@ def test_world(lua):
     g = lua.globals()
     cands = g.cands
     names = [cands[i].name for i in range(1, len(cands) + 1)]
-    check(names == ["Multifruit Silo", "Bakery", "Multifruit Silo B", "Grain Silo", "All silos of my farm", "All my productions"],
+    check(names == ["Multifruit Silo", "Bakery", "Multifruit Silo B", "Grain Silo", "All silos of my farm", "All my productions", "When to sell", "Production profit", "Message board"],
           "one entry per building, nearest first, other farm and far ones left out, farm screens last: %s" % names)
 
     lua.execute("frame()")
@@ -493,7 +493,7 @@ def test_mount_size(lua):
     """)
     g = lua.globals()
     spec = g.m.spec_storageMonitor
-    check(len(list(g.menu.values())) == 11, "menu: pick, connected, size, brightness, colours, title, screen, alerts, full at, price alert, slideshow: %s" % list(g.menu.values()))
+    check(len(list(g.menu.values())) == 12, "menu: pick, connected, size, brightness, colours, title, screen, products, alerts, full at, price alert, slideshow: %s" % list(g.menu.values()))
     check(list(g.sizes.values())[8].startswith("4.8 m wide, 3.0 m high"), "size list: %s" % list(g.sizes.values())[:3])
     check(abs(spec.mountWidth - 4.8) < 1e-6 and abs(spec.sizeScale - 2.0) < 1e-6, "size chosen: %s" % spec.mountWidth)
     sc = g.scales[g.mountNode]
@@ -515,7 +515,7 @@ def test_mount_size(lua):
     sc = g.scales[s2.mountNode]
     check(abs(sc[1] - 0.5) < 1e-6 and abs(sc[3] - 0.5) < 1e-6 and abs(g.nodes[s2.mountNode][2]) < 1e-6,
           "free-standing scaled 0.5 x 0.5 x 0.5 from the ground")
-    check(len(list(g.menuG.values())) == 11, "free-standing monitors have the size entry too")
+    check(len(list(g.menuG.values())) == 12, "free-standing monitors have the size entry too")
     on = [g.names[c.node] for c in s2.collisions.values() if g.rigid[c.node] == "static"]
     check(on == ["collision_120"], "free-standing: only the 1.2 m collision is on: %s" % on)
 
@@ -875,7 +875,7 @@ def test_more_kinds(lua):
     g = lua.globals()
     spec = g.m.spec_storageMonitor
     names = [c.name for c in g.StorageMonitor.collectStorageCandidates(g.m).values()]
-    check(names == ["Manure Heap", "Greenhouse", "Beehives", "Cow Barn", "My farm's money", "All my animal pens", "All my productions"],
+    check(names == ["Manure Heap", "Greenhouse", "Beehives", "Cow Barn", "My farm's money", "All my animal pens", "All my productions", "Production profit", "Message board"],
           "candidates: heap, greenhouse, the beehives as one, barn, then money, all pens, all productions: %s" % names)
 
     lua.execute('show("Manure Heap")')
@@ -1053,8 +1053,7 @@ def test_farm_screens(lua):
     g = lua.globals()
     spec = g.spec
     kinds = [c.kind for c in g.StorageMonitor.collectStorageCandidates(g.m).values()]
-    check(kinds[-8:] == ["farm", "finance", "fields", "weather", "fleet", "contracts", "allPens", "allProductions"][1 if "finance" not in kinds else 0:][-8:]
-          or kinds[-7:] == ["farm", "fields", "weather", "fleet", "contracts", "allPens", "allProductions"],
+    check(kinds[-11:] == ["farm", "fields", "weather", "fleet", "contracts", "allPens", "allProductions", "sellPlan", "profit", "fieldMap", "message"],
           "farm screens at the end of the list: %s" % kinds)
     pick_nearest = lua.eval("StorageMonitor.choose(StorageMonitor.collectStorageCandidates(m), nil).kind")
     check(pick_nearest == "silo", "the nearest is never a farm screen (%s)" % pick_nearest)
@@ -1071,7 +1070,7 @@ def test_farm_screens(lua):
     check(g.fieldUpdates == 3, "each own field's ground is read fresh (%d)" % g.fieldUpdates)
     check("READY TO HARVEST" in t and "Harvest" in t and "Withered" in t and "Growing 43%" in t, "fields text: %s" % t[:30])
     ids = lua.eval("alertIds()")
-    check(ids == "ready_12,withered_3", "fields alerts: %s" % ids)
+    check(ids == "ready_12,withered_3,harvestRain", "fields alerts (rain in 2 h with a field ready): %s" % ids)
     check(spec.layout.pages == 1 and not spec.snapshot.prices, "a board has no prices")
     check(lua.eval("overlappingBars()") == 0, "fields: no bar lies on another")
     # read once for all monitors every 10 s
@@ -1212,6 +1211,173 @@ def test_history_and_settings(lua):
     s2 = g.m2.spec_storageMonitor
     check(s2.fullAt == 50 and s2.priceAlert.price == 400 and s2.slideTime == 2 and len(s2.slides) == 2 and s2.slides[1][1] == 30,
           "settings saved and loaded")
+
+
+V14 = r"""
+-- seasonal prices: wheat best in 3 months (+20 %), chaff best now
+local env = g_currentMission.environment
+env.currentPeriod = 3
+fillTypes[100].economy = {factors = {1, 1, 1.0, 1.05, 1.1, 1.2, 1, 1, 1, 1, 1, 1}}
+fillTypes[101].economy = {factors = {1, 1, 1.0, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9}}
+local p = {getName = function() return "Grain Elevator" end}
+local st = {owningPlaceable = p, isSellingPoint = true, acceptedFillTypes = {[100] = true, [101] = true, [1] = true, [2] = true}}
+function st:getEffectiveFillTypePrice(ft) return ({[100] = 0.5, [101] = 0.1, [1] = 0.2, [2] = 1.0})[ft] end
+g_currentMission.storageSystem.getUnloadingStations = function() return {st} end
+StorageMonitor.priceCache = nil
+fruits[1].literPerSqm = 0.9
+fruits[1].fillType.index = 100
+for _, f in ipairs(fields) do function f.fieldState:getHarvestScaleMultiplier() return 1.5 end end
+-- a production line: 2 l of type 1 ($0.20) -> 1 l of type 2 ($1.00), 100 cycles an hour, $30 an hour upkeep
+local bakeryPP = bakery.spec_productionPoint.productionPoint
+bakeryPP.productions[1].inputs = {{type = 1, amount = 2}}
+bakeryPP.productions[1].outputs = {{type = 2, amount = 1}}
+bakeryPP.productions[1].cyclesPerHour = 100
+bakeryPP.productions[1].costsPerActiveHour = 30
+-- contracts to take: one on a 10 ha field, one transport
+MissionStatus.CREATED = 0
+local function open(title, reward, field)
+    local m = {status = 0, field = field}
+    function m:getTitle() return title end
+    function m:getReward() return reward end
+    return m
+end
+local f14 = {areaHa = 10} function f14:getId() return 14 end
+g_missionManager.missions = {open("Sowing", 20000, f14), open("Transport", 9000, nil)}
+MissionManager = {MAX_MISSIONS_PER_FARM = 3}
+-- farms: mine and a richer neighbour
+FarmManager = {SPECTATOR_FARM_ID = 0}
+local farms = {{farmId = 0, name = "Spectators", money = 0}, {farmId = 1, name = "DTM", money = 500000, loan = 0},
+               {farmId = 2, name = "Neighbours", money = 900000, loan = 100000}}
+g_farmManager = {getFarms = function() return farms end, getFarmById = function(self, id) return farms[id + 1] end}
+-- field outlines: field 12 a 100 x 100 square, field 7 a 50 x 100 strip next to it
+fields[1].getDensityMapPolygon = function() return {getVerticesList = function() return {0, 0, 100, 0, 100, 100, 0, 100} end} end
+fields[2].getDensityMapPolygon = function() return {getVerticesList = function() return {120, 0, 170, 0, 170, 100, 120, 100} end} end
+StorageMonitor.boardCache = {}
+"""
+
+
+def test_v14(lua):
+    """1.4: when to sell, yield and harvest window, profit, contracts to take, all farms, field map, message board,
+    products shown, screens by hand, the server's history."""
+    lua.execute(WORLD)
+    lua.execute(FARM)
+    lua.execute(V14)
+    g = lua.globals()
+    spec = g.spec
+    kinds = [c.kind for c in g.StorageMonitor.collectStorageCandidates(g.m).values()]
+    check(all(k in kinds for k in ["sellPlan", "profit", "openContracts", "farms", "fieldMap", "message"]), "new screens listed: %s" % kinds)
+
+    lua.execute('showScreen("sellPlan")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    rows = {panel.rows[i].title: panel.rows[i] for i in range(1, len(panel.rows) + 1)}
+    check(rows["Chaff"].sub == "Sell now: the best month" and rows["Wheat"].sub == "Best in 3 months: +20%",
+          "sell plan: chaff now, wheat in 3 months: %s / %s" % (rows["Chaff"].sub, rows["Wheat"].sub))
+    check(panel.rows[1].title == "Chaff", "sell now first")
+    check(abs(panel.valueBest - panel.valueNow - 705000 * 0.5 * 0.2) < 1, "waiting gains 20 %% of the wheat: %s" % (panel.valueBest - panel.valueNow))
+
+    lua.execute('showScreen("fields")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    check(abs(panel.harvestValue - 0.9 * 10 * 10000 * 1.5 * 0.5) < 1 and "~135000 l  $67,500" in t,
+          "field 12: 135,000 l of wheat worth $67,500: %s" % [x for x in t if x.startswith("~")])
+    check(panel.dryFor == 2 and "Dry for 2 h" in t, "harvest window: dry for 2 h (%s)" % panel.dryFor)
+
+    lua.execute('showScreen("profit")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    check(panel.count == 1 and abs(panel.perHour - (100 * 1.0 - 200 * 0.2 - 30)) < 1e-6, "profit: $100 out - $40 in - $30 = $30/h (%s)" % panel.perHour)
+    check("+$30/h" in t and "$720" in t, "profit text (and $720 a day): %s" % t[:20])
+
+    lua.execute('showScreen("openContracts")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    check(panel.count == 2 and panel.rows[1].title == "Sowing" and "$2,000/ha" in t and panel.running == 1 and panel.max == 3,
+          "contracts to take: sowing $2,000/ha first, 1 of 3 running: %s" % t[:24])
+
+    lua.execute('showScreen("farms")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    names = [panel.rows[i].title for i in range(1, len(panel.rows) + 1)]
+    check(names == ["Neighbours", "DTM (you)"] and panel.place == 2 and "#2" in t and "$900,000" in t,
+          "all farms: the richest first, mine marked: %s" % names)
+
+    lua.execute('showScreen("fieldMap")')
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    runs = panel.map.runs
+    ids = sorted(set(runs[i][5] for i in range(1, len(runs) + 1)))
+    check(len(runs) > 10 and ids == ["12", "3", "7"], "field map: runs of cells for fields 12 and 7 (outlines) and 3 (a square of its area) (%d runs, %s)" % (len(runs), ids))
+    check("12" in t and "7" in t and "Harvest" in t, "field map labels and legend: %s" % t[:24])
+    check(lua.eval("overlappingBars()") == 0, "field map: no bar lies on another")
+
+    # message board
+    lua.execute("""
+        showScreen("message")
+        emptyTexts = calls.text
+        set(m, "message", "Do not unload corn here|it is for the BGA")
+        set(m, "messageTime", 12 * 24 + 14.5)
+        frame()
+    """)
+    t = texts(lua)
+    check("Nothing written yet" in list(g.emptyTexts.values()), "empty message board says so")
+    check("Do not unload corn here" in t and "it is for the BGA" in t and "Written on day 12 at 14:30" in t,
+          "message board: two lines and when: %s" % t)
+
+    # only wheat: the big single-product view
+    lua.execute("""
+        set(m, "pick", {4, 0}) set(m, "only", {"WHEAT"}) m:rescanStorageMonitor() frame()
+    """)
+    t = texts(lua)
+    check(spec.snapshot.single is not None and spec.snapshot.single.title == "Wheat" and "WHEAT" in t, "one product: shown big")
+    check(lua.eval("overlappingBars()") == 0, "single product: no bar lies on another")
+    lua.execute("set(m, 'only', {}) m:rescanStorageMonitor() frame()")
+    check(spec.snapshot.single is None and spec.snapshot.count == 2, "all products again")
+
+    # screens by hand: the next one in the pick list
+    lua.execute("""
+        before = spec.target.name
+        StorageMonitor.activeMonitor = m
+        StorageMonitor.onActionNextScreen()
+        after = spec.target.name
+        StorageMonitor.onActionPrevScreen()
+        back = spec.target.name
+    """)
+    check(g.after != g.before and g.back == g.before, "next / previous screen: %s -> %s -> %s" % (g.before, g.after, g.back))
+
+    # the server's history: a sample, an event to the players, saved and sent to a player joining
+    lua.execute("""
+        sentEvents = {}
+        g_server = {broadcastEvent = function(self, event) table.insert(sentEvents, event) end}
+        set(m, "pick", {4, 0})
+        local env = g_currentMission.environment
+        env.dayTime, env.currentDay = 10 * 3600000, 5
+        for i = 1, 3 do
+            StorageMonitor.updateServer(StorageMonitor.SERVER_INTERVAL)
+            env.dayTime = env.dayTime + 3600000
+        end
+        g_server = nil
+        saved = {}
+        local xml = {setValue = function(self, k, v) saved[k] = v end,
+                     getValue = function(self, k, d) if saved[k] == nil then return d end return saved[k] end,
+                     hasProperty = function(self, k) return saved[k .. "#x"] ~= nil end}
+        StorageMonitor.saveToXMLFile(m, xml, "k")
+        m3 = newMonitor(false)
+        StorageMonitor.loadFromXMLFile(m3, xml, "k")
+        stream = {}
+        StorageMonitor.onWriteStream(m, stream)
+        m4 = newMonitor(false)
+        StorageMonitor.onReadStream(m4, stream)
+        -- a player gets the event
+        StorageMonitorGraphEvent.run(sentEvents[#sentEvents])
+    """)
+    h = spec.serverHistory
+    check(h is not None and h.key == "4.0,0.0" and len(h.graph) == 3, "server history: 3 samples for the silo extension (%s)" % (h and len(h.graph)))
+    check(len(g.sentEvents) == 3 and g.sentEvents[1].reset is True and g.sentEvents[2].reset is False, "a sample event each, the first starts the history")
+    check(len(g.m3.spec_storageMonitor.serverHistory.graph) == 3, "server history saved and loaded")
+    check(len(g.m4.spec_storageMonitor.serverHistory.graph) == 3, "server history sent to a player joining")
+    lua.execute("set(m, 'mode', 3) m:rescanStorageMonitor() StorageMonitor.refreshStorageMonitorData(m)")
+    check(spec.snapshot.graph is not None and len(spec.snapshot.graph) == 3, "the graph is the server's history")
 
 
 def test_two_faces(lua):
@@ -1376,6 +1542,7 @@ def main():
     test_more_kinds(new_runtime())
     test_farm_screens(new_runtime())
     test_history_and_settings(new_runtime())
+    test_v14(new_runtime())
     test_two_faces(new_runtime())
     test_performance(new_runtime())
     test_errors_do_not_escape(new_runtime())

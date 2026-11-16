@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="关闭：显示所选仓储"/>
         <text name="storageMonitor_seconds" text="%d 秒"/>
         <text name="storageMonitor_slideTimeText" text="每个画面显示多久："/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM：上一个画面"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM：下一个画面"/>
+        <text name="storageMonitor_sellPlan" text="何时出售"/>
+        <text name="storageMonitor_message" text="留言板"/>
+        <text name="storageMonitor_profit" text="生产利润"/>
+        <text name="storageMonitor_openContracts" text="可接合同"/>
+        <text name="storageMonitor_farms" text="所有农场"/>
+        <text name="storageMonitor_fieldMap" text="我的田地地图"/>
+        <text name="storageMonitor_alertHarvestRain" text="%d 块田地可收获，%d 小时后下雨"/>
+        <text name="storageMonitor_rainingNow" text="正在下雨"/>
+        <text name="storageMonitor_dryDay" text="一天以上无雨"/>
+        <text name="storageMonitor_dryFor" text="%d 小时无雨"/>
+        <text name="storageMonitor_harvestWorth" text="收成价值"/>
+        <text name="storageMonitor_noSeason" text="无季节性价格"/>
+        <text name="storageMonitor_sellNow" text="现在出售：最佳月份"/>
+        <text name="storageMonitor_bestIn" text="%d 个月后最佳：+%d%%"/>
+        <text name="storageMonitor_atBest" text="在最佳月份"/>
+        <text name="storageMonitor_waitGain" text="等待可多赚"/>
+        <text name="storageMonitor_sellNowCount" text="现在出售"/>
+        <text name="storageMonitor_holdCount" text="以后更好"/>
+        <text name="storageMonitor_productsCount" text="产品"/>
+        <text name="storageMonitor_colBestTime" text="最佳时间"/>
+        <text name="storageMonitor_colGain" text="增幅"/>
+        <text name="storageMonitor_noSellable" text="你的筒仓中没有任何产品可出售"/>
+        <text name="storageMonitor_profitParts" text="投入 %s  产出 %s  维护 %s"/>
+        <text name="storageMonitor_profitCaps" text="每小时利润"/>
+        <text name="storageMonitor_bestLine" text="最佳：%s"/>
+        <text name="storageMonitor_perDay" text="每天"/>
+        <text name="storageMonitor_linesCount" text="生产线"/>
+        <text name="storageMonitor_losing" text="亏损"/>
+        <text name="storageMonitor_colLine" text="生产线"/>
+        <text name="storageMonitor_colInOut" text="每游戏小时"/>
+        <text name="storageMonitor_colProfit" text="利润"/>
+        <text name="storageMonitor_noLines" text="没有开启的生产线"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="可接合同"/>
+        <text name="storageMonitor_limitReached" text="你的农场已达上限"/>
+        <text name="storageMonitor_bestReward" text="最高报酬"/>
+        <text name="storageMonitor_bestPerHa" text="每公顷最高"/>
+        <text name="storageMonitor_taken" text="进行中"/>
+        <text name="storageMonitor_allRewards" text="全部报酬"/>
+        <text name="storageMonitor_colReward" text="报酬"/>
+        <text name="storageMonitor_noOpenContracts" text="目前没有可接的合同"/>
+        <text name="storageMonitor_myFarm" text="%s（你）"/>
+        <text name="storageMonitor_farmParts" text="%d 块田地（%s）  %d 辆车  %d 只动物"/>
+        <text name="storageMonitor_myPlace" text="我的排名"/>
+        <text name="storageMonitor_ofFarms" text="共 %d 个农场"/>
+        <text name="storageMonitor_myBalance" text="我的余额"/>
+        <text name="storageMonitor_richest" text="最富有"/>
+        <text name="storageMonitor_farmsCount" text="农场"/>
+        <text name="storageMonitor_colFarm" text="农场"/>
+        <text name="storageMonitor_colFarmParts" text="田地  车辆  动物"/>
+        <text name="storageMonitor_colBalance" text="余额"/>
+        <text name="storageMonitor_noFarms" text="没有农场"/>
+        <text name="storageMonitor_messageEmpty" text="尚未写任何内容"/>
+        <text name="storageMonitor_messageHint" text="站在这里按激活键即可写留言"/>
+        <text name="storageMonitor_messageWritten" text="第 %d 天 %02d:%02d 写"/>
+        <text name="storageMonitor_menuMessage" text="写留言"/>
+        <text name="storageMonitor_messagePrompt" text="给所有人的留言（| 换行，留空则清除）"/>
+        <text name="storageMonitor_worthAt" text="价值 %s（%s）"/>
+        <text name="storageMonitor_menuOnly" text="显示的产品（当前：%s）"/>
+        <text name="storageMonitor_onlyAll" text="全部"/>
+        <text name="storageMonitor_onlyCount" text="%d 种产品"/>
+        <text name="storageMonitor_onlyAllOption" text="所有产品"/>
+        <text name="storageMonitor_onlyTitle" text="显示的产品"/>
+        <text name="storageMonitor_onlyText" text="勾选要显示的产品（最多 %d 种）。只选一种时会放大显示："/>
+        <text name="storageMonitor_bestNext" text="下个月最佳：+%d%%"/>
     </texts>
 </l10n>

@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Aus: das gewählte Lager zeigen"/>
         <text name="storageMonitor_seconds" text="%d s"/>
         <text name="storageMonitor_slideTimeText" text="Wie lange jeder Bildschirm gezeigt wird:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: vorheriger Bildschirm"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: nächster Bildschirm"/>
+        <text name="storageMonitor_sellPlan" text="Wann verkaufen"/>
+        <text name="storageMonitor_message" text="Nachrichtentafel"/>
+        <text name="storageMonitor_profit" text="Gewinn der Produktionen"/>
+        <text name="storageMonitor_openContracts" text="Offene Aufträge"/>
+        <text name="storageMonitor_farms" text="Alle Höfe"/>
+        <text name="storageMonitor_fieldMap" text="Karte meiner Felder"/>
+        <text name="storageMonitor_alertHarvestRain" text="%d Felder erntereif, Regen in %d h"/>
+        <text name="storageMonitor_rainingNow" text="Es regnet"/>
+        <text name="storageMonitor_dryDay" text="Einen Tag oder länger trocken"/>
+        <text name="storageMonitor_dryFor" text="Trocken für %d h"/>
+        <text name="storageMonitor_harvestWorth" text="Wert der Ernte"/>
+        <text name="storageMonitor_noSeason" text="Keine saisonalen Preise"/>
+        <text name="storageMonitor_sellNow" text="Jetzt verkaufen: bester Monat"/>
+        <text name="storageMonitor_bestIn" text="Am besten in %d Monaten: +%d%%"/>
+        <text name="storageMonitor_atBest" text="In den besten Monaten"/>
+        <text name="storageMonitor_waitGain" text="Mehr, wenn du wartest"/>
+        <text name="storageMonitor_sellNowCount" text="Jetzt verkaufen"/>
+        <text name="storageMonitor_holdCount" text="Später besser"/>
+        <text name="storageMonitor_productsCount" text="Produkte"/>
+        <text name="storageMonitor_colBestTime" text="BESTE ZEIT"/>
+        <text name="storageMonitor_colGain" text="PLUS"/>
+        <text name="storageMonitor_noSellable" text="Nichts in deinen Silos wird irgendwo gekauft"/>
+        <text name="storageMonitor_profitParts" text="rein %s  raus %s  Kosten %s"/>
+        <text name="storageMonitor_profitCaps" text="GEWINN PRO STUNDE"/>
+        <text name="storageMonitor_bestLine" text="Beste: %s"/>
+        <text name="storageMonitor_perDay" text="Pro Tag"/>
+        <text name="storageMonitor_linesCount" text="Linien"/>
+        <text name="storageMonitor_losing" text="Mit Verlust"/>
+        <text name="storageMonitor_colLine" text="LINIE"/>
+        <text name="storageMonitor_colInOut" text="PRO SPIELSTUNDE"/>
+        <text name="storageMonitor_colProfit" text="GEWINN"/>
+        <text name="storageMonitor_noLines" text="Keine Produktionslinie ist eingeschaltet"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="OFFENE AUFTRÄGE"/>
+        <text name="storageMonitor_limitReached" text="Dein Hof ist am Limit"/>
+        <text name="storageMonitor_bestReward" text="Beste Belohnung"/>
+        <text name="storageMonitor_bestPerHa" text="Beste pro ha"/>
+        <text name="storageMonitor_taken" text="Laufend"/>
+        <text name="storageMonitor_allRewards" text="Alle Belohnungen"/>
+        <text name="storageMonitor_colReward" text="BELOHNUNG"/>
+        <text name="storageMonitor_noOpenContracts" text="Gerade keine offenen Aufträge"/>
+        <text name="storageMonitor_myFarm" text="%s (du)"/>
+        <text name="storageMonitor_farmParts" text="%d Felder (%s)  %d Fahrzeuge  %d Tiere"/>
+        <text name="storageMonitor_myPlace" text="MEIN PLATZ"/>
+        <text name="storageMonitor_ofFarms" text="von %d Höfen"/>
+        <text name="storageMonitor_myBalance" text="Mein Kontostand"/>
+        <text name="storageMonitor_richest" text="Reichster"/>
+        <text name="storageMonitor_farmsCount" text="Höfe"/>
+        <text name="storageMonitor_colFarm" text="HOF"/>
+        <text name="storageMonitor_colFarmParts" text="FELDER  FAHRZEUGE  TIERE"/>
+        <text name="storageMonitor_colBalance" text="KONTOSTAND"/>
+        <text name="storageMonitor_noFarms" text="Keine Höfe"/>
+        <text name="storageMonitor_messageEmpty" text="Noch nichts geschrieben"/>
+        <text name="storageMonitor_messageHint" text="Hier stehen und die Aktivieren-Taste drücken, um eine Nachricht zu schreiben"/>
+        <text name="storageMonitor_messageWritten" text="Geschrieben an Tag %d um %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Nachricht schreiben"/>
+        <text name="storageMonitor_messagePrompt" text="Nachricht für alle (| beginnt eine neue Zeile, leer löscht sie)"/>
+        <text name="storageMonitor_worthAt" text="Wert %s bei %s"/>
+        <text name="storageMonitor_menuOnly" text="Gezeigte Produkte (jetzt: %s)"/>
+        <text name="storageMonitor_onlyAll" text="alle"/>
+        <text name="storageMonitor_onlyCount" text="%d Produkte"/>
+        <text name="storageMonitor_onlyAllOption" text="Alle Produkte"/>
+        <text name="storageMonitor_onlyTitle" text="Gezeigte Produkte"/>
+        <text name="storageMonitor_onlyText" text="Die zu zeigenden Produkte ankreuzen (bis zu %d). Ein einzelnes Produkt wird groß gezeigt:"/>
+        <text name="storageMonitor_bestNext" text="Am besten nächsten Monat: +%d%%"/>
     </texts>
 </l10n>

@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Выкл.: показывать выбранное хранилище"/>
         <text name="storageMonitor_seconds" text="%d с"/>
         <text name="storageMonitor_slideTimeText" text="Сколько показывать каждый экран:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: предыдущий экран"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: следующий экран"/>
+        <text name="storageMonitor_sellPlan" text="Когда продавать"/>
+        <text name="storageMonitor_message" text="Доска объявлений"/>
+        <text name="storageMonitor_profit" text="Прибыль производств"/>
+        <text name="storageMonitor_openContracts" text="Доступные контракты"/>
+        <text name="storageMonitor_farms" text="Все фермы"/>
+        <text name="storageMonitor_fieldMap" text="Карта моих полей"/>
+        <text name="storageMonitor_alertHarvestRain" text="Готово к уборке полей: %d, дождь через %d ч"/>
+        <text name="storageMonitor_rainingNow" text="Сейчас идёт дождь"/>
+        <text name="storageMonitor_dryDay" text="Сухо сутки или дольше"/>
+        <text name="storageMonitor_dryFor" text="Сухо ещё %d ч"/>
+        <text name="storageMonitor_harvestWorth" text="Стоимость урожая"/>
+        <text name="storageMonitor_noSeason" text="Нет сезонных цен"/>
+        <text name="storageMonitor_sellNow" text="Продать сейчас: лучший месяц"/>
+        <text name="storageMonitor_bestIn" text="Лучше через %d мес.: +%d%%"/>
+        <text name="storageMonitor_atBest" text="В лучшие месяцы"/>
+        <text name="storageMonitor_waitGain" text="Больше, если подождать"/>
+        <text name="storageMonitor_sellNowCount" text="Продать сейчас"/>
+        <text name="storageMonitor_holdCount" text="Лучше позже"/>
+        <text name="storageMonitor_productsCount" text="Продукты"/>
+        <text name="storageMonitor_colBestTime" text="ЛУЧШЕЕ ВРЕМЯ"/>
+        <text name="storageMonitor_colGain" text="ПРИРОСТ"/>
+        <text name="storageMonitor_noSellable" text="Ничего из ваших силосов нигде не продаётся"/>
+        <text name="storageMonitor_profitParts" text="вход %s  выход %s  содержание %s"/>
+        <text name="storageMonitor_profitCaps" text="ПРИБЫЛЬ В ЧАС"/>
+        <text name="storageMonitor_bestLine" text="Лучшая: %s"/>
+        <text name="storageMonitor_perDay" text="В день"/>
+        <text name="storageMonitor_linesCount" text="Линии"/>
+        <text name="storageMonitor_losing" text="Убыточные"/>
+        <text name="storageMonitor_colLine" text="ЛИНИЯ"/>
+        <text name="storageMonitor_colInOut" text="ЗА ИГРОВОЙ ЧАС"/>
+        <text name="storageMonitor_colProfit" text="ПРИБЫЛЬ"/>
+        <text name="storageMonitor_noLines" text="Ни одна производственная линия не включена"/>
+        <text name="storageMonitor_perHa" text="%s/га"/>
+        <text name="storageMonitor_toTakeCaps" text="ДОСТУПНЫЕ КОНТРАКТЫ"/>
+        <text name="storageMonitor_limitReached" text="Ваша ферма достигла лимита"/>
+        <text name="storageMonitor_bestReward" text="Лучшая награда"/>
+        <text name="storageMonitor_bestPerHa" text="Лучшая за га"/>
+        <text name="storageMonitor_taken" text="Активные"/>
+        <text name="storageMonitor_allRewards" text="Все награды"/>
+        <text name="storageMonitor_colReward" text="НАГРАДА"/>
+        <text name="storageMonitor_noOpenContracts" text="Сейчас нет доступных контрактов"/>
+        <text name="storageMonitor_myFarm" text="%s (вы)"/>
+        <text name="storageMonitor_farmParts" text="поля: %d (%s)  техника: %d  животные: %d"/>
+        <text name="storageMonitor_myPlace" text="МОЁ МЕСТО"/>
+        <text name="storageMonitor_ofFarms" text="всего ферм: %d"/>
+        <text name="storageMonitor_myBalance" text="Мой баланс"/>
+        <text name="storageMonitor_richest" text="Самая богатая"/>
+        <text name="storageMonitor_farmsCount" text="Фермы"/>
+        <text name="storageMonitor_colFarm" text="ФЕРМА"/>
+        <text name="storageMonitor_colFarmParts" text="ПОЛЯ  ТЕХНИКА  ЖИВОТНЫЕ"/>
+        <text name="storageMonitor_colBalance" text="БАЛАНС"/>
+        <text name="storageMonitor_noFarms" text="Нет ферм"/>
+        <text name="storageMonitor_messageEmpty" text="Пока ничего не написано"/>
+        <text name="storageMonitor_messageHint" text="Встаньте здесь и нажмите клавишу действия, чтобы написать сообщение"/>
+        <text name="storageMonitor_messageWritten" text="Написано: день %d, %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Написать сообщение"/>
+        <text name="storageMonitor_messagePrompt" text="Сообщение для всех (| начинает новую строку, пустое удаляет его)"/>
+        <text name="storageMonitor_worthAt" text="Стоимость %s (%s)"/>
+        <text name="storageMonitor_menuOnly" text="Показанные продукты (сейчас: %s)"/>
+        <text name="storageMonitor_onlyAll" text="все"/>
+        <text name="storageMonitor_onlyCount" text="продуктов: %d"/>
+        <text name="storageMonitor_onlyAllOption" text="Все продукты"/>
+        <text name="storageMonitor_onlyTitle" text="Показанные продукты"/>
+        <text name="storageMonitor_onlyText" text="Отметьте продукты для показа (до %d). Один продукт показывается крупно:"/>
+        <text name="storageMonitor_bestNext" text="Лучше в следующем месяце: +%d%%"/>
     </texts>
 </l10n>

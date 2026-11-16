@@ -247,30 +247,39 @@ BOARD_POST = """
         end
 """
 
-FARM_SCENES = {
-    "fields": """
+# the farm's fields (fields and the field map): crops, growth, needs, outlines, yields, today's prices, rain at 20:00
+FIELDS_WORLD = """
         sceneInfo = {}
-        local function fruit(i, name, title, minH, maxH, extra)
-            local f = {index = i, name = name, fillType = {name = name, title = title}, minHarvestingGrowthState = minH,
-                maxHarvestingGrowthState = maxH, minPreparingGrowthState = -1, maxPreparingGrowthState = -1, cutState = 10}
+        local function fruit(i, name, title, minH, maxH, perSqm, extra)
+            local f = {index = i, name = name, fillType = {index = i, name = name, title = title}, minHarvestingGrowthState = minH,
+                maxHarvestingGrowthState = maxH, minPreparingGrowthState = -1, maxPreparingGrowthState = -1, cutState = 10,
+                literPerSqm = perSqm}
             function f:getIsWithered(g) return g == maxH + 1 end
             for k, v in pairs(extra or {}) do f[k] = v end
             return f
         end
-        local fruits = {fruit(1, "WHEAT", "Wheat", 7, 8), fruit(2, "CANOLA", "Canola", 7, 8), fruit(3, "MAIZE", "Corn", 7, 8),
-                        fruit(4, "SUGARBEET", "Sugar Beet", 7, 7, {minPreparingGrowthState = 6, maxPreparingGrowthState = 6}),
-                        fruit(5, "BARLEY", "Barley", 7, 8), fruit(6, "SOYBEAN", "Soybeans", 6, 7)}
+        local fruits = {fruit(1, "WHEAT", "Wheat", 7, 8, 0.9), fruit(2, "CANOLA", "Canola", 7, 8, 0.48), fruit(3, "MAIZE", "Corn", 7, 8, 1.05),
+                        fruit(4, "SUGARBEET", "Sugar Beet", 7, 7, 4.6, {minPreparingGrowthState = 6, maxPreparingGrowthState = 6}),
+                        fruit(5, "BARLEY", "Barley", 7, 8, 0.95), fruit(6, "SOYBEAN", "Soybeans", 6, 7, 0.38)}
         g_fruitTypeManager = {getFruitTypeByIndex = function(self, i) return fruits[i] end}
-        local list = {   -- id, fruit, growth, ha, lime, plow, spray, roller, weeds
-            {12, 1, 8, 18.4, 1, 1, 2, 0, 0}, {7, 2, 7, 9.6, 1, 1, 2, 0, 0}, {21, 4, 6, 6.2, 1, 1, 2, 0, 0},
-            {3, 3, 4, 22.1, 1, 1, 1, 0, 1}, {15, 5, 2, 11.8, 0, 1, 0, 1, 0}, {9, 6, 5, 7.4, 1, 1, 2, 0, 0},
-            {30, 1, 9, 4.3, 1, 1, 2, 0, 0}, {18, 2, 10, 13.0, 1, 0, 0, 0, 0}, {26, nil, 0, 5.5, 0, 1, 0, 0, 0}}
+        local list = {   -- id, fruit, growth, ha, lime, plow, spray, roller, weeds, outline
+            {12, 1, 8, 18.4, 1, 1, 2, 0, 0, {0, 0, 400, 0, 400, 250, 0, 250}},
+            {7, 2, 7, 9.6, 1, 1, 2, 0, 0, {420, 0, 650, 0, 650, 200, 420, 200}},
+            {21, 4, 6, 6.2, 1, 1, 2, 0, 0, {670, 0, 900, 0, 900, 140, 670, 140}},
+            {3, 3, 4, 22.1, 1, 1, 1, 0, 1, {0, 270, 380, 270, 420, 560, 0, 560}},
+            {15, 5, 2, 11.8, 0, 1, 0, 1, 0, {440, 230, 700, 230, 700, 450, 440, 450}},
+            {9, 6, 5, 7.4, 1, 1, 2, 0, 0, {720, 160, 900, 160, 900, 380, 720, 380}},
+            {30, 1, 9, 4.3, 1, 1, 2, 0, 0, {920, 0, 1050, 0, 1050, 180, 920, 180}},
+            {18, 2, 10, 13.0, 1, 0, 0, 0, 0, {920, 200, 1200, 200, 1200, 560, 1080, 560, 1080, 320, 920, 320}},
+            {26, nil, 0, 5.5, 0, 1, 0, 0, 0, {440, 470, 1060, 470, 1060, 560, 440, 560}}}
         local fields, byX = {}, {}
         for _, e in ipairs(list) do
             local field = {farmland = {id = e[1]}, areaHa = e[4],
                 fieldState = {limeLevel = e[5], plowLevel = e[6], sprayLevel = e[7], rollerLevel = e[8], weedState = e[9]}}
+            function field.fieldState:getHarvestScaleMultiplier() return 1.4 end
             function field:getCenterOfFieldWorldPosition() return e[1] * 100, 0 end
             function field:getId() return e[1] end
+            function field:getDensityMapPolygon() return {getVerticesList = function() return e[10] end} end
             byX[e[1] * 100] = e
             table.insert(fields, field)
         end
@@ -280,6 +289,26 @@ FARM_SCENES = {
         FieldDensityMap = {SPRAY_LEVEL = 1}
         g_currentMission.missionInfo = {limeRequired = true, plowingRequiredEnabled = true, weedsEnabled = true}
         g_currentMission.fieldGroundSystem = {getMaxValue = function() return 2 end}
+        -- today's prices
+        local prices = {0.42, 0.81, 0.36, 0.11, 0.37, 0.78}
+        local station = {owningPlaceable = {getName = function() return "Grain Elevator" end}, isSellingPoint = true, acceptedFillTypes = {}}
+        for i = 1, 6 do station.acceptedFillTypes[i] = true end
+        station.getName = function() return "Grain Elevator" end
+        function station:getEffectiveFillTypePrice(ft) return prices[ft] end
+        g_currentMission.storageSystem = {getUnloadingStations = function() return {station} end}
+        -- dry until 20:00
+        WeatherType = {SUN = 1, CLOUDY = 2, RAIN = 3}
+        local env = g_currentMission.environment
+        env.dayTime, env.currentMonotonicDay, env.currentHour = 14.58 * 3600000, 10, 14
+        local w = {}
+        function w:getCurrentWeatherType() return 1 end
+        function w:getNextWeatherType(dayTime, day) if day == 10 and dayTime >= 20 * 3600000 then return 3 end return day == 10 and 1 or 2 end
+        env.weather = w
+"""
+
+
+FARM_SCENES = {
+    "fields": FIELDS_WORLD + """
         sceneTarget = {name = "My fields", title = "My fields", kind = "fields", sources = {}}
     """ + BOARD_POST,
     "weather": """
@@ -596,6 +625,134 @@ KIND_SCENES = {
 }
 
 
+# 1.4: when to sell, production profit, contracts to take, all farms, the field map, the message board, one product big
+V14_SCENES = {
+    "sellPlan": """
+        sceneInfo = {}
+        local fts = {{"WHEAT", "Wheat", 0.42, {1, 1, 1.0, 1.04, 1.12, 1.18, 1.1, 1, 1, 1, 1, 1}},
+                     {"CANOLA", "Canola", 0.81, {1, 1, 1.0, 0.95, 0.92, 0.9, 0.95, 1, 1, 1, 1, 1}},
+                     {"BARLEY", "Barley", 0.37, {1, 1, 1.0, 1.02, 1.08, 1.0, 1, 1, 1, 1, 1, 1}},
+                     {"SOYBEAN", "Soybeans", 0.78, {1, 1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.15, 1.25, 1.1, 1, 1}},
+                     {"MAIZE", "Corn", 0.36, {1, 1, 1.0, 0.98, 0.97, 0.95, 0.95, 1, 1, 1, 1, 1}},
+                     {"SUNFLOWER", "Sunflowers", 0.69, {1, 1, 1.0, 1.03, 1.03, 1.0, 1, 1, 1, 1, 1, 1}}}
+        g_fillTypeManager = {getFillTypeByIndex = function(self, i) local f = fts[i]
+            return f and {name = f[1], title = f[2], economy = {factors = f[4]}} end}
+        g_currentMission.environment.currentPeriod = 3
+        local station = {owningPlaceable = {getName = function() return "Grain Elevator" end}, isSellingPoint = true, acceptedFillTypes = {}}
+        for i = 1, #fts do station.acceptedFillTypes[i] = true end
+        station.getName = function() return "Grain Elevator" end
+        function station:getEffectiveFillTypePrice(ft) return fts[ft][3] end
+        g_currentMission.storageSystem = {getUnloadingStations = function() return {station} end}
+        local storage = {capacity = 2000000, getFillLevels = function() return {612000, 168500, 96200, 61800, 40250, 18400} end}
+        sceneTarget = {name = "When to sell", title = "When to sell", kind = "sellPlan", sources = {{storage = storage}}}
+    """ + BOARD_POST,
+    "profit": """
+        ProductionPoint = {PROD_STATUS = {INACTIVE = 0, RUNNING = 1, MISSING_INPUTS = 2, NO_OUTPUT_SPACE = 3}}
+        sceneInfo = {}
+        local fts = {{"FLOUR", "Flour", 0.9}, {"BREAD", "Bread", 2.1}, {"MILK", "Milk", 0.75}, {"CHEESE", "Cheese", 3.4},
+                     {"BUTTER", "Butter", 2.9}, {"GRAPE", "Grapes", 0.9}, {"SUGAR", "Sugar", 1.1}, {"CAKE", "Cake", 4.4},
+                     {"WOOL", "Wool", 1.2}}
+        g_fillTypeManager = {getFillTypeByIndex = function(self, i) local f = fts[i] return f and {name = f[1], title = f[2], pricePerLiter = f[3]} end}
+        local station = {owningPlaceable = {getName = function() return "Market" end}, isSellingPoint = true, acceptedFillTypes = {}}
+        for i = 1, #fts do station.acceptedFillTypes[i] = true end
+        station.getName = function() return "Market" end
+        function station:getEffectiveFillTypePrice(ft) return fts[ft][3] end
+        g_currentMission.storageSystem = {getUnloadingStations = function() return {station} end}
+        local function line(name, inputs, outputs, cycles, cost, status)
+            local l = {name = name, status = status or 1, cyclesPerHour = cycles, costsPerActiveHour = cost, inputs = {}, outputs = {}}
+            for _, e in ipairs(inputs) do table.insert(l.inputs, {type = e[1], amount = e[2]}) end
+            for _, e in ipairs(outputs) do table.insert(l.outputs, {type = e[1], amount = e[2]}) end
+            return l
+        end
+        local function prod(name, lines)
+            return {name = name, pp = {productions = lines, activeProductions = lines, inputFillTypeIds = {}, outputFillTypeIds = {}}}
+        end
+        sceneTarget = {name = "Production profit", title = "Production profit", kind = "profit", sources = {}, productions = {
+            prod("Bakery", {line("Bread", {{1, 4}}, {{2, 3}}, 60, 25), line("Cake", {{1, 2}, {7, 2}}, {{8, 2}}, 30, 30, 2)}),
+            prod("Dairy", {line("Cheese", {{3, 10}}, {{4, 2}}, 40, 40), line("Butter", {{3, 8}}, {{5, 1}}, 40, 45)}),
+            prod("Spinnery", {line("Fabric", {{9, 2}}, {{9, 1}}, 20, 15)})}}
+    """ + BOARD_POST,
+    "openContracts": """
+        sceneInfo = {}
+        MissionStatus = {CREATED = 0, RUNNING = 2}
+        MissionManager = {MAX_MISSIONS_PER_FARM = 3}
+        local fts = {{"WHEAT", "Wheat"}, {"STRAW", "Straw"}, {"FERTILIZER", "Fertilizer"}, {"GRASS_WINDROW", "Grass"}, {"WOODCHIPS", "Wood chips"}}
+        g_fillTypeManager = {getFillTypeByIndex = function(self, i) return fts[i] and {name = fts[i][1], title = fts[i][2]} end}
+        local function field(id, ha) local f = {areaHa = ha} function f:getId() return id end return f end
+        local function m(title, reward, f, ft, status)
+            local x = {status = status or 0, field = f, fillTypeIndex = ft, farmId = status and 1 or nil}
+            function x:getTitle() return title end
+            function x:getReward() return reward end
+            return x
+        end
+        g_missionManager = {missions = {m("Harvesting", 48200, field(14, 22.4), 1), m("Baling", 12600, field(3, 6.1), 2),
+            m("Fertilizing", 9850, field(22, 18.0), 3), m("Mowing", 7400, field(8, 3.2), 4), m("Plowing", 15300, field(31, 9.5)),
+            m("Transport: Wood chips", 21000, nil, 5), m("Sowing", 11000, field(5, 4.0), 1, 2)}}
+        function g_missionManager:getMissionsByFarmId() return {self.missions[7]} end
+        sceneTarget = {name = "Contracts to take", title = "Contracts to take", kind = "openContracts", sources = {}}
+    """ + BOARD_POST,
+    "farms": """
+        sceneInfo = {}
+        FarmManager = {SPECTATOR_FARM_ID = 0}
+        local farms = {{farmId = 0, name = "Spectators", money = 0},
+            {farmId = 1, name = "DTM", money = 1846250, loan = 300000, getColor = function() return {0.2, 0.83, 0.6} end},
+            {farmId = 2, name = "PropaineX Farms", money = 2410900, loan = 0, getColor = function() return {0.98, 0.7, 0.3} end},
+            {farmId = 3, name = "Green Acres", money = 655300, loan = 500000, getColor = function() return {0.45, 0.7, 1.0} end},
+            {farmId = 4, name = "Big Barn Co.", money = 98200, loan = 900000, getColor = function() return {0.85, 0.5, 0.95} end}}
+        for _, f in ipairs(farms) do if f.getColor then local c = f.getColor f.getColor = function(self) return c() end end end
+        g_farmManager = {getFarms = function() return farms end}
+        local lands = {}
+        local own = {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4}
+        for i, o in ipairs(own) do lands[i] = {id = i, owner = o, field = {areaHa = 6 + (i % 5) * 3.1}} end
+        g_farmlandManager = {getFarmlands = function() return lands end, getFarmlandOwner = function(self, id) return lands[id].owner end}
+        local vehicles = {}
+        for i, o in ipairs({1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4}) do
+            local v = {typeName = "tractor"}
+            function v:getOwnerFarmId() return o end
+            function v:getIsControlled() return false end
+            table.insert(vehicles, v)
+        end
+        g_currentMission.vehicleSystem = {vehicles = vehicles}
+        local pens = {}
+        for _, e in ipairs({{1, 112}, {1, 64}, {2, 240}, {2, 150}, {3, 38}}) do
+            local p = {}
+            function p:getOwnerFarmId() return e[1] end
+            function p:getNumOfAnimals() return e[2] end
+            table.insert(pens, p)
+        end
+        g_currentMission.placeableSystem = {placeables = pens}
+        g_localPlayer = {farmId = 1}
+        sceneTarget = {name = "All farms", title = "All farms", kind = "farms", sources = {}}
+    """ + BOARD_POST,
+    "fieldMap": FIELDS_WORLD + """
+        sceneTarget = {name = "Map of my fields", title = "Map of my fields", kind = "fieldMap", sources = {}}
+    """ + BOARD_POST,
+    "message": """
+        sceneInfo = {}
+        sceneTarget = {name = "Message board", title = "Message board", kind = "message", sources = {}}
+        function scenePost(snap, spec)
+            spec.message = "Corn goes to the BGA, not the silo!|Harvest field 12 before the rain at 20:00.|Steve: new baler is in the shed."
+            spec.messageTime = 10 * 24 + 13.75
+        end
+    """,
+    "single": """
+        sceneInfo = {{name = "WHEAT", title = "Wheat"}, {name = "BARLEY", title = "Barley"}}
+        local station = {owningPlaceable = {getName = function() return "Grain Elevator" end}, isSellingPoint = true, acceptedFillTypes = {[1] = true}}
+        station.getName = function() return "Grain Elevator" end
+        function station:getEffectiveFillTypePrice(ft) return 0.42 end
+        g_currentMission.storageSystem = {getUnloadingStations = function() return {station} end}
+        local storage = {capacity = 1000000, getFillLevels = function() return {612000, 214000} end}
+        sceneTarget = {name = "Grain Silo", title = "Grain Silo", kind = "silo", sources = {{storage = storage}}}
+        function scenePost(snap, spec)
+            for _, item in ipairs(snap.items) do
+                if item.name == "WHEAT" then item.rate = 18000 snap.single = item end
+            end
+            snap.rate = 18000
+        end
+    """,
+}
+
+
 def contact_sheet(paths, out):
     """Tiles of 800 x 500, two per row."""
     tiles = [Image.open(p) for p in paths]
@@ -610,14 +767,15 @@ def contact_sheet(paths, out):
 def main():
     out_dir = os.path.join(ROOT, "src", "screens")
     os.makedirs(out_dir, exist_ok=True)
-    if "--farm" in sys.argv or "--extra" in sys.argv:     # 1.3: the farm screens; history, greenhouse, manure heap
-        scenes = FARM_SCENES if "--farm" in sys.argv else EXTRA_SCENES
+    if "--farm" in sys.argv or "--extra" in sys.argv or "--v14" in sys.argv:     # 1.3 / 1.4 screens
+        scenes = FARM_SCENES if "--farm" in sys.argv else (EXTRA_SCENES if "--extra" in sys.argv else V14_SCENES)
         paths = []
         for name, scene in scenes.items():
             path = os.path.join(out_dir, "kind_%s.png" % name)
             render(0, path, 1, scene)
             paths.append(path)
-        contact_sheet(paths, os.path.join(out_dir, "farm.png" if "--farm" in sys.argv else "history.png"))
+        sheet_name = "farm.png" if "--farm" in sys.argv else ("history.png" if "--extra" in sys.argv else "v14.png")
+        contact_sheet(paths, os.path.join(out_dir, sheet_name))
         return
     if "--kinds" in sys.argv:           # production, animal pen, bunker silo, bale shed
         tiles = []

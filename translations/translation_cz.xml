@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Vyp.: ukazovat vybraný sklad"/>
         <text name="storageMonitor_seconds" text="%d s"/>
         <text name="storageMonitor_slideTimeText" text="Jak dlouho ukazovat každou obrazovku:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: předchozí obrazovka"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: další obrazovka"/>
+        <text name="storageMonitor_sellPlan" text="Kdy prodat"/>
+        <text name="storageMonitor_message" text="Nástěnka"/>
+        <text name="storageMonitor_profit" text="Zisk výroben"/>
+        <text name="storageMonitor_openContracts" text="Dostupné zakázky"/>
+        <text name="storageMonitor_farms" text="Všechny farmy"/>
+        <text name="storageMonitor_fieldMap" text="Mapa mých polí"/>
+        <text name="storageMonitor_alertHarvestRain" text="Pole ke sklizni: %d, déšť za %d h"/>
+        <text name="storageMonitor_rainingNow" text="Právě prší"/>
+        <text name="storageMonitor_dryDay" text="Sucho den nebo déle"/>
+        <text name="storageMonitor_dryFor" text="Sucho ještě %d h"/>
+        <text name="storageMonitor_harvestWorth" text="Hodnota sklizně"/>
+        <text name="storageMonitor_noSeason" text="Žádné sezónní ceny"/>
+        <text name="storageMonitor_sellNow" text="Prodat teď: nejlepší měsíc"/>
+        <text name="storageMonitor_bestIn" text="Nejlépe za %d měs.: +%d%%"/>
+        <text name="storageMonitor_atBest" text="V nejlepších měsících"/>
+        <text name="storageMonitor_waitGain" text="Navíc, když počkáte"/>
+        <text name="storageMonitor_sellNowCount" text="Prodat teď"/>
+        <text name="storageMonitor_holdCount" text="Lépe později"/>
+        <text name="storageMonitor_productsCount" text="Produkty"/>
+        <text name="storageMonitor_colBestTime" text="NEJLEPŠÍ ČAS"/>
+        <text name="storageMonitor_colGain" text="NÁRŮST"/>
+        <text name="storageMonitor_noSellable" text="Nic z vašich sil se nikde neprodává"/>
+        <text name="storageMonitor_profitParts" text="vstup %s  výstup %s  údržba %s"/>
+        <text name="storageMonitor_profitCaps" text="ZISK ZA HODINU"/>
+        <text name="storageMonitor_bestLine" text="Nejlepší: %s"/>
+        <text name="storageMonitor_perDay" text="Za den"/>
+        <text name="storageMonitor_linesCount" text="Linky"/>
+        <text name="storageMonitor_losing" text="Ve ztrátě"/>
+        <text name="storageMonitor_colLine" text="LINKA"/>
+        <text name="storageMonitor_colInOut" text="ZA HERNÍ HODINU"/>
+        <text name="storageMonitor_colProfit" text="ZISK"/>
+        <text name="storageMonitor_noLines" text="Žádná výrobní linka není zapnutá"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="DOSTUPNÉ ZAKÁZKY"/>
+        <text name="storageMonitor_limitReached" text="Vaše farma je na limitu"/>
+        <text name="storageMonitor_bestReward" text="Nejlepší odměna"/>
+        <text name="storageMonitor_bestPerHa" text="Nejlepší na ha"/>
+        <text name="storageMonitor_taken" text="Probíhá"/>
+        <text name="storageMonitor_allRewards" text="Všechny odměny"/>
+        <text name="storageMonitor_colReward" text="ODMĚNA"/>
+        <text name="storageMonitor_noOpenContracts" text="Teď nejsou žádné dostupné zakázky"/>
+        <text name="storageMonitor_myFarm" text="%s (vy)"/>
+        <text name="storageMonitor_farmParts" text="pole: %d (%s)  vozidla: %d  zvířata: %d"/>
+        <text name="storageMonitor_myPlace" text="MÉ POŘADÍ"/>
+        <text name="storageMonitor_ofFarms" text="celkem farem: %d"/>
+        <text name="storageMonitor_myBalance" text="Můj zůstatek"/>
+        <text name="storageMonitor_richest" text="Nejbohatší"/>
+        <text name="storageMonitor_farmsCount" text="Farmy"/>
+        <text name="storageMonitor_colFarm" text="FARMA"/>
+        <text name="storageMonitor_colFarmParts" text="POLE  VOZIDLA  ZVÍŘATA"/>
+        <text name="storageMonitor_colBalance" text="ZŮSTATEK"/>
+        <text name="storageMonitor_noFarms" text="Žádné farmy"/>
+        <text name="storageMonitor_messageEmpty" text="Zatím nic nenapsáno"/>
+        <text name="storageMonitor_messageHint" text="Postavte se sem a stiskněte klávesu aktivace pro napsání zprávy"/>
+        <text name="storageMonitor_messageWritten" text="Napsáno v den %d v %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Napsat zprávu"/>
+        <text name="storageMonitor_messagePrompt" text="Zpráva pro všechny (| začíná nový řádek, prázdná ji smaže)"/>
+        <text name="storageMonitor_worthAt" text="Hodnota %s (%s)"/>
+        <text name="storageMonitor_menuOnly" text="Zobrazené produkty (nyní: %s)"/>
+        <text name="storageMonitor_onlyAll" text="všechny"/>
+        <text name="storageMonitor_onlyCount" text="produkty: %d"/>
+        <text name="storageMonitor_onlyAllOption" text="Všechny produkty"/>
+        <text name="storageMonitor_onlyTitle" text="Zobrazené produkty"/>
+        <text name="storageMonitor_onlyText" text="Zaškrtněte produkty k zobrazení (nejvýše %d). Jediný produkt se ukáže velký:"/>
+        <text name="storageMonitor_bestNext" text="Nejlépe příští měsíc: +%d%%"/>
     </texts>
 </l10n>

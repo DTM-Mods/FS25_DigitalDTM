@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Tắt: hiển thị kho đã chọn"/>
         <text name="storageMonitor_seconds" text="%d giây"/>
         <text name="storageMonitor_slideTimeText" text="Mỗi trang hiển thị trong bao lâu:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: màn hình trước"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: màn hình sau"/>
+        <text name="storageMonitor_sellPlan" text="Khi nào bán"/>
+        <text name="storageMonitor_message" text="Bảng tin nhắn"/>
+        <text name="storageMonitor_profit" text="Lợi nhuận sản xuất"/>
+        <text name="storageMonitor_openContracts" text="Hợp đồng có thể nhận"/>
+        <text name="storageMonitor_farms" text="Tất cả trang trại"/>
+        <text name="storageMonitor_fieldMap" text="Bản đồ ruộng của tôi"/>
+        <text name="storageMonitor_alertHarvestRain" text="%d ruộng sẵn sàng, mưa sau %d giờ"/>
+        <text name="storageMonitor_rainingNow" text="Đang mưa"/>
+        <text name="storageMonitor_dryDay" text="Khô ráo một ngày trở lên"/>
+        <text name="storageMonitor_dryFor" text="Khô ráo trong %d giờ"/>
+        <text name="storageMonitor_harvestWorth" text="Giá trị thu hoạch"/>
+        <text name="storageMonitor_noSeason" text="Không có giá theo mùa"/>
+        <text name="storageMonitor_sellNow" text="Bán ngay: tháng tốt nhất"/>
+        <text name="storageMonitor_bestIn" text="Tốt nhất sau %d tháng: +%d%%"/>
+        <text name="storageMonitor_atBest" text="Vào tháng tốt nhất"/>
+        <text name="storageMonitor_waitGain" text="Thêm nếu chờ"/>
+        <text name="storageMonitor_sellNowCount" text="Bán ngay"/>
+        <text name="storageMonitor_holdCount" text="Để sau tốt hơn"/>
+        <text name="storageMonitor_productsCount" text="Sản phẩm"/>
+        <text name="storageMonitor_colBestTime" text="THỜI ĐIỂM TỐT NHẤT"/>
+        <text name="storageMonitor_colGain" text="LỜI THÊM"/>
+        <text name="storageMonitor_noSellable" text="Không có gì trong xi-lô của bạn bán được ở đâu"/>
+        <text name="storageMonitor_profitParts" text="vào %s  ra %s  bảo trì %s"/>
+        <text name="storageMonitor_profitCaps" text="LỢI NHUẬN MỖI GIỜ"/>
+        <text name="storageMonitor_bestLine" text="Tốt nhất: %s"/>
+        <text name="storageMonitor_perDay" text="Mỗi ngày"/>
+        <text name="storageMonitor_linesCount" text="Dây chuyền"/>
+        <text name="storageMonitor_losing" text="Đang lỗ"/>
+        <text name="storageMonitor_colLine" text="DÂY CHUYỀN"/>
+        <text name="storageMonitor_colInOut" text="MỖI GIỜ TRONG GAME"/>
+        <text name="storageMonitor_colProfit" text="LỢI NHUẬN"/>
+        <text name="storageMonitor_noLines" text="Không có dây chuyền sản xuất nào đang bật"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="HỢP ĐỒNG CÓ THỂ NHẬN"/>
+        <text name="storageMonitor_limitReached" text="Trang trại của bạn đã đạt giới hạn"/>
+        <text name="storageMonitor_bestReward" text="Thưởng cao nhất"/>
+        <text name="storageMonitor_bestPerHa" text="Cao nhất mỗi ha"/>
+        <text name="storageMonitor_taken" text="Đang chạy"/>
+        <text name="storageMonitor_allRewards" text="Tổng phần thưởng"/>
+        <text name="storageMonitor_colReward" text="PHẦN THƯỞNG"/>
+        <text name="storageMonitor_noOpenContracts" text="Hiện không có hợp đồng nào để nhận"/>
+        <text name="storageMonitor_myFarm" text="%s (bạn)"/>
+        <text name="storageMonitor_farmParts" text="%d ruộng (%s)  %d xe  %d vật nuôi"/>
+        <text name="storageMonitor_myPlace" text="HẠNG CỦA TÔI"/>
+        <text name="storageMonitor_ofFarms" text="trên %d trang trại"/>
+        <text name="storageMonitor_myBalance" text="Số dư của tôi"/>
+        <text name="storageMonitor_richest" text="Giàu nhất"/>
+        <text name="storageMonitor_farmsCount" text="Trang trại"/>
+        <text name="storageMonitor_colFarm" text="TRANG TRẠI"/>
+        <text name="storageMonitor_colFarmParts" text="RUỘNG  XE  VẬT NUÔI"/>
+        <text name="storageMonitor_colBalance" text="SỐ DƯ"/>
+        <text name="storageMonitor_noFarms" text="Không có trang trại"/>
+        <text name="storageMonitor_messageEmpty" text="Chưa có gì được viết"/>
+        <text name="storageMonitor_messageHint" text="Đứng đây và nhấn phím kích hoạt để viết tin nhắn"/>
+        <text name="storageMonitor_messageWritten" text="Viết vào ngày %d lúc %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Viết tin nhắn"/>
+        <text name="storageMonitor_messagePrompt" text="Tin nhắn cho mọi người (| xuống dòng, để trống sẽ xóa)"/>
+        <text name="storageMonitor_worthAt" text="Đáng giá %s tại %s"/>
+        <text name="storageMonitor_menuOnly" text="Sản phẩm hiển thị (hiện tại: %s)"/>
+        <text name="storageMonitor_onlyAll" text="tất cả"/>
+        <text name="storageMonitor_onlyCount" text="%d sản phẩm"/>
+        <text name="storageMonitor_onlyAllOption" text="Tất cả sản phẩm"/>
+        <text name="storageMonitor_onlyTitle" text="Sản phẩm hiển thị"/>
+        <text name="storageMonitor_onlyText" text="Đánh dấu các sản phẩm cần hiển thị (tối đa %d). Một sản phẩm sẽ hiển thị lớn:"/>
+        <text name="storageMonitor_bestNext" text="Tốt nhất tháng sau: +%d%%"/>
     </texts>
 </l10n>

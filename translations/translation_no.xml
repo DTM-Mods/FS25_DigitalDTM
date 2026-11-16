@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Av: vis det valgte lageret"/>
         <text name="storageMonitor_seconds" text="%d s"/>
         <text name="storageMonitor_slideTimeText" text="Hvor lenge hvert skjermbilde vises:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: forrige skjermbilde"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: neste skjermbilde"/>
+        <text name="storageMonitor_sellPlan" text="Når bør du selge"/>
+        <text name="storageMonitor_message" text="Oppslagstavle"/>
+        <text name="storageMonitor_profit" text="Produksjonsoverskudd"/>
+        <text name="storageMonitor_openContracts" text="Ledige kontrakter"/>
+        <text name="storageMonitor_farms" text="Alle gårder"/>
+        <text name="storageMonitor_fieldMap" text="Kart over jordene mine"/>
+        <text name="storageMonitor_alertHarvestRain" text="%d jorder klare, regn om %d t"/>
+        <text name="storageMonitor_rainingNow" text="Det regner"/>
+        <text name="storageMonitor_dryDay" text="Tørt en dag eller mer"/>
+        <text name="storageMonitor_dryFor" text="Tørt i %d t"/>
+        <text name="storageMonitor_harvestWorth" text="Avlingens verdi"/>
+        <text name="storageMonitor_noSeason" text="Ingen sesongpriser"/>
+        <text name="storageMonitor_sellNow" text="Selg nå: beste måned"/>
+        <text name="storageMonitor_bestIn" text="Best om %d måneder: +%d%%"/>
+        <text name="storageMonitor_atBest" text="I de beste månedene"/>
+        <text name="storageMonitor_waitGain" text="Mer om du venter"/>
+        <text name="storageMonitor_sellNowCount" text="Selg nå"/>
+        <text name="storageMonitor_holdCount" text="Bedre senere"/>
+        <text name="storageMonitor_productsCount" text="Produkter"/>
+        <text name="storageMonitor_colBestTime" text="BESTE TID"/>
+        <text name="storageMonitor_colGain" text="ØKNING"/>
+        <text name="storageMonitor_noSellable" text="Ingenting i siloene dine kan selges noe sted"/>
+        <text name="storageMonitor_profitParts" text="inn %s  ut %s  drift %s"/>
+        <text name="storageMonitor_profitCaps" text="OVERSKUDD PER TIME"/>
+        <text name="storageMonitor_bestLine" text="Beste: %s"/>
+        <text name="storageMonitor_perDay" text="Per dag"/>
+        <text name="storageMonitor_linesCount" text="Linjer"/>
+        <text name="storageMonitor_losing" text="Taper penger"/>
+        <text name="storageMonitor_colLine" text="LINJE"/>
+        <text name="storageMonitor_colInOut" text="PER SPILLTIME"/>
+        <text name="storageMonitor_colProfit" text="OVERSKUDD"/>
+        <text name="storageMonitor_noLines" text="Ingen produksjonslinje er slått på"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="LEDIGE KONTRAKTER"/>
+        <text name="storageMonitor_limitReached" text="Gården din har nådd grensen"/>
+        <text name="storageMonitor_bestReward" text="Beste belønning"/>
+        <text name="storageMonitor_bestPerHa" text="Beste per ha"/>
+        <text name="storageMonitor_taken" text="Aktive"/>
+        <text name="storageMonitor_allRewards" text="Alle belønninger"/>
+        <text name="storageMonitor_colReward" text="BELØNNING"/>
+        <text name="storageMonitor_noOpenContracts" text="Ingen ledige kontrakter akkurat nå"/>
+        <text name="storageMonitor_myFarm" text="%s (deg)"/>
+        <text name="storageMonitor_farmParts" text="%d jorder (%s)  %d kjøretøy  %d dyr"/>
+        <text name="storageMonitor_myPlace" text="MIN PLASSERING"/>
+        <text name="storageMonitor_ofFarms" text="av %d gårder"/>
+        <text name="storageMonitor_myBalance" text="Min saldo"/>
+        <text name="storageMonitor_richest" text="Rikeste"/>
+        <text name="storageMonitor_farmsCount" text="Gårder"/>
+        <text name="storageMonitor_colFarm" text="GÅRD"/>
+        <text name="storageMonitor_colFarmParts" text="JORDER  KJØRETØY  DYR"/>
+        <text name="storageMonitor_colBalance" text="SALDO"/>
+        <text name="storageMonitor_noFarms" text="Ingen gårder"/>
+        <text name="storageMonitor_messageEmpty" text="Ingenting skrevet ennå"/>
+        <text name="storageMonitor_messageHint" text="Stå her og trykk på aktiveringstasten for å skrive en melding"/>
+        <text name="storageMonitor_messageWritten" text="Skrevet dag %d kl. %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Skriv meldingen"/>
+        <text name="storageMonitor_messagePrompt" text="Melding til alle (| starter en ny linje, tom sletter den)"/>
+        <text name="storageMonitor_worthAt" text="Verdt %s hos %s"/>
+        <text name="storageMonitor_menuOnly" text="Viste produkter (nå: %s)"/>
+        <text name="storageMonitor_onlyAll" text="alle"/>
+        <text name="storageMonitor_onlyCount" text="%d produkter"/>
+        <text name="storageMonitor_onlyAllOption" text="Alle produkter"/>
+        <text name="storageMonitor_onlyTitle" text="Viste produkter"/>
+        <text name="storageMonitor_onlyText" text="Kryss av produktene som skal vises (opptil %d). Ett enkelt produkt vises stort:"/>
+        <text name="storageMonitor_bestNext" text="Best neste måned: +%d%%"/>
     </texts>
 </l10n>

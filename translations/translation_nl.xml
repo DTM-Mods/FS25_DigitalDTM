@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Uit: de gekozen opslag tonen"/>
         <text name="storageMonitor_seconds" text="%d s"/>
         <text name="storageMonitor_slideTimeText" text="Hoe lang elk scherm getoond wordt:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: vorig scherm"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: volgend scherm"/>
+        <text name="storageMonitor_sellPlan" text="Wanneer verkopen"/>
+        <text name="storageMonitor_message" text="Berichtenbord"/>
+        <text name="storageMonitor_profit" text="Productiewinst"/>
+        <text name="storageMonitor_openContracts" text="Beschikbare contracten"/>
+        <text name="storageMonitor_farms" text="Alle boerderijen"/>
+        <text name="storageMonitor_fieldMap" text="Kaart van mijn velden"/>
+        <text name="storageMonitor_alertHarvestRain" text="%d velden oogstklaar, regen over %d u"/>
+        <text name="storageMonitor_rainingNow" text="Het regent"/>
+        <text name="storageMonitor_dryDay" text="Een dag of langer droog"/>
+        <text name="storageMonitor_dryFor" text="Droog voor %d u"/>
+        <text name="storageMonitor_harvestWorth" text="Waarde oogst"/>
+        <text name="storageMonitor_noSeason" text="Geen seizoensprijzen"/>
+        <text name="storageMonitor_sellNow" text="Nu verkopen: de beste maand"/>
+        <text name="storageMonitor_bestIn" text="Best over %d maanden: +%d%%"/>
+        <text name="storageMonitor_atBest" text="In de beste maanden"/>
+        <text name="storageMonitor_waitGain" text="Meer als je wacht"/>
+        <text name="storageMonitor_sellNowCount" text="Nu verkopen"/>
+        <text name="storageMonitor_holdCount" text="Later beter"/>
+        <text name="storageMonitor_productsCount" text="Producten"/>
+        <text name="storageMonitor_colBestTime" text="BESTE TIJD"/>
+        <text name="storageMonitor_colGain" text="STIJGING"/>
+        <text name="storageMonitor_noSellable" text="Niets in je silo's is ergens te verkopen"/>
+        <text name="storageMonitor_profitParts" text="in %s  uit %s  onderhoud %s"/>
+        <text name="storageMonitor_profitCaps" text="WINST PER UUR"/>
+        <text name="storageMonitor_bestLine" text="Beste: %s"/>
+        <text name="storageMonitor_perDay" text="Per dag"/>
+        <text name="storageMonitor_linesCount" text="Lijnen"/>
+        <text name="storageMonitor_losing" text="Met verlies"/>
+        <text name="storageMonitor_colLine" text="LIJN"/>
+        <text name="storageMonitor_colInOut" text="PER SPEELUUR"/>
+        <text name="storageMonitor_colProfit" text="WINST"/>
+        <text name="storageMonitor_noLines" text="Er staat geen productielijn aan"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="BESCHIKBARE CONTRACTEN"/>
+        <text name="storageMonitor_limitReached" text="Je boerderij zit aan de limiet"/>
+        <text name="storageMonitor_bestReward" text="Hoogste beloning"/>
+        <text name="storageMonitor_bestPerHa" text="Beste per ha"/>
+        <text name="storageMonitor_taken" text="Lopend"/>
+        <text name="storageMonitor_allRewards" text="Alle beloningen"/>
+        <text name="storageMonitor_colReward" text="BELONING"/>
+        <text name="storageMonitor_noOpenContracts" text="Nu geen contracten beschikbaar"/>
+        <text name="storageMonitor_myFarm" text="%s (jij)"/>
+        <text name="storageMonitor_farmParts" text="%d velden (%s)  %d voertuigen  %d dieren"/>
+        <text name="storageMonitor_myPlace" text="MIJN PLAATS"/>
+        <text name="storageMonitor_ofFarms" text="van %d boerderijen"/>
+        <text name="storageMonitor_myBalance" text="Mijn saldo"/>
+        <text name="storageMonitor_richest" text="Rijkste"/>
+        <text name="storageMonitor_farmsCount" text="Boerderijen"/>
+        <text name="storageMonitor_colFarm" text="BOERDERIJ"/>
+        <text name="storageMonitor_colFarmParts" text="VELDEN  VOERTUIGEN  DIEREN"/>
+        <text name="storageMonitor_colBalance" text="SALDO"/>
+        <text name="storageMonitor_noFarms" text="Geen boerderijen"/>
+        <text name="storageMonitor_messageEmpty" text="Nog niets geschreven"/>
+        <text name="storageMonitor_messageHint" text="Ga hier staan en druk op de activeertoets om een bericht te schrijven"/>
+        <text name="storageMonitor_messageWritten" text="Geschreven op dag %d om %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Bericht schrijven"/>
+        <text name="storageMonitor_messagePrompt" text="Bericht voor iedereen (| begint een nieuwe regel, leeg wist het)"/>
+        <text name="storageMonitor_worthAt" text="%s waard bij %s"/>
+        <text name="storageMonitor_menuOnly" text="Getoonde producten (nu: %s)"/>
+        <text name="storageMonitor_onlyAll" text="alle"/>
+        <text name="storageMonitor_onlyCount" text="%d producten"/>
+        <text name="storageMonitor_onlyAllOption" text="Alle producten"/>
+        <text name="storageMonitor_onlyTitle" text="Getoonde producten"/>
+        <text name="storageMonitor_onlyText" text="Vink de producten aan die getoond worden (tot %d). Eén product wordt groot getoond:"/>
+        <text name="storageMonitor_bestNext" text="Best volgende maand: +%d%%"/>
     </texts>
 </l10n>

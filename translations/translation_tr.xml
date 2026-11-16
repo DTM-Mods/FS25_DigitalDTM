@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Kapalı: seçilen depoyu göster"/>
         <text name="storageMonitor_seconds" text="%d sn"/>
         <text name="storageMonitor_slideTimeText" text="Her ekranın ne kadar süre gösterileceği:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: önceki ekran"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: sonraki ekran"/>
+        <text name="storageMonitor_sellPlan" text="Ne zaman satmalı"/>
+        <text name="storageMonitor_message" text="Mesaj panosu"/>
+        <text name="storageMonitor_profit" text="Üretim kârı"/>
+        <text name="storageMonitor_openContracts" text="Alınabilecek sözleşmeler"/>
+        <text name="storageMonitor_farms" text="Tüm çiftlikler"/>
+        <text name="storageMonitor_fieldMap" text="Tarlalarımın haritası"/>
+        <text name="storageMonitor_alertHarvestRain" text="%d tarla hazır, %d sa sonra yağmur"/>
+        <text name="storageMonitor_rainingNow" text="Şu an yağmur yağıyor"/>
+        <text name="storageMonitor_dryDay" text="Bir gün ya da daha uzun kuru"/>
+        <text name="storageMonitor_dryFor" text="%d sa kuru"/>
+        <text name="storageMonitor_harvestWorth" text="Hasat değeri"/>
+        <text name="storageMonitor_noSeason" text="Mevsimlik fiyat yok"/>
+        <text name="storageMonitor_sellNow" text="Şimdi sat: en iyi ay"/>
+        <text name="storageMonitor_bestIn" text="En iyisi %d ay sonra: +%d%%"/>
+        <text name="storageMonitor_atBest" text="En iyi aylarda"/>
+        <text name="storageMonitor_waitGain" text="Beklersen fazlası"/>
+        <text name="storageMonitor_sellNowCount" text="Şimdi sat"/>
+        <text name="storageMonitor_holdCount" text="Sonra daha iyi"/>
+        <text name="storageMonitor_productsCount" text="Ürünler"/>
+        <text name="storageMonitor_colBestTime" text="EN İYİ ZAMAN"/>
+        <text name="storageMonitor_colGain" text="ARTIŞ"/>
+        <text name="storageMonitor_noSellable" text="Silolarındaki hiçbir şey hiçbir yerde satılmıyor"/>
+        <text name="storageMonitor_profitParts" text="girdi %s  çıktı %s  bakım %s"/>
+        <text name="storageMonitor_profitCaps" text="SAATLİK KÂR"/>
+        <text name="storageMonitor_bestLine" text="En iyi: %s"/>
+        <text name="storageMonitor_perDay" text="Günlük"/>
+        <text name="storageMonitor_linesCount" text="Hatlar"/>
+        <text name="storageMonitor_losing" text="Zarar ediyor"/>
+        <text name="storageMonitor_colLine" text="HAT"/>
+        <text name="storageMonitor_colInOut" text="OYUN SAATİ BAŞINA"/>
+        <text name="storageMonitor_colProfit" text="KÂR"/>
+        <text name="storageMonitor_noLines" text="Açık üretim hattı yok"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="ALINABİLECEK SÖZLEŞMELER"/>
+        <text name="storageMonitor_limitReached" text="Çiftliğin sınıra ulaştı"/>
+        <text name="storageMonitor_bestReward" text="En iyi ödül"/>
+        <text name="storageMonitor_bestPerHa" text="Hektar başına en iyi"/>
+        <text name="storageMonitor_taken" text="Süren"/>
+        <text name="storageMonitor_allRewards" text="Tüm ödüller"/>
+        <text name="storageMonitor_colReward" text="ÖDÜL"/>
+        <text name="storageMonitor_noOpenContracts" text="Şu an alınabilecek sözleşme yok"/>
+        <text name="storageMonitor_myFarm" text="%s (sen)"/>
+        <text name="storageMonitor_farmParts" text="%d tarla (%s)  %d araç  %d hayvan"/>
+        <text name="storageMonitor_myPlace" text="SIRAM"/>
+        <text name="storageMonitor_ofFarms" text="%d çiftlik içinde"/>
+        <text name="storageMonitor_myBalance" text="Bakiyem"/>
+        <text name="storageMonitor_richest" text="En zengin"/>
+        <text name="storageMonitor_farmsCount" text="Çiftlikler"/>
+        <text name="storageMonitor_colFarm" text="ÇİFTLİK"/>
+        <text name="storageMonitor_colFarmParts" text="TARLALAR  ARAÇLAR  HAYVANLAR"/>
+        <text name="storageMonitor_colBalance" text="BAKİYE"/>
+        <text name="storageMonitor_noFarms" text="Çiftlik yok"/>
+        <text name="storageMonitor_messageEmpty" text="Henüz bir şey yazılmadı"/>
+        <text name="storageMonitor_messageHint" text="Mesaj yazmak için burada dur ve etkinleştirme tuşuna bas"/>
+        <text name="storageMonitor_messageWritten" text="Yazıldı: %d. gün, saat %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Mesajı yaz"/>
+        <text name="storageMonitor_messagePrompt" text="Herkese mesaj (| yeni satır başlatır, boş bırakırsan silinir)"/>
+        <text name="storageMonitor_worthAt" text="Değeri %s, satış yeri: %s"/>
+        <text name="storageMonitor_menuOnly" text="Gösterilen ürünler (şu an: %s)"/>
+        <text name="storageMonitor_onlyAll" text="tümü"/>
+        <text name="storageMonitor_onlyCount" text="%d ürün"/>
+        <text name="storageMonitor_onlyAllOption" text="Tüm ürünler"/>
+        <text name="storageMonitor_onlyTitle" text="Gösterilen ürünler"/>
+        <text name="storageMonitor_onlyText" text="Gösterilecek ürünleri işaretle (en fazla %d). Tek bir ürün büyük gösterilir:"/>
+        <text name="storageMonitor_bestNext" text="En iyisi gelecek ay: +%d%%"/>
     </texts>
 </l10n>

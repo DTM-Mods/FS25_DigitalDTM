@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Oprit: arată depozitul ales"/>
         <text name="storageMonitor_seconds" text="%d s"/>
         <text name="storageMonitor_slideTimeText" text="Cât timp se arată fiecare ecran:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: ecranul anterior"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: ecranul următor"/>
+        <text name="storageMonitor_sellPlan" text="Când să vinzi"/>
+        <text name="storageMonitor_message" text="Panou de mesaje"/>
+        <text name="storageMonitor_profit" text="Profitul producțiilor"/>
+        <text name="storageMonitor_openContracts" text="Contracte disponibile"/>
+        <text name="storageMonitor_farms" text="Toate fermele"/>
+        <text name="storageMonitor_fieldMap" text="Harta câmpurilor mele"/>
+        <text name="storageMonitor_alertHarvestRain" text="Câmpuri gata de recoltat: %d, ploaie în %d h"/>
+        <text name="storageMonitor_rainingNow" text="Plouă acum"/>
+        <text name="storageMonitor_dryDay" text="Uscat o zi sau mai mult"/>
+        <text name="storageMonitor_dryFor" text="Uscat încă %d h"/>
+        <text name="storageMonitor_harvestWorth" text="Valoarea recoltei"/>
+        <text name="storageMonitor_noSeason" text="Fără prețuri sezoniere"/>
+        <text name="storageMonitor_sellNow" text="Vinde acum: cea mai bună lună"/>
+        <text name="storageMonitor_bestIn" text="Cel mai bine peste %d luni: +%d%%"/>
+        <text name="storageMonitor_atBest" text="În cele mai bune luni"/>
+        <text name="storageMonitor_waitGain" text="În plus dacă aștepți"/>
+        <text name="storageMonitor_sellNowCount" text="Vinde acum"/>
+        <text name="storageMonitor_holdCount" text="Mai bine mai târziu"/>
+        <text name="storageMonitor_productsCount" text="Produse"/>
+        <text name="storageMonitor_colBestTime" text="MOMENT OPTIM"/>
+        <text name="storageMonitor_colGain" text="CÂȘTIG"/>
+        <text name="storageMonitor_noSellable" text="Nimic din silozurile tale nu se vinde nicăieri"/>
+        <text name="storageMonitor_profitParts" text="intrări %s  ieșiri %s  întreținere %s"/>
+        <text name="storageMonitor_profitCaps" text="PROFIT PE ORĂ"/>
+        <text name="storageMonitor_bestLine" text="Cea mai bună: %s"/>
+        <text name="storageMonitor_perDay" text="Pe zi"/>
+        <text name="storageMonitor_linesCount" text="Linii"/>
+        <text name="storageMonitor_losing" text="În pierdere"/>
+        <text name="storageMonitor_colLine" text="LINIE"/>
+        <text name="storageMonitor_colInOut" text="PE ORĂ DE JOC"/>
+        <text name="storageMonitor_colProfit" text="PROFIT"/>
+        <text name="storageMonitor_noLines" text="Nicio linie de producție nu e pornită"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="CONTRACTE DISPONIBILE"/>
+        <text name="storageMonitor_limitReached" text="Ferma ta a atins limita"/>
+        <text name="storageMonitor_bestReward" text="Cea mai bună recompensă"/>
+        <text name="storageMonitor_bestPerHa" text="Cea mai bună pe ha"/>
+        <text name="storageMonitor_taken" text="Active"/>
+        <text name="storageMonitor_allRewards" text="Toate recompensele"/>
+        <text name="storageMonitor_colReward" text="RECOMPENSĂ"/>
+        <text name="storageMonitor_noOpenContracts" text="Acum nu sunt contracte disponibile"/>
+        <text name="storageMonitor_myFarm" text="%s (tu)"/>
+        <text name="storageMonitor_farmParts" text="câmpuri: %d (%s)  vehicule: %d  animale: %d"/>
+        <text name="storageMonitor_myPlace" text="LOCUL MEU"/>
+        <text name="storageMonitor_ofFarms" text="total ferme: %d"/>
+        <text name="storageMonitor_myBalance" text="Soldul meu"/>
+        <text name="storageMonitor_richest" text="Cea mai bogată"/>
+        <text name="storageMonitor_farmsCount" text="Ferme"/>
+        <text name="storageMonitor_colFarm" text="FERMĂ"/>
+        <text name="storageMonitor_colFarmParts" text="CÂMPURI  VEHICULE  ANIMALE"/>
+        <text name="storageMonitor_colBalance" text="SOLD"/>
+        <text name="storageMonitor_noFarms" text="Nicio fermă"/>
+        <text name="storageMonitor_messageEmpty" text="Încă nu s-a scris nimic"/>
+        <text name="storageMonitor_messageHint" text="Stai aici și apasă tasta de activare ca să scrii un mesaj"/>
+        <text name="storageMonitor_messageWritten" text="Scris în ziua %d la %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Scrie mesajul"/>
+        <text name="storageMonitor_messagePrompt" text="Mesaj pentru toți (| începe un rând nou, gol îl șterge)"/>
+        <text name="storageMonitor_worthAt" text="Valorează %s la %s"/>
+        <text name="storageMonitor_menuOnly" text="Produse afișate (acum: %s)"/>
+        <text name="storageMonitor_onlyAll" text="toate"/>
+        <text name="storageMonitor_onlyCount" text="produse: %d"/>
+        <text name="storageMonitor_onlyAllOption" text="Toate produsele"/>
+        <text name="storageMonitor_onlyTitle" text="Produse afișate"/>
+        <text name="storageMonitor_onlyText" text="Bifează produsele de afișat (până la %d). Un singur produs e afișat mare:"/>
+        <text name="storageMonitor_bestNext" text="Cel mai bine luna viitoare: +%d%%"/>
     </texts>
 </l10n>

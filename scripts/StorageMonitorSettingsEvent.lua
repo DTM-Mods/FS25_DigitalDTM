@@ -48,3 +48,43 @@ function StorageMonitorSettingsEvent.sendEvent(placeable, settings, noEventSend)
         g_client:getServerConnection():sendEvent(event)
     end
 end
+
+-- The history the server keeps (a sample every half in-game hour): each new sample goes to every player, so the
+-- history graph is the same for everyone and survives restarts (it is saved with the game).
+StorageMonitorGraphEvent = {}
+local StorageMonitorGraphEvent_mt = Class(StorageMonitorGraphEvent, Event)
+InitEventClass(StorageMonitorGraphEvent, "StorageMonitorGraphEvent")
+
+function StorageMonitorGraphEvent.emptyNew()
+    return Event.new(StorageMonitorGraphEvent_mt)
+end
+
+function StorageMonitorGraphEvent.new(placeable, key, sample, reset)
+    local self = StorageMonitorGraphEvent.emptyNew()
+    self.placeable = placeable
+    self.key = key
+    self.sample = sample
+    self.reset = reset == true
+    return self
+end
+
+function StorageMonitorGraphEvent:writeStream(streamId, connection)
+    NetworkUtil.writeNodeObject(streamId, self.placeable)
+    streamWriteString(streamId, self.key or "")
+    streamWriteBool(streamId, self.reset)
+    StorageMonitor.writeSample(streamId, self.sample)
+end
+
+function StorageMonitorGraphEvent:readStream(streamId, connection)
+    self.placeable = NetworkUtil.readNodeObject(streamId)
+    self.key = streamReadString(streamId)
+    self.reset = streamReadBool(streamId)
+    self.sample = StorageMonitor.readSample(streamId)
+    self:run(connection)
+end
+
+function StorageMonitorGraphEvent:run(connection)
+    if self.placeable ~= nil and self.placeable.spec_storageMonitor ~= nil then
+        StorageMonitor.addServerSample(self.placeable, self.key, self.sample, self.reset)
+    end
+end

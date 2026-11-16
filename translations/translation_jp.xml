@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="オフ：選択した保管庫を表示"/>
         <text name="storageMonitor_seconds" text="%d 秒"/>
         <text name="storageMonitor_slideTimeText" text="各画面の表示時間："/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM：前の画面"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM：次の画面"/>
+        <text name="storageMonitor_sellPlan" text="売り時"/>
+        <text name="storageMonitor_message" text="掲示板"/>
+        <text name="storageMonitor_profit" text="生産施設の利益"/>
+        <text name="storageMonitor_openContracts" text="受注できる契約"/>
+        <text name="storageMonitor_farms" text="全農場"/>
+        <text name="storageMonitor_fieldMap" text="自分の畑の地図"/>
+        <text name="storageMonitor_alertHarvestRain" text="%d 枚の畑が収穫可能、%d 時間後に雨"/>
+        <text name="storageMonitor_rainingNow" text="雨が降っています"/>
+        <text name="storageMonitor_dryDay" text="1日以上雨なし"/>
+        <text name="storageMonitor_dryFor" text="%d 時間雨なし"/>
+        <text name="storageMonitor_harvestWorth" text="収穫物の価値"/>
+        <text name="storageMonitor_noSeason" text="季節価格なし"/>
+        <text name="storageMonitor_sellNow" text="今が売り時：最高の月"/>
+        <text name="storageMonitor_bestIn" text="%d か月後が最高：+%d%%"/>
+        <text name="storageMonitor_atBest" text="最高の月なら"/>
+        <text name="storageMonitor_waitGain" text="待てば増える額"/>
+        <text name="storageMonitor_sellNowCount" text="今が売り時"/>
+        <text name="storageMonitor_holdCount" text="後の方が高い"/>
+        <text name="storageMonitor_productsCount" text="製品"/>
+        <text name="storageMonitor_colBestTime" text="最適時期"/>
+        <text name="storageMonitor_colGain" text="上乗せ"/>
+        <text name="storageMonitor_noSellable" text="サイロ内の製品はどこにも売れません"/>
+        <text name="storageMonitor_profitParts" text="投入 %s  産出 %s  維持費 %s"/>
+        <text name="storageMonitor_profitCaps" text="1時間あたりの利益"/>
+        <text name="storageMonitor_bestLine" text="最高：%s"/>
+        <text name="storageMonitor_perDay" text="1日あたり"/>
+        <text name="storageMonitor_linesCount" text="ライン"/>
+        <text name="storageMonitor_losing" text="赤字"/>
+        <text name="storageMonitor_colLine" text="ライン"/>
+        <text name="storageMonitor_colInOut" text="ゲーム内1時間あたり"/>
+        <text name="storageMonitor_colProfit" text="利益"/>
+        <text name="storageMonitor_noLines" text="稼働中の生産ラインはありません"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="受注できる契約"/>
+        <text name="storageMonitor_limitReached" text="農場の契約数が上限です"/>
+        <text name="storageMonitor_bestReward" text="最高報酬"/>
+        <text name="storageMonitor_bestPerHa" text="haあたり最高"/>
+        <text name="storageMonitor_taken" text="進行中"/>
+        <text name="storageMonitor_allRewards" text="全報酬"/>
+        <text name="storageMonitor_colReward" text="報酬"/>
+        <text name="storageMonitor_noOpenContracts" text="現在受注できる契約はありません"/>
+        <text name="storageMonitor_myFarm" text="%s（自分）"/>
+        <text name="storageMonitor_farmParts" text="畑 %d（%s）  車両 %d  動物 %d"/>
+        <text name="storageMonitor_myPlace" text="自分の順位"/>
+        <text name="storageMonitor_ofFarms" text="全 %d 農場中"/>
+        <text name="storageMonitor_myBalance" text="自分の残高"/>
+        <text name="storageMonitor_richest" text="最も裕福"/>
+        <text name="storageMonitor_farmsCount" text="農場"/>
+        <text name="storageMonitor_colFarm" text="農場"/>
+        <text name="storageMonitor_colFarmParts" text="畑  車両  動物"/>
+        <text name="storageMonitor_colBalance" text="残高"/>
+        <text name="storageMonitor_noFarms" text="農場がありません"/>
+        <text name="storageMonitor_messageEmpty" text="まだ何も書かれていません"/>
+        <text name="storageMonitor_messageHint" text="ここに立って起動キーを押すとメッセージを書けます"/>
+        <text name="storageMonitor_messageWritten" text="%d 日目 %02d:%02d に記入"/>
+        <text name="storageMonitor_menuMessage" text="メッセージを書く"/>
+        <text name="storageMonitor_messagePrompt" text="全員へのメッセージ（| で改行、空欄で消去）"/>
+        <text name="storageMonitor_worthAt" text="価値 %s（%s）"/>
+        <text name="storageMonitor_menuOnly" text="表示する製品（現在：%s）"/>
+        <text name="storageMonitor_onlyAll" text="すべて"/>
+        <text name="storageMonitor_onlyCount" text="%d 品目"/>
+        <text name="storageMonitor_onlyAllOption" text="すべての製品"/>
+        <text name="storageMonitor_onlyTitle" text="表示する製品"/>
+        <text name="storageMonitor_onlyText" text="表示する製品を選択（最大 %d）。1品目だけの場合は大きく表示："/>
+        <text name="storageMonitor_bestNext" text="来月が最高：+%d%%"/>
     </texts>
 </l10n>

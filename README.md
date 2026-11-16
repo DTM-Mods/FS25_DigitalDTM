@@ -32,7 +32,17 @@ it shows what is in it, live. It can also show a screen for your whole farm (fie
 pens, all productions, money), today's best prices, or the last in-game day as a chart:
 
 - **My fields:** the crop on every field and how far it has grown; the fields ready to harvest first, then withered and to
-  sow; what each needs: lime, fertilizer, plowing, rolling, weeds. A message when a field is ready.
+  sow; what each needs: lime, fertilizer, plowing, rolling, weeds; the expected harvest and what it's worth; and how long
+  it stays dry (a warning when fields are ready and rain is coming).
+- **Map of my fields:** every field of the farm drawn in the colour of its crop's state, with its number.
+- **When to sell:** for every product in your silos the best month on the game's seasonal prices and how much more the
+  stock is worth then.
+- **Production profit:** what every running production line earns per in-game hour: outputs at the best price, less the
+  inputs and the upkeep.
+- **Contracts to take:** the contracts nobody has taken yet, the best reward per hectare first, and how many more your farm
+  may take.
+- **All farms:** every farm on the server side by side: balance, fields, vehicles, animals.
+- **Message board:** type a message everyone sees on the screen.
 - **Weather:** the temperature, today's high and low, the weather now, in the next hours and the next days, when it
   changes, and whether the crops are dry. A warning 3 hours before rain.
 - **My vehicles:** helpers at work, fuel and damage of every vehicle, the ones that need you first. A warning when a
@@ -41,7 +51,9 @@ pens, all productions, money), today's best prices, or the last in-game day as a
 - **All my animal pens / all my productions:** every pen or production on one screen, the lowest supply, missing
   inputs by name, full outputs, greenhouses without water.
 - **History:** "Screen shows: History (24 h)" draws how full the storage was over the last in-game day, a column per half
-  hour (the farm's money: the balance).
+  hour (the farm's money: the balance). The server keeps it and saves it with the game.
+- **One product big:** show only the products you pick; one alone fills the screen with its amount, rate and worth.
+- **Flip screens by hand:** Home / End in front of a monitor switch to the previous or next screen.
 - **Slideshow:** tick several screens and the monitor shows them in turn, 10 to 60 seconds each.
 - **Your own alert levels:** "nearly full" from 70 to 100 % per monitor (the red and amber follow it), and a price alert:
   a message when a product sells for the price you wait for.
@@ -106,6 +118,10 @@ bigger.
 </p>
 
 <p align="center">
+  <img src="src/screens/v14.png" alt="When to sell, production profit, contracts to take, all farms, the map of my fields, the message board and one product shown big" width="100%">
+</p>
+
+<p align="center">
   <img src="src/screens/farm.png" alt="My fields, weather, my vehicles, my contracts, all my animal pens, all my productions" width="100%">
 </p>
 
@@ -150,13 +166,16 @@ bigger.
    - **Colours**: night blue, DTM green, amber terminal, daylight.
    - **Title**: type your own, or leave it empty for the storage's name.
    - **Screen shows**: the storage, prices (the price board), or history (the last in-game day as a chart).
+   - **Products shown**: all, or the ones you tick (up to 8); one alone is shown big.
+   - **Write the message** (on a message board): `|` starts a new line, an empty text clears it.
    - **Alerts**: off, on the screen, or on the screen and as a game message for your farm.
    - **Nearly full from**: 70 to 100 % (default 90 %); red from there, amber from 15 below.
    - **Price alert**: pick a product and a price (5 to 50 % above today's best); a message when it sells for that.
    - **Slideshow**: tick the screens to show in turn (up to 8) and the time per screen (10, 20, 30 or 60 s). While it
      runs the header shows "2/3" and a thin bar for the time to the next screen.
 4. More than 42 products: **Page Up / Page Down** in front of the screen (rebindable under Controls). The pages stay
-   where you put them for 30 seconds.
+   where you put them for 30 seconds. **Home / End** switch to the previous or next screen (in a slideshow, its
+   previous or next screen).
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/multiplayer.jpg" alt="Multiplayer" width="100%">
@@ -170,8 +189,10 @@ bigger.
 - Alert messages go to the players of the monitor's own farm only, from each player's own game.
 - Rates need about a quarter of an in-game hour of readings before they show. A monitor nobody is near still reads its
   storage every 10 seconds, so rates and alerts keep going.
-- The history graph is drawn from each player's own readings: it starts empty after loading or joining and fills over
-  the next in-game day. A slideshow reads each screen while it is shown.
+- The server keeps the history of each monitor's picked (or nearest) storage, saves it with the game and sends it to
+  every player, so the graph is there after a restart and for players who join. Screens in a slideshow that are not the
+  picked one fill from the player's own readings.
+- "All farms" shows another farm's balance only where the game shares it with your game; otherwise it shows "--".
 - The fields and vehicles are read at most every 10 seconds for all monitors together.
 - In 27 languages: every language the game has.
 
@@ -222,7 +243,11 @@ How it works:
   `getConsumerFillUnitIndex`, `getDamageAmount`, `getIsAIActive`), the contracts (`g_missionManager:getMissionsByFarmId`)
   and the farm's pens and productions. Each gives rows (name, middle text, bar, value) drawn by `drawRowList`, a summary
   for the top panel and its problems for the alerts.
-- **History:** a sample every half in-game hour, kept for 24 hours per screen (`updateGraph`), drawn as columns.
+- **History:** a sample every half in-game hour, kept for 24 hours per screen (`updateGraph`), drawn as columns. The
+  server samples each monitor's picked storage (`updateServer`), saves it in the savegame and sends new samples with
+  `StorageMonitorGraphEvent`; joining players get it in the monitor's stream.
+- **Field map:** the field borders (`field:getDensityMapPolygon():getVerticesList()`) are turned into a grid of cells once,
+  runs of cells per field are the bars.
 - **Performance:** a monitor out of sight reads its storage every 10 seconds (every 2.5 seconds beyond half its reading
   distance, every second up close); screens behind the camera are not drawn, and at most 8 monitors are drawn, nearest
   first. Fitted texts are measured once per reading, not every frame.
@@ -244,6 +269,18 @@ The PNG masters in `src/` stay out of the zip (`.modignore`).
 <p align="center">
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/patch-notes.jpg" alt="Patch notes" width="100%">
 </p>
+
+### 1.4.0.0
+
+- New screens: when to sell (best month per product on the seasonal prices), production profit (per line and in-game
+  hour), contracts to take (best reward per hectare first), all farms (balance, fields, vehicles, animals), map of my
+  fields, and a message board.
+- My fields: the expected harvest and its worth, and the harvest window (how long it stays dry, a warning when fields are
+  ready and rain is coming).
+- Products shown: only the products you pick; one product alone is shown big.
+- Home / End in front of a monitor switch to the previous or next screen.
+- Fixed: Page Up / Page Down in front of a monitor did nothing (the keys were never registered).
+- The history is kept by the server and saved with the game: there after a restart and for players who join.
 
 ### 1.3.0.0
 

@@ -265,5 +265,72 @@
         <text name="storageMonitor_slideOff" text="Mati: tampilkan penyimpanan yang dipilih"/>
         <text name="storageMonitor_seconds" text="%d dtk"/>
         <text name="storageMonitor_slideTimeText" text="Berapa lama setiap layar ditampilkan:"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: layar sebelumnya"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: layar berikutnya"/>
+        <text name="storageMonitor_sellPlan" text="Kapan menjual"/>
+        <text name="storageMonitor_message" text="Papan pesan"/>
+        <text name="storageMonitor_profit" text="Laba produksi"/>
+        <text name="storageMonitor_openContracts" text="Kontrak tersedia"/>
+        <text name="storageMonitor_farms" text="Semua pertanian"/>
+        <text name="storageMonitor_fieldMap" text="Peta ladang saya"/>
+        <text name="storageMonitor_alertHarvestRain" text="%d ladang siap, hujan dalam %d jam"/>
+        <text name="storageMonitor_rainingNow" text="Sedang hujan"/>
+        <text name="storageMonitor_dryDay" text="Kering sehari atau lebih"/>
+        <text name="storageMonitor_dryFor" text="Kering selama %d jam"/>
+        <text name="storageMonitor_harvestWorth" text="Nilai panen"/>
+        <text name="storageMonitor_noSeason" text="Tidak ada harga musiman"/>
+        <text name="storageMonitor_sellNow" text="Jual sekarang: bulan terbaik"/>
+        <text name="storageMonitor_bestIn" text="Terbaik dalam %d bulan: +%d%%"/>
+        <text name="storageMonitor_atBest" text="Pada bulan terbaik"/>
+        <text name="storageMonitor_waitGain" text="Tambahan jika menunggu"/>
+        <text name="storageMonitor_sellNowCount" text="Jual sekarang"/>
+        <text name="storageMonitor_holdCount" text="Lebih baik nanti"/>
+        <text name="storageMonitor_productsCount" text="Produk"/>
+        <text name="storageMonitor_colBestTime" text="WAKTU TERBAIK"/>
+        <text name="storageMonitor_colGain" text="KENAIKAN"/>
+        <text name="storageMonitor_noSellable" text="Tidak ada isi silo Anda yang laku di mana pun"/>
+        <text name="storageMonitor_profitParts" text="masuk %s  keluar %s  perawatan %s"/>
+        <text name="storageMonitor_profitCaps" text="LABA PER JAM"/>
+        <text name="storageMonitor_bestLine" text="Terbaik: %s"/>
+        <text name="storageMonitor_perDay" text="Per hari"/>
+        <text name="storageMonitor_linesCount" text="Lini"/>
+        <text name="storageMonitor_losing" text="Merugi"/>
+        <text name="storageMonitor_colLine" text="LINI"/>
+        <text name="storageMonitor_colInOut" text="PER JAM DALAM GAME"/>
+        <text name="storageMonitor_colProfit" text="LABA"/>
+        <text name="storageMonitor_noLines" text="Tidak ada lini produksi yang menyala"/>
+        <text name="storageMonitor_perHa" text="%s/ha"/>
+        <text name="storageMonitor_toTakeCaps" text="KONTRAK TERSEDIA"/>
+        <text name="storageMonitor_limitReached" text="Pertanian Anda sudah mencapai batas"/>
+        <text name="storageMonitor_bestReward" text="Imbalan terbaik"/>
+        <text name="storageMonitor_bestPerHa" text="Terbaik per ha"/>
+        <text name="storageMonitor_taken" text="Berjalan"/>
+        <text name="storageMonitor_allRewards" text="Semua imbalan"/>
+        <text name="storageMonitor_colReward" text="IMBALAN"/>
+        <text name="storageMonitor_noOpenContracts" text="Tidak ada kontrak tersedia saat ini"/>
+        <text name="storageMonitor_myFarm" text="%s (Anda)"/>
+        <text name="storageMonitor_farmParts" text="%d ladang (%s)  %d kendaraan  %d hewan"/>
+        <text name="storageMonitor_myPlace" text="PERINGKAT SAYA"/>
+        <text name="storageMonitor_ofFarms" text="dari %d pertanian"/>
+        <text name="storageMonitor_myBalance" text="Saldo saya"/>
+        <text name="storageMonitor_richest" text="Terkaya"/>
+        <text name="storageMonitor_farmsCount" text="Pertanian"/>
+        <text name="storageMonitor_colFarm" text="PERTANIAN"/>
+        <text name="storageMonitor_colFarmParts" text="LADANG  KENDARAAN  HEWAN"/>
+        <text name="storageMonitor_colBalance" text="SALDO"/>
+        <text name="storageMonitor_noFarms" text="Tidak ada pertanian"/>
+        <text name="storageMonitor_messageEmpty" text="Belum ada yang ditulis"/>
+        <text name="storageMonitor_messageHint" text="Berdiri di sini dan tekan tombol aktivasi untuk menulis pesan"/>
+        <text name="storageMonitor_messageWritten" text="Ditulis pada hari %d pukul %02d:%02d"/>
+        <text name="storageMonitor_menuMessage" text="Tulis pesan"/>
+        <text name="storageMonitor_messagePrompt" text="Pesan untuk semua (| memulai baris baru, kosong menghapusnya)"/>
+        <text name="storageMonitor_worthAt" text="Bernilai %s di %s"/>
+        <text name="storageMonitor_menuOnly" text="Produk yang ditampilkan (sekarang: %s)"/>
+        <text name="storageMonitor_onlyAll" text="semua"/>
+        <text name="storageMonitor_onlyCount" text="%d produk"/>
+        <text name="storageMonitor_onlyAllOption" text="Semua produk"/>
+        <text name="storageMonitor_onlyTitle" text="Produk yang ditampilkan"/>
+        <text name="storageMonitor_onlyText" text="Centang produk yang ditampilkan (maks. %d). Satu produk ditampilkan besar:"/>
+        <text name="storageMonitor_bestNext" text="Terbaik bulan depan: +%d%%"/>
     </texts>
 </l10n>
