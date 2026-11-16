@@ -873,6 +873,12 @@ function StorageMonitor:onDelete()
     if StorageMonitor.activeMonitor == self then
         StorageMonitor.activeMonitor = nil
     end
+    -- the icon and theme materials are made from the first monitor's templates and kept for all; they can go
+    -- with that monitor (the game then reports "Unknown entity id" in setMaterial every frame), so they are
+    -- made again from the monitors left
+    if self.isClient then
+        pcall(StorageMonitor.resetMaterials)
+    end
     if spec.playerTrigger ~= nil and self.isClient then
         removeTrigger(spec.playerTrigger)
     end
@@ -1154,6 +1160,33 @@ function StorageMonitor:setStorageMonitorSize(width)
     spec.headerTitle = nil
 end
 
+--- Forgets the shared icon and theme materials and puts the monitors' own glass back, then each monitor makes
+-- its look again; icons are made again when next drawn (from a monitor that is still there).
+function StorageMonitor.resetMaterials()
+    StorageMonitor.iconMaterials = nil
+    StorageMonitor.themeMaterials = nil
+    for _, monitor in ipairs(StorageMonitor.instances) do
+        local spec = monitor.spec_storageMonitor
+        if spec ~= nil then
+            for _, face in ipairs(spec.faces or {}) do
+                face.appliedMaterial = nil
+                face.iconBase = nil
+                for _, slot in ipairs(face.icons or {}) do
+                    slot.material = nil
+                    if slot.visible and setVisibility ~= nil then
+                        setVisibility(slot.node, false)
+                        slot.visible = false
+                    end
+                end
+                if face.glassNode ~= nil and face.glassMaterial ~= nil and setMaterial ~= nil then
+                    setMaterial(face.glassNode, face.glassMaterial, 0)
+                end
+            end
+            pcall(StorageMonitor.applyLook, monitor)
+        end
+    end
+end
+
 -- brightness factor of the monitor (1 = normal)
 function StorageMonitor.brightnessFactor(spec)
     local level = StorageMonitor.BRIGHTNESS[spec.brightness or StorageMonitor.DEFAULT_BRIGHTNESS]
@@ -1176,16 +1209,22 @@ function StorageMonitor:applyLook()
             end
             local material = face.glassMaterial
             if spec.theme ~= 1 and setMaterialDiffuseMapFromFile ~= nil and StorageMonitor.MOD_DIR ~= nil then
+                -- per model (its own glass material) and theme, so a model's materials never outlive its monitors
                 StorageMonitor.themeMaterials = StorageMonitor.themeMaterials or {}
-                local cached = StorageMonitor.themeMaterials[theme.id]
+                local byTheme = StorageMonitor.themeMaterials[face.glassMaterial]
+                if byTheme == nil then
+                    byTheme = {}
+                    StorageMonitor.themeMaterials[face.glassMaterial] = byTheme
+                end
+                local cached = byTheme[theme.id]
                 if cached == nil then
                     local ok, result = pcall(setMaterialDiffuseMapFromFile, face.glassMaterial, StorageMonitor.MOD_DIR .. theme.texture, true, true, false)
                     if ok and result ~= nil and result ~= 0 then
                         cached = result
-                        StorageMonitor.themeMaterials[theme.id] = cached
+                        byTheme[theme.id] = cached
                     else
                         StorageMonitor.log("Warning: theme texture %s not loaded", tostring(theme.texture))
-                        StorageMonitor.themeMaterials[theme.id] = false
+                        byTheme[theme.id] = false
                     end
                 end
                 material = cached or material
@@ -1351,6 +1390,42 @@ local function getPlayerFarmId()
     return 1
 end
 StorageMonitor.getPlayerFarmId = getPlayerFarmId
+
+-- the farm of the player at this game, whatever monitor is being read (alert messages, "you")
+local function realPlayerFarmId()
+    local saved = StorageMonitor.farmOverride
+    StorageMonitor.farmOverride = nil
+    local farmId = getPlayerFarmId()
+    StorageMonitor.farmOverride = saved
+    return farmId
+end
+StorageMonitor.realPlayerFarmId = realPlayerFarmId
+
+-- the farm that owns a monitor (it shows that farm's data to everyone who looks), or nil
+function StorageMonitor.monitorFarmId(monitor)
+    if monitor == nil or monitor.getOwnerFarmId == nil then
+        return nil
+    end
+    local ok, owner = pcall(monitor.getOwnerFarmId, monitor)
+    local spectator = FarmManager ~= nil and FarmManager.SPECTATOR_FARM_ID or 0
+    if ok and type(owner) == "number" and owner ~= spectator then
+        return owner
+    end
+    return nil
+end
+
+-- runs fn(monitor, ...) as the monitor's own farm: a player of another farm looking at the board sees the
+-- owner's fields, money, contracts and silos, not their own
+function StorageMonitor.asMonitorFarm(monitor, fn, ...)
+    local saved = StorageMonitor.farmOverride
+    StorageMonitor.farmOverride = StorageMonitor.monitorFarmId(monitor) or saved
+    local result = {pcall(fn, monitor, ...)}
+    StorageMonitor.farmOverride = saved
+    if not result[1] then
+        error(result[2], 0)
+    end
+    return (table.unpack or unpack)(result, 2)
+end
 
 local function placeableName(placeable, fallback)
     if placeable ~= nil and placeable.getName ~= nil then
@@ -1663,6 +1738,10 @@ function StorageMonitor.choose(candidates, pick)
 end
 
 function StorageMonitor:rescanStorageMonitor()
+    return StorageMonitor.asMonitorFarm(self, StorageMonitor.rescanStorageMonitorNow)
+end
+
+function StorageMonitor:rescanStorageMonitorNow()
     local spec = self.spec_storageMonitor
     local candidates = StorageMonitor.collectStorageCandidates(self)
     spec.candidates = candidates
@@ -2856,10 +2935,13 @@ function StorageMonitor.readFarms(myFarmId)
             if money ~= nil then
                 richest = math.max(richest, money)
             end
-            local mine = id == myFarmId
+            local mine = id == myFarmId           -- the board's farm: its place
+            local you = id == realPlayerFarmId()     -- the player looking at it
             local title = tostring(farm.name or ("Farm " .. id))
-            if mine then
+            if you then
                 title = string.format(T("storageMonitor_myFarm", "%s (you)"), title)
+            end
+            if mine then
                 panel.mine = {money = money, name = tostring(farm.name or id)}
             end
             table.insert(panel.rows, {id = "farm" .. id, rank = 1, order = -(money or -math.huge), title = title,
@@ -3027,7 +3109,7 @@ function StorageMonitor.buildBoard(target)
     elseif kind == "openContracts" then
         return StorageMonitor.readOpenContracts(farmId)
     elseif kind == "farms" then
-        return cachedBoard("farms|" .. tostring(farmId), function() return StorageMonitor.readFarms(farmId) end)
+        return cachedBoard("farms|" .. tostring(farmId) .. "|" .. tostring(realPlayerFarmId()), function() return StorageMonitor.readFarms(farmId) end)
     elseif kind == "fieldMap" then
         local fields = cachedBoard("fields|" .. tostring(farmId), function() return StorageMonitor.readFields(farmId) end)
         return setmetatable({kind = "fieldMap", map = StorageMonitor.readFieldMap(farmId, fields)}, {__index = fields})
@@ -3276,7 +3358,7 @@ function StorageMonitor.announceAlerts(monitor, target, alerts)
         return
     end
     local owner = call(monitor, "getOwnerFarmId")
-    if owner ~= nil and owner ~= getPlayerFarmId() then
+    if owner ~= nil and owner ~= realPlayerFarmId() then
         return
     end
     StorageMonitor.announced = StorageMonitor.announced or {}
@@ -3297,6 +3379,10 @@ function StorageMonitor.announceAlerts(monitor, target, alerts)
 end
 
 function StorageMonitor:refreshStorageMonitorData()
+    return StorageMonitor.asMonitorFarm(self, StorageMonitor.refreshStorageMonitorDataNow)
+end
+
+function StorageMonitor:refreshStorageMonitorDataNow()
     local spec = self.spec_storageMonitor
     spec.dataTimer = 0
     if spec.target == nil then
@@ -3566,18 +3652,25 @@ local function icon(f, u0, v0, side, path, c)
         or setMaterialDiffuseMapFromFile == nil then
         return false
     end
+    -- one set of icon materials per model (made from that model's own template), so a model's materials never
+    -- outlive its monitors
+    if spec.iconBase == nil then
+        spec.iconBase = getMaterial(spec.iconTemplate, 0)
+    end
     StorageMonitor.iconMaterials = StorageMonitor.iconMaterials or {}
-    local material = StorageMonitor.iconMaterials[path]
+    local byPath = StorageMonitor.iconMaterials[spec.iconBase]
+    if byPath == nil then
+        byPath = {}
+        StorageMonitor.iconMaterials[spec.iconBase] = byPath
+    end
+    local material = byPath[path]
     if material == nil then
-        if StorageMonitor.iconBaseMaterial == nil then
-            StorageMonitor.iconBaseMaterial = getMaterial(spec.iconTemplate, 0)
-        end
-        local ok, result = pcall(setMaterialDiffuseMapFromFile, StorageMonitor.iconBaseMaterial, path, true, true, false)
+        local ok, result = pcall(setMaterialDiffuseMapFromFile, spec.iconBase, path, true, true, false)
         material = (ok and result ~= nil and result ~= 0) and result or false
         if not material then
             StorageMonitor.log("Warning: icon %s not loaded", tostring(path))
         end
-        StorageMonitor.iconMaterials[path] = material
+        byPath[path] = material
     end
     if not material then
         return false

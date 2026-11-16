@@ -184,7 +184,9 @@ bigger.
 - The settings (storage, connected silos, size, brightness, colours, title, screen mode, alerts, nearly full level,
   price alert, slideshow) are synced: everyone on the server sees the same, and they are saved with the game. Paging is
   each player's own.
-- In silos that keep one stock per farm, every player sees their own farm's stock.
+- A monitor shows the data of the farm that owns it, to everyone who looks at it: a player of another farm visiting
+  your yard sees your fields, money, contracts and stock, not their own. Game messages from its alerts only go to
+  the players of its own farm.
 - The screen is drawn by each player's game. A dedicated server draws nothing, so it costs the server nothing.
 - Alert messages go to the players of the monitor's own farm only, from each player's own game.
 - Rates need about a quarter of an in-game hour of readings before they show. A monitor nobody is near still reads its
@@ -269,6 +271,14 @@ The PNG masters in `src/` stay out of the zip (`.modignore`).
 <p align="center">
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/patch-notes.jpg" alt="Patch notes" width="100%">
 </p>
+
+### 1.4.0.1
+
+- Fixed: a player of another farm looking at your monitors saw their own farm's fields, money, vehicles, contracts and
+  stock. A monitor now always shows the farm that owns it.
+- Fixed: after a monitor was removed, the others could show the game's script error "setMaterial: Unknown entity id"
+  every frame (their product icons were made from the removed monitor). Each kind of monitor now makes its own icons
+  and colour themes, and a removal makes them again.
 
 ### 1.4.0.0
 

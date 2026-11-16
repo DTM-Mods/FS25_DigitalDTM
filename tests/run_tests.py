@@ -1380,6 +1380,71 @@ def test_v14(lua):
     check(spec.snapshot.graph is not None and len(spec.snapshot.graph) == 3, "the graph is the server's history")
 
 
+def test_visitor_sees_owner_farm(lua):
+    """A player of another farm looking at a farm's board sees that farm's data, not their own; no messages."""
+    lua.execute(WORLD)
+    lua.execute(FARM)
+    lua.execute(V14)
+    lua.execute("""
+        function m:getOwnerFarmId() return 1 end
+        g_localPlayer.farmId = 2            -- the visitor
+        notes = {}
+        FSBaseMission = {INGAME_NOTIFICATION_CRITICAL = 7}
+        g_currentMission.addIngameNotification = function(self, kind, text) table.insert(notes, text) end
+        set(m, "alerts", 3)
+    """)
+    g = lua.globals()
+    spec = g.spec
+    lua.execute('showScreen("fields")')
+    panel = spec.snapshot.panel
+    check(panel.count == 3 and panel.ready == 1, "visitor: the owner's 3 fields, not the visitor's 1 (%s)" % panel.count)
+    lua.execute('showScreen("fleet")')
+    names = [spec.snapshot.panel.rows[i].title for i in range(1, len(spec.snapshot.panel.rows) + 1)]
+    check(names == ["Fendt 942", "Case Magnum"], "visitor: the owner's vehicles, not the neighbour's truck: %s" % names)
+    lua.execute('showScreen("farms")')
+    panel = spec.snapshot.panel
+    titles = [panel.rows[i].title for i in range(1, len(panel.rows) + 1)]
+    check(panel.place == 2 and titles == ["Neighbours (you)", "DTM"], "visitor: the board's place is the owner's, 'you' is the visitor: %s" % titles)
+    lua.execute("""
+        StorageMonitor.boardCache = {}
+        showScreen("fields")
+        StorageMonitor.announced = {}
+        fields[2].farmland.owner = 2       -- something changes: a new alert on the owner's board
+        fields[1].farmland.owner = 1
+        StorageMonitor.boardCache = {}
+        StorageMonitor.refreshStorageMonitorData(m)
+    """)
+    check(len(g.notes) == 0, "visitor: no game messages from another farm's board (%s)" % list(g.notes.values()))
+    check(lua.eval("StorageMonitor.farmOverride") is None, "the farm is put back after reading")
+    check(lua.eval("StorageMonitor.getPlayerFarmId()") == 2, "outside a board the player's own farm")
+
+
+def test_delete_resets_materials(lua):
+    """Icon and theme materials are made from the first monitor's templates; removing it makes them again from the
+    monitors left (they went with it: 'Unknown entity id' in setMaterial every frame in 1.4.0.0)."""
+    lua.execute(WORLD)
+    lua.execute("""
+        a = newMonitor(false)
+        b = newMonitor(false)
+        set(a, "theme", 2) set(b, "theme", 2)
+        frame()
+        madeBefore = #materials
+        iconsBefore = StorageMonitor.iconMaterials ~= nil and next(StorageMonitor.iconMaterials) ~= nil
+        themeBefore = StorageMonitor.themeMaterials ~= nil
+        StorageMonitor.onDelete(a)
+        clearedIcons = StorageMonitor.iconMaterials == nil
+        frame()
+        madeAfter = #materials
+        local glass = b.spec_storageMonitor.faces[1].glassNode
+        bGlass = materials[nodeMaterial[glass]].texture
+    """)
+    g = lua.globals()
+    check(g.iconsBefore and g.themeBefore, "icons and theme materials were made")
+    check(g.clearedIcons, "removing a monitor forgets the shared materials")
+    check(g.madeAfter > g.madeBefore, "the monitor left makes its materials again (%d -> %d)" % (g.madeBefore, g.madeAfter))
+    check(str(g.bGlass).endswith("screen_field.dds"), "the monitor left keeps its colour theme: %s" % g.bGlass)
+
+
 def test_two_faces(lua):
     """A two-sided billboard draws on the side the camera is in front of, with that side's own bars."""
     lua.execute(WORLD)
@@ -1543,6 +1608,8 @@ def main():
     test_farm_screens(new_runtime())
     test_history_and_settings(new_runtime())
     test_v14(new_runtime())
+    test_visitor_sees_owner_farm(new_runtime())
+    test_delete_resets_materials(new_runtime())
     test_two_faces(new_runtime())
     test_performance(new_runtime())
     test_errors_do_not_escape(new_runtime())
