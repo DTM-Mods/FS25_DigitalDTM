@@ -139,11 +139,10 @@ def draw_background(theme="night"):
     cp = LAYOUT["capPanel"]
     d.line([(px(0.385), px(cp[1]) + 22), (px(0.385), px(cp[3]) - 22)], fill=border + (255,), width=2)
 
-    # footer band with a dim name
+    # footer band (no name on it: ModHub allows no modder references in the mod)
     fb = box(LAYOUT["footer"])
     d.rectangle(fb, fill=t["footer"] + (255,))
     d.line([(0, fb[1]), (w, fb[1])], fill=border + (255,), width=2)
-    d.text((px(0.050), px(0.973)), "DIGITAL DTM", font=font(26, 500), fill=t["dim"] + (110,), anchor="ls")
 
     img.alpha_composite(over)
 

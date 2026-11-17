@@ -1,56 +1,29 @@
-"""Mod icon: the wall monitor's shop render on the DTM night-field green, with the DTM pin bottom right
-(building mods keep their shop render as the icon, like `_brand/tools/make_icons.py --badge`).
+"""Mod icon: the wall monitor's shop render on GIANTS' ModHub mod icon background, the standard ModHub icon
+(the same picture GIANTS' FS Icon Generator 25 makes in its Mod Icon mode). No logo or pin: ModHub allows no
+modder references on the icon.
 
     python tools/make_icon.py        (after tools/build_model.py; then tools/gen_placeables.py makes the .dds)
 
-Writes src/icon_storageMonitor.png (the game icon) and modhub/icon_512.png (the ModHub upload), both 512 x 512:
-ModHub wants the mod icon 512 x 512.
+Writes src/icon_storageMonitor.png (the game icon) and modhub/icon_512.png (the ModHub upload), both 512 x 512.
+The background is ../_tools/modhub/modIcon_background.png (from GIANTS' FS Icon Generator 25).
 """
 import os
 
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-CREAM, GOLD, NIGHT = (244, 241, 232), (217, 164, 65), (20, 51, 38)
-
-
-def pin(size):
-    """The DTM marker pin of every DTM icon, at the brand tile's place and size: a cream dot (r 30 at 512 px)
-    with a 12 px gold ring, i.e. gold out to r 36 and cream inside r 24."""
-    ss = 4                                   # drawn 4x larger, then scaled down: smooth edges
-    layer = Image.new("RGBA", (size * ss, size * ss), (0, 0, 0, 0))
-    d = ImageDraw.Draw(layer)
-    k = size / 512 * ss
-    c = 446 * k
-    for r, fill in ((36, GOLD), (24, CREAM)):
-        d.ellipse([c - r * k, c - r * k, c + r * k, c + r * k], fill=fill)
-    return layer.resize((size, size), Image.LANCZOS)
+BACKGROUND = os.path.join(ROOT, "..", "_tools", "modhub", "modIcon_background.png")
 
 
 def icon(size):
-    bg = Image.new("RGBA", (size, size))
-    d = ImageDraw.Draw(bg)
-    top, bottom = (31, 77, 58), (20, 51, 38)        # field green -> night field
-    for y in range(size):
-        t = y / (size - 1)
-        d.line([(0, y), (size, y)], fill=tuple(int(a + (b - a) * t) for a, b in zip(top, bottom)) + (255,))
-    k = size / 256
-    glow = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    ImageDraw.Draw(glow).ellipse([30 * k, 20 * k, 226 * k, 170 * k], fill=(34, 211, 238, 60))
-    bg.alpha_composite(glow.filter(ImageFilter.GaussianBlur(30 * k)))
-
+    bg = Image.open(BACKGROUND).convert("RGBA").resize((size, size), Image.LANCZOS)
     render = Image.open(os.path.join(ROOT, "src", "store", "store_wall.png")).convert("RGBA")
     render = render.crop(render.getbbox())
-    scale = min(236 * k / render.width, 236 * k / render.height)
+    scale = min(size * 0.88 / render.width, size * 0.88 / render.height)
     render = render.resize((int(render.width * scale), int(render.height * scale)), Image.LANCZOS)
-    shadow = Image.new("RGBA", render.size, (0, 0, 0, 0))
-    shadow.putalpha(render.getchannel("A").point(lambda a: int(a * 0.45)))
-    x, y = (size - render.width) // 2, (size - render.height) // 2
-    bg.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(6 * k)), (int(x + 5 * k), int(y + 6 * k)))
-    bg.alpha_composite(render, (x, y))
-    bg.alpha_composite(pin(size))
-    return bg
+    bg.alpha_composite(render, ((size - render.width) // 2, (size - render.height) // 2))
+    return bg.convert("RGB")
 
 
 def main():

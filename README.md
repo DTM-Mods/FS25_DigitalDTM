@@ -88,7 +88,7 @@ pens, all productions, money), today's best prices, or the last in-game day as a
 - **Pick the silo** from a list of everything nearby, or let it show the nearest.
 - **Any size:** 0.8 to 6 m wide, on every model.
 - **Readable at night:** the screen glows; five brightness levels.
-- **Four colour themes:** night blue, DTM green, amber terminal and daylight.
+- **Four colour themes:** night blue, green, amber terminal and daylight.
 - **Your own title** on the screen.
 - **Seven models** in the shop under Buildings > Tools, free-standing, on a wall or hanging:
 
@@ -185,7 +185,7 @@ bigger.
    - **Screen size**: 0.8 to 6 m wide. The Silo Mount and Wall Mount keep their bottom edge 2 m above the ground
      (Hanging: 2.5 m) and grow upwards; the others grow from the ground, posts and all.
    - **Brightness**: very dim to very bright (screen glow, bars and text).
-   - **Colours**: night blue, DTM green, amber terminal, daylight.
+   - **Colours**: night blue, green, amber terminal, daylight.
    - **Title**: type your own, or leave it empty for the storage's name.
    - **Screen shows**: the storage, prices (the price board), or history (the last in-game day as a chart).
    - **Products shown**: all, or the ones you tick (up to 8); one alone is shown big.

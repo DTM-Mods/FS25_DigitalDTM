@@ -162,7 +162,7 @@ StorageMonitor.COLORS = {
 -- monoPercent: percentages in the text colour (pale product colours do not read on a light screen).
 StorageMonitor.THEMES = {
     {id = "night", key = "storageMonitor_theme1", fallback = "Night blue", texture = "textures/screen_night.dds", colors = {}},
-    {id = "field", key = "storageMonitor_theme2", fallback = "DTM green", texture = "textures/screen_field.dds", colors = {
+    {id = "field", key = "storageMonitor_theme2", fallback = "Green", texture = "textures/screen_field.dds", colors = {
         text = {0.96, 0.95, 0.91, 1}, dim = {0.55, 0.68, 0.58, 1}, accent = {0.85, 0.64, 0.25, 1},
         track = {0.12, 0.25, 0.19, 1}, stackFree = {0.11, 0.23, 0.17, 1},
         headText = {0.96, 0.95, 0.91, 1}, headAccent = {0.85, 0.64, 0.25, 1}}},
@@ -5289,7 +5289,7 @@ function StorageMonitor.openSettings(monitor)
     for _, e in ipairs(entries) do
         table.insert(options, e.text)
     end
-    StorageMonitor.showOptions(T("storageMonitor_menuTitle", "Digital DTM"),
+    StorageMonitor.showOptions(T("storageMonitor_menuTitle", "Better Digital Display"),
         string.format(T("storageMonitor_menuText", "Showing: %s"), current), options,
         function(index)
             local e = entries[index]
