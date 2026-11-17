@@ -8,6 +8,8 @@ import subprocess
 import sys
 import xml.etree.ElementTree as ET
 
+from PIL import Image
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 TEXTURE_TOOL = r"C:\Program Files\GIANTS Software\GIANTS_Editor_10.0.14\tools\textureTool.exe"
@@ -107,6 +109,35 @@ def to_dds(png, dds):
         sys.exit("textureTool failed for %s:\n%s%s" % (png, r.stdout, r.stderr))
 
 
+# block-compressed formats: bytes per 4x4 block (DXT1 / BC1 = 8, the others 16)
+BLOCK_BYTES = {b"DXT1": 8, 70: 8, 71: 8, 72: 8}
+
+
+def keep_mips(dds, keep=3):
+    """Cuts the mipmap chain textureTool writes down to `keep` levels: ModHub's store item check takes a shop
+    image with at most 3 mipmaps (it is only drawn in the menu, at most at its own size)."""
+    with open(dds, "rb") as f:
+        data = f.read()
+    count = int.from_bytes(data[28:32], "little")
+    if count <= keep:
+        return
+    width, height = int.from_bytes(data[16:20], "little"), int.from_bytes(data[12:16], "little")
+    four_cc = data[84:88]
+    header = 128
+    block = BLOCK_BYTES.get(four_cc, 16)
+    if four_cc == b"DX10":
+        header += 20
+        block = BLOCK_BYTES.get(int.from_bytes(data[128:132], "little"), 16)
+    size = 0
+    for level in range(keep):
+        w, h = max(width >> level, 1), max(height >> level, 1)
+        size += max(1, (w + 3) // 4) * max(1, (h + 3) // 4) * block
+    head = bytearray(data[:header])
+    head[28:32] = keep.to_bytes(4, "little")
+    with open(dds, "wb") as f:
+        f.write(bytes(head) + data[header:header + size])
+
+
 def main():
     os.makedirs(os.path.join(ROOT, "placeables"), exist_ok=True)
     os.makedirs(os.path.join(ROOT, "store"), exist_ok=True)
@@ -128,9 +159,13 @@ def main():
             f.write(xml)
         print("wrote", path)
         if "--no-dds" not in sys.argv:
-            to_dds(os.path.join(ROOT, "src", "store", "store_%s.png" % name), os.path.join(ROOT, "store", "store_%s.dds" % name))
+            store = os.path.join(ROOT, "store", "store_%s.dds" % name)
+            to_dds(os.path.join(ROOT, "src", "store", "store_%s.png" % name), store)
+            keep_mips(store)
     if "--no-dds" not in sys.argv:
-        to_dds(os.path.join(ROOT, "src", "icon_storageMonitor.png"), os.path.join(ROOT, "icon_storageMonitor.dds"))
+        # the mod icon: DXT1 without mipmaps, as ModHub's check wants (textureTool adds mipmaps)
+        icon = Image.open(os.path.join(ROOT, "src", "icon_storageMonitor.png")).convert("RGB")
+        icon.save(os.path.join(ROOT, "icon_storageMonitor.dds"), format="DDS", pixel_format="DXT1")
 
 
 if __name__ == "__main__":

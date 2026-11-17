@@ -294,6 +294,11 @@ The PNG masters in `src/` stay out of the zip (`.modignore`).
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/patch-notes.jpg" alt="Patch notes" width="100%">
 </p>
 
+### 1.4.0.3
+
+- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
+- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.
+
 ### 1.4.0.2
 
 - Fixed: monitors could show the game's script error "setMaterial: Unknown entity id" while their lists changed (pages,

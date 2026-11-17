@@ -1,2 +1,4 @@
 # Source images (PNG masters of the .dds files, previews); the game loads the .dds.
 src/
+# ModHub doesn't take .txt files
+LICENSE.txt

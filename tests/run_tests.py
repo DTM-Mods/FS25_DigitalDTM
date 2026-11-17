@@ -1535,20 +1535,43 @@ def test_performance(lua):
 
 
 def test_errors_do_not_escape(lua):
-    """A failing monitor must never raise out of the listener: that stops the game's update (frozen player)."""
+    """A failing monitor's error is not hidden (ModHub: no pcall): it reaches the game's log once, and on the next
+    frame that monitor is switched off, so the error does not repeat every frame and the others keep working."""
     lua.execute(WORLD)
     lua.execute("""
         m = newMonitor(false)
+        other = newMonitor(false)
         local real = StorageMonitor.collectStorageCandidates
-        StorageMonitor.collectStorageCandidates = function() error("boom") end
-        ok1 = pcall(function() for _, l in ipairs(listeners) do l:update(16) l:draw() end end)
-        ok2 = pcall(function() for _, l in ipairs(listeners) do l:update(16) l:draw() end end)
+        StorageMonitor.collectStorageCandidates = function(monitor)
+            if monitor == m then error("boom") end
+            return real(monitor)
+        end
+        local function frameOnce() for _, l in ipairs(listeners) do l:update(16) l:draw() end end
+        ok1, err1 = pcall(frameOnce)       -- the test catches what the game would log
+        ok2 = pcall(frameOnce)
+        ok3 = pcall(frameOnce)
         StorageMonitor.collectStorageCandidates = real
+        otherWorking = not other.spec_storageMonitor.failed
+        -- an error while drawing: the next frame puts the text state back and switches that monitor off
+        local realDraw = StorageMonitor.drawStorageMonitor
+        StorageMonitor.drawStorageMonitor = function(monitor, face)
+            if monitor == other then error("draw boom") end
+            return realDraw(monitor, face)
+        end
+        okDraw1 = pcall(frameOnce)
+        okDraw2 = pcall(frameOnce)
+        StorageMonitor.drawStorageMonitor = realDraw
     """)
     g = lua.globals()
-    check(g.ok1 and g.ok2, "listener update/draw never raise")
+    check(not g.ok1 and "boom" in str(g.err1), "the error reaches the game (and its log): %s" % g.err1)
+    check(g.ok2 and g.ok3, "after that the listener runs again without errors")
     check(g.m.spec_storageMonitor.failed is True, "failing monitor is switched off")
-    check(sum(1 for l in g.logs.values() if "switched off" in l) == 1, "logged once, not every frame")
+    check(g.otherWorking, "the other monitor keeps working")
+    check(g.StorageMonitor.farmOverride is None, "no farm override left behind")
+    check(not g.okDraw1 and g.okDraw2, "a draw error reaches the game once, then the listener runs again")
+    check(g.other.spec_storageMonitor.failed is True, "the monitor that failed to draw is switched off")
+    check(g.StorageMonitor.drawingMonitor is None, "nothing left half drawn")
+    check(sum(1 for l in g.logs.values() if "switched off" in l) == 2, "each logged once, not every frame")
 
 
 def test_layout_matches_texture(lua):

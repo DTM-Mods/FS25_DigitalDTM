@@ -9,6 +9,7 @@ Writes:
 
 The layout numbers are the same as StorageMonitor.LAYOUT in scripts/StorageMonitor.lua (tests compare).
 """
+import io
 import os
 import subprocess
 import sys
@@ -235,6 +236,26 @@ def draw_preview(bg):
     return img.convert("RGB")
 
 
+def save_dxt1(im, path):
+    """A DXT1 .dds with its full mipmap chain, written with Pillow: textureTool stores the tiny white texture as an
+    uncompressed DX10 file, which ModHub's DXT check refuses."""
+    levels = [im.convert("RGB")]
+    while levels[-1].width > 1 or levels[-1].height > 1:
+        w, h = levels[-1].size
+        levels.append(levels[0].resize((max(w // 2, 1), max(h // 2, 1)), Image.LANCZOS))
+    blobs = []
+    for level in levels:
+        b = io.BytesIO()
+        level.save(b, format="DDS", pixel_format="DXT1")
+        blobs.append(b.getvalue())
+    head = bytearray(blobs[0][:128])
+    head[28:32] = len(levels).to_bytes(4, "little")                                          # mipmap count
+    head[8:12] = (int.from_bytes(head[8:12], "little") | 0x20000).to_bytes(4, "little")      # DDSD_MIPMAPCOUNT
+    head[108:112] = (int.from_bytes(head[108:112], "little") | 0x400008).to_bytes(4, "little")  # COMPLEX | MIPMAP
+    with open(path, "wb") as f:
+        f.write(bytes(head) + b"".join(x[128:] for x in blobs))
+
+
 def main():
     os.makedirs(SRC, exist_ok=True)
     os.makedirs(OUT, exist_ok=True)
@@ -253,7 +274,6 @@ def main():
 
     white = os.path.join(SRC, "monitor_white_diffuse.png")     # the live bars' texture (colour comes from the script)
     Image.new("RGBA", (16, 16), (255, 255, 255, 255)).save(white)
-    sources.append(white)
 
     if "--no-dds" in sys.argv:
         return
@@ -264,6 +284,9 @@ def main():
         if r.returncode != 0 or not os.path.exists(target):
             sys.exit("textureTool failed:\n%s%s" % (r.stdout, r.stderr))
         print("wrote", target, os.path.getsize(target))
+    target = os.path.join(OUT, "monitor_white_diffuse.dds")
+    save_dxt1(Image.open(white), target)
+    print("wrote", target, os.path.getsize(target))
 
 
 if __name__ == "__main__":

@@ -455,7 +455,7 @@ function StorageMonitor.buildSnapshot(sources, roles, fillTypeInfo)
             end
         elseif src.storage ~= nil then
             local storage = src.storage
-            fillLevels = storage:getFillLevels() or {}
+            fillLevels = storage.getFillLevels ~= nil and storage:getFillLevels() or {}
             if StorageMonitor.isSharedCapacity(storage, fillLevels) then
                 shared = storage.capacity
             else
@@ -622,8 +622,7 @@ function StorageMonitor.cropStage(fruit, growth)
         return "cut", 0
     end
     if type(fruit.getIsWithered) == "function" then
-        local ok, withered = pcall(fruit.getIsWithered, fruit, growth)
-        if ok and withered then
+        if fruit:getIsWithered(growth) then
             return "withered", 1
         end
     end
@@ -1140,8 +1139,8 @@ function StorageMonitor:setStorageMonitorSize(width)
     if setRigidBodyType ~= nil and RigidBodyType ~= nil then
         for _, c in ipairs(spec.collisions or {}) do
             local wanted = math.abs(c.width - spec.mountWidth) < 0.01 and RigidBodyType.STATIC or RigidBodyType.NONE
-            if c.type ~= wanted then
-                pcall(setRigidBodyType, c.node, wanted)
+            if c.type ~= wanted and c.node ~= nil and c.node ~= 0 and (entityExists == nil or entityExists(c.node)) then
+                setRigidBodyType(c.node, wanted)
                 c.type = wanted
             end
         end
@@ -1175,8 +1174,12 @@ function StorageMonitor:applyLook()
             -- game frees a material no shape uses, so none is kept); the first look of the night theme is the model's
             if face.appliedTheme ~= theme.id and (face.appliedTheme ~= nil or theme.id ~= "night")
                 and setMaterialDiffuseMapFromFile ~= nil and StorageMonitor.MOD_DIR ~= nil then
-                local ok, material = pcall(setMaterialDiffuseMapFromFile, getMaterial(glass, 0), StorageMonitor.MOD_DIR .. theme.texture, true, true, false)
-                if ok and material ~= nil and material ~= 0 then
+                local source = getMaterial(glass, 0)
+                local material = nil
+                if source ~= nil and source ~= 0 then
+                    material = setMaterialDiffuseMapFromFile(source, StorageMonitor.MOD_DIR .. theme.texture, true, true, false)
+                end
+                if material ~= nil and material ~= 0 then
                     setMaterial(glass, material, 0)
                 elseif face.loggedTheme ~= theme.id then
                     face.loggedTheme = theme.id
@@ -1357,31 +1360,28 @@ function StorageMonitor.monitorFarmId(monitor)
     if monitor == nil or monitor.getOwnerFarmId == nil then
         return nil
     end
-    local ok, owner = pcall(monitor.getOwnerFarmId, monitor)
+    local owner = monitor:getOwnerFarmId()
     local spectator = FarmManager ~= nil and FarmManager.SPECTATOR_FARM_ID or 0
-    if ok and type(owner) == "number" and owner ~= spectator then
+    if type(owner) == "number" and owner ~= spectator then
         return owner
     end
     return nil
 end
 
 -- runs fn(monitor, ...) as the monitor's own farm: a player of another farm looking at the board sees the
--- owner's fields, money, contracts and silos, not their own
+-- owner's fields, money, contracts and silos, not their own (after an error the listener clears the override)
 function StorageMonitor.asMonitorFarm(monitor, fn, ...)
     local saved = StorageMonitor.farmOverride
     StorageMonitor.farmOverride = StorageMonitor.monitorFarmId(monitor) or saved
-    local result = {pcall(fn, monitor, ...)}
+    local result = {fn(monitor, ...)}
     StorageMonitor.farmOverride = saved
-    if not result[1] then
-        error(result[2], 0)
-    end
-    return (table.unpack or unpack)(result, 2)
+    return (table.unpack or unpack)(result)
 end
 
 local function placeableName(placeable, fallback)
     if placeable ~= nil and placeable.getName ~= nil then
-        local ok, name = pcall(placeable.getName, placeable)
-        if ok and name ~= nil and name ~= "" then
+        local name = placeable:getName()
+        if name ~= nil and name ~= "" then
             return name
         end
     end
@@ -1754,12 +1754,11 @@ local function ratioOf(value, capacity)
     return math.max(0, math.min(1, (value or 0) / capacity))
 end
 
+-- object:name(...) when the object has that method (the game version or the object kind may lack it), else nil
 local function call(object, name, ...)
-    if object ~= nil and type(object[name]) == "function" then
-        local ok, a, b = pcall(object[name], object, ...)
-        if ok then
-            return a, b
-        end
+    if type(object) == "table" and type(object[name]) == "function" then
+        local a, b = object[name](object, ...)
+        return a, b
     end
     return nil
 end
@@ -1989,9 +1988,9 @@ end
 function StorageMonitor.formatArea(ha)
     ha = tonumber(ha) or 0
     if g_i18n ~= nil and g_i18n.getArea ~= nil and g_i18n.getAreaUnit ~= nil then
-        local ok, value = pcall(g_i18n.getArea, g_i18n, ha)
-        local okUnit, unit = pcall(g_i18n.getAreaUnit, g_i18n)
-        if ok and okUnit and tonumber(value) ~= nil and unit ~= nil then
+        local value = g_i18n:getArea(ha)
+        local unit = g_i18n:getAreaUnit()
+        if tonumber(value) ~= nil and unit ~= nil then
             return string.format("%.1f %s", tonumber(value), tostring(unit))
         end
     end
@@ -2006,8 +2005,8 @@ function StorageMonitor.formatTemperature(celsius)
     end
     local value = celsius
     if g_i18n ~= nil and g_i18n.getTemperature ~= nil then
-        local ok, converted = pcall(g_i18n.getTemperature, g_i18n, celsius)
-        if ok and tonumber(converted) ~= nil then
+        local converted = g_i18n:getTemperature(celsius)
+        if tonumber(converted) ~= nil then
             value = tonumber(converted)
         end
     end
@@ -2059,11 +2058,10 @@ function StorageMonitor.readFields(farmId)
         if owner ~= nil and owner == farmId then
             local x, z = call(field, "getCenterOfFieldWorldPosition")
             local fruitIndex, growth = nil, nil
+            x, z = tonumber(x), tonumber(z)
             if x ~= nil and z ~= nil and FSDensityMapUtil ~= nil and FSDensityMapUtil.getFruitTypeIndexAtWorldPos ~= nil then
-                local ok, a, b = pcall(FSDensityMapUtil.getFruitTypeIndexAtWorldPos, x, z)
-                if ok then
-                    fruitIndex, growth = tonumber(a), tonumber(b)
-                end
+                local a, b = FSDensityMapUtil.getFruitTypeIndexAtWorldPos(x, z)
+                fruitIndex, growth = tonumber(a), tonumber(b)
             end
             local fruit = nil
             if fruitIndex ~= nil and fruitIndex > 0 and g_fruitTypeManager ~= nil then
@@ -2076,7 +2074,7 @@ function StorageMonitor.readFields(farmId)
                 state = call(field, "getFieldState")
             end
             if type(state) == "table" and type(state.update) == "function" and x ~= nil and z ~= nil then
-                pcall(state.update, state, x, z)
+                state:update(x, z)
             end
             local needs = {}
             if type(state) == "table" then
@@ -2157,8 +2155,8 @@ function StorageMonitor.readFields(farmId)
         end
     end
     -- the harvest window: how long it stays dry (the weather screen's forecast)
-    local okWeather, weather = pcall(StorageMonitor.readWeather)
-    if okWeather and weather ~= nil then
+    local weather = StorageMonitor.readWeather()
+    if weather ~= nil then
         panel.dryFor, panel.raining = weather.dryFor, weather.raining or weather.snowing or weather.hail
         if #readyRows > 0 and panel.dryFor ~= nil and panel.dryFor > 0 and panel.dryFor <= 6 then
             table.insert(panel.problems, {id = "harvestRain", text = string.format(T("storageMonitor_alertHarvestRain",
@@ -2252,8 +2250,8 @@ function StorageMonitor.readWeather()
     local today = env.currentMonotonicDay or env.currentDay or 0
     local function typeAt(dayTime, day)
         if env.getDayAndDayTime ~= nil then
-            local ok, t, d = pcall(env.getDayAndDayTime, env, dayTime, day)
-            if ok and t ~= nil and d ~= nil then
+            local t, d = env:getDayAndDayTime(dayTime, day)
+            if t ~= nil and d ~= nil then
                 dayTime, day = t, d
             end
         else
@@ -2471,8 +2469,8 @@ function StorageMonitor.readAllPens(pens)
     local panel = {kind = "allPens", rows = {}, problems = {}, count = 0, animals = 0, maxAnimals = 0, lowFood = 0,
                    lowSupply = 0, tanksFull = 0}
     for i, pen in ipairs(pens) do
-        local ok, p = pcall(StorageMonitor.buildPanel, {kind = "husbandry", placeable = pen.placeable})
-        if ok and p ~= nil then
+        local p = StorageMonitor.buildPanel({kind = "husbandry", placeable = pen.placeable})
+        if p ~= nil then
             local parts, lowest, worst = {}, nil, nil     -- parts: what needs care first (full tanks, then the lowest)
             local fullTank = false
             for _, cond in ipairs(p.conditions) do
@@ -2560,8 +2558,8 @@ function StorageMonitor.readAllProductions(productions)
     local panel = {kind = "allProductions", rows = {}, problems = {}, count = 0, lines = 0, running = 0, missing = 0,
                    full = 0, noWater = 0, idle = 0}
     for i, prod in ipairs(productions) do
-        local ok, p = pcall(StorageMonitor.buildPanel, {kind = "production", pp = prod.pp, greenhouse = prod.greenhouse})
-        if ok and p ~= nil then
+        local p = StorageMonitor.buildPanel({kind = "production", pp = prod.pp, greenhouse = prod.greenhouse})
+        if p ~= nil then
             local n = #p.lines
             local lineMissing, lineFull = false, false
             for _, line in ipairs(p.lines) do
@@ -3340,22 +3338,11 @@ function StorageMonitor:refreshStorageMonitorDataNow()
         spec.snapshot = nil
         return
     end
-    local ok, snapshot = pcall(StorageMonitor.buildSnapshot, spec.target.sources, spec.target.roles, fillTypeInfo)
-    if not ok then
-        StorageMonitor.log("Warning: could not read %s: %s", tostring(spec.target.name), tostring(snapshot))
-        spec.target = nil
-        spec.snapshot = nil
-        return
-    end
+    local snapshot = StorageMonitor.buildSnapshot(spec.target.sources, spec.target.roles, fillTypeInfo)
     spec.snapshot = snapshot
-    local okPanel, panel = pcall(StorageMonitor.buildPanel, spec.target)
-    snapshot.panel = okPanel and panel or nil
+    snapshot.panel = StorageMonitor.buildPanel(spec.target)
     snapshot.countMode = spec.target.kind == "objects"
     snapshot.noPercent = spec.target.kind == "bunker"
-    if not okPanel and not spec.loggedPanel then
-        spec.loggedPanel = true
-        StorageMonitor.log("Warning: could not read %s: %s", tostring(spec.target.name), tostring(panel))
-    end
 
     local history = StorageMonitor.historyFor(spec, spec.target.owner)
     local now = StorageMonitor.gameHours()
@@ -3395,12 +3382,8 @@ function StorageMonitor:refreshStorageMonitorDataNow()
         end
         -- prices: the price board, and the value of the stock
         if spec.mode == StorageMonitor.MODE_PRICES and snapshot.count > 0 then
-            local okPrices, err = pcall(StorageMonitor.addPrices, snapshot)
-            snapshot.prices = okPrices
-            if not okPrices and not spec.loggedPrices then
-                spec.loggedPrices = true
-                StorageMonitor.log("Warning: could not read prices: %s", tostring(err))
-            end
+            StorageMonitor.addPrices(snapshot)
+            snapshot.prices = true
         end
     end
 
@@ -3426,10 +3409,9 @@ function StorageMonitor:refreshStorageMonitorDataNow()
 
     -- alerts
     if spec.alerts > 1 then
-        local okAlerts, alerts = pcall(StorageMonitor.computeAlerts, spec.target, snapshot,
-            {fullAt = spec.fullAt, priceAlert = spec.priceAlert})
-        spec.alertList = okAlerts and alerts or {}
-        pcall(StorageMonitor.announceAlerts, self, spec.target, spec.alertList)
+        spec.alertList = StorageMonitor.computeAlerts(spec.target, snapshot,
+            {fullAt = spec.fullAt, priceAlert = spec.priceAlert}) or {}
+        StorageMonitor.announceAlerts(self, spec.target, spec.alertList)
     else
         spec.alertList = {}
         spec.alertKnownBy = setmetatable({}, {__mode = "k"})
@@ -3620,8 +3602,12 @@ local function icon(f, u0, v0, side, path, c)
     -- game frees a material no shape uses, so no material id is ever kept for later (1.4.0.0 and 1.4.0.1 kept them
     -- and hit "setMaterial: Unknown entity id" when a slot came back to a product).
     if slot.path ~= path then
-        local ok, material = pcall(setMaterialDiffuseMapFromFile, getMaterial(slot.node, 0), path, true, true, false)
-        if not ok or material == nil or material == 0 then
+        local source = getMaterial(slot.node, 0)
+        local material = nil
+        if source ~= nil and source ~= 0 then
+            material = setMaterialDiffuseMapFromFile(source, path, true, true, false)
+        end
+        if material == nil or material == 0 then
             StorageMonitor.iconFailed[path] = true
             StorageMonitor.log("Warning: icon %s not loaded", tostring(path))
             spec.iconUsed = spec.iconUsed - 1
@@ -5491,8 +5477,7 @@ function StorageMonitor.openPriceAlert(monitor)
                 for _, storage in ipairs(c.storages) do
                     table.insert(sources, {storage = storage})
                 end
-                local ok, snapshot = pcall(StorageMonitor.buildSnapshot, sources, nil, fillTypeInfo)
-                items = ok and snapshot.items or {}
+                items = StorageMonitor.buildSnapshot(sources, nil, fillTypeInfo).items or {}
             end
         end
     end
@@ -5781,41 +5766,40 @@ end
 
 -- the server reads one monitor: a new sample goes to every player
 function StorageMonitor.serverSample(monitor, now, dt)
-    local spec = monitor.spec_storageMonitor
     StorageMonitor.farmOverride = call(monitor, "getOwnerFarmId") or 1
-    local ok, err = pcall(function()
-        spec.serverScanTimer = (spec.serverScanTimer or math.huge) + dt
-        if spec.serverCandidates == nil or spec.serverScanTimer >= StorageMonitor.SERVER_SCAN or spec.serverPickKey ~= StorageMonitor.anchorKey(spec.pick) then
-            spec.serverCandidates = StorageMonitor.collectStorageCandidates(monitor)
-            spec.serverScanTimer = 0
-            spec.serverPickKey = StorageMonitor.anchorKey(spec.pick)
-        end
-        local c = StorageMonitor.choose(spec.serverCandidates, spec.pick)
-        if c == nil or StorageMonitor.BOARD_KINDS[c.kind] or c.kind == "message" then
-            return
-        end
-        local key = StorageMonitor.anchorKey(c.anchor)
-        local value, capacity = StorageMonitor.historyValue(monitor, c)
-        if value == nil then
-            return
-        end
-        local history = spec.serverHistory
-        local reset = history == nil or history.key ~= key
-        if reset then
-            history = {key = key, graph = {}}
-            spec.serverHistory = history
-        end
-        local last = history.graph[#history.graph]
-        StorageMonitor.updateGraph(history, now, value, capacity)
-        local newest = history.graph[#history.graph]
-        if newest ~= nil and newest ~= last and g_server ~= nil and g_server.broadcastEvent ~= nil and StorageMonitorGraphEvent ~= nil then
-            -- a history that just started (another screen, or the time jumped) starts again on every game too
-            g_server:broadcastEvent(StorageMonitorGraphEvent.new(monitor, key, newest, #history.graph == 1), false)
-        end
-    end)
+    StorageMonitor.serverSampleNow(monitor, now, dt)
     StorageMonitor.farmOverride = nil
-    if not ok then
-        error(err)
+end
+
+function StorageMonitor.serverSampleNow(monitor, now, dt)
+    local spec = monitor.spec_storageMonitor
+    spec.serverScanTimer = (spec.serverScanTimer or math.huge) + dt
+    if spec.serverCandidates == nil or spec.serverScanTimer >= StorageMonitor.SERVER_SCAN or spec.serverPickKey ~= StorageMonitor.anchorKey(spec.pick) then
+        spec.serverCandidates = StorageMonitor.collectStorageCandidates(monitor)
+        spec.serverScanTimer = 0
+        spec.serverPickKey = StorageMonitor.anchorKey(spec.pick)
+    end
+    local c = StorageMonitor.choose(spec.serverCandidates, spec.pick)
+    if c == nil or StorageMonitor.BOARD_KINDS[c.kind] or c.kind == "message" then
+        return
+    end
+    local key = StorageMonitor.anchorKey(c.anchor)
+    local value, capacity = StorageMonitor.historyValue(monitor, c)
+    if value == nil then
+        return
+    end
+    local history = spec.serverHistory
+    local reset = history == nil or history.key ~= key
+    if reset then
+        history = {key = key, graph = {}}
+        spec.serverHistory = history
+    end
+    local last = history.graph[#history.graph]
+    StorageMonitor.updateGraph(history, now, value, capacity)
+    local newest = history.graph[#history.graph]
+    if newest ~= nil and newest ~= last and g_server ~= nil and g_server.broadcastEvent ~= nil and StorageMonitorGraphEvent ~= nil then
+        -- a history that just started (another screen, or the time jumped) starts again on every game too
+        g_server:broadcastEvent(StorageMonitorGraphEvent.new(monitor, key, newest, #history.graph == 1), false)
     end
 end
 
@@ -5833,12 +5817,16 @@ function StorageMonitor.updateServer(dt)
     end
     for _, monitor in ipairs(StorageMonitor.instances) do
         local spec = monitor.spec_storageMonitor
+        if spec ~= nil and spec.serverSampling then
+            -- its last sample stopped in an error (the game logged it): no history for this monitor from now on
+            spec.serverSampling = nil
+            spec.serverFailed = true
+            StorageMonitor.log("Warning: no history kept for a monitor after the error above")
+        end
         if spec ~= nil and not spec.serverFailed then
-            local ok, err = pcall(StorageMonitor.serverSample, monitor, now, elapsed)
-            if not ok then
-                spec.serverFailed = true
-                StorageMonitor.log("Warning: no history kept for a monitor: %s", tostring(err))
-            end
+            spec.serverSampling = true
+            StorageMonitor.serverSample(monitor, now, elapsed)
+            spec.serverSampling = nil
         end
     end
 end
@@ -5849,44 +5837,63 @@ function StorageMonitor.Listener:update(dt)
     if g_currentMission == nil then
         return
     end
+    -- An error is not caught: the game logs it with its stack. Each step marks what it is doing, so after an
+    -- error the step that stopped is found on the next frame and switched off with one log line: a broken
+    -- monitor neither repeats its error every frame nor keeps the other monitors from updating.
+    StorageMonitor.farmOverride = nil
     -- the server keeps the history (also a dedicated server, which draws nothing)
     if g_server ~= nil then
-        local ok, err = pcall(StorageMonitor.updateServer, dt or 0)
-        if not ok and not StorageMonitor.loggedServerError then
-            StorageMonitor.loggedServerError = true
-            StorageMonitor.log("Error: %s", tostring(err))
-        end
+        StorageMonitor.updateServer(dt or 0)
     end
     if not g_currentMission:getIsClient() then
         return
     end
     StorageMonitor.clock = StorageMonitor.clock + (dt or 0)
-    -- an error here must never stop the game's own update (that freezes the player), so every step is
-    -- protected and a monitor that fails is switched off with one log line
     for _, monitor in ipairs(StorageMonitor.instances) do
         local spec = monitor.spec_storageMonitor
+        if spec ~= nil and spec.updating then
+            spec.updating = nil
+            spec.failed = true
+            spec.isNear = false
+            StorageMonitor.log("Error, monitor switched off after the error above")
+        end
         if spec ~= nil and not spec.failed then
-            local ok, err = pcall(StorageMonitor.updateStorageMonitor, monitor, dt)
-            if not ok then
-                spec.failed = true
-                spec.isNear = false
-                StorageMonitor.log("Error, monitor switched off: %s", tostring(err))
-            end
+            spec.updating = true
+            StorageMonitor.updateStorageMonitor(monitor, dt)
+            spec.updating = nil
         end
     end
-    local ok, err = pcall(StorageMonitor.updateActionEvents)
-    if ok then
-        ok, err = pcall(StorageMonitor.openPendingDialog)
+    if StorageMonitor.keysBusy then
+        StorageMonitor.keysBusy = nil
+        StorageMonitor.keysFailed = true
+        StorageMonitor.log("Error, monitor keys switched off after the error above")
     end
-    if not ok and not StorageMonitor.loggedListenerError then
-        StorageMonitor.loggedListenerError = true
-        StorageMonitor.log("Error: %s", tostring(err))
+    if not StorageMonitor.keysFailed then
+        StorageMonitor.keysBusy = true
+        StorageMonitor.updateActionEvents()
+        StorageMonitor.openPendingDialog()
+        StorageMonitor.keysBusy = nil
     end
 end
 
 function StorageMonitor.Listener:draw()
     if g_currentMission == nil or not g_currentMission:getIsClient() then
         return
+    end
+    -- the last draw stopped in an error (the game logged it): the text state goes back to the game's, and that
+    -- monitor is switched off
+    local broken = StorageMonitor.drawingMonitor
+    if broken ~= nil then
+        StorageMonitor.drawingMonitor = nil
+        if setTextDepthTestEnabled ~= nil then
+            setTextDepthTestEnabled(false)
+        end
+        StorageMonitor.resetTextState(broken)
+        if broken.spec_storageMonitor ~= nil then
+            broken.spec_storageMonitor.isNear = false
+            broken.spec_storageMonitor.failed = true
+        end
+        StorageMonitor.log("Error drawing, monitor switched off after the error above")
     end
     -- the nearest MAX_DRAWN monitors in sight are drawn; the others only hide their bars
     local near = {}
@@ -5917,18 +5924,12 @@ function StorageMonitor.Listener:draw()
                         setTextDepthTestEnabled(true)
                         depthSet = true
                     end
-                    local ok, err = pcall(StorageMonitor.drawStorageMonitor, monitor, face)
-                    if not ok then
-                        spec.isNear = false
-                        spec.failed = true
-                        face.barUsed = 0
-                        face.iconUsed = 0
-                        StorageMonitor.log("Error drawing, monitor switched off: %s", tostring(err))
-                        pcall(StorageMonitor.resetTextState, monitor)
-                    end
+                    StorageMonitor.drawingMonitor = monitor
+                    StorageMonitor.drawStorageMonitor(monitor, face)
+                    StorageMonitor.drawingMonitor = nil
                 end
                 -- bars of a face nobody looks at are hidden, like its text
-                pcall(StorageMonitor.endBars, spec, face)
+                StorageMonitor.endBars(spec, face)
             end
         end
     end
@@ -5944,10 +5945,7 @@ addModEventListener(StorageMonitor.Listener)
 if PlayerInputComponent ~= nil and PlayerInputComponent.registerGlobalPlayerActionEvents ~= nil and Utils ~= nil then
     PlayerInputComponent.registerGlobalPlayerActionEvents = Utils.appendedFunction(
         PlayerInputComponent.registerGlobalPlayerActionEvents, function()
-            local ok, err = pcall(StorageMonitor.registerActionEvents)
-            if not ok then
-                StorageMonitor.log("Warning: keys not registered: %s", tostring(err))
-            end
+            StorageMonitor.registerActionEvents()
         end)
 end
 

@@ -3,7 +3,8 @@
 
     python tools/make_icon.py        (after tools/build_model.py; then tools/gen_placeables.py makes the .dds)
 
-Writes src/icon_storageMonitor.png (256 x 256, the game icon) and modhub/icon_512.png (the ModHub upload).
+Writes src/icon_storageMonitor.png (the game icon) and modhub/icon_512.png (the ModHub upload), both 512 x 512:
+ModHub wants the mod icon 512 x 512.
 """
 import os
 
@@ -53,7 +54,7 @@ def icon(size):
 
 
 def main():
-    for size, rel in ((256, os.path.join("src", "icon_storageMonitor.png")), (512, os.path.join("modhub", "icon_512.png"))):
+    for size, rel in ((512, os.path.join("src", "icon_storageMonitor.png")), (512, os.path.join("modhub", "icon_512.png"))):
         out = os.path.join(ROOT, rel)
         os.makedirs(os.path.dirname(out), exist_ok=True)
         icon(size).save(out, optimize=True)
