@@ -145,6 +145,28 @@ bigger.
   <img src="src/screens/screen_30.png" alt="30 products on one screen, in three columns" width="100%">
 </p>
 
+<!-- dtm-screenshots -->
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/screenshots.jpg" alt="Screenshots" width="100%">
+</p>
+
+<p align="center">
+  <img src="screenshots/1.jpg" alt="A row of two-sided billboards by the road in the morning: all silos of my farm, my farm's money, my fields and the weather" width="100%">
+</p>
+
+<p align="center">
+  <img src="screenshots/2.jpg" alt="All silos of my farm as a price board: the stock's worth, the best market and every product's best price, with next month's trend" width="49%">
+  <img src="screenshots/3.jpg" alt="A live screen at your silo: 21 % full, used and free capacity and 15 products with their amounts, under your own title" width="49%">
+</p>
+
+<p align="center">
+  <img src="screenshots/4.jpg" alt="Screens for the whole farm: my farm's money and my fields, each on its own billboard" width="49%">
+  <img src="screenshots/5.jpg" alt="Readable at night: the price board glowing at 23:00" width="49%">
+</p>
+
+<!-- /dtm-screenshots -->
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/how-to-use.jpg" alt="How to use" width="100%">
 </p>
