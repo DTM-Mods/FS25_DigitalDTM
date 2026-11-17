@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <translationContributors>DTM Mods</translationContributors>
     <texts>
-        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kiosk)"/>
-        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Vegg)"/>
-        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Reklametavle)"/>
+        <text name="shopItem_storageMonitor_kiosk"     text="Better Digital Display (Kiosk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Better Digital Display (Vegg)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Better Digital Display (Reklametavle)"/>
         <text name="function_storageMonitor"           text="Levende fargeskjerm for siloer, produksjoner, dyrefjøs, plansiloer, lagerhaller, bikuber og gårdens penger: kapasitet, hvert produkt, hastigheter, priser og varsler."/>
 
         <text name="storageMonitor_showing"    text="Viser"/>
@@ -22,10 +21,10 @@
         <text name="storageMonitor_empty"      text="Tom"/>
         <text name="storageMonitor_page"       text="SIDE %d/%d"/>
 
-        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Siloholder)"/>
+        <text name="shopItem_storageMonitor_wallMount" text="Better Digital Display (Siloholder)"/>
         <text name="storageMonitor_settings" text="Skjerminnstillinger"/>
         <text name="storageMonitor_plusConnected" text="%s + %d tilkoblet"/>
-        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuTitle" text="Better Digital Display"/>
         <text name="storageMonitor_menuText" text="Viser: %s"/>
         <text name="storageMonitor_menuPick" text="Velg lager (nå: %s)"/>
         <text name="storageMonitor_menuConnectedOn" text="Vis også siloene som er koblet til den"/>
@@ -33,8 +32,8 @@
         <text name="storageMonitor_pickTitle" text="Velg lager"/>
         <text name="storageMonitor_pickText" text="Lagre nær denne skjermen, nærmeste først, deretter hele gården din:"/>
         <text name="storageMonitor_pickNearest" text="Alltid det nærmeste"/>
-        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: forrige side"/>
-        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: neste side"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Better Digital Display: forrige side"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Better Digital Display: neste side"/>
         <text name="storageMonitor_menuSize" text="Skjermstørrelse (nå: %.1f m bred)"/>
         <text name="storageMonitor_sizeTitle" text="Skjermstørrelse"/>
         <text name="storageMonitor_sizeText" text="Skjermens størrelse. Den vokser oppover fra underkanten."/>
@@ -55,7 +54,7 @@
         <text name="storageMonitor_bright4" text="Lys"/>
         <text name="storageMonitor_bright5" text="Svært lys"/>
         <text name="storageMonitor_theme1" text="Nattblå"/>
-        <text name="storageMonitor_theme2" text="DTM-grønn"/>
+        <text name="storageMonitor_theme2" text="Grønn"/>
         <text name="storageMonitor_theme3" text="Ravgul terminal"/>
         <text name="storageMonitor_theme4" text="Dagslys"/>
         <text name="storageMonitor_farmAll" text="Alle siloer på gården min"/>
@@ -134,9 +133,9 @@
         <text name="storageMonitor_spotNone" text="Ingen"/>
         <text name="storageMonitor_honeyHint" text="Honningen havner på paller ved pallplassen"/>
         <text name="storageMonitor_honeyValue" text="Verdi per dag"/>
-        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Veggfeste)"/>
-        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Hengende)"/>
-        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Tosidig reklametavle)"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Better Digital Display (Veggfeste)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Better Digital Display (Hengende)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Better Digital Display (Tosidig reklametavle)"/>
         <text name="storageMonitor_fields" text="Mine jorder"/>
         <text name="storageMonitor_weather" text="Vær"/>
         <text name="storageMonitor_fleet" text="Mine kjøretøy"/>
@@ -265,8 +264,8 @@
         <text name="storageMonitor_slideOff" text="Av: vis det valgte lageret"/>
         <text name="storageMonitor_seconds" text="%d s"/>
         <text name="storageMonitor_slideTimeText" text="Hvor lenge hvert skjermbilde vises:"/>
-        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: forrige skjermbilde"/>
-        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: neste skjermbilde"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Better Digital Display: forrige skjermbilde"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Better Digital Display: neste skjermbilde"/>
         <text name="storageMonitor_sellPlan" text="Når bør du selge"/>
         <text name="storageMonitor_message" text="Oppslagstavle"/>
         <text name="storageMonitor_profit" text="Produksjonsoverskudd"/>

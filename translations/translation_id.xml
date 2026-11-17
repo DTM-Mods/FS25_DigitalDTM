@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <translationContributors>DTM Mods</translationContributors>
     <texts>
-        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kios)"/>
-        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Dinding Layar)"/>
-        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Papan Reklame)"/>
+        <text name="shopItem_storageMonitor_kiosk"     text="Better Digital Display (Kios)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Better Digital Display (Dinding Layar)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Better Digital Display (Papan Reklame)"/>
         <text name="function_storageMonitor"           text="Layar warna langsung untuk silo, produksi, kandang hewan, silo bunker, gudang, sarang lebah, dan uang pertanian: kapasitas, setiap produk, laju, harga, dan peringatan."/>
 
         <text name="storageMonitor_showing"    text="Menampilkan"/>
@@ -22,10 +21,10 @@
         <text name="storageMonitor_empty"      text="Kosong"/>
         <text name="storageMonitor_page"       text="HALAMAN %d/%d"/>
 
-        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Dudukan Silo)"/>
+        <text name="shopItem_storageMonitor_wallMount" text="Better Digital Display (Dudukan Silo)"/>
         <text name="storageMonitor_settings" text="Pengaturan monitor"/>
         <text name="storageMonitor_plusConnected" text="%s + %d terhubung"/>
-        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuTitle" text="Better Digital Display"/>
         <text name="storageMonitor_menuText" text="Menampilkan: %s"/>
         <text name="storageMonitor_menuPick" text="Pilih penyimpanan (sekarang: %s)"/>
         <text name="storageMonitor_menuConnectedOn" text="Tampilkan juga silo yang terhubung"/>
@@ -33,8 +32,8 @@
         <text name="storageMonitor_pickTitle" text="Pilih penyimpanan"/>
         <text name="storageMonitor_pickText" text="Penyimpanan di dekat monitor ini, yang terdekat dulu, lalu seluruh pertanian Anda:"/>
         <text name="storageMonitor_pickNearest" text="Selalu yang terdekat"/>
-        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: halaman sebelumnya"/>
-        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: halaman berikutnya"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Better Digital Display: halaman sebelumnya"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Better Digital Display: halaman berikutnya"/>
         <text name="storageMonitor_menuSize" text="Ukuran layar (sekarang: lebar %.1f m)"/>
         <text name="storageMonitor_sizeTitle" text="Ukuran layar"/>
         <text name="storageMonitor_sizeText" text="Ukuran layar. Layar membesar ke atas dari tepi bawahnya."/>
@@ -55,7 +54,7 @@
         <text name="storageMonitor_bright4" text="Terang"/>
         <text name="storageMonitor_bright5" text="Sangat terang"/>
         <text name="storageMonitor_theme1" text="Biru malam"/>
-        <text name="storageMonitor_theme2" text="Hijau DTM"/>
+        <text name="storageMonitor_theme2" text="Hijau"/>
         <text name="storageMonitor_theme3" text="Terminal amber"/>
         <text name="storageMonitor_theme4" text="Siang hari"/>
         <text name="storageMonitor_farmAll" text="Semua silo pertanian saya"/>
@@ -134,9 +133,9 @@
         <text name="storageMonitor_spotNone" text="Tidak ada"/>
         <text name="storageMonitor_honeyHint" text="Madu dimuat ke palet di tempat palet"/>
         <text name="storageMonitor_honeyValue" text="Nilai per hari"/>
-        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Dudukan Dinding)"/>
-        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Gantung)"/>
-        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Papan Reklame Dua Sisi)"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Better Digital Display (Dudukan Dinding)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Better Digital Display (Gantung)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Better Digital Display (Papan Reklame Dua Sisi)"/>
         <text name="storageMonitor_fields" text="Ladang saya"/>
         <text name="storageMonitor_weather" text="Cuaca"/>
         <text name="storageMonitor_fleet" text="Kendaraan saya"/>
@@ -265,8 +264,8 @@
         <text name="storageMonitor_slideOff" text="Mati: tampilkan penyimpanan yang dipilih"/>
         <text name="storageMonitor_seconds" text="%d dtk"/>
         <text name="storageMonitor_slideTimeText" text="Berapa lama setiap layar ditampilkan:"/>
-        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: layar sebelumnya"/>
-        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: layar berikutnya"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Better Digital Display: layar sebelumnya"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Better Digital Display: layar berikutnya"/>
         <text name="storageMonitor_sellPlan" text="Kapan menjual"/>
         <text name="storageMonitor_message" text="Papan pesan"/>
         <text name="storageMonitor_profit" text="Laba produksi"/>

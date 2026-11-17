@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <translationContributors>DTM Mods</translationContributors>
     <texts>
-        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM（キオスク）"/>
-        <text name="shopItem_storageMonitor_wall"      text="Digital DTM（ウォール）"/>
-        <text name="shopItem_storageMonitor_billboard" text="Digital DTM（看板）"/>
+        <text name="shopItem_storageMonitor_kiosk"     text="Better Digital Display（キオスク）"/>
+        <text name="shopItem_storageMonitor_wall"      text="Better Digital Display（ウォール）"/>
+        <text name="shopItem_storageMonitor_billboard" text="Better Digital Display（看板）"/>
         <text name="function_storageMonitor"           text="サイロ、生産施設、畜舎、バンカーサイロ、倉庫、養蜂箱、農場の資金を表示するライブカラースクリーン：容量、全製品、増減ペース、価格、警告。"/>
 
         <text name="storageMonitor_showing"    text="表示中"/>
@@ -22,10 +21,10 @@
         <text name="storageMonitor_empty"      text="空"/>
         <text name="storageMonitor_page"       text="ページ %d/%d"/>
 
-        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM（サイロ取付）"/>
+        <text name="shopItem_storageMonitor_wallMount" text="Better Digital Display（サイロ取付）"/>
         <text name="storageMonitor_settings" text="モニター設定"/>
         <text name="storageMonitor_plusConnected" text="%s + 接続 %d"/>
-        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuTitle" text="Better Digital Display"/>
         <text name="storageMonitor_menuText" text="表示中：%s"/>
         <text name="storageMonitor_menuPick" text="保管庫を選択（現在：%s）"/>
         <text name="storageMonitor_menuConnectedOn" text="接続されたサイロも表示"/>
@@ -33,8 +32,8 @@
         <text name="storageMonitor_pickTitle" text="保管庫を選択"/>
         <text name="storageMonitor_pickText" text="このモニター付近の保管庫（近い順）、続いて農場全体："/>
         <text name="storageMonitor_pickNearest" text="常に最寄り"/>
-        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM：前のページ"/>
-        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM：次のページ"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Better Digital Display：前のページ"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Better Digital Display：次のページ"/>
         <text name="storageMonitor_menuSize" text="画面サイズ（現在：幅 %.1f m）"/>
         <text name="storageMonitor_sizeTitle" text="画面サイズ"/>
         <text name="storageMonitor_sizeText" text="画面のサイズ。下端から上に向かって大きくなります。"/>
@@ -55,7 +54,7 @@
         <text name="storageMonitor_bright4" text="明るい"/>
         <text name="storageMonitor_bright5" text="とても明るい"/>
         <text name="storageMonitor_theme1" text="ナイトブルー"/>
-        <text name="storageMonitor_theme2" text="DTMグリーン"/>
+        <text name="storageMonitor_theme2" text="グリーン"/>
         <text name="storageMonitor_theme3" text="アンバー端末"/>
         <text name="storageMonitor_theme4" text="デイライト"/>
         <text name="storageMonitor_farmAll" text="自分の農場の全サイロ"/>
@@ -134,9 +133,9 @@
         <text name="storageMonitor_spotNone" text="なし"/>
         <text name="storageMonitor_honeyHint" text="はちみつはパレット置き場でパレットに積まれます"/>
         <text name="storageMonitor_honeyValue" text="1日の価値"/>
-        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM（壁掛け）"/>
-        <text name="shopItem_storageMonitor_hanging" text="Digital DTM（吊り下げ）"/>
-        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM（両面看板）"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Better Digital Display（壁掛け）"/>
+        <text name="shopItem_storageMonitor_hanging" text="Better Digital Display（吊り下げ）"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Better Digital Display（両面看板）"/>
         <text name="storageMonitor_fields" text="自分の畑"/>
         <text name="storageMonitor_weather" text="天気"/>
         <text name="storageMonitor_fleet" text="自分の車両"/>
@@ -265,8 +264,8 @@
         <text name="storageMonitor_slideOff" text="オフ：選択した保管庫を表示"/>
         <text name="storageMonitor_seconds" text="%d 秒"/>
         <text name="storageMonitor_slideTimeText" text="各画面の表示時間："/>
-        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM：前の画面"/>
-        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM：次の画面"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Better Digital Display：前の画面"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Better Digital Display：次の画面"/>
         <text name="storageMonitor_sellPlan" text="売り時"/>
         <text name="storageMonitor_message" text="掲示板"/>
         <text name="storageMonitor_profit" text="生産施設の利益"/>

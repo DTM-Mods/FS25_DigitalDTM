@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <translationContributors>DTM Mods</translationContributors>
     <texts>
-        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (киоск)"/>
-        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (стена)"/>
-        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (билборд)"/>
+        <text name="shopItem_storageMonitor_kiosk"     text="Better Digital Display (киоск)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Better Digital Display (стена)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Better Digital Display (билборд)"/>
         <text name="function_storageMonitor"           text="Цветной экран в реальном времени для силосов, производств, загонов, силосных ям, складов, ульев и денег фермы: вместимость, каждый продукт, темпы, цены и оповещения."/>
 
         <text name="storageMonitor_showing"    text="Показывает"/>
@@ -22,10 +21,10 @@
         <text name="storageMonitor_empty"      text="Пусто"/>
         <text name="storageMonitor_page"       text="СТР. %d/%d"/>
 
-        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (на силос)"/>
+        <text name="shopItem_storageMonitor_wallMount" text="Better Digital Display (на силос)"/>
         <text name="storageMonitor_settings" text="Настройки монитора"/>
         <text name="storageMonitor_plusConnected" text="%s + подключённых: %d"/>
-        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuTitle" text="Better Digital Display"/>
         <text name="storageMonitor_menuText" text="Показывает: %s"/>
         <text name="storageMonitor_menuPick" text="Выбрать хранилище (сейчас: %s)"/>
         <text name="storageMonitor_menuConnectedOn" text="Показывать и подключённые силосы"/>
@@ -33,8 +32,8 @@
         <text name="storageMonitor_pickTitle" text="Выбрать хранилище"/>
         <text name="storageMonitor_pickText" text="Хранилища рядом с монитором, сначала ближайшие, затем вся ферма:"/>
         <text name="storageMonitor_pickNearest" text="Всегда ближайшее"/>
-        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: предыдущая страница"/>
-        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: следующая страница"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Better Digital Display: предыдущая страница"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Better Digital Display: следующая страница"/>
         <text name="storageMonitor_menuSize" text="Размер экрана (сейчас: ширина %.1f м)"/>
         <text name="storageMonitor_sizeTitle" text="Размер экрана"/>
         <text name="storageMonitor_sizeText" text="Размер экрана. Он растёт вверх от нижнего края."/>
@@ -55,7 +54,7 @@
         <text name="storageMonitor_bright4" text="Ярко"/>
         <text name="storageMonitor_bright5" text="Очень ярко"/>
         <text name="storageMonitor_theme1" text="Ночной синий"/>
-        <text name="storageMonitor_theme2" text="Зелёный DTM"/>
+        <text name="storageMonitor_theme2" text="Зелёный"/>
         <text name="storageMonitor_theme3" text="Янтарный терминал"/>
         <text name="storageMonitor_theme4" text="Дневной свет"/>
         <text name="storageMonitor_farmAll" text="Все силосы моей фермы"/>
@@ -134,9 +133,9 @@
         <text name="storageMonitor_spotNone" text="Нет"/>
         <text name="storageMonitor_honeyHint" text="Мёд выкладывается на поддоны на месте для поддонов"/>
         <text name="storageMonitor_honeyValue" text="Стоимость в день"/>
-        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (на стену здания)"/>
-        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (подвесной)"/>
-        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (двусторонний билборд)"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Better Digital Display (на стену здания)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Better Digital Display (подвесной)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Better Digital Display (двусторонний билборд)"/>
         <text name="storageMonitor_fields" text="Мои поля"/>
         <text name="storageMonitor_weather" text="Погода"/>
         <text name="storageMonitor_fleet" text="Моя техника"/>
@@ -265,8 +264,8 @@
         <text name="storageMonitor_slideOff" text="Выкл.: показывать выбранное хранилище"/>
         <text name="storageMonitor_seconds" text="%d с"/>
         <text name="storageMonitor_slideTimeText" text="Сколько показывать каждый экран:"/>
-        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: предыдущий экран"/>
-        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: следующий экран"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Better Digital Display: предыдущий экран"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Better Digital Display: следующий экран"/>
         <text name="storageMonitor_sellPlan" text="Когда продавать"/>
         <text name="storageMonitor_message" text="Доска объявлений"/>
         <text name="storageMonitor_profit" text="Прибыль производств"/>

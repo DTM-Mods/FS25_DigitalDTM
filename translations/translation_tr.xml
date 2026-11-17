@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <translationContributors>DTM Mods</translationContributors>
     <texts>
-        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Kiosk)"/>
-        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Duvar)"/>
-        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Reklam Panosu)"/>
+        <text name="shopItem_storageMonitor_kiosk"     text="Better Digital Display (Kiosk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Better Digital Display (Duvar)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Better Digital Display (Reklam Panosu)"/>
         <text name="function_storageMonitor"           text="Silolar, üretimler, hayvan ağılları, silaj siloları, depolar, arı kovanları ve çiftliğin parası için canlı renkli ekran: kapasite, her ürün, hızlar, fiyatlar ve uyarılar."/>
 
         <text name="storageMonitor_showing"    text="Gösterilen"/>
@@ -22,10 +21,10 @@
         <text name="storageMonitor_empty"      text="Boş"/>
         <text name="storageMonitor_page"       text="SAYFA %d/%d"/>
 
-        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Silo Montajlı)"/>
+        <text name="shopItem_storageMonitor_wallMount" text="Better Digital Display (Silo Montajlı)"/>
         <text name="storageMonitor_settings" text="Monitör ayarları"/>
         <text name="storageMonitor_plusConnected" text="%s + %d bağlı"/>
-        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuTitle" text="Better Digital Display"/>
         <text name="storageMonitor_menuText" text="Gösterilen: %s"/>
         <text name="storageMonitor_menuPick" text="Depoyu seç (şu an: %s)"/>
         <text name="storageMonitor_menuConnectedOn" text="Ona bağlı siloları da göster"/>
@@ -33,8 +32,8 @@
         <text name="storageMonitor_pickTitle" text="Depoyu seç"/>
         <text name="storageMonitor_pickText" text="Bu monitörün yakınındaki depolar, önce en yakını, sonra tüm çiftliğin:"/>
         <text name="storageMonitor_pickNearest" text="Her zaman en yakını"/>
-        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: önceki sayfa"/>
-        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: sonraki sayfa"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Better Digital Display: önceki sayfa"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Better Digital Display: sonraki sayfa"/>
         <text name="storageMonitor_menuSize" text="Ekran boyutu (şu an: %.1f m genişlik)"/>
         <text name="storageMonitor_sizeTitle" text="Ekran boyutu"/>
         <text name="storageMonitor_sizeText" text="Ekranın boyutu. Alt kenarından yukarı doğru büyür."/>
@@ -55,7 +54,7 @@
         <text name="storageMonitor_bright4" text="Parlak"/>
         <text name="storageMonitor_bright5" text="Çok parlak"/>
         <text name="storageMonitor_theme1" text="Gece mavisi"/>
-        <text name="storageMonitor_theme2" text="DTM yeşili"/>
+        <text name="storageMonitor_theme2" text="Yeşil"/>
         <text name="storageMonitor_theme3" text="Kehribar terminal"/>
         <text name="storageMonitor_theme4" text="Gün ışığı"/>
         <text name="storageMonitor_farmAll" text="Çiftliğimin tüm siloları"/>
@@ -134,9 +133,9 @@
         <text name="storageMonitor_spotNone" text="Yok"/>
         <text name="storageMonitor_honeyHint" text="Bal, palet yerinde paletlere konur"/>
         <text name="storageMonitor_honeyValue" text="Günlük değer"/>
-        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Duvar Montajlı)"/>
-        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Asılı)"/>
-        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Çift Taraflı Reklam Panosu)"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Better Digital Display (Duvar Montajlı)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Better Digital Display (Asılı)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Better Digital Display (Çift Taraflı Reklam Panosu)"/>
         <text name="storageMonitor_fields" text="Tarlalarım"/>
         <text name="storageMonitor_weather" text="Hava durumu"/>
         <text name="storageMonitor_fleet" text="Araçlarım"/>
@@ -265,8 +264,8 @@
         <text name="storageMonitor_slideOff" text="Kapalı: seçilen depoyu göster"/>
         <text name="storageMonitor_seconds" text="%d sn"/>
         <text name="storageMonitor_slideTimeText" text="Her ekranın ne kadar süre gösterileceği:"/>
-        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: önceki ekran"/>
-        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: sonraki ekran"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Better Digital Display: önceki ekran"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Better Digital Display: sonraki ekran"/>
         <text name="storageMonitor_sellPlan" text="Ne zaman satmalı"/>
         <text name="storageMonitor_message" text="Mesaj panosu"/>
         <text name="storageMonitor_profit" text="Üretim kârı"/>

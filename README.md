@@ -6,7 +6,7 @@
   <img src="src/icon_storageMonitor.png" alt="Storage Monitor icon" width="128">
 </p>
 
-<h1 align="center">Digital DTM</h1>
+<h1 align="center">Better Digital Display</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Farming%20Simulator-25-2E6B4F" alt="Farming Simulator 25">

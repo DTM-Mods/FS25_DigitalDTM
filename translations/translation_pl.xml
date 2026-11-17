@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <translationContributors>DTM Mods</translationContributors>
     <texts>
-        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (kiosk)"/>
-        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (ścienny)"/>
-        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (billboard)"/>
+        <text name="shopItem_storageMonitor_kiosk"     text="Better Digital Display (kiosk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Better Digital Display (ścienny)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Better Digital Display (billboard)"/>
         <text name="function_storageMonitor"           text="Kolorowy ekran na żywo dla silosów, produkcji, zagród zwierząt, silosów przejazdowych, magazynów, uli i pieniędzy gospodarstwa: pojemność, każdy produkt, tempo, ceny i alerty."/>
 
         <text name="storageMonitor_showing"    text="Wyświetla"/>
@@ -22,10 +21,10 @@
         <text name="storageMonitor_empty"      text="Pusty"/>
         <text name="storageMonitor_page"       text="STRONA %d/%d"/>
 
-        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (na silos)"/>
+        <text name="shopItem_storageMonitor_wallMount" text="Better Digital Display (na silos)"/>
         <text name="storageMonitor_settings" text="Ustawienia monitora"/>
         <text name="storageMonitor_plusConnected" text="%s + połączone: %d"/>
-        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuTitle" text="Better Digital Display"/>
         <text name="storageMonitor_menuText" text="Wyświetla: %s"/>
         <text name="storageMonitor_menuPick" text="Wybierz magazyn (teraz: %s)"/>
         <text name="storageMonitor_menuConnectedOn" text="Pokazuj też połączone silosy"/>
@@ -33,8 +32,8 @@
         <text name="storageMonitor_pickTitle" text="Wybierz magazyn"/>
         <text name="storageMonitor_pickText" text="Magazyny w pobliżu monitora, od najbliższego, potem całe gospodarstwo:"/>
         <text name="storageMonitor_pickNearest" text="Zawsze najbliższy"/>
-        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: poprzednia strona"/>
-        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: następna strona"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Better Digital Display: poprzednia strona"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Better Digital Display: następna strona"/>
         <text name="storageMonitor_menuSize" text="Rozmiar ekranu (teraz: szer. %.1f m)"/>
         <text name="storageMonitor_sizeTitle" text="Rozmiar ekranu"/>
         <text name="storageMonitor_sizeText" text="Rozmiar ekranu. Rośnie w górę od dolnej krawędzi."/>
@@ -55,7 +54,7 @@
         <text name="storageMonitor_bright4" text="Jasno"/>
         <text name="storageMonitor_bright5" text="Bardzo jasno"/>
         <text name="storageMonitor_theme1" text="Nocny niebieski"/>
-        <text name="storageMonitor_theme2" text="Zieleń DTM"/>
+        <text name="storageMonitor_theme2" text="Zielony"/>
         <text name="storageMonitor_theme3" text="Bursztynowy terminal"/>
         <text name="storageMonitor_theme4" text="Dzienny"/>
         <text name="storageMonitor_farmAll" text="Wszystkie silosy gospodarstwa"/>
@@ -134,9 +133,9 @@
         <text name="storageMonitor_spotNone" text="Brak"/>
         <text name="storageMonitor_honeyHint" text="Miód trafia na palety w miejscu na palety"/>
         <text name="storageMonitor_honeyValue" text="Wartość dziennie"/>
-        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (na ścianę budynku)"/>
-        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (wiszący)"/>
-        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (billboard dwustronny)"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Better Digital Display (na ścianę budynku)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Better Digital Display (wiszący)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Better Digital Display (billboard dwustronny)"/>
         <text name="storageMonitor_fields" text="Moje pola"/>
         <text name="storageMonitor_weather" text="Pogoda"/>
         <text name="storageMonitor_fleet" text="Moje pojazdy"/>
@@ -265,8 +264,8 @@
         <text name="storageMonitor_slideOff" text="Wył.: pokazuj wybrany magazyn"/>
         <text name="storageMonitor_seconds" text="%d s"/>
         <text name="storageMonitor_slideTimeText" text="Jak długo pokazywać każdy ekran:"/>
-        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: poprzedni ekran"/>
-        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: następny ekran"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Better Digital Display: poprzedni ekran"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Better Digital Display: następny ekran"/>
         <text name="storageMonitor_sellPlan" text="Kiedy sprzedać"/>
         <text name="storageMonitor_message" text="Tablica ogłoszeń"/>
         <text name="storageMonitor_profit" text="Zysk z produkcji"/>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <translationContributors>DTM Mods</translationContributors>
     <texts>
-        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (Ki-ốt)"/>
-        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (Tường màn hình)"/>
-        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (Bảng quảng cáo)"/>
+        <text name="shopItem_storageMonitor_kiosk"     text="Better Digital Display (Ki-ốt)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Better Digital Display (Tường màn hình)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Better Digital Display (Bảng quảng cáo)"/>
         <text name="function_storageMonitor"           text="Màn hình màu trực tiếp cho xi-lô, cơ sở sản xuất, chuồng vật nuôi, hầm ủ chua, nhà kho, tổ ong và tiền của trang trại: sức chứa, mọi sản phẩm, tốc độ, giá và cảnh báo."/>
 
         <text name="storageMonitor_showing"    text="Đang hiển thị"/>
@@ -22,10 +21,10 @@
         <text name="storageMonitor_empty"      text="Trống"/>
         <text name="storageMonitor_page"       text="TRANG %d/%d"/>
 
-        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (Gắn xi-lô)"/>
+        <text name="shopItem_storageMonitor_wallMount" text="Better Digital Display (Gắn xi-lô)"/>
         <text name="storageMonitor_settings" text="Cài đặt màn hình"/>
         <text name="storageMonitor_plusConnected" text="%s + %d kết nối"/>
-        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuTitle" text="Better Digital Display"/>
         <text name="storageMonitor_menuText" text="Đang hiển thị: %s"/>
         <text name="storageMonitor_menuPick" text="Chọn kho (hiện tại: %s)"/>
         <text name="storageMonitor_menuConnectedOn" text="Hiện cả các xi-lô được kết nối"/>
@@ -33,8 +32,8 @@
         <text name="storageMonitor_pickTitle" text="Chọn kho"/>
         <text name="storageMonitor_pickText" text="Các kho gần màn hình này, gần nhất trước, sau đó là cả trang trại:"/>
         <text name="storageMonitor_pickNearest" text="Luôn kho gần nhất"/>
-        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: trang trước"/>
-        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: trang sau"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Better Digital Display: trang trước"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Better Digital Display: trang sau"/>
         <text name="storageMonitor_menuSize" text="Kích thước màn hình (hiện tại: rộng %.1f m)"/>
         <text name="storageMonitor_sizeTitle" text="Kích thước màn hình"/>
         <text name="storageMonitor_sizeText" text="Kích thước của màn hình. Màn hình lớn dần lên trên từ cạnh dưới."/>
@@ -55,7 +54,7 @@
         <text name="storageMonitor_bright4" text="Sáng"/>
         <text name="storageMonitor_bright5" text="Rất sáng"/>
         <text name="storageMonitor_theme1" text="Xanh đêm"/>
-        <text name="storageMonitor_theme2" text="Xanh lá DTM"/>
+        <text name="storageMonitor_theme2" text="Xanh lá"/>
         <text name="storageMonitor_theme3" text="Màn hình hổ phách"/>
         <text name="storageMonitor_theme4" text="Ánh sáng ban ngày"/>
         <text name="storageMonitor_farmAll" text="Tất cả xi-lô của trang trại tôi"/>
@@ -134,9 +133,9 @@
         <text name="storageMonitor_spotNone" text="Không có"/>
         <text name="storageMonitor_honeyHint" text="Mật ong được xếp lên pallet tại chỗ đặt pallet"/>
         <text name="storageMonitor_honeyValue" text="Giá trị mỗi ngày"/>
-        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (Gắn tường)"/>
-        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (Treo)"/>
-        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (Bảng quảng cáo hai mặt)"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Better Digital Display (Gắn tường)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Better Digital Display (Treo)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Better Digital Display (Bảng quảng cáo hai mặt)"/>
         <text name="storageMonitor_fields" text="Ruộng của tôi"/>
         <text name="storageMonitor_weather" text="Thời tiết"/>
         <text name="storageMonitor_fleet" text="Xe của tôi"/>
@@ -265,8 +264,8 @@
         <text name="storageMonitor_slideOff" text="Tắt: hiển thị kho đã chọn"/>
         <text name="storageMonitor_seconds" text="%d giây"/>
         <text name="storageMonitor_slideTimeText" text="Mỗi trang hiển thị trong bao lâu:"/>
-        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: màn hình trước"/>
-        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: màn hình sau"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Better Digital Display: màn hình trước"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Better Digital Display: màn hình sau"/>
         <text name="storageMonitor_sellPlan" text="Khi nào bán"/>
         <text name="storageMonitor_message" text="Bảng tin nhắn"/>
         <text name="storageMonitor_profit" text="Lợi nhuận sản xuất"/>

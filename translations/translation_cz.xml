@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-    <translationContributors>DTM Mods</translationContributors>
     <texts>
-        <text name="shopItem_storageMonitor_kiosk"     text="Digital DTM (kiosk)"/>
-        <text name="shopItem_storageMonitor_wall"      text="Digital DTM (nástěnný)"/>
-        <text name="shopItem_storageMonitor_billboard" text="Digital DTM (billboard)"/>
+        <text name="shopItem_storageMonitor_kiosk"     text="Better Digital Display (kiosk)"/>
+        <text name="shopItem_storageMonitor_wall"      text="Better Digital Display (nástěnný)"/>
+        <text name="shopItem_storageMonitor_billboard" text="Better Digital Display (billboard)"/>
         <text name="function_storageMonitor"           text="Barevná živá obrazovka pro sila, výrobny, ohrady zvířat, silážní žlaby, sklady, úly a peníze farmy: kapacita, každý produkt, rychlost, ceny a upozornění."/>
 
         <text name="storageMonitor_showing"    text="Zobrazuje"/>
@@ -22,10 +21,10 @@
         <text name="storageMonitor_empty"      text="Prázdné"/>
         <text name="storageMonitor_page"       text="STRANA %d/%d"/>
 
-        <text name="shopItem_storageMonitor_wallMount" text="Digital DTM (na silo)"/>
+        <text name="shopItem_storageMonitor_wallMount" text="Better Digital Display (na silo)"/>
         <text name="storageMonitor_settings" text="Nastavení monitoru"/>
         <text name="storageMonitor_plusConnected" text="%s + připojená: %d"/>
-        <text name="storageMonitor_menuTitle" text="Digital DTM"/>
+        <text name="storageMonitor_menuTitle" text="Better Digital Display"/>
         <text name="storageMonitor_menuText" text="Zobrazuje: %s"/>
         <text name="storageMonitor_menuPick" text="Vybrat sklad (nyní: %s)"/>
         <text name="storageMonitor_menuConnectedOn" text="Zobrazit i připojená sila"/>
@@ -33,8 +32,8 @@
         <text name="storageMonitor_pickTitle" text="Vybrat sklad"/>
         <text name="storageMonitor_pickText" text="Sklady u tohoto monitoru, nejbližší první, potom celá farma:"/>
         <text name="storageMonitor_pickNearest" text="Vždy ten nejbližší"/>
-        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Digital DTM: předchozí strana"/>
-        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Digital DTM: další strana"/>
+        <text name="input_STORAGE_MONITOR_PAGE_UP" text="Better Digital Display: předchozí strana"/>
+        <text name="input_STORAGE_MONITOR_PAGE_DOWN" text="Better Digital Display: další strana"/>
         <text name="storageMonitor_menuSize" text="Velikost obrazovky (nyní: šířka %.1f m)"/>
         <text name="storageMonitor_sizeTitle" text="Velikost obrazovky"/>
         <text name="storageMonitor_sizeText" text="Velikost obrazovky. Roste nahoru od spodního okraje."/>
@@ -55,7 +54,7 @@
         <text name="storageMonitor_bright4" text="Jasný"/>
         <text name="storageMonitor_bright5" text="Velmi jasný"/>
         <text name="storageMonitor_theme1" text="Noční modrá"/>
-        <text name="storageMonitor_theme2" text="DTM zelená"/>
+        <text name="storageMonitor_theme2" text="Zelená"/>
         <text name="storageMonitor_theme3" text="Jantarový terminál"/>
         <text name="storageMonitor_theme4" text="Denní světlo"/>
         <text name="storageMonitor_farmAll" text="Všechna sila mé farmy"/>
@@ -134,9 +133,9 @@
         <text name="storageMonitor_spotNone" text="Žádné"/>
         <text name="storageMonitor_honeyHint" text="Med se ukládá na palety na místě pro palety"/>
         <text name="storageMonitor_honeyValue" text="Hodnota za den"/>
-        <text name="shopItem_storageMonitor_buildingMount" text="Digital DTM (na zeď budovy)"/>
-        <text name="shopItem_storageMonitor_hanging" text="Digital DTM (závěsný)"/>
-        <text name="shopItem_storageMonitor_billboard2" text="Digital DTM (oboustranný billboard)"/>
+        <text name="shopItem_storageMonitor_buildingMount" text="Better Digital Display (na zeď budovy)"/>
+        <text name="shopItem_storageMonitor_hanging" text="Better Digital Display (závěsný)"/>
+        <text name="shopItem_storageMonitor_billboard2" text="Better Digital Display (oboustranný billboard)"/>
         <text name="storageMonitor_fields" text="Moje pole"/>
         <text name="storageMonitor_weather" text="Počasí"/>
         <text name="storageMonitor_fleet" text="Moje vozidla"/>
@@ -265,8 +264,8 @@
         <text name="storageMonitor_slideOff" text="Vyp.: ukazovat vybraný sklad"/>
         <text name="storageMonitor_seconds" text="%d s"/>
         <text name="storageMonitor_slideTimeText" text="Jak dlouho ukazovat každou obrazovku:"/>
-        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Digital DTM: předchozí obrazovka"/>
-        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Digital DTM: další obrazovka"/>
+        <text name="input_STORAGE_MONITOR_PREV_SCREEN" text="Better Digital Display: předchozí obrazovka"/>
+        <text name="input_STORAGE_MONITOR_NEXT_SCREEN" text="Better Digital Display: další obrazovka"/>
         <text name="storageMonitor_sellPlan" text="Kdy prodat"/>
         <text name="storageMonitor_message" text="Nástěnka"/>
         <text name="storageMonitor_profit" text="Zisk výroben"/>

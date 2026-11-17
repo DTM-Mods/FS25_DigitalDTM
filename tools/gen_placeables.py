@@ -113,9 +113,9 @@ def to_dds(png, dds):
 BLOCK_BYTES = {b"DXT1": 8, 70: 8, 71: 8, 72: 8}
 
 
-def keep_mips(dds, keep=3):
-    """Cuts the mipmap chain textureTool writes down to `keep` levels: ModHub's store item check takes a shop
-    image with at most 3 mipmaps (it is only drawn in the menu, at most at its own size)."""
+def keep_mips(dds, keep=1):
+    """Cuts the mipmap chain textureTool writes down to `keep` levels: GIANTS' FS25 ModHub guidelines want shop
+    images without mipmaps (it is only drawn in the menu, at most at its own size)."""
     with open(dds, "rb") as f:
         data = f.read()
     count = int.from_bytes(data[28:32], "little")

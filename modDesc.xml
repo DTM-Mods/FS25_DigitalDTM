@@ -3,10 +3,45 @@
     <author>DTM Mods, Fennell</author>
     <version>1.4.0.4</version>
     <title>
-        <en>Digital DTM</en>
+        <en>Better Digital Display</en>
     </title>
     <description>
-        <en><![CDATA[A live screen for your silos, productions, animal pens, bunker silos, bale or pallet sheds, manure heaps, greenhouses and beehives, and for your whole farm: fields, weather, vehicles, contracts, money, a message board.
+        <en><![CDATA[Better Digital Display (Kiosk)
+Category: Buildings > Tools
+Price: $3,500
+Monthly upkeep: $2
+
+Better Digital Display (Wall)
+Category: Buildings > Tools
+Price: $6,500
+Monthly upkeep: $3
+
+Better Digital Display (Billboard)
+Category: Buildings > Tools
+Price: $12,000
+Monthly upkeep: $5
+
+Better Digital Display (Two-Sided Billboard)
+Category: Buildings > Tools
+Price: $18,000
+Monthly upkeep: $7
+
+Better Digital Display (Silo Mount)
+Category: Buildings > Tools
+Price: $6,000
+Monthly upkeep: $3
+
+Better Digital Display (Wall Mount)
+Category: Buildings > Tools
+Price: $5,500
+Monthly upkeep: $3
+
+Better Digital Display (Hanging)
+Category: Buildings > Tools
+Price: $5,500
+Monthly upkeep: $3
+
+A live screen for your silos, productions, animal pens, bunker silos, bale or pallet sheds, manure heaps, greenhouses and beehives, and for your whole farm: fields, weather, vehicles, contracts, money, a message board.
 
 Place it at a storage and it shows what is in it, in colour:
 - silos: how full in percent (green, amber, red from the level you set), used, free and total capacity, one bar with every product in its own colour
@@ -40,13 +75,48 @@ Slideshow: tick several screens and the monitor shows them in turn (10 to 60 sec
 
 Alerts: a blinking red stripe and a line in the footer when a silo is nearly full (from the level you set), an input is empty, animals run low on food or water, a tank is full, fields are ready to harvest (and rain is coming), a helper runs out of fuel, or a product sells for the price you wait for. Optionally also as a game message for everyone on the farm.
 
-Stand in front of it and press the activate key for its settings: the storage or farm screen, connected silos, screen size (0.8 to 6 m wide), brightness (5 levels, readable at night), colours (night blue, DTM green, amber terminal, daylight), your own title, storage, prices or history, the products shown, alerts, the nearly full level, a price alert and the slideshow. Everyone on the server sees the same settings and they are saved with the game.
+Stand in front of it and press the activate key for its settings: the storage or farm screen, connected silos, screen size (0.8 to 6 m wide), brightness (5 levels, readable at night), colours (night blue, green, amber terminal, daylight), your own title, storage, prices or history, the products shown, alerts, the nearly full level, a price alert and the slideshow. Everyone on the server sees the same settings and they are saved with the game.
 
-Seven models (Buildings > Tools): Kiosk 3,500, Wall 6,500, Billboard 12,000, Two-Sided Billboard 18,000, Silo Mount 6,000, Wall Mount 5,500 (flat on a building) and Hanging 5,500 (on rods, for inside a shed).
+Seven models (Buildings > Tools): Kiosk, Wall, Billboard, Two-Sided Billboard, Silo Mount, Wall Mount (flat on a building) and Hanging (on rods, for inside a shed).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></en>
-        <de><![CDATA[Ein Live-Bildschirm für Silos, Produktionen, Tierställe, Fahrsilos, Ballen- und Palettenlager, Misthaufen, Gewächshäuser und Bienenstöcke, und für den ganzen Hof: Felder, Wetter, Fahrzeuge, Aufträge, Geld, eine Nachrichtentafel.
+        <de><![CDATA[Better Digital Display (Kiosk)
+Kategorie: Gebäude > Werkzeuge
+Preis: 3.500 €
+Monatliche Unterhaltskosten: 2 €
+
+Better Digital Display (Wand)
+Kategorie: Gebäude > Werkzeuge
+Preis: 6.500 €
+Monatliche Unterhaltskosten: 3 €
+
+Better Digital Display (Großanzeige)
+Kategorie: Gebäude > Werkzeuge
+Preis: 12.000 €
+Monatliche Unterhaltskosten: 5 €
+
+Better Digital Display (Großanzeige beidseitig)
+Kategorie: Gebäude > Werkzeuge
+Preis: 18.000 €
+Monatliche Unterhaltskosten: 7 €
+
+Better Digital Display (Silohalterung)
+Kategorie: Gebäude > Werkzeuge
+Preis: 6.000 €
+Monatliche Unterhaltskosten: 3 €
+
+Better Digital Display (Wandhalterung)
+Kategorie: Gebäude > Werkzeuge
+Preis: 5.500 €
+Monatliche Unterhaltskosten: 3 €
+
+Better Digital Display (Hängend)
+Kategorie: Gebäude > Werkzeuge
+Preis: 5.500 €
+Monatliche Unterhaltskosten: 3 €
+
+Ein Live-Bildschirm für Silos, Produktionen, Tierställe, Fahrsilos, Ballen- und Palettenlager, Misthaufen, Gewächshäuser und Bienenstöcke, und für den ganzen Hof: Felder, Wetter, Fahrzeuge, Aufträge, Geld, eine Nachrichtentafel.
 
 An einem Lager aufgestellt, zeigt er dessen Inhalt in Farbe:
 - Silos: Füllstand in Prozent (grün, gelb, rot ab dem eingestellten Füllstand), belegte, freie und gesamte Kapazität, ein Balken mit jedem Produkt in seiner eigenen Farbe
@@ -80,13 +150,48 @@ Diashow: mehrere Bildschirme ankreuzen, und der Monitor zeigt sie abwechselnd (j
 
 Warnungen: ein blinkender roter Streifen und eine Zeile unten, wenn ein Silo fast voll ist (ab dem eingestellten Füllstand), ein Rohstoff fehlt, den Tieren Futter oder Wasser ausgeht, ein Tank voll ist, Felder erntereif sind (und Regen kommt), einem Helfer der Kraftstoff ausgeht oder ein Produkt den Preis bringt, auf den du wartest. Auf Wunsch auch als Meldung im Spiel für alle Spieler des Hofes.
 
-Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager oder der Hof-Bildschirm, verbundene Silos, Bildschirmgröße (0,8 bis 6 m breit), Helligkeit (5 Stufen, nachts lesbar), Farben (Nachtblau, DTM-Grün, Bernstein-Terminal, Tageslicht), ein eigener Titel, Lager, Preise oder Verlauf, die gezeigten Produkte, Warnungen, der Füllstand für "fast voll", eine Preiswarnung und die Diashow. Alle Spieler auf dem Server sehen dieselben Einstellungen, und sie werden mit dem Spielstand gespeichert.
+Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager oder der Hof-Bildschirm, verbundene Silos, Bildschirmgröße (0,8 bis 6 m breit), Helligkeit (5 Stufen, nachts lesbar), Farben (Nachtblau, Grün, Bernstein-Terminal, Tageslicht), ein eigener Titel, Lager, Preise oder Verlauf, die gezeigten Produkte, Warnungen, der Füllstand für "fast voll", eine Preiswarnung und die Diashow. Alle Spieler auf dem Server sehen dieselben Einstellungen, und sie werden mit dem Spielstand gespeichert.
 
-Sieben Modelle (Gebäude > Werkzeuge): Kiosk 3.500, Wand 6.500, Großanzeige 12.000, Großanzeige beidseitig 18.000, Silohalterung 6.000, Wandhalterung 5.500 (flach an einem Gebäude) und Hängend 5.500 (an Stangen, für in der Halle).
+Sieben Modelle (Gebäude > Werkzeuge): Kiosk, Wand, Großanzeige, Großanzeige beidseitig, Silohalterung, Wandhalterung (flach an einem Gebäude) und Hängend (an Stangen, für in der Halle).
 
 Changelog 1.4.0.4:
 - An die aktuelle Spielversion angepasst (modDesc-Version 116).]]></de>
-        <fr><![CDATA[Un écran en direct pour vos silos, productions, élevages, silos couloirs, hangars à balles ou à palettes, fumières, serres et ruches, et pour toute votre ferme : champs, météo, véhicules, contrats, argent, un panneau de messages.
+        <fr><![CDATA[Better Digital Display (Kiosque)
+Catégorie : Bâtiments > Outils
+Prix : 3 500 €
+Entretien mensuel : 2 €
+
+Better Digital Display (Mural)
+Catégorie : Bâtiments > Outils
+Prix : 6 500 €
+Entretien mensuel : 3 €
+
+Better Digital Display (Panneau)
+Catégorie : Bâtiments > Outils
+Prix : 12 000 €
+Entretien mensuel : 5 €
+
+Better Digital Display (Panneau double face)
+Catégorie : Bâtiments > Outils
+Prix : 18 000 €
+Entretien mensuel : 7 €
+
+Better Digital Display (Fixation silo)
+Catégorie : Bâtiments > Outils
+Prix : 6 000 €
+Entretien mensuel : 3 €
+
+Better Digital Display (Fixation murale)
+Catégorie : Bâtiments > Outils
+Prix : 5 500 €
+Entretien mensuel : 3 €
+
+Better Digital Display (Suspendu)
+Catégorie : Bâtiments > Outils
+Prix : 5 500 €
+Entretien mensuel : 3 €
+
+Un écran en direct pour vos silos, productions, élevages, silos couloirs, hangars à balles ou à palettes, fumières, serres et ruches, et pour toute votre ferme : champs, météo, véhicules, contrats, argent, un panneau de messages.
 
 Placé près d'un stockage, il affiche son contenu, en couleur :
 - silos : remplissage en pour cent (vert, orange, rouge à partir du niveau choisi), capacité utilisée, libre et totale, une barre avec chaque produit dans sa propre couleur
@@ -120,13 +225,48 @@ Diaporama : cochez plusieurs écrans et le moniteur les affiche à tour de rôle
 
 Alertes : une bande rouge clignotante et une ligne en bas de l'écran quand un silo est presque plein (à partir du niveau choisi), qu'un intrant manque, que les animaux manquent de nourriture ou d'eau, qu'un réservoir est plein, que des champs sont prêts à récolter (et que la pluie arrive), qu'un ouvrier va tomber en panne de carburant ou qu'un produit se vend au prix que vous attendez. En option, aussi comme message du jeu pour tous les membres de la ferme.
 
-Placez-vous devant et appuyez sur la touche d'activation pour ses réglages : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 6 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert DTM, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les produits affichés, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes réglages, et ils sont sauvegardés avec la partie.
+Placez-vous devant et appuyez sur la touche d'activation pour ses réglages : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 6 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les produits affichés, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes réglages, et ils sont sauvegardés avec la partie.
 
-Sept modèles (Bâtiments > Outils) : Kiosque 3 500, Mural 6 500, Panneau 12 000, Panneau double face 18 000, Fixation silo 6 000, Fixation murale 5 500 (à plat sur un bâtiment) et Suspendu 5 500 (sur tiges, pour l'intérieur d'un hangar).
+Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau, Panneau double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
 Changelog 1.4.0.4:
 - Mis à jour pour la version actuelle du jeu (modDesc version 116).]]></fr>
-        <es><![CDATA[Una pantalla en directo para tus silos, producciones, corrales, silos búnker, naves de pacas o de palés, estercoleros, invernaderos y colmenas, y para toda tu granja: campos, tiempo, vehículos, contratos, dinero, un tablón de mensajes.
+        <es><![CDATA[Better Digital Display (Quiosco)
+Categoría: Edificios > Herramientas
+Precio: 3.500 €
+Mantenimiento mensual: 2 €
+
+Better Digital Display (Pared)
+Categoría: Edificios > Herramientas
+Precio: 6.500 €
+Mantenimiento mensual: 3 €
+
+Better Digital Display (Valla publicitaria)
+Categoría: Edificios > Herramientas
+Precio: 12.000 €
+Mantenimiento mensual: 5 €
+
+Better Digital Display (Valla de dos caras)
+Categoría: Edificios > Herramientas
+Precio: 18.000 €
+Mantenimiento mensual: 7 €
+
+Better Digital Display (Soporte de silo)
+Categoría: Edificios > Herramientas
+Precio: 6.000 €
+Mantenimiento mensual: 3 €
+
+Better Digital Display (Soporte de pared)
+Categoría: Edificios > Herramientas
+Precio: 5.500 €
+Mantenimiento mensual: 3 €
+
+Better Digital Display (Colgante)
+Categoría: Edificios > Herramientas
+Precio: 5.500 €
+Mantenimiento mensual: 3 €
+
+Una pantalla en directo para tus silos, producciones, corrales, silos búnker, naves de pacas o de palés, estercoleros, invernaderos y colmenas, y para toda tu granja: campos, tiempo, vehículos, contratos, dinero, un tablón de mensajes.
 
 Colócala junto a un almacén y muestra lo que hay dentro, en color:
 - silos: lo lleno que está en porcentaje (verde, ámbar, rojo desde el nivel que elijas), capacidad usada, libre y total, una barra con cada producto en su propio color
@@ -160,13 +300,48 @@ Presentación: marca varias pantallas y el monitor las muestra por turnos (de 10
 
 Alertas: una franja roja parpadeante y una línea en el pie de la pantalla cuando un silo está casi lleno (desde el nivel que elijas), falta un insumo, a los animales les falta comida o agua, un tanque está lleno, hay campos listos para cosechar (y viene lluvia), un ayudante se queda sin combustible o un producto se vende al precio que esperas. Opcionalmente también como mensaje del juego para todos los de la granja.
 
-Ponte delante y pulsa la tecla de activar para abrir sus ajustes: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0,8 a 6 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde DTM, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, los productos mostrados, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven los mismos ajustes y se guardan con la partida.
+Ponte delante y pulsa la tecla de activar para abrir sus ajustes: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0,8 a 6 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, los productos mostrados, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven los mismos ajustes y se guardan con la partida.
 
-Siete modelos (Edificios > Herramientas): Quiosco 3.500, Pared 6.500, Valla publicitaria 12.000, Valla de dos caras 18.000, Soporte de silo 6.000, Soporte de pared 5.500 (plano sobre un edificio) y Colgante 5.500 (con varillas, para el interior de una nave).
+Siete modelos (Edificios > Herramientas): Quiosco, Pared, Valla publicitaria, Valla de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de una nave).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></es>
-        <ea><![CDATA[Una pantalla en vivo para tus silos, producciones, corrales, silos búnker, galpones de fardos o de pallets, pilas de estiércol, invernaderos y colmenas, y para toda tu granja: campos, clima, vehículos, contratos, dinero, un tablero de mensajes.
+        <ea><![CDATA[Better Digital Display (Quiosco)
+Categoría: Edificios > Herramientas
+Precio: $3,500
+Mantenimiento mensual: $2
+
+Better Digital Display (Pared)
+Categoría: Edificios > Herramientas
+Precio: $6,500
+Mantenimiento mensual: $3
+
+Better Digital Display (Cartel publicitario)
+Categoría: Edificios > Herramientas
+Precio: $12,000
+Mantenimiento mensual: $5
+
+Better Digital Display (Cartel de dos caras)
+Categoría: Edificios > Herramientas
+Precio: $18,000
+Mantenimiento mensual: $7
+
+Better Digital Display (Soporte de silo)
+Categoría: Edificios > Herramientas
+Precio: $6,000
+Mantenimiento mensual: $3
+
+Better Digital Display (Soporte de pared)
+Categoría: Edificios > Herramientas
+Precio: $5,500
+Mantenimiento mensual: $3
+
+Better Digital Display (Colgante)
+Categoría: Edificios > Herramientas
+Precio: $5,500
+Mantenimiento mensual: $3
+
+Una pantalla en vivo para tus silos, producciones, corrales, silos búnker, galpones de fardos o de pallets, pilas de estiércol, invernaderos y colmenas, y para toda tu granja: campos, clima, vehículos, contratos, dinero, un tablero de mensajes.
 
 Colócala junto a un almacén y muestra lo que hay adentro, a color:
 - silos: qué tan lleno está en porcentaje (verde, ámbar, rojo desde el nivel que elijas), capacidad usada, libre y total, una barra con cada producto en su propio color
@@ -200,13 +375,48 @@ Presentación: marca varias pantallas y el monitor las muestra por turnos (de 10
 
 Alertas: una franja roja parpadeante y una línea en la parte inferior de la pantalla cuando un silo está casi lleno (desde el nivel que elijas), falta un insumo, a los animales les falta comida o agua, un tanque está lleno, hay campos listos para cosechar (y viene lluvia), un ayudante se queda sin combustible o un producto se vende al precio que esperas. Opcionalmente también como mensaje del juego para todos los de la granja.
 
-Párate enfrente y presiona la tecla de activar para abrir su configuración: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0.8 a 6 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde DTM, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, los productos mostrados, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven la misma configuración y se guarda con la partida.
+Párate enfrente y presiona la tecla de activar para abrir su configuración: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0.8 a 6 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, los productos mostrados, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven la misma configuración y se guarda con la partida.
 
-Siete modelos (Edificios > Herramientas): Quiosco 3,500, Pared 6,500, Cartel publicitario 12,000, Cartel de dos caras 18,000, Soporte de silo 6,000, Soporte de pared 5,500 (plano sobre un edificio) y Colgante 5,500 (con varillas, para el interior de un galpón).
+Siete modelos (Edificios > Herramientas): Quiosco, Pared, Cartel publicitario, Cartel de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de un galpón).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></ea>
-        <pt><![CDATA[Um ecrã em direto para os seus silos, produções, currais, silos trincheira, pavilhões de fardos ou de paletes, nitreiras, estufas e colmeias, e para toda a sua quinta: campos, tempo, veículos, contratos, dinheiro, um quadro de mensagens.
+        <pt><![CDATA[Better Digital Display (Quiosque)
+Categoria: Edifícios > Ferramentas
+Preço: 3 500 €
+Manutenção mensal: 2 €
+
+Better Digital Display (Parede)
+Categoria: Edifícios > Ferramentas
+Preço: 6 500 €
+Manutenção mensal: 3 €
+
+Better Digital Display (Painel publicitário)
+Categoria: Edifícios > Ferramentas
+Preço: 12 000 €
+Manutenção mensal: 5 €
+
+Better Digital Display (Painel de dupla face)
+Categoria: Edifícios > Ferramentas
+Preço: 18 000 €
+Manutenção mensal: 7 €
+
+Better Digital Display (Suporte de silo)
+Categoria: Edifícios > Ferramentas
+Preço: 6 000 €
+Manutenção mensal: 3 €
+
+Better Digital Display (Suporte de parede)
+Categoria: Edifícios > Ferramentas
+Preço: 5 500 €
+Manutenção mensal: 3 €
+
+Better Digital Display (Suspenso)
+Categoria: Edifícios > Ferramentas
+Preço: 5 500 €
+Manutenção mensal: 3 €
+
+Um ecrã em direto para os seus silos, produções, currais, silos trincheira, pavilhões de fardos ou de paletes, nitreiras, estufas e colmeias, e para toda a sua quinta: campos, tempo, veículos, contratos, dinheiro, um quadro de mensagens.
 
 Coloque-o junto a um armazém e ele mostra o que contém, a cores:
 - silos: quão cheio está em percentagem (verde, âmbar, vermelho a partir do nível que definir), capacidade usada, livre e total, uma barra com cada produto na sua própria cor
@@ -240,13 +450,48 @@ Apresentação: marque vários ecrãs e o monitor mostra-os alternadamente (de 1
 
 Alertas: uma faixa vermelha a piscar e uma linha no rodapé quando um silo está quase cheio (a partir do nível que definir), falta uma matéria-prima, os animais têm pouca ração ou água, um tanque está cheio, há campos prontos a colher (e vem aí chuva), um ajudante está a ficar sem combustível ou um produto se vende ao preço que espera. Opcionalmente também como mensagem do jogo para todos na quinta.
 
-Coloque-se à frente dele e prima a tecla de ativar para abrir as definições: o ecrã de armazém ou da quinta, silos ligados, tamanho do ecrã (de 0,8 a 6 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde DTM, terminal âmbar, luz do dia), o seu próprio título, armazém, preços ou histórico, os produtos mostrados, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas definições, e estas são guardadas com o jogo.
+Coloque-se à frente dele e prima a tecla de ativar para abrir as definições: o ecrã de armazém ou da quinta, silos ligados, tamanho do ecrã (de 0,8 a 6 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde, terminal âmbar, luz do dia), o seu próprio título, armazém, preços ou histórico, os produtos mostrados, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas definições, e estas são guardadas com o jogo.
 
-Sete modelos (Edifícios > Ferramentas): Quiosque 3 500, Parede 6 500, Painel publicitário 12 000, Painel de dupla face 18 000, Suporte de silo 6 000, Suporte de parede 5 500 (encostado a um edifício) e Suspenso 5 500 (em varões, para o interior de um pavilhão).
+Sete modelos (Edifícios > Ferramentas): Quiosque, Parede, Painel publicitário, Painel de dupla face, Suporte de silo, Suporte de parede (encostado a um edifício) e Suspenso (em varões, para o interior de um pavilhão).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></pt>
-        <br><![CDATA[Uma tela ao vivo para seus silos, produções, currais, silos trincheira, galpões de fardos ou de paletes, montes de esterco, estufas e colmeias, e para toda a sua fazenda: campos, clima, veículos, contratos, dinheiro, um quadro de mensagens.
+        <br><![CDATA[Better Digital Display (Quiosque)
+Categoria: Construções > Ferramentas
+Preço: $3.500
+Manutenção mensal: $2
+
+Better Digital Display (Parede)
+Categoria: Construções > Ferramentas
+Preço: $6.500
+Manutenção mensal: $3
+
+Better Digital Display (Outdoor)
+Categoria: Construções > Ferramentas
+Preço: $12.000
+Manutenção mensal: $5
+
+Better Digital Display (Outdoor dupla face)
+Categoria: Construções > Ferramentas
+Preço: $18.000
+Manutenção mensal: $7
+
+Better Digital Display (Suporte de silo)
+Categoria: Construções > Ferramentas
+Preço: $6.000
+Manutenção mensal: $3
+
+Better Digital Display (Suporte de parede)
+Categoria: Construções > Ferramentas
+Preço: $5.500
+Manutenção mensal: $3
+
+Better Digital Display (Suspenso)
+Categoria: Construções > Ferramentas
+Preço: $5.500
+Manutenção mensal: $3
+
+Uma tela ao vivo para seus silos, produções, currais, silos trincheira, galpões de fardos ou de paletes, montes de esterco, estufas e colmeias, e para toda a sua fazenda: campos, clima, veículos, contratos, dinheiro, um quadro de mensagens.
 
 Coloque-a junto a um armazém e ela mostra o que há nele, em cores:
 - silos: o quanto está cheio em porcentagem (verde, âmbar, vermelho a partir do nível que você definir), capacidade usada, livre e total, uma barra com cada produto na sua própria cor
@@ -280,13 +525,48 @@ Apresentação: marque várias telas e o monitor as mostra alternadamente (de 10
 
 Alertas: uma faixa vermelha piscando e uma linha no rodapé quando um silo está quase cheio (a partir do nível que você definir), falta um insumo, os animais estão com pouca ração ou água, um tanque está cheio, há campos prontos para colher (e vem chuva), um ajudante está ficando sem combustível ou um produto é vendido pelo preço que você espera. Opcionalmente também como mensagem do jogo para todos da fazenda.
 
-Fique na frente dela e aperte a tecla de ativar para abrir as configurações: a tela de armazém ou da fazenda, silos conectados, tamanho da tela (de 0,8 a 6 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde DTM, terminal âmbar, luz do dia), seu próprio título, armazém, preços ou histórico, os produtos exibidos, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas configurações, e elas são salvas com o jogo.
+Fique na frente dela e aperte a tecla de ativar para abrir as configurações: a tela de armazém ou da fazenda, silos conectados, tamanho da tela (de 0,8 a 6 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde, terminal âmbar, luz do dia), seu próprio título, armazém, preços ou histórico, os produtos exibidos, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas configurações, e elas são salvas com o jogo.
 
-Sete modelos (Construções > Ferramentas): Quiosque 3.500, Parede 6.500, Outdoor 12.000, Outdoor dupla face 18.000, Suporte de silo 6.000, Suporte de parede 5.500 (rente a um prédio) e Suspenso 5.500 (em hastes, para dentro de um galpão).
+Sete modelos (Construções > Ferramentas): Quiosque, Parede, Outdoor, Outdoor dupla face, Suporte de silo, Suporte de parede (rente a um prédio) e Suspenso (em hastes, para dentro de um galpão).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></br>
-        <it><![CDATA[Uno schermo in tempo reale per i tuoi silos, produzioni, recinti, silos a trincea, capannoni per balle o pallet, concimaie, serre e arnie, e per tutta la tua fattoria: campi, meteo, veicoli, contratti, denaro, una bacheca messaggi.
+        <it><![CDATA[Better Digital Display (Chiosco)
+Categoria: Edifici > Strumenti
+Prezzo: 3.500 €
+Manutenzione mensile: 2 €
+
+Better Digital Display (Parete)
+Categoria: Edifici > Strumenti
+Prezzo: 6.500 €
+Manutenzione mensile: 3 €
+
+Better Digital Display (Cartellone)
+Categoria: Edifici > Strumenti
+Prezzo: 12.000 €
+Manutenzione mensile: 5 €
+
+Better Digital Display (Cartellone bifacciale)
+Categoria: Edifici > Strumenti
+Prezzo: 18.000 €
+Manutenzione mensile: 7 €
+
+Better Digital Display (Supporto per silo)
+Categoria: Edifici > Strumenti
+Prezzo: 6.000 €
+Manutenzione mensile: 3 €
+
+Better Digital Display (Supporto a parete)
+Categoria: Edifici > Strumenti
+Prezzo: 5.500 €
+Manutenzione mensile: 3 €
+
+Better Digital Display (Sospeso)
+Categoria: Edifici > Strumenti
+Prezzo: 5.500 €
+Manutenzione mensile: 3 €
+
+Uno schermo in tempo reale per i tuoi silos, produzioni, recinti, silos a trincea, capannoni per balle o pallet, concimaie, serre e arnie, e per tutta la tua fattoria: campi, meteo, veicoli, contratti, denaro, una bacheca messaggi.
 
 Posizionalo vicino a un deposito e mostra cosa contiene, a colori:
 - silos: quanto è pieno in percentuale (verde, ambra, rosso dal livello che imposti), capacità usata, libera e totale, una barra con ogni prodotto nel suo colore
@@ -320,13 +600,48 @@ Presentazione: spunta più schermate e il monitor le mostra a turno (da 10 a 60 
 
 Avvisi: una striscia rossa lampeggiante e una riga in fondo allo schermo quando un silo è quasi pieno (dal livello che imposti), una materia prima è finita, gli animali hanno poco cibo o acqua, un serbatoio è pieno, ci sono campi pronti da raccogliere (e arriva la pioggia), un aiutante sta finendo il carburante o un prodotto si vende al prezzo che aspetti. Facoltativamente anche come messaggio di gioco per tutti nella fattoria.
 
-Mettiti davanti e premi il tasto di attivazione per le sue impostazioni: la schermata del deposito o della fattoria, silos collegati, dimensione dello schermo (da 0,8 a 6 m di larghezza), luminosità (5 livelli, leggibile di notte), colori (blu notte, verde DTM, terminale ambra, luce del giorno), il tuo titolo, deposito, prezzi o cronologia, i prodotti mostrati, avvisi, il livello di quasi pieno, un avviso prezzo e la presentazione. Tutti sul server vedono le stesse impostazioni, che vengono salvate con la partita.
+Mettiti davanti e premi il tasto di attivazione per le sue impostazioni: la schermata del deposito o della fattoria, silos collegati, dimensione dello schermo (da 0,8 a 6 m di larghezza), luminosità (5 livelli, leggibile di notte), colori (blu notte, verde, terminale ambra, luce del giorno), il tuo titolo, deposito, prezzi o cronologia, i prodotti mostrati, avvisi, il livello di quasi pieno, un avviso prezzo e la presentazione. Tutti sul server vedono le stesse impostazioni, che vengono salvate con la partita.
 
-Sette modelli (Edifici > Strumenti): Chiosco 3.500, Parete 6.500, Cartellone 12.000, Cartellone bifacciale 18.000, Supporto per silo 6.000, Supporto a parete 5.500 (aderente a un edificio) e Sospeso 5.500 (su aste, per l'interno di un capannone).
+Sette modelli (Edifici > Strumenti): Chiosco, Parete, Cartellone, Cartellone bifacciale, Supporto per silo, Supporto a parete (aderente a un edificio) e Sospeso (su aste, per l'interno di un capannone).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></it>
-        <fc><![CDATA[Un écran en direct pour vos silos, productions, élevages, silos couloirs, hangars à balles ou à palettes, fumières, serres et ruches, et pour toute votre ferme : champs, météo, véhicules, contrats, argent, un babillard.
+        <fc><![CDATA[Better Digital Display (Kiosque)
+Catégorie : Bâtiments > Outils
+Prix : 3 500 $
+Entretien mensuel : 2 $
+
+Better Digital Display (Mural)
+Catégorie : Bâtiments > Outils
+Prix : 6 500 $
+Entretien mensuel : 3 $
+
+Better Digital Display (Panneau-réclame)
+Catégorie : Bâtiments > Outils
+Prix : 12 000 $
+Entretien mensuel : 5 $
+
+Better Digital Display (Panneau-réclame double face)
+Catégorie : Bâtiments > Outils
+Prix : 18 000 $
+Entretien mensuel : 7 $
+
+Better Digital Display (Fixation silo)
+Catégorie : Bâtiments > Outils
+Prix : 6 000 $
+Entretien mensuel : 3 $
+
+Better Digital Display (Fixation murale)
+Catégorie : Bâtiments > Outils
+Prix : 5 500 $
+Entretien mensuel : 3 $
+
+Better Digital Display (Suspendu)
+Catégorie : Bâtiments > Outils
+Prix : 5 500 $
+Entretien mensuel : 3 $
+
+Un écran en direct pour vos silos, productions, élevages, silos couloirs, hangars à balles ou à palettes, fumières, serres et ruches, et pour toute votre ferme : champs, météo, véhicules, contrats, argent, un babillard.
 
 Placé près d'un stockage, il affiche son contenu, en couleur :
 - silos : remplissage en pour cent (vert, orange, rouge à partir du niveau choisi), capacité utilisée, libre et totale, une barre avec chaque produit dans sa propre couleur
@@ -360,13 +675,48 @@ Diaporama : cochez plusieurs écrans et le moniteur les affiche à tour de rôle
 
 Alertes : une bande rouge clignotante et une ligne en bas de l'écran quand un silo est presque plein (à partir du niveau choisi), qu'un intrant manque, que les animaux manquent de nourriture ou d'eau, qu'un réservoir est plein, que des champs sont prêts à récolter (et que la pluie arrive), qu'un ouvrier va manquer d'essence ou qu'un produit se vend au prix que vous attendez. En option, aussi comme message du jeu pour tous les membres de la ferme.
 
-Placez-vous devant et appuyez sur la touche d'activation pour ses paramètres : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 6 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert DTM, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les produits affichés, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes paramètres, et ils sont sauvegardés avec la partie.
+Placez-vous devant et appuyez sur la touche d'activation pour ses paramètres : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 6 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les produits affichés, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes paramètres, et ils sont sauvegardés avec la partie.
 
-Sept modèles (Bâtiments > Outils) : Kiosque 3 500, Mural 6 500, Panneau-réclame 12 000, Panneau-réclame double face 18 000, Fixation silo 6 000, Fixation murale 5 500 (à plat sur un bâtiment) et Suspendu 5 500 (sur tiges, pour l'intérieur d'un hangar).
+Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau-réclame, Panneau-réclame double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></fc>
-        <pl><![CDATA[Ekran na żywo dla Twoich silosów, produkcji, zagród zwierząt, silosów przejazdowych, magazynów bel i palet, pryzm obornika, szklarni i uli, a także dla całego gospodarstwa: pola, pogoda, pojazdy, zlecenia, pieniądze, tablica ogłoszeń.
+        <pl><![CDATA[Better Digital Display (kiosk)
+Kategoria: Budynki > Narzędzia
+Cena: 3 500 €
+Miesięczne utrzymanie: 2 €
+
+Better Digital Display (ścienny)
+Kategoria: Budynki > Narzędzia
+Cena: 6 500 €
+Miesięczne utrzymanie: 3 €
+
+Better Digital Display (billboard)
+Kategoria: Budynki > Narzędzia
+Cena: 12 000 €
+Miesięczne utrzymanie: 5 €
+
+Better Digital Display (billboard dwustronny)
+Kategoria: Budynki > Narzędzia
+Cena: 18 000 €
+Miesięczne utrzymanie: 7 €
+
+Better Digital Display (na silos)
+Kategoria: Budynki > Narzędzia
+Cena: 6 000 €
+Miesięczne utrzymanie: 3 €
+
+Better Digital Display (na ścianę budynku)
+Kategoria: Budynki > Narzędzia
+Cena: 5 500 €
+Miesięczne utrzymanie: 3 €
+
+Better Digital Display (wiszący)
+Kategoria: Budynki > Narzędzia
+Cena: 5 500 €
+Miesięczne utrzymanie: 3 €
+
+Ekran na żywo dla Twoich silosów, produkcji, zagród zwierząt, silosów przejazdowych, magazynów bel i palet, pryzm obornika, szklarni i uli, a także dla całego gospodarstwa: pola, pogoda, pojazdy, zlecenia, pieniądze, tablica ogłoszeń.
 
 Postaw go przy magazynie, a pokaże w kolorze, co jest w środku:
 - silosy: zapełnienie w procentach (zielony, bursztynowy, czerwony od ustawionego poziomu), zajęta, wolna i całkowita pojemność, jeden pasek z każdym produktem w jego własnym kolorze
@@ -400,13 +750,48 @@ Pokaz slajdów: zaznacz kilka ekranów, a monitor pokaże je po kolei (od 10 do 
 
 Alerty: migający czerwony pasek i linia w stopce, gdy silos jest prawie pełny (od ustawionego poziomu), brakuje surowca, zwierzętom kończy się pasza lub woda, zbiornik jest pełny, pola są gotowe do zbioru (i nadchodzi deszcz), pomocnikowi kończy się paliwo lub produkt sprzedaje się po cenie, na którą czekasz. Opcjonalnie także jako wiadomość w grze dla wszystkich w gospodarstwie.
 
-Stań przed nim i naciśnij klawisz aktywacji, aby otworzyć ustawienia: ekran magazynu lub gospodarstwa, połączone silosy, rozmiar ekranu (od 0,8 do 6 m szerokości), jasność (5 poziomów, czytelna w nocy), kolory (nocny niebieski, zieleń DTM, bursztynowy terminal, dzienny), własny tytuł, magazyn, ceny lub historia, pokazane produkty, alerty, poziom prawie pełny, alert cenowy i pokaz slajdów. Wszyscy na serwerze widzą te same ustawienia, a są one zapisywane razem z grą.
+Stań przed nim i naciśnij klawisz aktywacji, aby otworzyć ustawienia: ekran magazynu lub gospodarstwa, połączone silosy, rozmiar ekranu (od 0,8 do 6 m szerokości), jasność (5 poziomów, czytelna w nocy), kolory (nocny niebieski, zielony, bursztynowy terminal, dzienny), własny tytuł, magazyn, ceny lub historia, pokazane produkty, alerty, poziom prawie pełny, alert cenowy i pokaz slajdów. Wszyscy na serwerze widzą te same ustawienia, a są one zapisywane razem z grą.
 
-Siedem modeli (Budynki > Narzędzia): kiosk 3 500, ścienny 6 500, billboard 12 000, billboard dwustronny 18 000, na silos 6 000, na ścianę budynku 5 500 (płasko na budynku) i wiszący 5 500 (na prętach, do wnętrza magazynu).
+Siedem modeli (Budynki > Narzędzia): kiosk, ścienny, billboard, billboard dwustronny, na silos, na ścianę budynku (płasko na budynku) i wiszący (na prętach, do wnętrza magazynu).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></pl>
-        <cz><![CDATA[Živá obrazovka pro vaše sila, výrobny, ohrady zvířat, silážní žlaby, sklady balíků a palet, hnojiště, skleníky a úly a pro celou vaši farmu: pole, počasí, vozidla, zakázky, peníze, nástěnka.
+        <cz><![CDATA[Better Digital Display (kiosk)
+Kategorie: Budovy > Nástroje
+Cena: 3 500 €
+Měsíční údržba: 2 €
+
+Better Digital Display (nástěnný)
+Kategorie: Budovy > Nástroje
+Cena: 6 500 €
+Měsíční údržba: 3 €
+
+Better Digital Display (billboard)
+Kategorie: Budovy > Nástroje
+Cena: 12 000 €
+Měsíční údržba: 5 €
+
+Better Digital Display (oboustranný billboard)
+Kategorie: Budovy > Nástroje
+Cena: 18 000 €
+Měsíční údržba: 7 €
+
+Better Digital Display (na silo)
+Kategorie: Budovy > Nástroje
+Cena: 6 000 €
+Měsíční údržba: 3 €
+
+Better Digital Display (na zeď budovy)
+Kategorie: Budovy > Nástroje
+Cena: 5 500 €
+Měsíční údržba: 3 €
+
+Better Digital Display (závěsný)
+Kategorie: Budovy > Nástroje
+Cena: 5 500 €
+Měsíční údržba: 3 €
+
+Živá obrazovka pro vaše sila, výrobny, ohrady zvířat, silážní žlaby, sklady balíků a palet, hnojiště, skleníky a úly a pro celou vaši farmu: pole, počasí, vozidla, zakázky, peníze, nástěnka.
 
 Postavte ji ke skladu a barevně ukáže, co v něm je:
 - sila: zaplnění v procentech (zelená, jantarová, červená od nastavené úrovně), obsazená, volná a celková kapacita, jeden pruh s každým produktem v jeho vlastní barvě
@@ -440,13 +825,48 @@ Prezentace: zaškrtněte několik obrazovek a monitor je bude ukazovat postupně
 
 Upozornění: blikající červený pruh a řádek v zápatí, když je silo téměř plné (od nastavené úrovně), chybí surovina, zvířatům dochází krmivo nebo voda, nádrž je plná, pole jsou připravená ke sklizni (a blíží se déšť), pomocníkovi dochází palivo nebo se produkt prodává za cenu, na kterou čekáte. Volitelně i jako herní zpráva pro všechny na farmě.
 
-Postavte se před něj a stiskněte klávesu aktivace pro nastavení: obrazovka skladu nebo farmy, připojená sila, velikost obrazovky (šířka 0,8 až 6 m), jas (5 úrovní, čitelné i v noci), barvy (noční modrá, DTM zelená, jantarový terminál, denní světlo), vlastní nadpis, sklad, ceny nebo historie, zobrazené produkty, upozornění, úroveň téměř plno, cenové upozornění a prezentace. Všichni na serveru vidí stejná nastavení a ukládají se spolu s hrou.
+Postavte se před něj a stiskněte klávesu aktivace pro nastavení: obrazovka skladu nebo farmy, připojená sila, velikost obrazovky (šířka 0,8 až 6 m), jas (5 úrovní, čitelné i v noci), barvy (noční modrá, zelená, jantarový terminál, denní světlo), vlastní nadpis, sklad, ceny nebo historie, zobrazené produkty, upozornění, úroveň téměř plno, cenové upozornění a prezentace. Všichni na serveru vidí stejná nastavení a ukládají se spolu s hrou.
 
-Sedm modelů (Budovy > Nástroje): kiosk 3 500, nástěnný 6 500, billboard 12 000, oboustranný billboard 18 000, na silo 6 000, na zeď budovy 5 500 (naplocho na budovu) a závěsný 5 500 (na tyčích, dovnitř skladu).
+Sedm modelů (Budovy > Nástroje): kiosk, nástěnný, billboard, oboustranný billboard, na silo, na zeď budovy (naplocho na budovu) a závěsný (na tyčích, dovnitř skladu).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></cz>
-        <ru><![CDATA[Экран в реальном времени для ваших силосов, производств, загонов, силосных ям, складов тюков и поддонов, куч навоза, теплиц и ульев, а также для всей фермы: поля, погода, техника, контракты, деньги, доска объявлений.
+        <ru><![CDATA[Better Digital Display (киоск)
+Категория: Здания > Инструменты
+Цена: 3 500 €
+Ежемесячное обслуживание: 2 €
+
+Better Digital Display (стена)
+Категория: Здания > Инструменты
+Цена: 6 500 €
+Ежемесячное обслуживание: 3 €
+
+Better Digital Display (билборд)
+Категория: Здания > Инструменты
+Цена: 12 000 €
+Ежемесячное обслуживание: 5 €
+
+Better Digital Display (двусторонний билборд)
+Категория: Здания > Инструменты
+Цена: 18 000 €
+Ежемесячное обслуживание: 7 €
+
+Better Digital Display (на силос)
+Категория: Здания > Инструменты
+Цена: 6 000 €
+Ежемесячное обслуживание: 3 €
+
+Better Digital Display (на стену здания)
+Категория: Здания > Инструменты
+Цена: 5 500 €
+Ежемесячное обслуживание: 3 €
+
+Better Digital Display (подвесной)
+Категория: Здания > Инструменты
+Цена: 5 500 €
+Ежемесячное обслуживание: 3 €
+
+Экран в реальном времени для ваших силосов, производств, загонов, силосных ям, складов тюков и поддонов, куч навоза, теплиц и ульев, а также для всей фермы: поля, погода, техника, контракты, деньги, доска объявлений.
 
 Поставьте его у хранилища, и он покажет в цвете, что в нём:
 - силосы: заполненность в процентах (зелёный, янтарный, красный от заданного уровня), занятая, свободная и общая вместимость, одна полоса, где у каждого продукта свой цвет
@@ -480,13 +900,48 @@ Changelog 1.4.0.4:
 
 Оповещения: мигающая красная полоса и строка внизу экрана, когда силос почти полон (от заданного уровня), закончилось сырьё, у животных мало корма или воды, бак полон, поля готовы к уборке (и приближается дождь), у работника кончается топливо или продукт продаётся по цене, которую вы ждёте. По желанию также игровым сообщением для всех на ферме.
 
-Встаньте перед ним и нажмите клавишу действия, чтобы открыть настройки: экран хранилища или фермы, подключённые силосы, размер экрана (ширина от 0,8 до 6 м), яркость (5 уровней, читается ночью), цвета (ночной синий, зелёный DTM, янтарный терминал, дневной свет), свой заголовок, хранилище, цены или история, показанные продукты, оповещения, уровень «почти полно», ценовое оповещение и слайд-шоу. Все на сервере видят одни и те же настройки, и они сохраняются вместе с игрой.
+Встаньте перед ним и нажмите клавишу действия, чтобы открыть настройки: экран хранилища или фермы, подключённые силосы, размер экрана (ширина от 0,8 до 6 м), яркость (5 уровней, читается ночью), цвета (ночной синий, зелёный, янтарный терминал, дневной свет), свой заголовок, хранилище, цены или история, показанные продукты, оповещения, уровень «почти полно», ценовое оповещение и слайд-шоу. Все на сервере видят одни и те же настройки, и они сохраняются вместе с игрой.
 
-Семь моделей (Здания > Инструменты): киоск 3 500, стена 6 500, билборд 12 000, двусторонний билборд 18 000, на силос 6 000, на стену здания 5 500 (вплотную к зданию) и подвесной 5 500 (на штангах, для установки внутри склада).
+Семь моделей (Здания > Инструменты): киоск, стена, билборд, двусторонний билборд, на силос, на стену здания (вплотную к зданию) и подвесной (на штангах, для установки внутри склада).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></ru>
-        <uk><![CDATA[Екран у реальному часі для ваших силосів, виробництв, загонів, силосних ям, складів тюків і палет, куп гною, теплиць і вуликів, а також для всієї ферми: поля, погода, техніка, контракти, гроші, дошка оголошень.
+        <uk><![CDATA[Better Digital Display (кіоск)
+Категорія: Будівлі > Інструменти
+Ціна: 3 500 €
+Щомісячне обслуговування: 2 €
+
+Better Digital Display (стіна)
+Категорія: Будівлі > Інструменти
+Ціна: 6 500 €
+Щомісячне обслуговування: 3 €
+
+Better Digital Display (білборд)
+Категорія: Будівлі > Інструменти
+Ціна: 12 000 €
+Щомісячне обслуговування: 5 €
+
+Better Digital Display (двосторонній білборд)
+Категорія: Будівлі > Інструменти
+Ціна: 18 000 €
+Щомісячне обслуговування: 7 €
+
+Better Digital Display (на силос)
+Категорія: Будівлі > Інструменти
+Ціна: 6 000 €
+Щомісячне обслуговування: 3 €
+
+Better Digital Display (на стіну будівлі)
+Категорія: Будівлі > Інструменти
+Ціна: 5 500 €
+Щомісячне обслуговування: 3 €
+
+Better Digital Display (підвісний)
+Категорія: Будівлі > Інструменти
+Ціна: 5 500 €
+Щомісячне обслуговування: 3 €
+
+Екран у реальному часі для ваших силосів, виробництв, загонів, силосних ям, складів тюків і палет, куп гною, теплиць і вуликів, а також для всієї ферми: поля, погода, техніка, контракти, гроші, дошка оголошень.
 
 Поставте його біля сховища, і він покаже в кольорі, що в ньому:
 - силоси: заповненість у відсотках (зелений, бурштиновий, червоний від заданого рівня), зайнята, вільна й загальна місткість, одна смуга, де кожен продукт має свій колір
@@ -520,13 +975,48 @@ Changelog 1.4.0.4:
 
 Сповіщення: блимаюча червона смуга й рядок унизу екрана, коли силос майже повний (від заданого рівня), скінчилася сировина, тваринам бракує корму чи води, бак повний, поля готові до збирання (і наближається дощ), у працівника закінчується пальне або продукт продається за ціною, на яку ви чекаєте. За бажанням також ігровим повідомленням для всіх на фермі.
 
-Станьте перед ним і натисніть клавішу дії, щоб відкрити налаштування: екран сховища чи ферми, під'єднані силоси, розмір екрана (ширина від 0,8 до 6 м), яскравість (5 рівнів, читається вночі), кольори (нічний синій, зелений DTM, бурштиновий термінал, денне світло), власний заголовок, сховище, ціни чи історія, показані продукти, сповіщення, рівень «майже повно», цінове сповіщення та слайд-шоу. Усі на сервері бачать однакові налаштування, і вони зберігаються разом із грою.
+Станьте перед ним і натисніть клавішу дії, щоб відкрити налаштування: екран сховища чи ферми, під'єднані силоси, розмір екрана (ширина від 0,8 до 6 м), яскравість (5 рівнів, читається вночі), кольори (нічний синій, зелений, бурштиновий термінал, денне світло), власний заголовок, сховище, ціни чи історія, показані продукти, сповіщення, рівень «майже повно», цінове сповіщення та слайд-шоу. Усі на сервері бачать однакові налаштування, і вони зберігаються разом із грою.
 
-Сім моделей (Будівлі > Інструменти): кіоск 3 500, стіна 6 500, білборд 12 000, двосторонній білборд 18 000, на силос 6 000, на стіну будівлі 5 500 (впритул до будівлі) і підвісний 5 500 (на штангах, для встановлення всередині складу).
+Сім моделей (Будівлі > Інструменти): кіоск, стіна, білборд, двосторонній білборд, на силос, на стіну будівлі (впритул до будівлі) і підвісний (на штангах, для встановлення всередині складу).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></uk>
-        <hu><![CDATA[Élő kijelző a silóidhoz, termeléseidhez, állattartó karámjaidhoz, silóárkaidhoz, bála- és raklaptárolóidhoz, trágyadombjaidhoz, üvegházaidhoz és méhkaptáraidhoz, valamint az egész farmodhoz: földek, időjárás, járművek, szerződések, pénz, üzenőtábla.
+        <hu><![CDATA[Better Digital Display (kioszk)
+Kategória: Épületek > Eszközök
+Ár: 3 500 €
+Havi fenntartási költség: 2 €
+
+Better Digital Display (fali)
+Kategória: Épületek > Eszközök
+Ár: 6 500 €
+Havi fenntartási költség: 3 €
+
+Better Digital Display (óriásplakát)
+Kategória: Épületek > Eszközök
+Ár: 12 000 €
+Havi fenntartási költség: 5 €
+
+Better Digital Display (kétoldalas óriásplakát)
+Kategória: Épületek > Eszközök
+Ár: 18 000 €
+Havi fenntartási költség: 7 €
+
+Better Digital Display (silóra szerelt)
+Kategória: Épületek > Eszközök
+Ár: 6 000 €
+Havi fenntartási költség: 3 €
+
+Better Digital Display (épületfalra szerelt)
+Kategória: Épületek > Eszközök
+Ár: 5 500 €
+Havi fenntartási költség: 3 €
+
+Better Digital Display (függesztett)
+Kategória: Épületek > Eszközök
+Ár: 5 500 €
+Havi fenntartási költség: 3 €
+
+Élő kijelző a silóidhoz, termeléseidhez, állattartó karámjaidhoz, silóárkaidhoz, bála- és raklaptárolóidhoz, trágyadombjaidhoz, üvegházaidhoz és méhkaptáraidhoz, valamint az egész farmodhoz: földek, időjárás, járművek, szerződések, pénz, üzenőtábla.
 
 Tedd le egy tároló mellé, és színesen megmutatja, mi van benne:
 - silók: töltöttség százalékban (zöld, borostyán, piros a beállított szinttől), foglalt, szabad és teljes kapacitás, egyetlen sáv, amelyben minden termék a saját színével szerepel
@@ -560,13 +1050,48 @@ Diavetítés: jelölj be több képernyőt, és a monitor felváltva mutatja ők
 
 Riasztások: villogó piros csík és egy sor a láblécben, ha egy siló majdnem tele van (a beállított szinttől), egy alapanyag elfogyott, az állatoknak fogy a takarmánya vagy a vize, egy tartály tele van, földek arathatók (és eső közeleg), egy segítőnek fogy az üzemanyaga, vagy egy termék azon az áron kel el, amire vársz. Kérésre játékbeli üzenetként is a farm minden tagjának.
 
-Állj elé, és nyomd meg az aktiválás gombot a beállításokhoz: tároló- vagy farmképernyő, csatlakoztatott silók, képernyőméret (0,8-6 m széles), fényerő (5 fokozat, éjjel is olvasható), színek (éjkék, DTM zöld, borostyán terminál, nappali fény), saját cím, tároló, árak vagy előzmények, a látható termékek, riasztások, a majdnem tele szint, árriasztás és a diavetítés. A szerveren mindenki ugyanazokat a beállításokat látja, és ezek a játékkal együtt mentődnek.
+Állj elé, és nyomd meg az aktiválás gombot a beállításokhoz: tároló- vagy farmképernyő, csatlakoztatott silók, képernyőméret (0,8-6 m széles), fényerő (5 fokozat, éjjel is olvasható), színek (éjkék, zöld, borostyán terminál, nappali fény), saját cím, tároló, árak vagy előzmények, a látható termékek, riasztások, a majdnem tele szint, árriasztás és a diavetítés. A szerveren mindenki ugyanazokat a beállításokat látja, és ezek a játékkal együtt mentődnek.
 
-Hét modell (Épületek > Eszközök): kioszk 3 500, fali 6 500, óriásplakát 12 000, kétoldalas óriásplakát 18 000, silóra szerelt 6 000, épületfalra szerelt 5 500 (laposan az épületen) és függesztett 5 500 (rudakon, tárolón belülre).
+Hét modell (Épületek > Eszközök): kioszk, fali, óriásplakát, kétoldalas óriásplakát, silóra szerelt, épületfalra szerelt (laposan az épületen) és függesztett (rudakon, tárolón belülre).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></hu>
-        <ro><![CDATA[Un ecran în timp real pentru silozurile, producțiile, țarcurile de animale, silozurile buncăr, magaziile de baloți sau paleți, grămezile de gunoi de grajd, serele și stupii tăi, dar și pentru toată ferma: câmpuri, vreme, vehicule, contracte, bani, un panou de mesaje.
+        <ro><![CDATA[Better Digital Display (chioșc)
+Categorie: Clădiri > Unelte
+Preț: 3.500 €
+Întreținere lunară: 2 €
+
+Better Digital Display (perete)
+Categorie: Clădiri > Unelte
+Preț: 6.500 €
+Întreținere lunară: 3 €
+
+Better Digital Display (panou publicitar)
+Categorie: Clădiri > Unelte
+Preț: 12.000 €
+Întreținere lunară: 5 €
+
+Better Digital Display (panou publicitar dublu)
+Categorie: Clădiri > Unelte
+Preț: 18.000 €
+Întreținere lunară: 7 €
+
+Better Digital Display (pe siloz)
+Categorie: Clădiri > Unelte
+Preț: 6.000 €
+Întreținere lunară: 3 €
+
+Better Digital Display (pe peretele clădirii)
+Categorie: Clădiri > Unelte
+Preț: 5.500 €
+Întreținere lunară: 3 €
+
+Better Digital Display (suspendat)
+Categorie: Clădiri > Unelte
+Preț: 5.500 €
+Întreținere lunară: 3 €
+
+Un ecran în timp real pentru silozurile, producțiile, țarcurile de animale, silozurile buncăr, magaziile de baloți sau paleți, grămezile de gunoi de grajd, serele și stupii tăi, dar și pentru toată ferma: câmpuri, vreme, vehicule, contracte, bani, un panou de mesaje.
 
 Așază-l lângă un depozit și îți arată color ce este în el:
 - silozuri: cât de plin e în procente (verde, chihlimbar, roșu de la nivelul ales), capacitatea ocupată, liberă și totală, o singură bară cu fiecare produs în propria culoare
@@ -600,13 +1125,48 @@ Prezentare: bifează mai multe ecrane și monitorul le arată pe rând (câte 10
 
 Alerte: o bandă roșie care clipește și un rând în subsol când un siloz e aproape plin (de la nivelul ales), o materie primă s-a terminat, animalele rămân fără hrană sau apă, un rezervor e plin, câmpurile sunt gata de recoltat (și vine ploaia), unui muncitor i se termină combustibilul sau un produs se vinde la prețul pe care îl aștepți. Opțional și ca mesaj în joc pentru toți cei din fermă.
 
-Stai în fața lui și apasă tasta de activare pentru setări: ecranul de depozit sau de fermă, silozurile conectate, mărimea ecranului (0,8 până la 6 m lățime), luminozitatea (5 niveluri, lizibil noaptea), culorile (albastru de noapte, verde DTM, terminal chihlimbar, lumina zilei), propriul titlu, depozit, prețuri sau istoric, produsele afișate, alerte, nivelul aproape plin, o alertă de preț și prezentarea. Toți cei de pe server văd aceleași setări și ele se salvează odată cu jocul.
+Stai în fața lui și apasă tasta de activare pentru setări: ecranul de depozit sau de fermă, silozurile conectate, mărimea ecranului (0,8 până la 6 m lățime), luminozitatea (5 niveluri, lizibil noaptea), culorile (albastru de noapte, verde, terminal chihlimbar, lumina zilei), propriul titlu, depozit, prețuri sau istoric, produsele afișate, alerte, nivelul aproape plin, o alertă de preț și prezentarea. Toți cei de pe server văd aceleași setări și ele se salvează odată cu jocul.
 
-Șapte modele (Clădiri > Unelte): chioșc 3.500, perete 6.500, panou publicitar 12.000, panou publicitar dublu 18.000, pe siloz 6.000, pe peretele clădirii 5.500 (lipit de clădire) și suspendat 5.500 (pe tije, pentru interiorul unei magazii).
+Șapte modele (Clădiri > Unelte): chioșc, perete, panou publicitar, panou publicitar dublu, pe siloz, pe peretele clădirii (lipit de clădire) și suspendat (pe tije, pentru interiorul unei magazii).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></ro>
-        <nl><![CDATA[Een live scherm voor je silo's, producties, dierenverblijven, sleufsilo's, balen- en palletloodsen, mesthopen, kassen en bijenkorven, en voor je hele boerderij: velden, weer, voertuigen, contracten, geld, een berichtenbord.
+        <nl><![CDATA[Better Digital Display (Kiosk)
+Categorie: Gebouwen > Gereedschap
+Prijs: € 3.500
+Maandelijks onderhoud: € 2
+
+Better Digital Display (Muur)
+Categorie: Gebouwen > Gereedschap
+Prijs: € 6.500
+Maandelijks onderhoud: € 3
+
+Better Digital Display (Reclamebord)
+Categorie: Gebouwen > Gereedschap
+Prijs: € 12.000
+Maandelijks onderhoud: € 5
+
+Better Digital Display (Dubbelzijdig reclamebord)
+Categorie: Gebouwen > Gereedschap
+Prijs: € 18.000
+Maandelijks onderhoud: € 7
+
+Better Digital Display (Silohouder)
+Categorie: Gebouwen > Gereedschap
+Prijs: € 6.000
+Maandelijks onderhoud: € 3
+
+Better Digital Display (Wandhouder)
+Categorie: Gebouwen > Gereedschap
+Prijs: € 5.500
+Maandelijks onderhoud: € 3
+
+Better Digital Display (Hangend)
+Categorie: Gebouwen > Gereedschap
+Prijs: € 5.500
+Maandelijks onderhoud: € 3
+
+Een live scherm voor je silo's, producties, dierenverblijven, sleufsilo's, balen- en palletloodsen, mesthopen, kassen en bijenkorven, en voor je hele boerderij: velden, weer, voertuigen, contracten, geld, een berichtenbord.
 
 Zet het bij een opslag en het toont wat erin zit, in kleur:
 - silo's: hoe vol in procent (groen, oranje, rood vanaf het ingestelde niveau), gebruikte, vrije en totale capaciteit, één balk met elk product in zijn eigen kleur
@@ -640,13 +1200,48 @@ Diavoorstelling: vink meerdere schermen aan en de monitor toont ze om de beurt (
 
 Meldingen: een knipperende rode streep en een regel onderaan als een silo bijna vol is (vanaf het ingestelde niveau), een grondstof op is, dieren bijna geen voer of water meer hebben, een tank vol is, velden oogstklaar zijn (en er regen aankomt), een helper zonder brandstof komt te staan, of een product de prijs oplevert waarop je wacht. Desgewenst ook als spelbericht voor iedereen op de boerderij.
 
-Ga ervoor staan en druk op de activeertoets voor de instellingen: de opslag of het boerderijscherm, gekoppelde silo's, schermgrootte (0,8 tot 6 m breed), helderheid (5 standen, 's nachts leesbaar), kleuren (nachtblauw, DTM-groen, amber terminal, daglicht), je eigen titel, opslag, prijzen of verloop, de getoonde producten, meldingen, het niveau voor bijna vol, een prijsmelding en de diavoorstelling. Iedereen op de server ziet dezelfde instellingen en ze worden met het spel opgeslagen.
+Ga ervoor staan en druk op de activeertoets voor de instellingen: de opslag of het boerderijscherm, gekoppelde silo's, schermgrootte (0,8 tot 6 m breed), helderheid (5 standen, 's nachts leesbaar), kleuren (nachtblauw, groen, amber terminal, daglicht), je eigen titel, opslag, prijzen of verloop, de getoonde producten, meldingen, het niveau voor bijna vol, een prijsmelding en de diavoorstelling. Iedereen op de server ziet dezelfde instellingen en ze worden met het spel opgeslagen.
 
-Zeven modellen (Gebouwen > Gereedschap): Kiosk 3.500, Muur 6.500, Reclamebord 12.000, Dubbelzijdig reclamebord 18.000, Silohouder 6.000, Wandhouder 5.500 (plat op een gebouw) en Hangend 5.500 (aan stangen, voor in een loods).
+Zeven modellen (Gebouwen > Gereedschap): Kiosk, Muur, Reclamebord, Dubbelzijdig reclamebord, Silohouder, Wandhouder (plat op een gebouw) en Hangend (aan stangen, voor in een loods).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></nl>
-        <da><![CDATA[En live skærm til dine siloer, produktioner, dyrestalde, plansiloer, balle- og pallelagre, møddinger, drivhuse og bistader, og til hele din gård: marker, vejr, køretøjer, kontrakter, penge, en opslagstavle.
+        <da><![CDATA[Better Digital Display (Kiosk)
+Kategori: Bygninger > Værktøj
+Pris: 3.500 €
+Månedlig vedligeholdelse: 2 €
+
+Better Digital Display (Væg)
+Kategori: Bygninger > Værktøj
+Pris: 6.500 €
+Månedlig vedligeholdelse: 3 €
+
+Better Digital Display (Reklameskilt)
+Kategori: Bygninger > Værktøj
+Pris: 12.000 €
+Månedlig vedligeholdelse: 5 €
+
+Better Digital Display (Dobbeltsidet reklameskilt)
+Kategori: Bygninger > Værktøj
+Pris: 18.000 €
+Månedlig vedligeholdelse: 7 €
+
+Better Digital Display (Siloholder)
+Kategori: Bygninger > Værktøj
+Pris: 6.000 €
+Månedlig vedligeholdelse: 3 €
+
+Better Digital Display (Vægbeslag)
+Kategori: Bygninger > Værktøj
+Pris: 5.500 €
+Månedlig vedligeholdelse: 3 €
+
+Better Digital Display (Hængende)
+Kategori: Bygninger > Værktøj
+Pris: 5.500 €
+Månedlig vedligeholdelse: 3 €
+
+En live skærm til dine siloer, produktioner, dyrestalde, plansiloer, balle- og pallelagre, møddinger, drivhuse og bistader, og til hele din gård: marker, vejr, køretøjer, kontrakter, penge, en opslagstavle.
 
 Stil den ved et lager, og den viser, hvad der er i det, i farver:
 - siloer: hvor fyldt i procent (grøn, ravgul, rød fra det niveau, du vælger), brugt, ledig og samlet kapacitet, én bjælke med hvert produkt i sin egen farve
@@ -680,13 +1275,48 @@ Diasshow: sæt hak ved flere skærme, og monitoren viser dem på skift (10 til 6
 
 Advarsler: en blinkende rød stribe og en linje i bunden, når en silo er næsten fuld (fra det niveau, du vælger), en råvare er tom, dyrene mangler foder eller vand, en tank er fuld, marker er klar til høst (og der kommer regn), en medhjælper løber tør for brændstof, eller et produkt sælges for den pris, du venter på. Hvis ønsket også som spilbesked til alle på gården.
 
-Stil dig foran den, og tryk på aktiveringstasten for indstillingerne: lageret eller gårdskærmen, forbundne siloer, skærmstørrelse (0,8 til 6 m bred), lysstyrke (5 niveauer, læsbar om natten), farver (natteblå, DTM-grøn, ravgul terminal, dagslys), din egen titel, lager, priser eller historik, de viste produkter, advarsler, niveauet for næsten fuld, en prisadvarsel og diasshowet. Alle på serveren ser de samme indstillinger, og de gemmes med spillet.
+Stil dig foran den, og tryk på aktiveringstasten for indstillingerne: lageret eller gårdskærmen, forbundne siloer, skærmstørrelse (0,8 til 6 m bred), lysstyrke (5 niveauer, læsbar om natten), farver (natteblå, grøn, ravgul terminal, dagslys), din egen titel, lager, priser eller historik, de viste produkter, advarsler, niveauet for næsten fuld, en prisadvarsel og diasshowet. Alle på serveren ser de samme indstillinger, og de gemmes med spillet.
 
-Syv modeller (Bygninger > Værktøj): Kiosk 3.500, Væg 6.500, Reklameskilt 12.000, Dobbeltsidet reklameskilt 18.000, Siloholder 6.000, Vægbeslag 5.500 (fladt på en bygning) og Hængende 5.500 (på stænger, til inde i en hal).
+Syv modeller (Bygninger > Værktøj): Kiosk, Væg, Reklameskilt, Dobbeltsidet reklameskilt, Siloholder, Vægbeslag (fladt på en bygning) og Hængende (på stænger, til inde i en hal).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></da>
-        <sv><![CDATA[En live-skärm för dina silor, produktioner, djurstallar, plansilor, bal- och pallager, gödselstackar, växthus och bikupor, och för hela din gård: fält, väder, fordon, kontrakt, pengar, en anslagstavla.
+        <sv><![CDATA[Better Digital Display (Kiosk)
+Kategori: Byggnader > Verktyg
+Pris: 3 500 €
+Månatligt underhåll: 2 €
+
+Better Digital Display (Vägg)
+Kategori: Byggnader > Verktyg
+Pris: 6 500 €
+Månatligt underhåll: 3 €
+
+Better Digital Display (Reklamskylt)
+Kategori: Byggnader > Verktyg
+Pris: 12 000 €
+Månatligt underhåll: 5 €
+
+Better Digital Display (Dubbelsidig reklamskylt)
+Kategori: Byggnader > Verktyg
+Pris: 18 000 €
+Månatligt underhåll: 7 €
+
+Better Digital Display (Silofäste)
+Kategori: Byggnader > Verktyg
+Pris: 6 000 €
+Månatligt underhåll: 3 €
+
+Better Digital Display (Väggfäste)
+Kategori: Byggnader > Verktyg
+Pris: 5 500 €
+Månatligt underhåll: 3 €
+
+Better Digital Display (Hängande)
+Kategori: Byggnader > Verktyg
+Pris: 5 500 €
+Månatligt underhåll: 3 €
+
+En live-skärm för dina silor, produktioner, djurstallar, plansilor, bal- och pallager, gödselstackar, växthus och bikupor, och för hela din gård: fält, väder, fordon, kontrakt, pengar, en anslagstavla.
 
 Placera den vid ett lager så visar den vad som finns i det, i färg:
 - silor: hur fullt i procent (grönt, gult, rött från den nivå du väljer), använd, ledig och total kapacitet, en stapel med varje produkt i sin egen färg
@@ -720,13 +1350,48 @@ Bildspel: kryssa för flera skärmar så visar monitorn dem i tur och ordning (1
 
 Varningar: en blinkande röd rand och en rad längst ner när en silo är nästan full (från den nivå du väljer), en råvara är slut, djuren har ont om foder eller vatten, en tank är full, fält är redo för skörd (och regn är på väg), en medhjälpare får slut på bränsle, eller en produkt säljs för det pris du väntar på. Vid önskemål även som spelmeddelande till alla på gården.
 
-Ställ dig framför den och tryck på aktiveringsknappen för inställningarna: lagret eller gårdsskärmen, anslutna silor, skärmstorlek (0,8 till 6 m bred), ljusstyrka (5 nivåer, läsbar på natten), färger (nattblå, DTM-grön, bärnstensterminal, dagsljus), din egen titel, lager, priser eller historik, de visade produkterna, varningar, nivån för nästan full, en prisvarning och bildspelet. Alla på servern ser samma inställningar och de sparas med spelet.
+Ställ dig framför den och tryck på aktiveringsknappen för inställningarna: lagret eller gårdsskärmen, anslutna silor, skärmstorlek (0,8 till 6 m bred), ljusstyrka (5 nivåer, läsbar på natten), färger (nattblå, grön, bärnstensterminal, dagsljus), din egen titel, lager, priser eller historik, de visade produkterna, varningar, nivån för nästan full, en prisvarning och bildspelet. Alla på servern ser samma inställningar och de sparas med spelet.
 
-Sju modeller (Byggnader > Verktyg): Kiosk 3 500, Vägg 6 500, Reklamskylt 12 000, Dubbelsidig reklamskylt 18 000, Silofäste 6 000, Väggfäste 5 500 (platt på en byggnad) och Hängande 5 500 (i stänger, för inne i en hall).
+Sju modeller (Byggnader > Verktyg): Kiosk, Vägg, Reklamskylt, Dubbelsidig reklamskylt, Silofäste, Väggfäste (platt på en byggnad) och Hängande (i stänger, för inne i en hall).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></sv>
-        <no><![CDATA[En levende skjerm for siloene, produksjonene, dyrefjøsene, plansiloene, ball- og pallelagrene, møkkhaugene, drivhusene og bikubene dine, og for hele gården din: jorder, vær, kjøretøy, kontrakter, penger, en oppslagstavle.
+        <no><![CDATA[Better Digital Display (Kiosk)
+Kategori: Bygninger > Verktøy
+Pris: 3 500 €
+Månedlig vedlikehold: 2 €
+
+Better Digital Display (Vegg)
+Kategori: Bygninger > Verktøy
+Pris: 6 500 €
+Månedlig vedlikehold: 3 €
+
+Better Digital Display (Reklametavle)
+Kategori: Bygninger > Verktøy
+Pris: 12 000 €
+Månedlig vedlikehold: 5 €
+
+Better Digital Display (Tosidig reklametavle)
+Kategori: Bygninger > Verktøy
+Pris: 18 000 €
+Månedlig vedlikehold: 7 €
+
+Better Digital Display (Siloholder)
+Kategori: Bygninger > Verktøy
+Pris: 6 000 €
+Månedlig vedlikehold: 3 €
+
+Better Digital Display (Veggfeste)
+Kategori: Bygninger > Verktøy
+Pris: 5 500 €
+Månedlig vedlikehold: 3 €
+
+Better Digital Display (Hengende)
+Kategori: Bygninger > Verktøy
+Pris: 5 500 €
+Månedlig vedlikehold: 3 €
+
+En levende skjerm for siloene, produksjonene, dyrefjøsene, plansiloene, ball- og pallelagrene, møkkhaugene, drivhusene og bikubene dine, og for hele gården din: jorder, vær, kjøretøy, kontrakter, penger, en oppslagstavle.
 
 Plasser den ved et lager, så viser den hva som er i det, i farger:
 - siloer: hvor fullt i prosent (grønt, gult, rødt fra nivået du velger), brukt, ledig og total kapasitet, én søyle med hvert produkt i sin egen farge
@@ -760,13 +1425,48 @@ Bildeserie: kryss av flere skjermbilder, så viser skjermen dem etter tur (10 ti
 
 Varsler: en blinkende rød stripe og en linje nederst når en silo er nesten full (fra nivået du velger), en råvare er tom, dyrene har lite fôr eller vann, en tank er full, jorder er klare til høsting (og det kommer regn), en medhjelper går tom for drivstoff, eller et produkt selges for prisen du venter på. Om ønskelig også som spillmelding til alle på gården.
 
-Stå foran den og trykk på aktiveringstasten for innstillingene: lageret eller gårdsskjermbildet, tilkoblede siloer, skjermstørrelse (0,8 til 6 m bred), lysstyrke (5 nivåer, lesbar om natten), farger (nattblå, DTM-grønn, ravgul terminal, dagslys), din egen tittel, lager, priser eller historikk, de viste produktene, varsler, nivået for nesten full, et prisvarsel og bildeserien. Alle på serveren ser de samme innstillingene, og de lagres med spillet.
+Stå foran den og trykk på aktiveringstasten for innstillingene: lageret eller gårdsskjermbildet, tilkoblede siloer, skjermstørrelse (0,8 til 6 m bred), lysstyrke (5 nivåer, lesbar om natten), farger (nattblå, grønn, ravgul terminal, dagslys), din egen tittel, lager, priser eller historikk, de viste produktene, varsler, nivået for nesten full, et prisvarsel og bildeserien. Alle på serveren ser de samme innstillingene, og de lagres med spillet.
 
-Sju modeller (Bygninger > Verktøy): Kiosk 3 500, Vegg 6 500, Reklametavle 12 000, Tosidig reklametavle 18 000, Siloholder 6 000, Veggfeste 5 500 (flatt på en bygning) og Hengende 5 500 (i stenger, for inne i en hall).
+Sju modeller (Bygninger > Verktøy): Kiosk, Vegg, Reklametavle, Tosidig reklametavle, Siloholder, Veggfeste (flatt på en bygning) og Hengende (i stenger, for inne i en hall).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></no>
-        <fi><![CDATA[Live-näyttö siiloillesi, tuotannoillesi, eläinsuojillesi, aumasiiloillesi, paali- ja lavavarastoillesi, lantakasoillesi, kasvihuoneillesi ja mehiläispesillesi sekä koko tilallesi: pellot, sää, ajoneuvot, sopimukset, rahat, ilmoitustaulu.
+        <fi><![CDATA[Better Digital Display (Kioski)
+Kategoria: Rakennukset > Työkalut
+Hinta: 3 500 €
+Kuukausittainen ylläpito: 2 €
+
+Better Digital Display (Seinä)
+Kategoria: Rakennukset > Työkalut
+Hinta: 6 500 €
+Kuukausittainen ylläpito: 3 €
+
+Better Digital Display (Mainostaulu)
+Kategoria: Rakennukset > Työkalut
+Hinta: 12 000 €
+Kuukausittainen ylläpito: 5 €
+
+Better Digital Display (Kaksipuolinen mainostaulu)
+Kategoria: Rakennukset > Työkalut
+Hinta: 18 000 €
+Kuukausittainen ylläpito: 7 €
+
+Better Digital Display (Siiloteline)
+Kategoria: Rakennukset > Työkalut
+Hinta: 6 000 €
+Kuukausittainen ylläpito: 3 €
+
+Better Digital Display (Seinäteline)
+Kategoria: Rakennukset > Työkalut
+Hinta: 5 500 €
+Kuukausittainen ylläpito: 3 €
+
+Better Digital Display (Riippuva)
+Kategoria: Rakennukset > Työkalut
+Hinta: 5 500 €
+Kuukausittainen ylläpito: 3 €
+
+Live-näyttö siiloillesi, tuotannoillesi, eläinsuojillesi, aumasiiloillesi, paali- ja lavavarastoillesi, lantakasoillesi, kasvihuoneillesi ja mehiläispesillesi sekä koko tilallesi: pellot, sää, ajoneuvot, sopimukset, rahat, ilmoitustaulu.
 
 Sijoita se varaston luo, niin se näyttää värein, mitä varastossa on:
 - siilot: täyttöaste prosentteina (vihreä, keltainen, punainen asettamastasi rajasta alkaen), käytetty, vapaa ja kokonaiskapasiteetti, yksi palkki, jossa jokainen tuote on omalla värillään
@@ -800,13 +1500,48 @@ Diaesitys: valitse useita näkymiä, niin näyttö näyttää ne vuorotellen (ku
 
 Hälytykset: vilkkuva punainen raita ja rivi alareunassa, kun siilo on lähes täynnä (asettamastasi rajasta alkaen), raaka-aine on lopussa, eläimiltä on loppumassa rehu tai vesi, säiliö on täynnä, peltoja on korjuuvalmiina (ja sadetta on tulossa), apulaiselta loppuu polttoaine tai tuotteesta maksetaan odottamasi hinta. Halutessasi myös pelin viestinä kaikille tilan pelaajille.
 
-Seiso sen edessä ja paina aktivointinäppäintä avataksesi asetukset: varasto tai tilan näkymä, yhdistetyt siilot, näytön koko (0,8–6 m leveä), kirkkaus (5 tasoa, luettavissa yölläkin), värit (yönsininen, DTM-vihreä, meripihkapääte, päivänvalo), oma otsikko, varasto, hinnat tai historia, näytettävät tuotteet, hälytykset, lähes täynnä -raja, hintahälytys ja diaesitys. Kaikki palvelimella näkevät samat asetukset, ja ne tallentuvat pelin mukana.
+Seiso sen edessä ja paina aktivointinäppäintä avataksesi asetukset: varasto tai tilan näkymä, yhdistetyt siilot, näytön koko (0,8–6 m leveä), kirkkaus (5 tasoa, luettavissa yölläkin), värit (yönsininen, vihreä, meripihkapääte, päivänvalo), oma otsikko, varasto, hinnat tai historia, näytettävät tuotteet, hälytykset, lähes täynnä -raja, hintahälytys ja diaesitys. Kaikki palvelimella näkevät samat asetukset, ja ne tallentuvat pelin mukana.
 
-Seitsemän mallia (Rakennukset > Työkalut): Kioski 3 500, Seinä 6 500, Mainostaulu 12 000, Kaksipuolinen mainostaulu 18 000, Siiloteline 6 000, Seinäteline 5 500 (litteänä rakennuksen seinällä) ja Riippuva 5 500 (tankojen varassa, hallin sisälle).
+Seitsemän mallia (Rakennukset > Työkalut): Kioski, Seinä, Mainostaulu, Kaksipuolinen mainostaulu, Siiloteline, Seinäteline (litteänä rakennuksen seinällä) ja Riippuva (tankojen varassa, hallin sisälle).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></fi>
-        <tr><![CDATA[Siloların, üretimlerin, hayvan ağılların, silaj siloların, balya ve palet depoların, gübre yığınların, seraların ve arı kovanların için, ayrıca tüm çiftliğin için canlı bir ekran: tarlalar, hava durumu, araçlar, sözleşmeler, para, bir mesaj panosu.
+        <tr><![CDATA[Better Digital Display (Kiosk)
+Kategori: Binalar > Aletler
+Fiyat: 3.500 €
+Aylık bakım: 2 €
+
+Better Digital Display (Duvar)
+Kategori: Binalar > Aletler
+Fiyat: 6.500 €
+Aylık bakım: 3 €
+
+Better Digital Display (Reklam Panosu)
+Kategori: Binalar > Aletler
+Fiyat: 12.000 €
+Aylık bakım: 5 €
+
+Better Digital Display (Çift Taraflı Reklam Panosu)
+Kategori: Binalar > Aletler
+Fiyat: 18.000 €
+Aylık bakım: 7 €
+
+Better Digital Display (Silo Montajlı)
+Kategori: Binalar > Aletler
+Fiyat: 6.000 €
+Aylık bakım: 3 €
+
+Better Digital Display (Duvar Montajlı)
+Kategori: Binalar > Aletler
+Fiyat: 5.500 €
+Aylık bakım: 3 €
+
+Better Digital Display (Asılı)
+Kategori: Binalar > Aletler
+Fiyat: 5.500 €
+Aylık bakım: 3 €
+
+Siloların, üretimlerin, hayvan ağılların, silaj siloların, balya ve palet depoların, gübre yığınların, seraların ve arı kovanların için, ayrıca tüm çiftliğin için canlı bir ekran: tarlalar, hava durumu, araçlar, sözleşmeler, para, bir mesaj panosu.
 
 Bir deponun yanına koy, içinde ne olduğunu renkli olarak gösterir:
 - silolar: yüzde olarak doluluk (yeşil, sarı, belirlediğin seviyeden itibaren kırmızı), kullanılan, boş ve toplam kapasite, her ürünün kendi renginde olduğu tek bir çubuk
@@ -840,13 +1575,48 @@ Slayt gösterisi: birkaç ekranı işaretle, monitör onları sırayla gösterir
 
 Uyarılar: bir silo neredeyse dolduğunda (belirlediğin seviyeden itibaren), bir girdi bittiğinde, hayvanların yemi veya suyu azaldığında, bir tank dolduğunda, tarlalar hasada hazır olduğunda (ve yağmur yaklaşırken), bir yardımcının yakıtı bittiğinde ya da bir ürün beklediğin fiyata satıldığında yanıp sönen kırmızı bir şerit ve altta bir satır. İstersen çiftlikteki herkes için oyun mesajı olarak da.
 
-Önünde dur ve ayarlar için etkinleştirme tuşuna bas: depo ya da çiftlik ekranı, bağlı silolar, ekran boyutu (0,8 ila 6 m genişlik), parlaklık (5 seviye, gece okunabilir), renkler (gece mavisi, DTM yeşili, kehribar terminal, gün ışığı), kendi başlığın, depo, fiyatlar ya da geçmiş, gösterilen ürünler, uyarılar, neredeyse dolu eşiği, fiyat uyarısı ve slayt gösterisi. Sunucudaki herkes aynı ayarları görür ve ayarlar oyunla birlikte kaydedilir.
+Önünde dur ve ayarlar için etkinleştirme tuşuna bas: depo ya da çiftlik ekranı, bağlı silolar, ekran boyutu (0,8 ila 6 m genişlik), parlaklık (5 seviye, gece okunabilir), renkler (gece mavisi, yeşil, kehribar terminal, gün ışığı), kendi başlığın, depo, fiyatlar ya da geçmiş, gösterilen ürünler, uyarılar, neredeyse dolu eşiği, fiyat uyarısı ve slayt gösterisi. Sunucudaki herkes aynı ayarları görür ve ayarlar oyunla birlikte kaydedilir.
 
-Yedi model (Binalar > Aletler): Kiosk 3.500, Duvar 6.500, Reklam Panosu 12.000, Çift Taraflı Reklam Panosu 18.000, Silo Montajlı 6.000, Duvar Montajlı 5.500 (bir binaya düz olarak) ve Asılı 5.500 (çubuklarla, bir sundurmanın içi için).
+Yedi model (Binalar > Aletler): Kiosk, Duvar, Reklam Panosu, Çift Taraflı Reklam Panosu, Silo Montajlı, Duvar Montajlı (bir binaya düz olarak) ve Asılı (çubuklarla, bir sundurmanın içi için).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></tr>
-        <jp><![CDATA[サイロ、生産施設、畜舎、バンカーサイロ、ベール・パレット倉庫、堆肥置き場、温室、養蜂箱、そして農場全体（畑、天気、車両、契約、資金、掲示板）を表示するライブスクリーンです。
+        <jp><![CDATA[Better Digital Display（キオスク）
+カテゴリー：建物 > ツール
+価格：$3,500
+月額維持費：$2
+
+Better Digital Display（ウォール）
+カテゴリー：建物 > ツール
+価格：$6,500
+月額維持費：$3
+
+Better Digital Display（看板）
+カテゴリー：建物 > ツール
+価格：$12,000
+月額維持費：$5
+
+Better Digital Display（両面看板）
+カテゴリー：建物 > ツール
+価格：$18,000
+月額維持費：$7
+
+Better Digital Display（サイロ取付）
+カテゴリー：建物 > ツール
+価格：$6,000
+月額維持費：$3
+
+Better Digital Display（壁掛け）
+カテゴリー：建物 > ツール
+価格：$5,500
+月額維持費：$3
+
+Better Digital Display（吊り下げ）
+カテゴリー：建物 > ツール
+価格：$5,500
+月額維持費：$3
+
+サイロ、生産施設、畜舎、バンカーサイロ、ベール・パレット倉庫、堆肥置き場、温室、養蜂箱、そして農場全体（畑、天気、車両、契約、資金、掲示板）を表示するライブスクリーンです。
 
 保管庫のそばに設置すると、中身をカラーで表示します：
 - サイロ：充填率（%）（設定した基準に応じて緑、黄、赤）、使用量、空き容量、総容量、各製品を色分けした1本のバー
@@ -880,13 +1650,48 @@ Changelog 1.4.0.4:
 
 警告：サイロがほぼ満杯（設定した基準から）、原料が空、動物の飼料や水が不足、タンクが満杯、畑が収穫可能（雨が近いときも）、ヘルパーの燃料切れ、または製品が待っていた価格で売れるとき、赤いストライプが点滅し、フッターに1行表示されます。オプションで、農場の全員にゲーム内メッセージとしても通知できます。
 
-モニターの前に立って起動キーを押すと設定を開けます：保管庫または農場画面、接続されたサイロ、画面サイズ（幅0.8～6 m）、明るさ（5段階、夜間も見やすい）、配色（ナイトブルー、DTMグリーン、アンバー端末、デイライト）、独自のタイトル、保管庫・価格・履歴の表示切替、表示する製品、警告、ほぼ満杯の基準、価格アラート、スライドショー。サーバー上の全員が同じ設定を見ることができ、設定はゲームと一緒に保存されます。
+モニターの前に立って起動キーを押すと設定を開けます：保管庫または農場画面、接続されたサイロ、画面サイズ（幅0.8～6 m）、明るさ（5段階、夜間も見やすい）、配色（ナイトブルー、グリーン、アンバー端末、デイライト）、独自のタイトル、保管庫・価格・履歴の表示切替、表示する製品、警告、ほぼ満杯の基準、価格アラート、スライドショー。サーバー上の全員が同じ設定を見ることができ、設定はゲームと一緒に保存されます。
 
-7種類のモデル（建物 > ツール）：キオスク 3,500、ウォール 6,500、看板 12,000、両面看板 18,000、サイロ取付 6,000、壁掛け 5,500（建物に平らに取り付け）、吊り下げ 5,500（ロッドで吊るす、倉庫内向け）。
+7種類のモデル（建物 > ツール）：キオスク、ウォール、看板、両面看板、サイロ取付、壁掛け（建物に平らに取り付け）、吊り下げ（ロッドで吊るす、倉庫内向け）。
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></jp>
-        <kr><![CDATA[사일로, 생산 시설, 축사, 벙커 사일로, 곤포·팔레트 창고, 퇴비 더미, 온실, 벌통, 그리고 농장 전체(밭, 날씨, 차량, 계약, 자금, 게시판)를 보여 주는 실시간 화면입니다.
+        <kr><![CDATA[Better Digital Display (키오스크)
+카테고리: 건물 > 도구
+가격: $3,500
+월 유지비: $2
+
+Better Digital Display (월)
+카테고리: 건물 > 도구
+가격: $6,500
+월 유지비: $3
+
+Better Digital Display (빌보드)
+카테고리: 건물 > 도구
+가격: $12,000
+월 유지비: $5
+
+Better Digital Display (양면 빌보드)
+카테고리: 건물 > 도구
+가격: $18,000
+월 유지비: $7
+
+Better Digital Display (사일로 거치형)
+카테고리: 건물 > 도구
+가격: $6,000
+월 유지비: $3
+
+Better Digital Display (벽걸이형)
+카테고리: 건물 > 도구
+가격: $5,500
+월 유지비: $3
+
+Better Digital Display (천장걸이형)
+카테고리: 건물 > 도구
+가격: $5,500
+월 유지비: $3
+
+사일로, 생산 시설, 축사, 벙커 사일로, 곤포·팔레트 창고, 퇴비 더미, 온실, 벌통, 그리고 농장 전체(밭, 날씨, 차량, 계약, 자금, 게시판)를 보여 주는 실시간 화면입니다.
 
 저장소 옆에 설치하면 안에 무엇이 있는지 컬러로 보여 줍니다:
 - 사일로: 충전율(%)(설정한 기준에 따라 녹색, 주황색, 빨간색), 사용량, 여유 용량, 전체 용량, 제품마다 다른 색으로 표시되는 막대 하나
@@ -920,13 +1725,48 @@ Changelog 1.4.0.4:
 
 경고: 사일로가 거의 가득 찼을 때(설정한 기준부터), 투입물이 비었을 때, 동물의 사료나 물이 부족할 때, 탱크가 가득 찼을 때, 밭을 수확할 수 있을 때(비가 올 때도), 일꾼의 연료가 떨어질 때, 또는 기다리던 가격에 제품이 팔릴 때 빨간 줄이 깜박이고 하단에 한 줄이 표시됩니다. 선택하면 농장의 모든 사람에게 게임 메시지로도 알립니다.
 
-모니터 앞에 서서 활성화 키를 누르면 설정이 열립니다: 저장소 또는 농장 화면, 연결된 사일로, 화면 크기(너비 0.8~6 m), 밝기(5단계, 밤에도 잘 보임), 색상(나이트 블루, DTM 그린, 앰버 터미널, 주광), 직접 정하는 제목, 저장소·가격·기록 표시, 표시할 제품, 경고, 거의 가득 참 기준, 가격 알림, 슬라이드쇼. 서버의 모든 사람이 같은 설정을 보며, 설정은 게임과 함께 저장됩니다.
+모니터 앞에 서서 활성화 키를 누르면 설정이 열립니다: 저장소 또는 농장 화면, 연결된 사일로, 화면 크기(너비 0.8~6 m), 밝기(5단계, 밤에도 잘 보임), 색상(나이트 블루, 그린, 앰버 터미널, 주광), 직접 정하는 제목, 저장소·가격·기록 표시, 표시할 제품, 경고, 거의 가득 참 기준, 가격 알림, 슬라이드쇼. 서버의 모든 사람이 같은 설정을 보며, 설정은 게임과 함께 저장됩니다.
 
-7가지 모델(건물 > 도구): 키오스크 3,500, 월 6,500, 빌보드 12,000, 양면 빌보드 18,000, 사일로 거치형 6,000, 벽걸이형 5,500(건물 벽에 평평하게 부착), 천장걸이형 5,500(봉에 매달아 창고 안에 설치).
+7가지 모델(건물 > 도구): 키오스크, 월, 빌보드, 양면 빌보드, 사일로 거치형, 벽걸이형(건물 벽에 평평하게 부착), 천장걸이형(봉에 매달아 창고 안에 설치).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></kr>
-        <cs><![CDATA[一块实时屏幕，可显示你的筒仓、生产设施、动物围栏、青贮窖、草捆或托盘棚屋、粪堆、温室和蜂箱，也可显示整个农场：田地、天气、车辆、合同、资金和留言板。
+        <cs><![CDATA[Better Digital Display（信息亭）
+类别：建筑 > 工具
+价格：$3,500
+每月维护费：$2
+
+Better Digital Display（屏幕墙）
+类别：建筑 > 工具
+价格：$6,500
+每月维护费：$3
+
+Better Digital Display（广告牌）
+类别：建筑 > 工具
+价格：$12,000
+每月维护费：$5
+
+Better Digital Display（双面广告牌）
+类别：建筑 > 工具
+价格：$18,000
+每月维护费：$7
+
+Better Digital Display（筒仓挂装）
+类别：建筑 > 工具
+价格：$6,000
+每月维护费：$3
+
+Better Digital Display（壁挂）
+类别：建筑 > 工具
+价格：$5,500
+每月维护费：$3
+
+Better Digital Display（悬挂）
+类别：建筑 > 工具
+价格：$5,500
+每月维护费：$3
+
+一块实时屏幕，可显示你的筒仓、生产设施、动物围栏、青贮窖、草捆或托盘棚屋、粪堆、温室和蜂箱，也可显示整个农场：田地、天气、车辆、合同、资金和留言板。
 
 把它放在仓储旁，它会以彩色显示其中的内容：
 - 筒仓：填充百分比（按你设定的阈值显示绿色、琥珀色、红色）、已用、剩余和总容量，以及一根每种产品各用一种颜色的条形图
@@ -960,13 +1800,48 @@ Changelog 1.4.0.4:
 
 警报：当筒仓快满（从你设定的阈值起）、原料耗尽、动物饲料或水不足、储罐已满、田地可收获（以及即将下雨）、雇工燃料耗尽，或产品达到你等待的价格时，会出现闪烁的红色条纹，并在底部显示一行提示。也可选择以游戏消息的形式通知农场中的所有人。
 
-站在它面前按下激活键即可打开设置：仓储或农场画面、相连的筒仓、屏幕尺寸（宽 0.8 到 6 米）、亮度（5 档，夜间也清晰可读）、配色（夜蓝、DTM 绿、琥珀终端、日光）、自定义标题、仓储/价格/历史、显示的产品、警报、快满阈值、价格提醒和轮播。服务器上的所有人看到的设置都相同，并随游戏一起保存。
+站在它面前按下激活键即可打开设置：仓储或农场画面、相连的筒仓、屏幕尺寸（宽 0.8 到 6 米）、亮度（5 档，夜间也清晰可读）、配色（夜蓝、绿色、琥珀终端、日光）、自定义标题、仓储/价格/历史、显示的产品、警报、快满阈值、价格提醒和轮播。服务器上的所有人看到的设置都相同，并随游戏一起保存。
 
-七种型号（建筑 > 工具）：信息亭 3,500、屏幕墙 6,500、广告牌 12,000、双面广告牌 18,000、筒仓挂装 6,000、壁挂 5,500（平贴在建筑上）和悬挂 5,500（用吊杆悬挂，适合棚屋内部）。
+七种型号（建筑 > 工具）：信息亭、屏幕墙、广告牌、双面广告牌、筒仓挂装、壁挂（平贴在建筑上）和悬挂（用吊杆悬挂，适合棚屋内部）。
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></cs>
-        <ct><![CDATA[一塊即時螢幕，可顯示你的筒倉、生產設施、動物圈舍、青貯窖、草捆或棧板棚屋、糞堆、溫室和蜂箱，也可顯示整個農場：田地、天氣、車輛、合約、資金和留言板。
+        <ct><![CDATA[Better Digital Display（資訊亭）
+類別：建築 > 工具
+價格：$3,500
+每月維護費：$2
+
+Better Digital Display（螢幕牆）
+類別：建築 > 工具
+價格：$6,500
+每月維護費：$3
+
+Better Digital Display（廣告看板）
+類別：建築 > 工具
+價格：$12,000
+每月維護費：$5
+
+Better Digital Display（雙面廣告看板）
+類別：建築 > 工具
+價格：$18,000
+每月維護費：$7
+
+Better Digital Display（筒倉掛裝）
+類別：建築 > 工具
+價格：$6,000
+每月維護費：$3
+
+Better Digital Display（壁掛）
+類別：建築 > 工具
+價格：$5,500
+每月維護費：$3
+
+Better Digital Display（懸掛）
+類別：建築 > 工具
+價格：$5,500
+每月維護費：$3
+
+一塊即時螢幕，可顯示你的筒倉、生產設施、動物圈舍、青貯窖、草捆或棧板棚屋、糞堆、溫室和蜂箱，也可顯示整個農場：田地、天氣、車輛、合約、資金和留言板。
 
 把它放在倉儲旁，它會以彩色顯示其中的內容：
 - 筒倉：填充百分比（依你設定的門檻顯示綠色、琥珀色、紅色）、已用、剩餘和總容量，以及一根每種產品各用一種顏色的長條
@@ -1000,13 +1875,48 @@ Changelog 1.4.0.4:
 
 警報：當筒倉快滿（從你設定的門檻起）、原料耗盡、動物飼料或水不足、儲槽已滿、田地可收穫（以及即將下雨）、雇工燃料耗盡，或產品達到你等待的價格時，會出現閃爍的紅色條紋，並在底部顯示一行提示。也可選擇以遊戲訊息的形式通知農場中的所有人。
 
-站在它面前按下啟動鍵即可開啟設定：倉儲或農場畫面、相連的筒倉、螢幕尺寸（寬 0.8 到 6 公尺）、亮度（5 段，夜間也清晰可讀）、配色（夜藍、DTM 綠、琥珀終端、日光）、自訂標題、倉儲／價格／歷史、顯示的產品、警報、快滿門檻、價格提醒和輪播。伺服器上的所有人看到的設定都相同，並隨遊戲一起儲存。
+站在它面前按下啟動鍵即可開啟設定：倉儲或農場畫面、相連的筒倉、螢幕尺寸（寬 0.8 到 6 公尺）、亮度（5 段，夜間也清晰可讀）、配色（夜藍、綠色、琥珀終端、日光）、自訂標題、倉儲／價格／歷史、顯示的產品、警報、快滿門檻、價格提醒和輪播。伺服器上的所有人看到的設定都相同，並隨遊戲一起儲存。
 
-七種型號（建築 > 工具）：資訊亭 3,500、螢幕牆 6,500、廣告看板 12,000、雙面廣告看板 18,000、筒倉掛裝 6,000、壁掛 5,500（平貼在建築上）和懸掛 5,500（以吊桿懸掛，適合棚屋內部）。
+七種型號（建築 > 工具）：資訊亭、螢幕牆、廣告看板、雙面廣告看板、筒倉掛裝、壁掛（平貼在建築上）和懸掛（以吊桿懸掛，適合棚屋內部）。
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></ct>
-        <id><![CDATA[Layar langsung untuk silo, produksi, kandang hewan, silo bunker, gudang bal atau palet, tumpukan pupuk kandang, rumah kaca, dan sarang lebah Anda, serta untuk seluruh pertanian Anda: ladang, cuaca, kendaraan, kontrak, uang, papan pesan.
+        <id><![CDATA[Better Digital Display (Kios)
+Kategori: Bangunan > Alat
+Harga: $3.500
+Biaya perawatan bulanan: $2
+
+Better Digital Display (Dinding Layar)
+Kategori: Bangunan > Alat
+Harga: $6.500
+Biaya perawatan bulanan: $3
+
+Better Digital Display (Papan Reklame)
+Kategori: Bangunan > Alat
+Harga: $12.000
+Biaya perawatan bulanan: $5
+
+Better Digital Display (Papan Reklame Dua Sisi)
+Kategori: Bangunan > Alat
+Harga: $18.000
+Biaya perawatan bulanan: $7
+
+Better Digital Display (Dudukan Silo)
+Kategori: Bangunan > Alat
+Harga: $6.000
+Biaya perawatan bulanan: $3
+
+Better Digital Display (Dudukan Dinding)
+Kategori: Bangunan > Alat
+Harga: $5.500
+Biaya perawatan bulanan: $3
+
+Better Digital Display (Gantung)
+Kategori: Bangunan > Alat
+Harga: $5.500
+Biaya perawatan bulanan: $3
+
+Layar langsung untuk silo, produksi, kandang hewan, silo bunker, gudang bal atau palet, tumpukan pupuk kandang, rumah kaca, dan sarang lebah Anda, serta untuk seluruh pertanian Anda: ladang, cuaca, kendaraan, kontrak, uang, papan pesan.
 
 Letakkan di dekat penyimpanan dan layar akan menampilkan isinya, berwarna:
 - silo: seberapa penuh dalam persen (hijau, kuning, merah mulai dari tingkat yang Anda atur), kapasitas terpakai, sisa, dan total, satu bilah dengan setiap produk dalam warnanya sendiri
@@ -1040,13 +1950,48 @@ Tayangan slide: centang beberapa layar dan monitor menampilkannya secara bergant
 
 Peringatan: garis merah berkedip dan satu baris di bagian bawah saat silo hampir penuh (mulai dari tingkat yang Anda atur), bahan masuk kosong, hewan kekurangan pakan atau air, tangki penuh, ladang siap panen (dan hujan akan turun), pekerja kehabisan bahan bakar, atau produk terjual dengan harga yang Anda tunggu. Opsional juga sebagai pesan game untuk semua orang di pertanian.
 
-Berdirilah di depannya dan tekan tombol aktivasi untuk pengaturannya: layar penyimpanan atau pertanian, silo yang terhubung, ukuran layar (lebar 0,8 sampai 6 m), kecerahan (5 tingkat, terbaca di malam hari), warna (biru malam, hijau DTM, terminal amber, siang hari), judul Anda sendiri, penyimpanan, harga atau riwayat, produk yang ditampilkan, peringatan, tingkat hampir penuh, peringatan harga, dan tayangan slide. Semua orang di server melihat pengaturan yang sama dan pengaturan disimpan bersama game.
+Berdirilah di depannya dan tekan tombol aktivasi untuk pengaturannya: layar penyimpanan atau pertanian, silo yang terhubung, ukuran layar (lebar 0,8 sampai 6 m), kecerahan (5 tingkat, terbaca di malam hari), warna (biru malam, hijau, terminal amber, siang hari), judul Anda sendiri, penyimpanan, harga atau riwayat, produk yang ditampilkan, peringatan, tingkat hampir penuh, peringatan harga, dan tayangan slide. Semua orang di server melihat pengaturan yang sama dan pengaturan disimpan bersama game.
 
-Tujuh model (Bangunan > Alat): Kios 3.500, Dinding Layar 6.500, Papan Reklame 12.000, Papan Reklame Dua Sisi 18.000, Dudukan Silo 6.000, Dudukan Dinding 5.500 (rata pada bangunan), dan Gantung 5.500 (pada batang, untuk di dalam gudang).
+Tujuh model (Bangunan > Alat): Kios, Dinding Layar, Papan Reklame, Papan Reklame Dua Sisi, Dudukan Silo, Dudukan Dinding (rata pada bangunan), dan Gantung (pada batang, untuk di dalam gudang).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></id>
-        <vi><![CDATA[Một màn hình trực tiếp cho xi-lô, cơ sở sản xuất, chuồng vật nuôi, hầm ủ chua, nhà kho kiện hoặc pallet, đống phân chuồng, nhà kính và tổ ong của bạn, và cho cả trang trại: ruộng, thời tiết, xe, hợp đồng, tiền, bảng tin nhắn.
+        <vi><![CDATA[Better Digital Display (Ki-ốt)
+Danh mục: Công trình > Công cụ
+Giá: $3.500
+Phí bảo trì hàng tháng: $2
+
+Better Digital Display (Tường màn hình)
+Danh mục: Công trình > Công cụ
+Giá: $6.500
+Phí bảo trì hàng tháng: $3
+
+Better Digital Display (Bảng quảng cáo)
+Danh mục: Công trình > Công cụ
+Giá: $12.000
+Phí bảo trì hàng tháng: $5
+
+Better Digital Display (Bảng quảng cáo hai mặt)
+Danh mục: Công trình > Công cụ
+Giá: $18.000
+Phí bảo trì hàng tháng: $7
+
+Better Digital Display (Gắn xi-lô)
+Danh mục: Công trình > Công cụ
+Giá: $6.000
+Phí bảo trì hàng tháng: $3
+
+Better Digital Display (Gắn tường)
+Danh mục: Công trình > Công cụ
+Giá: $5.500
+Phí bảo trì hàng tháng: $3
+
+Better Digital Display (Treo)
+Danh mục: Công trình > Công cụ
+Giá: $5.500
+Phí bảo trì hàng tháng: $3
+
+Một màn hình trực tiếp cho xi-lô, cơ sở sản xuất, chuồng vật nuôi, hầm ủ chua, nhà kho kiện hoặc pallet, đống phân chuồng, nhà kính và tổ ong của bạn, và cho cả trang trại: ruộng, thời tiết, xe, hợp đồng, tiền, bảng tin nhắn.
 
 Đặt nó cạnh một kho và nó sẽ hiển thị những gì bên trong, có màu sắc:
 - xi-lô: mức đầy theo phần trăm (xanh lá, hổ phách, đỏ từ mức bạn đặt), sức chứa đã dùng, còn trống và tổng, một thanh với mỗi sản phẩm một màu riêng
@@ -1080,9 +2025,9 @@ Trình chiếu: đánh dấu nhiều màn hình và màn hình sẽ lần lượ
 
 Cảnh báo: một dải đỏ nhấp nháy và một dòng ở chân màn hình khi xi-lô gần đầy (từ mức bạn đặt), một nguyên liệu đã hết, vật nuôi sắp thiếu thức ăn hoặc nước, một bồn đã đầy, ruộng sẵn sàng thu hoạch (và trời sắp mưa), nhân công sắp hết nhiên liệu, hoặc một sản phẩm bán được giá bạn đang chờ. Tùy chọn gửi thêm tin nhắn trong game cho mọi người trong trang trại.
 
-Đứng trước nó và nhấn phím kích hoạt để mở cài đặt: màn hình kho hoặc trang trại, các xi-lô được kết nối, kích thước màn hình (rộng 0,8 đến 6 m), độ sáng (5 mức, đọc được vào ban đêm), màu sắc (xanh đêm, xanh lá DTM, màn hình hổ phách, ánh sáng ban ngày), tiêu đề riêng của bạn, kho, giá hoặc lịch sử, sản phẩm hiển thị, cảnh báo, mức gần đầy, cảnh báo giá và trình chiếu. Mọi người trên máy chủ đều thấy cùng cài đặt và cài đặt được lưu cùng trò chơi.
+Đứng trước nó và nhấn phím kích hoạt để mở cài đặt: màn hình kho hoặc trang trại, các xi-lô được kết nối, kích thước màn hình (rộng 0,8 đến 6 m), độ sáng (5 mức, đọc được vào ban đêm), màu sắc (xanh đêm, xanh lá, màn hình hổ phách, ánh sáng ban ngày), tiêu đề riêng của bạn, kho, giá hoặc lịch sử, sản phẩm hiển thị, cảnh báo, mức gần đầy, cảnh báo giá và trình chiếu. Mọi người trên máy chủ đều thấy cùng cài đặt và cài đặt được lưu cùng trò chơi.
 
-Bảy mẫu (Công trình > Công cụ): Ki-ốt 3.500, Tường màn hình 6.500, Bảng quảng cáo 12.000, Bảng quảng cáo hai mặt 18.000, Gắn xi-lô 6.000, Gắn tường 5.500 (áp phẳng lên công trình) và Treo 5.500 (trên thanh treo, dùng trong nhà kho).
+Bảy mẫu (Công trình > Công cụ): Ki-ốt, Tường màn hình, Bảng quảng cáo, Bảng quảng cáo hai mặt, Gắn xi-lô, Gắn tường (áp phẳng lên công trình) và Treo (trên thanh treo, dùng trong nhà kho).
 
 Changelog 1.4.0.4:
 - Updated for the current game version (modDesc version 116).]]></vi>
