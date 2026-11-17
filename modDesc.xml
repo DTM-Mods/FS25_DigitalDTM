@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="116" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>DTM Mods, Fennell</author>
-    <version>1.4.0.4</version>
+    <version>1.4.0.5</version>
     <title>
         <en>Better Digital Display</en>
     </title>
@@ -79,8 +79,11 @@ Stand in front of it and press the activate key for its settings: the storage or
 
 Seven models (Buildings > Tools): Kiosk, Wall, Billboard, Two-Sided Billboard, Silo Mount, Wall Mount (flat on a building) and Hanging (on rods, for inside a shed).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></en>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></en>
         <de><![CDATA[Better Digital Display (Kiosk)
 Kategorie: Gebäude > Werkzeuge
 Preis: 3.500 €
@@ -154,8 +157,11 @@ Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager o
 
 Sieben Modelle (Gebäude > Werkzeuge): Kiosk, Wand, Großanzeige, Großanzeige beidseitig, Silohalterung, Wandhalterung (flach an einem Gebäude) und Hängend (an Stangen, für in der Halle).
 
-Changelog 1.4.0.4:
-- An die aktuelle Spielversion angepasst (modDesc-Version 116).]]></de>
+Changelog 1.4.0.5:
+- Neuer Name: Better Digital Display. Die Bildschirme zeigen unten keinen Namen mehr; das grüne Design heißt jetzt einfach "Grün".
+- Beschreibung im ModHub-Aufbau von GIANTS (Kategorie, Preis, Unterhalt bzw. Tasten oben).
+- Neues Mod-Icon im ModHub-Standard.
+- Shopbilder ohne Mipmaps, wie ModHub es verlangt.]]></de>
         <fr><![CDATA[Better Digital Display (Kiosque)
 Catégorie : Bâtiments > Outils
 Prix : 3 500 €
@@ -229,8 +235,11 @@ Placez-vous devant et appuyez sur la touche d'activation pour ses réglages : l'
 
 Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau, Panneau double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.0.4:
-- Mis à jour pour la version actuelle du jeu (modDesc version 116).]]></fr>
+Changelog 1.4.0.5:
+- Nouveau nom : Better Digital Display. Les écrans n'affichent plus de nom en bas ; le thème vert s'appelle simplement « Vert ».
+- Description au format ModHub de GIANTS (catégorie, prix, entretien ou touches en haut).
+- Nouvelle icône du mod au standard ModHub.
+- Images de la boutique sans mipmaps, comme le demande ModHub.]]></fr>
         <es><![CDATA[Better Digital Display (Quiosco)
 Categoría: Edificios > Herramientas
 Precio: 3.500 €
@@ -304,8 +313,11 @@ Ponte delante y pulsa la tecla de activar para abrir sus ajustes: la pantalla de
 
 Siete modelos (Edificios > Herramientas): Quiosco, Pared, Valla publicitaria, Valla de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de una nave).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></es>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></es>
         <ea><![CDATA[Better Digital Display (Quiosco)
 Categoría: Edificios > Herramientas
 Precio: $3,500
@@ -379,8 +391,11 @@ Párate enfrente y presiona la tecla de activar para abrir su configuración: la
 
 Siete modelos (Edificios > Herramientas): Quiosco, Pared, Cartel publicitario, Cartel de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de un galpón).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></ea>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></ea>
         <pt><![CDATA[Better Digital Display (Quiosque)
 Categoria: Edifícios > Ferramentas
 Preço: 3 500 €
@@ -454,8 +469,11 @@ Coloque-se à frente dele e prima a tecla de ativar para abrir as definições: 
 
 Sete modelos (Edifícios > Ferramentas): Quiosque, Parede, Painel publicitário, Painel de dupla face, Suporte de silo, Suporte de parede (encostado a um edifício) e Suspenso (em varões, para o interior de um pavilhão).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></pt>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></pt>
         <br><![CDATA[Better Digital Display (Quiosque)
 Categoria: Construções > Ferramentas
 Preço: $3.500
@@ -529,8 +547,11 @@ Fique na frente dela e aperte a tecla de ativar para abrir as configurações: a
 
 Sete modelos (Construções > Ferramentas): Quiosque, Parede, Outdoor, Outdoor dupla face, Suporte de silo, Suporte de parede (rente a um prédio) e Suspenso (em hastes, para dentro de um galpão).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></br>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></br>
         <it><![CDATA[Better Digital Display (Chiosco)
 Categoria: Edifici > Strumenti
 Prezzo: 3.500 €
@@ -604,8 +625,11 @@ Mettiti davanti e premi il tasto di attivazione per le sue impostazioni: la sche
 
 Sette modelli (Edifici > Strumenti): Chiosco, Parete, Cartellone, Cartellone bifacciale, Supporto per silo, Supporto a parete (aderente a un edificio) e Sospeso (su aste, per l'interno di un capannone).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></it>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></it>
         <fc><![CDATA[Better Digital Display (Kiosque)
 Catégorie : Bâtiments > Outils
 Prix : 3 500 $
@@ -679,8 +703,11 @@ Placez-vous devant et appuyez sur la touche d'activation pour ses paramètres : 
 
 Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau-réclame, Panneau-réclame double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></fc>
+Changelog 1.4.0.5:
+- Nouveau nom : Better Digital Display. Les écrans n'affichent plus de nom en bas ; le thème vert s'appelle simplement « Vert ».
+- Description au format ModHub de GIANTS (catégorie, prix, entretien ou touches en haut).
+- Nouvelle icône du mod au standard ModHub.
+- Images de la boutique sans mipmaps, comme le demande ModHub.]]></fc>
         <pl><![CDATA[Better Digital Display (kiosk)
 Kategoria: Budynki > Narzędzia
 Cena: 3 500 €
@@ -754,8 +781,11 @@ Stań przed nim i naciśnij klawisz aktywacji, aby otworzyć ustawienia: ekran m
 
 Siedem modeli (Budynki > Narzędzia): kiosk, ścienny, billboard, billboard dwustronny, na silos, na ścianę budynku (płasko na budynku) i wiszący (na prętach, do wnętrza magazynu).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></pl>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></pl>
         <cz><![CDATA[Better Digital Display (kiosk)
 Kategorie: Budovy > Nástroje
 Cena: 3 500 €
@@ -829,8 +859,11 @@ Postavte se před něj a stiskněte klávesu aktivace pro nastavení: obrazovka 
 
 Sedm modelů (Budovy > Nástroje): kiosk, nástěnný, billboard, oboustranný billboard, na silo, na zeď budovy (naplocho na budovu) a závěsný (na tyčích, dovnitř skladu).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></cz>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></cz>
         <ru><![CDATA[Better Digital Display (киоск)
 Категория: Здания > Инструменты
 Цена: 3 500 €
@@ -904,8 +937,11 @@ Better Digital Display (подвесной)
 
 Семь моделей (Здания > Инструменты): киоск, стена, билборд, двусторонний билборд, на силос, на стену здания (вплотную к зданию) и подвесной (на штангах, для установки внутри склада).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></ru>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></ru>
         <uk><![CDATA[Better Digital Display (кіоск)
 Категорія: Будівлі > Інструменти
 Ціна: 3 500 €
@@ -979,8 +1015,11 @@ Better Digital Display (підвісний)
 
 Сім моделей (Будівлі > Інструменти): кіоск, стіна, білборд, двосторонній білборд, на силос, на стіну будівлі (впритул до будівлі) і підвісний (на штангах, для встановлення всередині складу).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></uk>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></uk>
         <hu><![CDATA[Better Digital Display (kioszk)
 Kategória: Épületek > Eszközök
 Ár: 3 500 €
@@ -1054,8 +1093,11 @@ Riasztások: villogó piros csík és egy sor a láblécben, ha egy siló majdne
 
 Hét modell (Épületek > Eszközök): kioszk, fali, óriásplakát, kétoldalas óriásplakát, silóra szerelt, épületfalra szerelt (laposan az épületen) és függesztett (rudakon, tárolón belülre).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></hu>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></hu>
         <ro><![CDATA[Better Digital Display (chioșc)
 Categorie: Clădiri > Unelte
 Preț: 3.500 €
@@ -1129,8 +1171,11 @@ Stai în fața lui și apasă tasta de activare pentru setări: ecranul de depoz
 
 Șapte modele (Clădiri > Unelte): chioșc, perete, panou publicitar, panou publicitar dublu, pe siloz, pe peretele clădirii (lipit de clădire) și suspendat (pe tije, pentru interiorul unei magazii).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></ro>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></ro>
         <nl><![CDATA[Better Digital Display (Kiosk)
 Categorie: Gebouwen > Gereedschap
 Prijs: € 3.500
@@ -1204,8 +1249,11 @@ Ga ervoor staan en druk op de activeertoets voor de instellingen: de opslag of h
 
 Zeven modellen (Gebouwen > Gereedschap): Kiosk, Muur, Reclamebord, Dubbelzijdig reclamebord, Silohouder, Wandhouder (plat op een gebouw) en Hangend (aan stangen, voor in een loods).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></nl>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></nl>
         <da><![CDATA[Better Digital Display (Kiosk)
 Kategori: Bygninger > Værktøj
 Pris: 3.500 €
@@ -1279,8 +1327,11 @@ Stil dig foran den, og tryk på aktiveringstasten for indstillingerne: lageret e
 
 Syv modeller (Bygninger > Værktøj): Kiosk, Væg, Reklameskilt, Dobbeltsidet reklameskilt, Siloholder, Vægbeslag (fladt på en bygning) og Hængende (på stænger, til inde i en hal).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></da>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></da>
         <sv><![CDATA[Better Digital Display (Kiosk)
 Kategori: Byggnader > Verktyg
 Pris: 3 500 €
@@ -1354,8 +1405,11 @@ Ställ dig framför den och tryck på aktiveringsknappen för inställningarna: 
 
 Sju modeller (Byggnader > Verktyg): Kiosk, Vägg, Reklamskylt, Dubbelsidig reklamskylt, Silofäste, Väggfäste (platt på en byggnad) och Hängande (i stänger, för inne i en hall).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></sv>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></sv>
         <no><![CDATA[Better Digital Display (Kiosk)
 Kategori: Bygninger > Verktøy
 Pris: 3 500 €
@@ -1429,8 +1483,11 @@ Stå foran den og trykk på aktiveringstasten for innstillingene: lageret eller 
 
 Sju modeller (Bygninger > Verktøy): Kiosk, Vegg, Reklametavle, Tosidig reklametavle, Siloholder, Veggfeste (flatt på en bygning) og Hengende (i stenger, for inne i en hall).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></no>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></no>
         <fi><![CDATA[Better Digital Display (Kioski)
 Kategoria: Rakennukset > Työkalut
 Hinta: 3 500 €
@@ -1504,8 +1561,11 @@ Seiso sen edessä ja paina aktivointinäppäintä avataksesi asetukset: varasto 
 
 Seitsemän mallia (Rakennukset > Työkalut): Kioski, Seinä, Mainostaulu, Kaksipuolinen mainostaulu, Siiloteline, Seinäteline (litteänä rakennuksen seinällä) ja Riippuva (tankojen varassa, hallin sisälle).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></fi>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></fi>
         <tr><![CDATA[Better Digital Display (Kiosk)
 Kategori: Binalar > Aletler
 Fiyat: 3.500 €
@@ -1579,8 +1639,11 @@ Uyarılar: bir silo neredeyse dolduğunda (belirlediğin seviyeden itibaren), bi
 
 Yedi model (Binalar > Aletler): Kiosk, Duvar, Reklam Panosu, Çift Taraflı Reklam Panosu, Silo Montajlı, Duvar Montajlı (bir binaya düz olarak) ve Asılı (çubuklarla, bir sundurmanın içi için).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></tr>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></tr>
         <jp><![CDATA[Better Digital Display（キオスク）
 カテゴリー：建物 > ツール
 価格：$3,500
@@ -1654,8 +1717,11 @@ Better Digital Display（吊り下げ）
 
 7種類のモデル（建物 > ツール）：キオスク、ウォール、看板、両面看板、サイロ取付、壁掛け（建物に平らに取り付け）、吊り下げ（ロッドで吊るす、倉庫内向け）。
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></jp>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></jp>
         <kr><![CDATA[Better Digital Display (키오스크)
 카테고리: 건물 > 도구
 가격: $3,500
@@ -1729,8 +1795,11 @@ Better Digital Display (천장걸이형)
 
 7가지 모델(건물 > 도구): 키오스크, 월, 빌보드, 양면 빌보드, 사일로 거치형, 벽걸이형(건물 벽에 평평하게 부착), 천장걸이형(봉에 매달아 창고 안에 설치).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></kr>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></kr>
         <cs><![CDATA[Better Digital Display（信息亭）
 类别：建筑 > 工具
 价格：$3,500
@@ -1804,8 +1873,11 @@ Better Digital Display（悬挂）
 
 七种型号（建筑 > 工具）：信息亭、屏幕墙、广告牌、双面广告牌、筒仓挂装、壁挂（平贴在建筑上）和悬挂（用吊杆悬挂，适合棚屋内部）。
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></cs>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></cs>
         <ct><![CDATA[Better Digital Display（資訊亭）
 類別：建築 > 工具
 價格：$3,500
@@ -1879,8 +1951,11 @@ Better Digital Display（懸掛）
 
 七種型號（建築 > 工具）：資訊亭、螢幕牆、廣告看板、雙面廣告看板、筒倉掛裝、壁掛（平貼在建築上）和懸掛（以吊桿懸掛，適合棚屋內部）。
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></ct>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></ct>
         <id><![CDATA[Better Digital Display (Kios)
 Kategori: Bangunan > Alat
 Harga: $3.500
@@ -1954,8 +2029,11 @@ Berdirilah di depannya dan tekan tombol aktivasi untuk pengaturannya: layar peny
 
 Tujuh model (Bangunan > Alat): Kios, Dinding Layar, Papan Reklame, Papan Reklame Dua Sisi, Dudukan Silo, Dudukan Dinding (rata pada bangunan), dan Gantung (pada batang, untuk di dalam gudang).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></id>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></id>
         <vi><![CDATA[Better Digital Display (Ki-ốt)
 Danh mục: Công trình > Công cụ
 Giá: $3.500
@@ -2029,8 +2107,11 @@ Cảnh báo: một dải đỏ nhấp nháy và một dòng ở chân màn hình
 
 Bảy mẫu (Công trình > Công cụ): Ki-ốt, Tường màn hình, Bảng quảng cáo, Bảng quảng cáo hai mặt, Gắn xi-lô, Gắn tường (áp phẳng lên công trình) và Treo (trên thanh treo, dùng trong nhà kho).
 
-Changelog 1.4.0.4:
-- Updated for the current game version (modDesc version 116).]]></vi>
+Changelog 1.4.0.5:
+- New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".
+- Description in GIANTS' ModHub layout (category, price, upkeep or hotkeys at the top).
+- New mod icon in the ModHub standard.
+- Shop images without mipmaps, as ModHub wants.]]></vi>
     </description>
 
     <iconFilename>icon_storageMonitor.dds</iconFilename>
