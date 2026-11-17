@@ -873,12 +873,6 @@ function StorageMonitor:onDelete()
     if StorageMonitor.activeMonitor == self then
         StorageMonitor.activeMonitor = nil
     end
-    -- the icon and theme materials are made from the first monitor's templates and kept for all; they can go
-    -- with that monitor (the game then reports "Unknown entity id" in setMaterial every frame), so they are
-    -- made again from the monitors left
-    if self.isClient then
-        pcall(StorageMonitor.resetMaterials)
-    end
     if spec.playerTrigger ~= nil and self.isClient then
         removeTrigger(spec.playerTrigger)
     end
@@ -1160,33 +1154,6 @@ function StorageMonitor:setStorageMonitorSize(width)
     spec.headerTitle = nil
 end
 
---- Forgets the shared icon and theme materials and puts the monitors' own glass back, then each monitor makes
--- its look again; icons are made again when next drawn (from a monitor that is still there).
-function StorageMonitor.resetMaterials()
-    StorageMonitor.iconMaterials = nil
-    StorageMonitor.themeMaterials = nil
-    for _, monitor in ipairs(StorageMonitor.instances) do
-        local spec = monitor.spec_storageMonitor
-        if spec ~= nil then
-            for _, face in ipairs(spec.faces or {}) do
-                face.appliedMaterial = nil
-                face.iconBase = nil
-                for _, slot in ipairs(face.icons or {}) do
-                    slot.material = nil
-                    if slot.visible and setVisibility ~= nil then
-                        setVisibility(slot.node, false)
-                        slot.visible = false
-                    end
-                end
-                if face.glassNode ~= nil and face.glassMaterial ~= nil and setMaterial ~= nil then
-                    setMaterial(face.glassNode, face.glassMaterial, 0)
-                end
-            end
-            pcall(StorageMonitor.applyLook, monitor)
-        end
-    end
-end
-
 -- brightness factor of the monitor (1 = normal)
 function StorageMonitor.brightnessFactor(spec)
     local level = StorageMonitor.BRIGHTNESS[spec.brightness or StorageMonitor.DEFAULT_BRIGHTNESS]
@@ -1204,35 +1171,19 @@ function StorageMonitor:applyLook()
     for _, face in ipairs(spec.faces or {}) do
         local glass = face.glassNode
         if glass ~= nil then
-            if face.glassMaterial == nil then
-                face.glassMaterial = getMaterial(glass, 0)
-            end
-            local material = face.glassMaterial
-            if spec.theme ~= 1 and setMaterialDiffuseMapFromFile ~= nil and StorageMonitor.MOD_DIR ~= nil then
-                -- per model (its own glass material) and theme, so a model's materials never outlive its monitors
-                StorageMonitor.themeMaterials = StorageMonitor.themeMaterials or {}
-                local byTheme = StorageMonitor.themeMaterials[face.glassMaterial]
-                if byTheme == nil then
-                    byTheme = {}
-                    StorageMonitor.themeMaterials[face.glassMaterial] = byTheme
+            -- the theme's screen texture, on a new material made from the glass's own one and put on at once (the
+            -- game frees a material no shape uses, so none is kept); the first look of the night theme is the model's
+            if face.appliedTheme ~= theme.id and (face.appliedTheme ~= nil or theme.id ~= "night")
+                and setMaterialDiffuseMapFromFile ~= nil and StorageMonitor.MOD_DIR ~= nil then
+                local ok, material = pcall(setMaterialDiffuseMapFromFile, getMaterial(glass, 0), StorageMonitor.MOD_DIR .. theme.texture, true, true, false)
+                if ok and material ~= nil and material ~= 0 then
+                    setMaterial(glass, material, 0)
+                elseif face.loggedTheme ~= theme.id then
+                    face.loggedTheme = theme.id
+                    StorageMonitor.log("Warning: theme texture %s not loaded", tostring(theme.texture))
                 end
-                local cached = byTheme[theme.id]
-                if cached == nil then
-                    local ok, result = pcall(setMaterialDiffuseMapFromFile, face.glassMaterial, StorageMonitor.MOD_DIR .. theme.texture, true, true, false)
-                    if ok and result ~= nil and result ~= 0 then
-                        cached = result
-                        byTheme[theme.id] = cached
-                    else
-                        StorageMonitor.log("Warning: theme texture %s not loaded", tostring(theme.texture))
-                        byTheme[theme.id] = false
-                    end
-                end
-                material = cached or material
             end
-            if face.appliedMaterial ~= material then
-                setMaterial(glass, material, 0)
-                face.appliedMaterial = material
-            end
+            face.appliedTheme = theme.id
             setShaderParameter(glass, "lightControl", StorageMonitor.GLASS_GLOW * StorageMonitor.brightnessFactor(spec), 0, 0, 0, false)
         end
     end
@@ -3652,27 +3603,8 @@ local function icon(f, u0, v0, side, path, c)
         or setMaterialDiffuseMapFromFile == nil then
         return false
     end
-    -- one set of icon materials per model (made from that model's own template), so a model's materials never
-    -- outlive its monitors
-    if spec.iconBase == nil then
-        spec.iconBase = getMaterial(spec.iconTemplate, 0)
-    end
-    StorageMonitor.iconMaterials = StorageMonitor.iconMaterials or {}
-    local byPath = StorageMonitor.iconMaterials[spec.iconBase]
-    if byPath == nil then
-        byPath = {}
-        StorageMonitor.iconMaterials[spec.iconBase] = byPath
-    end
-    local material = byPath[path]
-    if material == nil then
-        local ok, result = pcall(setMaterialDiffuseMapFromFile, spec.iconBase, path, true, true, false)
-        material = (ok and result ~= nil and result ~= 0) and result or false
-        if not material then
-            StorageMonitor.log("Warning: icon %s not loaded", tostring(path))
-        end
-        byPath[path] = material
-    end
-    if not material then
+    StorageMonitor.iconFailed = StorageMonitor.iconFailed or {}
+    if StorageMonitor.iconFailed[path] then
         return false
     end
     spec.icons = spec.icons or {}
@@ -3684,9 +3616,19 @@ local function icon(f, u0, v0, side, path, c)
         slot = {node = node, visible = false}
         spec.icons[spec.iconUsed] = slot
     end
-    if slot.material ~= material then
+    -- As DashboardLive does: a new material from the slot's own one with the product's image, put on at once. The
+    -- game frees a material no shape uses, so no material id is ever kept for later (1.4.0.0 and 1.4.0.1 kept them
+    -- and hit "setMaterial: Unknown entity id" when a slot came back to a product).
+    if slot.path ~= path then
+        local ok, material = pcall(setMaterialDiffuseMapFromFile, getMaterial(slot.node, 0), path, true, true, false)
+        if not ok or material == nil or material == 0 then
+            StorageMonitor.iconFailed[path] = true
+            StorageMonitor.log("Warning: icon %s not loaded", tostring(path))
+            spec.iconUsed = spec.iconUsed - 1
+            return false
+        end
         setMaterial(slot.node, material, 0)
-        slot.material = material
+        slot.path = path
     end
     StorageMonitor.placeSlot(f, slot, u0, v0, u0 + side, v0 + side, c)
     return true

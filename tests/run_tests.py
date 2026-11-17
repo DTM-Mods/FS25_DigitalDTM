@@ -1419,30 +1419,53 @@ def test_visitor_sees_owner_farm(lua):
     check(lua.eval("StorageMonitor.getPlayerFarmId()") == 2, "outside a board the player's own farm")
 
 
-def test_delete_resets_materials(lua):
-    """Icon and theme materials are made from the first monitor's templates; removing it makes them again from the
-    monitors left (they went with it: 'Unknown entity id' in setMaterial every frame in 1.4.0.0)."""
+def test_materials_never_kept(lua):
+    """The game frees a material no shape uses. Icons and themes must never reuse a material id they made earlier:
+    1.4.0.0 / 1.4.0.1 kept them and hit 'setMaterial: Unknown entity id' when a slot came back to a product."""
     lua.execute(WORLD)
     lua.execute("""
+        -- the engine: after each frame every made material no node uses is gone; setMaterial on a gone one fails
+        freed = {}
+        badSets = 0
+        local realSetMaterial = setMaterial
+        function setMaterial(n, m, i)
+            if freed[m] then badSets = badSets + 1 end
+            realSetMaterial(n, m, i)
+        end
+        local realDerive = setMaterialDiffuseMapFromFile
+        function setMaterialDiffuseMapFromFile(m, path, a, b, c)
+            if freed[m] then badSets = badSets + 1 end
+            return realDerive(m, path, a, b, c)
+        end
+        function freeUnused()
+            local used = {}
+            for _, m in pairs(nodeMaterial) do used[m] = true end
+            for id = 2, #materials do
+                if not used[id] then freed[id] = true end
+            end
+        end
         a = newMonitor(false)
         b = newMonitor(false)
-        set(a, "theme", 2) set(b, "theme", 2)
-        frame()
-        madeBefore = #materials
-        iconsBefore = StorageMonitor.iconMaterials ~= nil and next(StorageMonitor.iconMaterials) ~= nil
-        themeBefore = StorageMonitor.themeMaterials ~= nil
+        -- many products on pages: the icon slots change product every page and come back
+        for i = 1, 60 do sNear.fillLevels[i] = 1000 + i end
+        for i = 1, 60 do fillTypes[i].hudOverlayFilename = "$dataS/hud/fill_" .. i .. ".png" end
+        StorageMonitor.refreshStorageMonitorData(a) StorageMonitor.refreshStorageMonitorData(b)
+        for step = 1, 8 do
+            frame() freeUnused()
+            StorageMonitor.scrollStorageMonitor(a, 1) StorageMonitor.scrollStorageMonitor(b, 1)
+        end
+        -- themes back and forth, and a monitor removed
+        for _, t in ipairs({2, 3, 1, 2, 4, 2}) do set(a, "theme", t) set(b, "theme", t) frame() freeUnused() end
         StorageMonitor.onDelete(a)
-        clearedIcons = StorageMonitor.iconMaterials == nil
-        frame()
-        madeAfter = #materials
+        for step = 1, 4 do frame() freeUnused() StorageMonitor.scrollStorageMonitor(b, 1) end
+        iconsShown = visibleIcons()
         local glass = b.spec_storageMonitor.faces[1].glassNode
         bGlass = materials[nodeMaterial[glass]].texture
     """)
     g = lua.globals()
-    check(g.iconsBefore and g.themeBefore, "icons and theme materials were made")
-    check(g.clearedIcons, "removing a monitor forgets the shared materials")
-    check(g.madeAfter > g.madeBefore, "the monitor left makes its materials again (%d -> %d)" % (g.madeBefore, g.madeAfter))
-    check(str(g.bGlass).endswith("screen_field.dds"), "the monitor left keeps its colour theme: %s" % g.bGlass)
+    check(g.badSets == 0, "no material id is used after the game freed it (%d times)" % g.badSets)
+    check(g.iconsShown > 0, "icons still shown (%d)" % g.iconsShown)
+    check(str(g.bGlass).endswith("screen_field.dds"), "the theme is on the glass: %s" % g.bGlass)
 
 
 def test_two_faces(lua):
@@ -1609,7 +1632,7 @@ def main():
     test_history_and_settings(new_runtime())
     test_v14(new_runtime())
     test_visitor_sees_owner_farm(new_runtime())
-    test_delete_resets_materials(new_runtime())
+    test_materials_never_kept(new_runtime())
     test_two_faces(new_runtime())
     test_performance(new_runtime())
     test_errors_do_not_escape(new_runtime())

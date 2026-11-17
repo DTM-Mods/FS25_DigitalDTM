@@ -272,6 +272,12 @@ The PNG masters in `src/` stay out of the zip (`.modignore`).
   <img src="https://raw.githubusercontent.com/DTM-Mods/.github/main/assets/patch-notes.jpg" alt="Patch notes" width="100%">
 </p>
 
+### 1.4.0.2
+
+- Fixed: monitors could show the game's script error "setMaterial: Unknown entity id" while their lists changed (pages,
+  farm screens). The game frees a material no shape uses, and the screens kept the ids of icon and colour materials to
+  use again. They now make a new one each time an icon or theme changes and never keep one, as DashboardLive does.
+
 ### 1.4.0.1
 
 - Fixed: a player of another farm looking at your monitors saw their own farm's fields, money, vehicles, contracts and
