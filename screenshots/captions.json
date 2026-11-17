@@ -1,0 +1,22 @@
+{
+  "2.jpg": {
+    "title": "All silos of my farm as a price board",
+    "text": "The stock's worth, the best market and every product's best price, with next month's trend.",
+    "at": "bottom"
+  },
+  "3.jpg": {
+    "title": "A live screen at your silo",
+    "text": "How full it is, used and free capacity, and every product with its amount. Your own title on top.",
+    "at": "bottom"
+  },
+  "4.jpg": {
+    "title": "Screens for the whole farm",
+    "text": "Money, fields, weather, vehicles, contracts, animal pens and productions, each on its own screen.",
+    "at": "bottom"
+  },
+  "5.jpg": {
+    "title": "Readable at night",
+    "text": "The screen glows in the dark, with five brightness levels and four colour themes.",
+    "at": "bottom"
+  }
+}
