@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<modDesc descVersion="115" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
+<modDesc descVersion="116" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>DTM Mods, Fennell</author>
-    <version>1.4.0.3</version>
+    <version>1.4.0.4</version>
     <title>
         <en>Digital DTM</en>
     </title>
@@ -44,9 +44,8 @@ Stand in front of it and press the activate key for its settings: the storage or
 
 Seven models (Buildings > Tools): Kiosk 3,500, Wall 6,500, Billboard 12,000, Two-Sided Billboard 18,000, Silo Mount 6,000, Wall Mount 5,500 (flat on a building) and Hanging 5,500 (on rods, for inside a shed).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></en>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></en>
         <de><![CDATA[Ein Live-Bildschirm für Silos, Produktionen, Tierställe, Fahrsilos, Ballen- und Palettenlager, Misthaufen, Gewächshäuser und Bienenstöcke, und für den ganzen Hof: Felder, Wetter, Fahrzeuge, Aufträge, Geld, eine Nachrichtentafel.
 
 An einem Lager aufgestellt, zeigt er dessen Inhalt in Farbe:
@@ -85,9 +84,8 @@ Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager o
 
 Sieben Modelle (Gebäude > Werkzeuge): Kiosk 3.500, Wand 6.500, Großanzeige 12.000, Großanzeige beidseitig 18.000, Silohalterung 6.000, Wandhalterung 5.500 (flach an einem Gebäude) und Hängend 5.500 (an Stangen, für in der Halle).
 
-Changelog 1.4.0.3:
-- Erfüllt die GIANTS-ModHub-Prüfungen (TestRunner): Texturen, Icon und modDesc auf den neuesten Stand gebracht.
-- Fehler werden nicht mehr versteckt und erscheinen im Log. Ein Bildschirm mit einem Fehler wird abgeschaltet.]]></de>
+Changelog 1.4.0.4:
+- An die aktuelle Spielversion angepasst (modDesc-Version 116).]]></de>
         <fr><![CDATA[Un écran en direct pour vos silos, productions, élevages, silos couloirs, hangars à balles ou à palettes, fumières, serres et ruches, et pour toute votre ferme : champs, météo, véhicules, contrats, argent, un panneau de messages.
 
 Placé près d'un stockage, il affiche son contenu, en couleur :
@@ -126,9 +124,8 @@ Placez-vous devant et appuyez sur la touche d'activation pour ses réglages : l'
 
 Sept modèles (Bâtiments > Outils) : Kiosque 3 500, Mural 6 500, Panneau 12 000, Panneau double face 18 000, Fixation silo 6 000, Fixation murale 5 500 (à plat sur un bâtiment) et Suspendu 5 500 (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></fr>
+Changelog 1.4.0.4:
+- Mis à jour pour la version actuelle du jeu (modDesc version 116).]]></fr>
         <es><![CDATA[Una pantalla en directo para tus silos, producciones, corrales, silos búnker, naves de pacas o de palés, estercoleros, invernaderos y colmenas, y para toda tu granja: campos, tiempo, vehículos, contratos, dinero, un tablón de mensajes.
 
 Colócala junto a un almacén y muestra lo que hay dentro, en color:
@@ -167,9 +164,8 @@ Ponte delante y pulsa la tecla de activar para abrir sus ajustes: la pantalla de
 
 Siete modelos (Edificios > Herramientas): Quiosco 3.500, Pared 6.500, Valla publicitaria 12.000, Valla de dos caras 18.000, Soporte de silo 6.000, Soporte de pared 5.500 (plano sobre un edificio) y Colgante 5.500 (con varillas, para el interior de una nave).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></es>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></es>
         <ea><![CDATA[Una pantalla en vivo para tus silos, producciones, corrales, silos búnker, galpones de fardos o de pallets, pilas de estiércol, invernaderos y colmenas, y para toda tu granja: campos, clima, vehículos, contratos, dinero, un tablero de mensajes.
 
 Colócala junto a un almacén y muestra lo que hay adentro, a color:
@@ -208,9 +204,8 @@ Párate enfrente y presiona la tecla de activar para abrir su configuración: la
 
 Siete modelos (Edificios > Herramientas): Quiosco 3,500, Pared 6,500, Cartel publicitario 12,000, Cartel de dos caras 18,000, Soporte de silo 6,000, Soporte de pared 5,500 (plano sobre un edificio) y Colgante 5,500 (con varillas, para el interior de un galpón).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></ea>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></ea>
         <pt><![CDATA[Um ecrã em direto para os seus silos, produções, currais, silos trincheira, pavilhões de fardos ou de paletes, nitreiras, estufas e colmeias, e para toda a sua quinta: campos, tempo, veículos, contratos, dinheiro, um quadro de mensagens.
 
 Coloque-o junto a um armazém e ele mostra o que contém, a cores:
@@ -249,9 +244,8 @@ Coloque-se à frente dele e prima a tecla de ativar para abrir as definições: 
 
 Sete modelos (Edifícios > Ferramentas): Quiosque 3 500, Parede 6 500, Painel publicitário 12 000, Painel de dupla face 18 000, Suporte de silo 6 000, Suporte de parede 5 500 (encostado a um edifício) e Suspenso 5 500 (em varões, para o interior de um pavilhão).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></pt>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></pt>
         <br><![CDATA[Uma tela ao vivo para seus silos, produções, currais, silos trincheira, galpões de fardos ou de paletes, montes de esterco, estufas e colmeias, e para toda a sua fazenda: campos, clima, veículos, contratos, dinheiro, um quadro de mensagens.
 
 Coloque-a junto a um armazém e ela mostra o que há nele, em cores:
@@ -290,9 +284,8 @@ Fique na frente dela e aperte a tecla de ativar para abrir as configurações: a
 
 Sete modelos (Construções > Ferramentas): Quiosque 3.500, Parede 6.500, Outdoor 12.000, Outdoor dupla face 18.000, Suporte de silo 6.000, Suporte de parede 5.500 (rente a um prédio) e Suspenso 5.500 (em hastes, para dentro de um galpão).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></br>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></br>
         <it><![CDATA[Uno schermo in tempo reale per i tuoi silos, produzioni, recinti, silos a trincea, capannoni per balle o pallet, concimaie, serre e arnie, e per tutta la tua fattoria: campi, meteo, veicoli, contratti, denaro, una bacheca messaggi.
 
 Posizionalo vicino a un deposito e mostra cosa contiene, a colori:
@@ -331,9 +324,8 @@ Mettiti davanti e premi il tasto di attivazione per le sue impostazioni: la sche
 
 Sette modelli (Edifici > Strumenti): Chiosco 3.500, Parete 6.500, Cartellone 12.000, Cartellone bifacciale 18.000, Supporto per silo 6.000, Supporto a parete 5.500 (aderente a un edificio) e Sospeso 5.500 (su aste, per l'interno di un capannone).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></it>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></it>
         <fc><![CDATA[Un écran en direct pour vos silos, productions, élevages, silos couloirs, hangars à balles ou à palettes, fumières, serres et ruches, et pour toute votre ferme : champs, météo, véhicules, contrats, argent, un babillard.
 
 Placé près d'un stockage, il affiche son contenu, en couleur :
@@ -372,9 +364,8 @@ Placez-vous devant et appuyez sur la touche d'activation pour ses paramètres : 
 
 Sept modèles (Bâtiments > Outils) : Kiosque 3 500, Mural 6 500, Panneau-réclame 12 000, Panneau-réclame double face 18 000, Fixation silo 6 000, Fixation murale 5 500 (à plat sur un bâtiment) et Suspendu 5 500 (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></fc>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></fc>
         <pl><![CDATA[Ekran na żywo dla Twoich silosów, produkcji, zagród zwierząt, silosów przejazdowych, magazynów bel i palet, pryzm obornika, szklarni i uli, a także dla całego gospodarstwa: pola, pogoda, pojazdy, zlecenia, pieniądze, tablica ogłoszeń.
 
 Postaw go przy magazynie, a pokaże w kolorze, co jest w środku:
@@ -413,9 +404,8 @@ Stań przed nim i naciśnij klawisz aktywacji, aby otworzyć ustawienia: ekran m
 
 Siedem modeli (Budynki > Narzędzia): kiosk 3 500, ścienny 6 500, billboard 12 000, billboard dwustronny 18 000, na silos 6 000, na ścianę budynku 5 500 (płasko na budynku) i wiszący 5 500 (na prętach, do wnętrza magazynu).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></pl>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></pl>
         <cz><![CDATA[Živá obrazovka pro vaše sila, výrobny, ohrady zvířat, silážní žlaby, sklady balíků a palet, hnojiště, skleníky a úly a pro celou vaši farmu: pole, počasí, vozidla, zakázky, peníze, nástěnka.
 
 Postavte ji ke skladu a barevně ukáže, co v něm je:
@@ -454,9 +444,8 @@ Postavte se před něj a stiskněte klávesu aktivace pro nastavení: obrazovka 
 
 Sedm modelů (Budovy > Nástroje): kiosk 3 500, nástěnný 6 500, billboard 12 000, oboustranný billboard 18 000, na silo 6 000, na zeď budovy 5 500 (naplocho na budovu) a závěsný 5 500 (na tyčích, dovnitř skladu).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></cz>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></cz>
         <ru><![CDATA[Экран в реальном времени для ваших силосов, производств, загонов, силосных ям, складов тюков и поддонов, куч навоза, теплиц и ульев, а также для всей фермы: поля, погода, техника, контракты, деньги, доска объявлений.
 
 Поставьте его у хранилища, и он покажет в цвете, что в нём:
@@ -495,9 +484,8 @@ Changelog 1.4.0.3:
 
 Семь моделей (Здания > Инструменты): киоск 3 500, стена 6 500, билборд 12 000, двусторонний билборд 18 000, на силос 6 000, на стену здания 5 500 (вплотную к зданию) и подвесной 5 500 (на штангах, для установки внутри склада).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></ru>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></ru>
         <uk><![CDATA[Екран у реальному часі для ваших силосів, виробництв, загонів, силосних ям, складів тюків і палет, куп гною, теплиць і вуликів, а також для всієї ферми: поля, погода, техніка, контракти, гроші, дошка оголошень.
 
 Поставте його біля сховища, і він покаже в кольорі, що в ньому:
@@ -536,9 +524,8 @@ Changelog 1.4.0.3:
 
 Сім моделей (Будівлі > Інструменти): кіоск 3 500, стіна 6 500, білборд 12 000, двосторонній білборд 18 000, на силос 6 000, на стіну будівлі 5 500 (впритул до будівлі) і підвісний 5 500 (на штангах, для встановлення всередині складу).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></uk>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></uk>
         <hu><![CDATA[Élő kijelző a silóidhoz, termeléseidhez, állattartó karámjaidhoz, silóárkaidhoz, bála- és raklaptárolóidhoz, trágyadombjaidhoz, üvegházaidhoz és méhkaptáraidhoz, valamint az egész farmodhoz: földek, időjárás, járművek, szerződések, pénz, üzenőtábla.
 
 Tedd le egy tároló mellé, és színesen megmutatja, mi van benne:
@@ -577,9 +564,8 @@ Riasztások: villogó piros csík és egy sor a láblécben, ha egy siló majdne
 
 Hét modell (Épületek > Eszközök): kioszk 3 500, fali 6 500, óriásplakát 12 000, kétoldalas óriásplakát 18 000, silóra szerelt 6 000, épületfalra szerelt 5 500 (laposan az épületen) és függesztett 5 500 (rudakon, tárolón belülre).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></hu>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></hu>
         <ro><![CDATA[Un ecran în timp real pentru silozurile, producțiile, țarcurile de animale, silozurile buncăr, magaziile de baloți sau paleți, grămezile de gunoi de grajd, serele și stupii tăi, dar și pentru toată ferma: câmpuri, vreme, vehicule, contracte, bani, un panou de mesaje.
 
 Așază-l lângă un depozit și îți arată color ce este în el:
@@ -618,9 +604,8 @@ Stai în fața lui și apasă tasta de activare pentru setări: ecranul de depoz
 
 Șapte modele (Clădiri > Unelte): chioșc 3.500, perete 6.500, panou publicitar 12.000, panou publicitar dublu 18.000, pe siloz 6.000, pe peretele clădirii 5.500 (lipit de clădire) și suspendat 5.500 (pe tije, pentru interiorul unei magazii).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></ro>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></ro>
         <nl><![CDATA[Een live scherm voor je silo's, producties, dierenverblijven, sleufsilo's, balen- en palletloodsen, mesthopen, kassen en bijenkorven, en voor je hele boerderij: velden, weer, voertuigen, contracten, geld, een berichtenbord.
 
 Zet het bij een opslag en het toont wat erin zit, in kleur:
@@ -659,9 +644,8 @@ Ga ervoor staan en druk op de activeertoets voor de instellingen: de opslag of h
 
 Zeven modellen (Gebouwen > Gereedschap): Kiosk 3.500, Muur 6.500, Reclamebord 12.000, Dubbelzijdig reclamebord 18.000, Silohouder 6.000, Wandhouder 5.500 (plat op een gebouw) en Hangend 5.500 (aan stangen, voor in een loods).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></nl>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></nl>
         <da><![CDATA[En live skærm til dine siloer, produktioner, dyrestalde, plansiloer, balle- og pallelagre, møddinger, drivhuse og bistader, og til hele din gård: marker, vejr, køretøjer, kontrakter, penge, en opslagstavle.
 
 Stil den ved et lager, og den viser, hvad der er i det, i farver:
@@ -700,9 +684,8 @@ Stil dig foran den, og tryk på aktiveringstasten for indstillingerne: lageret e
 
 Syv modeller (Bygninger > Værktøj): Kiosk 3.500, Væg 6.500, Reklameskilt 12.000, Dobbeltsidet reklameskilt 18.000, Siloholder 6.000, Vægbeslag 5.500 (fladt på en bygning) og Hængende 5.500 (på stænger, til inde i en hal).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></da>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></da>
         <sv><![CDATA[En live-skärm för dina silor, produktioner, djurstallar, plansilor, bal- och pallager, gödselstackar, växthus och bikupor, och för hela din gård: fält, väder, fordon, kontrakt, pengar, en anslagstavla.
 
 Placera den vid ett lager så visar den vad som finns i det, i färg:
@@ -741,9 +724,8 @@ Ställ dig framför den och tryck på aktiveringsknappen för inställningarna: 
 
 Sju modeller (Byggnader > Verktyg): Kiosk 3 500, Vägg 6 500, Reklamskylt 12 000, Dubbelsidig reklamskylt 18 000, Silofäste 6 000, Väggfäste 5 500 (platt på en byggnad) och Hängande 5 500 (i stänger, för inne i en hall).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></sv>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></sv>
         <no><![CDATA[En levende skjerm for siloene, produksjonene, dyrefjøsene, plansiloene, ball- og pallelagrene, møkkhaugene, drivhusene og bikubene dine, og for hele gården din: jorder, vær, kjøretøy, kontrakter, penger, en oppslagstavle.
 
 Plasser den ved et lager, så viser den hva som er i det, i farger:
@@ -782,9 +764,8 @@ Stå foran den og trykk på aktiveringstasten for innstillingene: lageret eller 
 
 Sju modeller (Bygninger > Verktøy): Kiosk 3 500, Vegg 6 500, Reklametavle 12 000, Tosidig reklametavle 18 000, Siloholder 6 000, Veggfeste 5 500 (flatt på en bygning) og Hengende 5 500 (i stenger, for inne i en hall).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></no>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></no>
         <fi><![CDATA[Live-näyttö siiloillesi, tuotannoillesi, eläinsuojillesi, aumasiiloillesi, paali- ja lavavarastoillesi, lantakasoillesi, kasvihuoneillesi ja mehiläispesillesi sekä koko tilallesi: pellot, sää, ajoneuvot, sopimukset, rahat, ilmoitustaulu.
 
 Sijoita se varaston luo, niin se näyttää värein, mitä varastossa on:
@@ -823,9 +804,8 @@ Seiso sen edessä ja paina aktivointinäppäintä avataksesi asetukset: varasto 
 
 Seitsemän mallia (Rakennukset > Työkalut): Kioski 3 500, Seinä 6 500, Mainostaulu 12 000, Kaksipuolinen mainostaulu 18 000, Siiloteline 6 000, Seinäteline 5 500 (litteänä rakennuksen seinällä) ja Riippuva 5 500 (tankojen varassa, hallin sisälle).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></fi>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></fi>
         <tr><![CDATA[Siloların, üretimlerin, hayvan ağılların, silaj siloların, balya ve palet depoların, gübre yığınların, seraların ve arı kovanların için, ayrıca tüm çiftliğin için canlı bir ekran: tarlalar, hava durumu, araçlar, sözleşmeler, para, bir mesaj panosu.
 
 Bir deponun yanına koy, içinde ne olduğunu renkli olarak gösterir:
@@ -864,9 +844,8 @@ Uyarılar: bir silo neredeyse dolduğunda (belirlediğin seviyeden itibaren), bi
 
 Yedi model (Binalar > Aletler): Kiosk 3.500, Duvar 6.500, Reklam Panosu 12.000, Çift Taraflı Reklam Panosu 18.000, Silo Montajlı 6.000, Duvar Montajlı 5.500 (bir binaya düz olarak) ve Asılı 5.500 (çubuklarla, bir sundurmanın içi için).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></tr>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></tr>
         <jp><![CDATA[サイロ、生産施設、畜舎、バンカーサイロ、ベール・パレット倉庫、堆肥置き場、温室、養蜂箱、そして農場全体（畑、天気、車両、契約、資金、掲示板）を表示するライブスクリーンです。
 
 保管庫のそばに設置すると、中身をカラーで表示します：
@@ -905,9 +884,8 @@ Changelog 1.4.0.3:
 
 7種類のモデル（建物 > ツール）：キオスク 3,500、ウォール 6,500、看板 12,000、両面看板 18,000、サイロ取付 6,000、壁掛け 5,500（建物に平らに取り付け）、吊り下げ 5,500（ロッドで吊るす、倉庫内向け）。
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></jp>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></jp>
         <kr><![CDATA[사일로, 생산 시설, 축사, 벙커 사일로, 곤포·팔레트 창고, 퇴비 더미, 온실, 벌통, 그리고 농장 전체(밭, 날씨, 차량, 계약, 자금, 게시판)를 보여 주는 실시간 화면입니다.
 
 저장소 옆에 설치하면 안에 무엇이 있는지 컬러로 보여 줍니다:
@@ -946,9 +924,8 @@ Changelog 1.4.0.3:
 
 7가지 모델(건물 > 도구): 키오스크 3,500, 월 6,500, 빌보드 12,000, 양면 빌보드 18,000, 사일로 거치형 6,000, 벽걸이형 5,500(건물 벽에 평평하게 부착), 천장걸이형 5,500(봉에 매달아 창고 안에 설치).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></kr>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></kr>
         <cs><![CDATA[一块实时屏幕，可显示你的筒仓、生产设施、动物围栏、青贮窖、草捆或托盘棚屋、粪堆、温室和蜂箱，也可显示整个农场：田地、天气、车辆、合同、资金和留言板。
 
 把它放在仓储旁，它会以彩色显示其中的内容：
@@ -987,9 +964,8 @@ Changelog 1.4.0.3:
 
 七种型号（建筑 > 工具）：信息亭 3,500、屏幕墙 6,500、广告牌 12,000、双面广告牌 18,000、筒仓挂装 6,000、壁挂 5,500（平贴在建筑上）和悬挂 5,500（用吊杆悬挂，适合棚屋内部）。
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></cs>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></cs>
         <ct><![CDATA[一塊即時螢幕，可顯示你的筒倉、生產設施、動物圈舍、青貯窖、草捆或棧板棚屋、糞堆、溫室和蜂箱，也可顯示整個農場：田地、天氣、車輛、合約、資金和留言板。
 
 把它放在倉儲旁，它會以彩色顯示其中的內容：
@@ -1028,9 +1004,8 @@ Changelog 1.4.0.3:
 
 七種型號（建築 > 工具）：資訊亭 3,500、螢幕牆 6,500、廣告看板 12,000、雙面廣告看板 18,000、筒倉掛裝 6,000、壁掛 5,500（平貼在建築上）和懸掛 5,500（以吊桿懸掛，適合棚屋內部）。
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></ct>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></ct>
         <id><![CDATA[Layar langsung untuk silo, produksi, kandang hewan, silo bunker, gudang bal atau palet, tumpukan pupuk kandang, rumah kaca, dan sarang lebah Anda, serta untuk seluruh pertanian Anda: ladang, cuaca, kendaraan, kontrak, uang, papan pesan.
 
 Letakkan di dekat penyimpanan dan layar akan menampilkan isinya, berwarna:
@@ -1069,9 +1044,8 @@ Berdirilah di depannya dan tekan tombol aktivasi untuk pengaturannya: layar peny
 
 Tujuh model (Bangunan > Alat): Kios 3.500, Dinding Layar 6.500, Papan Reklame 12.000, Papan Reklame Dua Sisi 18.000, Dudukan Silo 6.000, Dudukan Dinding 5.500 (rata pada bangunan), dan Gantung 5.500 (pada batang, untuk di dalam gudang).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></id>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></id>
         <vi><![CDATA[Một màn hình trực tiếp cho xi-lô, cơ sở sản xuất, chuồng vật nuôi, hầm ủ chua, nhà kho kiện hoặc pallet, đống phân chuồng, nhà kính và tổ ong của bạn, và cho cả trang trại: ruộng, thời tiết, xe, hợp đồng, tiền, bảng tin nhắn.
 
 Đặt nó cạnh một kho và nó sẽ hiển thị những gì bên trong, có màu sắc:
@@ -1110,9 +1084,8 @@ Cảnh báo: một dải đỏ nhấp nháy và một dòng ở chân màn hình
 
 Bảy mẫu (Công trình > Công cụ): Ki-ốt 3.500, Tường màn hình 6.500, Bảng quảng cáo 12.000, Bảng quảng cáo hai mặt 18.000, Gắn xi-lô 6.000, Gắn tường 5.500 (áp phẳng lên công trình) và Treo 5.500 (trên thanh treo, dùng trong nhà kho).
 
-Changelog 1.4.0.3:
-- Meets the GIANTS ModHub checks (TestRunner): textures, icon and modDesc brought up to date.
-- Errors are no longer hidden: they show in the log. A monitor that hits an error is switched off.]]></vi>
+Changelog 1.4.0.4:
+- Updated for the current game version (modDesc version 116).]]></vi>
     </description>
 
     <iconFilename>icon_storageMonitor.dds</iconFilename>
