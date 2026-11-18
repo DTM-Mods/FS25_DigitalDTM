@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="Productos mostrados"/>
         <text name="storageMonitor_onlyText" text="Marca los productos que mostrar (hasta %d). Un solo producto se muestra en grande:"/>
         <text name="storageMonitor_bestNext" text="Mejor el mes que viene: +%d%%"/>
+        <text name="storageMonitor_menuHeight" text="Altura (ahora: %.1f m sobre el suelo)"/>
+        <text name="storageMonitor_heightTitle" text="Altura"/>
+        <text name="storageMonitor_heightText" text="A qué altura sobre el suelo está el borde inferior de la pantalla. La pantalla crece hacia arriba desde él."/>
+        <text name="storageMonitor_heightOption" text="%.1f m"/>
+        <text name="storageMonitor_heightDefault" text="(como se compró)"/>
+        <text name="storageMonitor_prodNeeds" text="Lo que necesitan mis producciones"/>
+        <text name="storageMonitor_needUnused" text="Ninguna línea lo usa ahora"/>
+        <text name="storageMonitor_needEmpty" text="Vacío"/>
+        <text name="storageMonitor_needLow" text="Bajo"/>
+        <text name="storageMonitor_needOk" text="Suficiente"/>
+        <text name="storageMonitor_needLasts" text="dura %s"/>
+        <text name="storageMonitor_needInSilos" text="silos: %s"/>
+        <text name="storageMonitor_needFull" text="lleno"/>
+        <text name="storageMonitor_needEmptyCaps" text="ENTRADAS VACÍAS"/>
+        <text name="storageMonitor_needFirst" text="Primero: %s"/>
+        <text name="storageMonitor_needInputs" text="Entradas"/>
+        <text name="storageMonitor_needToFill" text="Para llenar"/>
+        <text name="storageMonitor_colNeedInput" text="PRODUCCIÓN: ENTRADA"/>
+        <text name="storageMonitor_colNeedRoom" text="PARA LLENAR"/>
     </texts>
 </l10n>

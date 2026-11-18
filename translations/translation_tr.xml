@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="Gösterilen ürünler"/>
         <text name="storageMonitor_onlyText" text="Gösterilecek ürünleri işaretle (en fazla %d). Tek bir ürün büyük gösterilir:"/>
         <text name="storageMonitor_bestNext" text="En iyisi gelecek ay: +%d%%"/>
+        <text name="storageMonitor_menuHeight" text="Yükseklik (şu an: yerden %.1f m)"/>
+        <text name="storageMonitor_heightTitle" text="Yükseklik"/>
+        <text name="storageMonitor_heightText" text="Ekranın alt kenarının yerden ne kadar yüksekte olduğu. Ekran buradan yukarı doğru büyür."/>
+        <text name="storageMonitor_heightOption" text="%.1f m"/>
+        <text name="storageMonitor_heightDefault" text="(satın alındığı gibi)"/>
+        <text name="storageMonitor_prodNeeds" text="Üretimlerimin ihtiyaçları"/>
+        <text name="storageMonitor_needUnused" text="Şu an hiçbir hat kullanmıyor"/>
+        <text name="storageMonitor_needEmpty" text="Boş"/>
+        <text name="storageMonitor_needLow" text="Az"/>
+        <text name="storageMonitor_needOk" text="Yeterli"/>
+        <text name="storageMonitor_needLasts" text="%s yeter"/>
+        <text name="storageMonitor_needInSilos" text="silolar: %s"/>
+        <text name="storageMonitor_needFull" text="dolu"/>
+        <text name="storageMonitor_needEmptyCaps" text="BOŞ GİRDİLER"/>
+        <text name="storageMonitor_needFirst" text="Önce: %s"/>
+        <text name="storageMonitor_needInputs" text="Girdiler"/>
+        <text name="storageMonitor_needToFill" text="Doldurmak için"/>
+        <text name="storageMonitor_colNeedInput" text="ÜRETİM: GİRDİ"/>
+        <text name="storageMonitor_colNeedRoom" text="DOLDURMAK İÇİN"/>
     </texts>
 </l10n>

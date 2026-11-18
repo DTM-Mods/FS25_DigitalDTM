@@ -24,6 +24,12 @@ StorageMonitor.SEARCH_RADIUS = 40           -- m; storages further away are not 
 StorageMonitor.PICK_TOLERANCE = 5           -- m a picked building may be from the remembered spot
 StorageMonitor.MAX_PICK = 20                -- storages offered in the pick list
 StorageMonitor.SIZE_WIDTHS = {0.8, 1.2, 1.6, 2.0, 2.4, 3.0, 3.6, 4.2, 4.8, 6.0}  -- m; screen sizes to choose from
+-- m; heights of a raised mount's bottom edge above the ground (silo mount, wall mount, hanging) to choose from
+StorageMonitor.HEIGHTS = {0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 7.0, 8.0, 10.0, 12.0}
+-- what my productions need: an input counts as low below PROD_LOW of its room or when it lasts less than
+-- PROD_LOW_HOURS in-game hours
+StorageMonitor.PROD_LOW = 0.25
+StorageMonitor.PROD_LOW_HOURS = 3
 StorageMonitor.GLASS_GLOW = 0.25            -- the screen's own glow (lightControl) at normal brightness
 StorageMonitor.TITLE_MAX = 40               -- characters of a custom title
 -- brightness levels: bars, screen glow and text are multiplied by factor
@@ -67,6 +73,7 @@ StorageMonitor.FARM_SCREENS = {
     {kind = "contracts",      pick = -4444444, key = "storageMonitor_contracts",     fallback = "My contracts",         board = true},
     {kind = "allPens",        pick = -3333333, key = "storageMonitor_allPens",       fallback = "All my animal pens",   board = true},
     {kind = "allProductions", pick = -2222222, key = "storageMonitor_allProductions", fallback = "All my productions",  board = true},
+    {kind = "prodNeeds",      pick = -1717171, key = "storageMonitor_prodNeeds",     fallback = "What my productions need", board = true},
     {kind = "sellPlan",       pick = -1111111, key = "storageMonitor_sellPlan",      fallback = "When to sell",         board = true},
     {kind = "profit",         pick = -1313131, key = "storageMonitor_profit",        fallback = "Production profit",    board = true},
     {kind = "openContracts",  pick = -1414141, key = "storageMonitor_openContracts", fallback = "Contracts to take",    board = true},
@@ -734,6 +741,7 @@ function StorageMonitor.initSpecialization()
     schema:register(XMLValueType.FLOAT, key .. "#pickZ", "Position of the picked storage", 0)
     schema:register(XMLValueType.BOOL, key .. "#connected", "Also show the silos connected to it", false)
     schema:register(XMLValueType.FLOAT, key .. "#size", "Screen width in metres")
+    schema:register(XMLValueType.FLOAT, key .. "#height", "Raised mounts: height of the bottom edge above the ground in metres")
     schema:register(XMLValueType.INT, key .. "#brightness", "Brightness level 1..5", StorageMonitor.DEFAULT_BRIGHTNESS)
     schema:register(XMLValueType.INT, key .. "#theme", "Colour theme 1..4", 1)
     schema:register(XMLValueType.STRING, key .. "#title", "Custom title, empty = the storage's name", "")
@@ -768,10 +776,15 @@ function StorageMonitor:onLoad(savegame)
     spec.barTemplate = xmlFile:getValue("placeable.storageMonitor#barTemplate", nil, self.components, self.i3dMappings)
     spec.iconTemplate = xmlFile:getValue("placeable.storageMonitor#iconTemplate", nil, self.components, self.i3dMappings)
     spec.glassNode = xmlFile:getValue("placeable.storageMonitor#glassNode", nil, self.components, self.i3dMappings)
-    -- one collision per screen size (a static body cannot be scaled); the one that fits is switched on
+    -- one collision per screen size (a static body cannot be scaled); the one that fits is switched on, but
+    -- only once the game has put the monitor into physics (onPostFinalizePlacement). Until then all are on, so
+    -- the game takes every one as a pick object (construction mode selects the monitor by them).
     spec.collisions = {}
+    spec.physicsReady = false
     local group = xmlFile:getValue("placeable.storageMonitor#collisions", nil, self.components, self.i3dMappings)
+    spec.collisionGroup = group
     if group ~= nil then
+        spec.collisionBase = {getTranslation(group)}
         for i = 0, getNumOfChildren(group) - 1 do
             local child = getChildAt(group, i)
             local cm = tonumber(string.match(getName(child) or "", "^collision_(%d+)$"))
@@ -798,6 +811,7 @@ function StorageMonitor:onLoad(savegame)
     spec.mountNode = xmlFile:getValue("placeable.storageMonitor.mount#node", nil, self.components, self.i3dMappings)
     spec.mountMode = xmlFile:getValue("placeable.storageMonitor.mount#mode", "ground")
     spec.mountBottom = xmlFile:getValue("placeable.storageMonitor.mount#bottom", 2)
+    spec.mountBottomDefault = spec.mountBottom      -- the height the model (and its collisions) is built for
     spec.mountLowerExtent = xmlFile:getValue("placeable.storageMonitor.mount#lowerExtent", 0.85)
     spec.sizeScale = 1
     spec.mountWidth = spec.width
@@ -857,6 +871,56 @@ function StorageMonitor:onPostFinalizePlacement(savegame)
     end
     table.insert(StorageMonitor.instances, self)
     spec.scanTimer = math.huge      -- look for a storage on the next update
+    -- the monitor is in physics now: only the collision of its size stays on
+    spec.physicsReady = true
+    StorageMonitor.applyCollisions(self, false)
+    StorageMonitor.registerPickCollisions(self)
+end
+
+-- Construction mode selects (to sell or move) a placeable by its pick objects, which the game collects once,
+-- when it is placed, from the bodies that are on then. Every size's collision is one, so the monitor can be
+-- selected at any size it is set to later.
+function StorageMonitor.registerPickCollisions(monitor)
+    local spec = monitor.spec_storageMonitor
+    local picks = monitor.pickObjects
+    if type(picks) ~= "table" then
+        return
+    end
+    local known = {}
+    for _, node in pairs(picks) do
+        known[node] = true
+    end
+    for _, c in ipairs(spec.collisions or {}) do
+        if c.node ~= nil and c.node ~= 0 and not known[c.node] then
+            table.insert(picks, c.node)
+            if g_currentMission ~= nil and g_currentMission.addNodeObject ~= nil then
+                g_currentMission:addNodeObject(c.node, monitor)
+            end
+        end
+    end
+end
+
+-- switches on the collision of the monitor's size and the others off (only once it is in physics). rebuild:
+-- the collisions were moved (height); a static body does not follow its node, so the one that is on is made
+-- again where it is now.
+function StorageMonitor.applyCollisions(monitor, rebuild)
+    local spec = monitor.spec_storageMonitor
+    if not spec.physicsReady or setRigidBodyType == nil or RigidBodyType == nil then
+        return
+    end
+    for _, c in ipairs(spec.collisions or {}) do
+        if c.node ~= nil and c.node ~= 0 and (entityExists == nil or entityExists(c.node)) then
+            local wanted = math.abs(c.width - spec.mountWidth) < 0.01 and RigidBodyType.STATIC or RigidBodyType.NONE
+            if rebuild and wanted == RigidBodyType.STATIC and c.type == wanted then
+                setRigidBodyType(c.node, RigidBodyType.NONE)
+                c.type = RigidBodyType.NONE
+            end
+            if c.type ~= wanted then
+                setRigidBodyType(c.node, wanted)
+                c.type = wanted
+            end
+        end
+    end
 end
 
 function StorageMonitor:onDelete()
@@ -891,6 +955,7 @@ function StorageMonitor:loadFromXMLFile(xmlFile, key)
     end
     settings.connected = xmlFile:getValue(key .. "#connected", false) == true
     settings.size = xmlFile:getValue(key .. "#size", settings.size)
+    settings.height = xmlFile:getValue(key .. "#height", settings.height)
     settings.brightness = xmlFile:getValue(key .. "#brightness", settings.brightness)
     settings.theme = xmlFile:getValue(key .. "#theme", settings.theme)
     settings.title = xmlFile:getValue(key .. "#title", "") or ""
@@ -952,6 +1017,9 @@ function StorageMonitor:saveToXMLFile(xmlFile, key, usedModNames)
     end
     xmlFile:setValue(key .. "#connected", spec.connected)
     xmlFile:setValue(key .. "#size", spec.mountWidth)
+    if spec.mountMode == "silo" then
+        xmlFile:setValue(key .. "#height", spec.mountBottom)
+    end
     xmlFile:setValue(key .. "#brightness", spec.brightness)
     xmlFile:setValue(key .. "#theme", spec.theme)
     if spec.title ~= "" then
@@ -1004,7 +1072,7 @@ function StorageMonitor:getStorageMonitorSettings()
     for _, name in ipairs(spec.only or {}) do
         table.insert(only, name)
     end
-    return {pick = pick, connected = spec.connected, size = spec.mountWidth, brightness = spec.brightness,
+    return {pick = pick, connected = spec.connected, size = spec.mountWidth, height = spec.mountBottom, brightness = spec.brightness,
             theme = spec.theme, title = spec.title, mode = spec.mode, alerts = spec.alerts, fullAt = spec.fullAt,
             priceAlert = priceAlert, slideTime = spec.slideTime, slides = slides, message = spec.message,
             messageTime = spec.messageTime, only = only}
@@ -1018,6 +1086,7 @@ function StorageMonitor.writeSettings(streamId, settings)
     end
     streamWriteBool(streamId, settings.connected == true)
     streamWriteFloat32(streamId, settings.size or 0)
+    streamWriteFloat32(streamId, settings.height or 0)
     streamWriteUInt8(streamId, settings.brightness or StorageMonitor.DEFAULT_BRIGHTNESS)
     streamWriteUInt8(streamId, settings.theme or 1)
     streamWriteString(streamId, settings.title or "")
@@ -1052,6 +1121,7 @@ function StorageMonitor.readSettings(streamId)
     end
     settings.connected = streamReadBool(streamId)
     settings.size = streamReadFloat32(streamId)
+    settings.height = streamReadFloat32(streamId)
     settings.brightness = streamReadUInt8(streamId)
     settings.theme = streamReadUInt8(streamId)
     settings.title = streamReadString(streamId)
@@ -1116,10 +1186,11 @@ function StorageMonitor:onReadStream(streamId, connection)
     end
 end
 
--- resizes the screen to the given width in metres (clamped to SIZE_WIDTHS). A silo mount grows upwards from
--- its bottom edge and keeps its depth; a free-standing monitor grows from the ground, posts and all. Its
--- collision only fits the bought size, so it is switched off at any other size.
-function StorageMonitor:setStorageMonitorSize(width)
+-- resizes the screen to the given width in metres (clamped to SIZE_WIDTHS) and, on a raised mount (silo
+-- mount, wall mount, hanging), puts its bottom edge at the given height in metres (clamped to HEIGHTS; nil
+-- keeps it). A raised mount grows upwards from its bottom edge and keeps its depth; a free-standing monitor
+-- grows from the ground, posts and all. Each size has its own collision; the collisions move with the height.
+function StorageMonitor:setStorageMonitorSize(width, bottom)
     local spec = self.spec_storageMonitor
     if spec.mountNode == nil or width == nil or width <= 0 then
         return
@@ -1129,22 +1200,26 @@ function StorageMonitor:setStorageMonitorSize(width)
     spec.sizeScale = spec.mountWidth / spec.width
     local s = spec.sizeScale
     local x, y, z = getTranslation(spec.mountNode)
+    local moved = false
     if spec.mountMode == "silo" then
+        local b = tonumber(bottom)
+        if b ~= nil and b > 0 then
+            local heights = StorageMonitor.HEIGHTS
+            b = math.max(heights[1], math.min(heights[#heights], b))
+            moved = math.abs(b - spec.mountBottom) > 1e-6
+            spec.mountBottom = b
+        end
         setScale(spec.mountNode, s, s, 1)
         y = spec.mountBottom + spec.mountLowerExtent * s
     else
         setScale(spec.mountNode, s, s, s)
     end
     setTranslation(spec.mountNode, x, y, z)
-    if setRigidBodyType ~= nil and RigidBodyType ~= nil then
-        for _, c in ipairs(spec.collisions or {}) do
-            local wanted = math.abs(c.width - spec.mountWidth) < 0.01 and RigidBodyType.STATIC or RigidBodyType.NONE
-            if c.type ~= wanted and c.node ~= nil and c.node ~= 0 and (entityExists == nil or entityExists(c.node)) then
-                setRigidBodyType(c.node, wanted)
-                c.type = wanted
-            end
-        end
+    if moved and spec.collisionGroup ~= nil and spec.collisionBase ~= nil then
+        local base = spec.collisionBase
+        setTranslation(spec.collisionGroup, base[1], base[2] + spec.mountBottom - (spec.mountBottomDefault or spec.mountBottom), base[3])
     end
+    StorageMonitor.applyCollisions(self, moved)
     spec.frame = nil
     for _, face in ipairs(spec.faces or {}) do
         face.frame = nil
@@ -1227,7 +1302,8 @@ function StorageMonitor.currentPick(spec)
 end
 
 -- settings: see getStorageMonitorSettings. pick: {x, z} of the storage to show, or nil for the nearest;
--- connected: also show the silos connected to it; size: screen width in metres; brightness: 1..5;
+-- connected: also show the silos connected to it; size: screen width in metres; height: a raised mount's
+-- bottom edge above the ground in metres; brightness: 1..5;
 -- theme: 1..4; title: custom title or "" for the storage's own name
 function StorageMonitor:setStorageMonitorSettings(settings, noEventSend)
     local spec = self.spec_storageMonitor
@@ -1278,7 +1354,7 @@ function StorageMonitor:setStorageMonitorSettings(settings, noEventSend)
             table.insert(spec.only, name)
         end
     end
-    self:setStorageMonitorSize(settings.size)
+    self:setStorageMonitorSize(settings.size, settings.height)
     StorageMonitor.applyLook(self)
     spec.headerTitle = nil
     spec.rowCache = {}
@@ -1647,6 +1723,7 @@ function StorageMonitor:collectStorageCandidates()
         contracts = g_missionManager ~= nil and g_missionManager.getMissionsByFarmId ~= nil,
         allPens = #pens > 0,
         allProductions = #productions > 0,
+        prodNeeds = #productions > 0,
         sellPlan = #all > 0,
         profit = #productions > 0,
         openContracts = g_missionManager ~= nil and type(g_missionManager.missions) == "table",
@@ -1659,7 +1736,7 @@ function StorageMonitor:collectStorageCandidates()
             table.insert(result, {owner = screen.kind, kind = screen.kind,
                 storages = (screen.kind == "farm" or screen.kind == "sellPlan") and all or {},
                 extra = {}, distance = math.huge, name = StorageMonitor.getText(screen.key, screen.fallback),
-                anchor = {screen.pick, screen.pick}, pens = pens, productions = productions})
+                anchor = {screen.pick, screen.pick}, pens = pens, productions = productions, silos = all})
         end
     end
     return result
@@ -1721,7 +1798,7 @@ function StorageMonitor:rescanStorageMonitorNow()
                        anchor = c.anchor, connectedCount = #storages - #c.storages, kind = c.kind,
                        placeable = c.placeable, pp = c.pp, bunkers = c.bunkers, objectStorage = c.objectStorage,
                        greenhouse = c.greenhouse, hives = c.hives, spawners = c.spawners,
-                       pens = c.pens, productions = c.productions}
+                       pens = c.pens, productions = c.productions, silos = c.silos}
     end
     if previous == nil or spec.target == nil or previous.owner ~= spec.target.owner then
         spec.page = 1
@@ -2021,6 +2098,7 @@ StorageMonitor.EMPTY_BOARD = {
     contracts = {"storageMonitor_noContracts", "No contracts running"},
     allPens = {"storageMonitor_noPens", "Your farm has no animal pens"},
     allProductions = {"storageMonitor_noProductions", "Your farm has no productions"},
+    prodNeeds = {"storageMonitor_noProductions", "Your farm has no productions"},
     sellPlan = {"storageMonitor_noSellable", "Nothing in your silos sells anywhere"},
     profit = {"storageMonitor_noLines", "No production line is switched on"},
     openContracts = {"storageMonitor_noOpenContracts", "No contracts to take right now"},
@@ -2618,6 +2696,131 @@ function StorageMonitor.readAllProductions(productions)
     return panel
 end
 
+local function entryFillType(entry)
+    return tonumber(entry.type or entry.fillType or entry.fillTypeIndex)
+end
+
+--- What the farm's productions need: a row for every input of every production, the ones to deliver first
+-- on top. Red (and blinking): empty while a switched-on line uses it; amber: low (under PROD_LOW of its room
+-- or out within PROD_LOW_HOURS); green: enough; grey: no line that is switched on uses it. Each row says how
+-- much it takes to fill up, how long the stock lasts and how much of the product the farm's silos hold.
+-- How fast an input goes is the lines' nominal rate (cycles per hour x amount per cycle, shared between the
+-- switched-on lines), so it is an estimate.
+function StorageMonitor.readProdNeeds(productions, silos)
+    local T = StorageMonitor.getText
+    local panel = {kind = "prodNeeds", rows = {}, problems = {}, count = 0, empty = 0, low = 0, productions = 0,
+                   toFill = 0}
+    local env = g_currentMission ~= nil and g_currentMission.environment or nil
+    local timeAdjustment = (env ~= nil and tonumber(env.timeAdjustment)) or 1
+    -- how much of each product the farm's silos hold (a storage seen once)
+    local inSilos, seen = {}, {}
+    for _, storage in ipairs(silos or {}) do
+        if not seen[storage] then
+            seen[storage] = true
+            local levels = call(storage, "getFillLevels")
+            if type(levels) == "table" then
+                for ft, level in pairs(levels) do
+                    inSilos[ft] = (inSilos[ft] or 0) + (tonumber(level) or 0)
+                end
+            end
+        end
+    end
+    local firstOut = nil
+    for i, prod in ipairs(productions or {}) do
+        local pp = prod.pp
+        local storage = pp ~= nil and pp.storage or nil
+        local levels = storage ~= nil and call(storage, "getFillLevels") or nil
+        if type(levels) == "table" then
+            panel.productions = panel.productions + 1
+            -- what the switched-on lines use per in-game hour
+            local active, nActive = {}, 0
+            for _, line in ipairs(pp.activeProductions or {}) do
+                active[line] = true
+                nActive = nActive + 1
+            end
+            local share = (pp.sharedThroughputCapacity ~= false and nActive > 1) and 1 / nActive or 1
+            local perHour, used = {}, {}
+            for _, line in ipairs(pp.productions or {}) do
+                if active[line] then
+                    local cycles = tonumber(line.cyclesPerHour) or ((tonumber(line.cyclesPerMinute) or 0) * 60)
+                    for _, entry in ipairs(line.inputs or {}) do
+                        local ft = entryFillType(entry)
+                        if ft ~= nil then
+                            used[ft] = true
+                            perHour[ft] = (perHour[ft] or 0) + (tonumber(entry.amount) or 0) * cycles * share * timeAdjustment
+                        end
+                    end
+                end
+            end
+            local inputs = {}
+            for ft in pairs(pp.inputFillTypeIds or {}) do
+                if type(ft) == "number" then
+                    table.insert(inputs, ft)
+                end
+            end
+            table.sort(inputs)
+            for _, ft in ipairs(inputs) do
+                local info = fillTypeInfo(ft)
+                local title = info ~= nil and tostring(info.title) or tostring(ft)
+                local level = math.max(0, tonumber(levels[ft]) or 0)
+                local cap = tonumber(call(storage, "getCapacity", ft))
+                if cap == nil and type(storage.capacities) == "table" then
+                    cap = tonumber(storage.capacities[ft])
+                end
+                if cap == nil then
+                    cap = tonumber(storage.capacity)
+                end
+                local ratio = (cap ~= nil and cap > 0) and clamp01(level / cap) or nil
+                local room = (cap ~= nil and cap > level) and cap - level or 0
+                local rate = perHour[ft] or 0
+                local empty = level < StorageMonitor.MIN_LEVEL
+                local hours = (used[ft] and rate > 0 and not empty) and level / rate or nil
+                local state, color, rank
+                if not used[ft] then
+                    state, color, rank = T("storageMonitor_needUnused", "No line uses it now"), "dim", 4
+                elseif empty then
+                    state, color, rank = T("storageMonitor_needEmpty", "Empty"), "full", 1
+                    panel.empty = panel.empty + 1
+                elseif (ratio ~= nil and ratio < StorageMonitor.PROD_LOW) or (hours ~= nil and hours < StorageMonitor.PROD_LOW_HOURS) then
+                    state, color, rank = T("storageMonitor_needLow", "Low"), "warn", 2
+                    panel.low = panel.low + 1
+                else
+                    state, color, rank = T("storageMonitor_needOk", "Enough"), "ok", 3
+                end
+                local parts = {state}
+                if hours ~= nil then
+                    table.insert(parts, string.format(T("storageMonitor_needLasts", "lasts %s"), StorageMonitor.formatDuration(hours)))
+                end
+                if used[ft] and (inSilos[ft] or 0) >= StorageMonitor.MIN_LEVEL then
+                    table.insert(parts, string.format(T("storageMonitor_needInSilos", "silos: %s"), StorageMonitor.formatVolume(inSilos[ft])))
+                end
+                local rowTitle = string.format("%s: %s", tostring(prod.name), title)
+                if rank <= 2 then
+                    table.insert(panel.problems, {id = "need" .. i .. "_" .. ft .. "_" .. rank,
+                        text = string.format("%s - %s", rowTitle, state)})
+                    local out = hours or 0          -- empty: out now
+                    if firstOut == nil or out < firstOut.hours then
+                        firstOut = {hours = out, title = rowTitle}
+                    end
+                end
+                if used[ft] then
+                    panel.toFill = panel.toFill + room
+                end
+                panel.count = panel.count + 1
+                table.insert(panel.rows, withProductIcon({id = "need" .. i .. "_" .. ft, rank = rank,
+                    order = hours or (ratio or 0) * 1000, title = rowTitle, swatch = color,
+                    titleColor = rank <= 2 and color or nil, flag = rank <= 2 and color or nil, blink = rank == 1,
+                    sub = table.concat(parts, ", "), subColor = rank <= 2 and color or "dim",
+                    value = room > 0 and StorageMonitor.formatVolume(room) or T("storageMonitor_needFull", "full"),
+                    valueColor = rank <= 2 and color or "text", ratio = ratio, ratioColor = color}, ft))
+            end
+        end
+    end
+    panel.first = firstOut ~= nil and firstOut.title or nil
+    sortRows(panel.rows)
+    return panel
+end
+
 --- The month ahead (0 = now) in which a fill type sells best on the game's seasonal curve, and that price as a
 -- factor of today's: bestIn, factor (nil without a curve). Looks a year ahead.
 function StorageMonitor.bestMonth(fillTypeIndex)
@@ -2702,10 +2905,6 @@ function StorageMonitor.unitPrice(fillTypeIndex)
     end
     local economy = g_currentMission ~= nil and g_currentMission.economyManager or nil
     return base * (tonumber(call(economy, "getPriceMultiplier")) or 1)
-end
-
-local function entryFillType(entry)
-    return tonumber(entry.type or entry.fillType or entry.fillTypeIndex)
 end
 
 --- What each running production line earns per in-game hour: its outputs at the best price, less its inputs
@@ -3051,6 +3250,8 @@ function StorageMonitor.buildBoard(target)
         return StorageMonitor.readAllPens(target.pens or {})
     elseif kind == "allProductions" then
         return StorageMonitor.readAllProductions(target.productions or {})
+    elseif kind == "prodNeeds" then
+        return StorageMonitor.readProdNeeds(target.productions or {}, target.silos or {})
     elseif kind == "sellPlan" then
         return StorageMonitor.readSellPlan(target.sources)
     elseif kind == "profit" then
@@ -4497,6 +4698,18 @@ function StorageMonitor.boardSummary(panel)
                      {T("storageMonitor_alertNoWater", "No water"), water[1], water[2]},
                      {T("storageMonitor_idle", "Idle"), countText(panel.idle), panel.idle > 0 and "warn" or "dim"}},
             heads = {T("storageMonitor_colProduction", "PRODUCTION"), T("storageMonitor_colStatus", "STATUS"), T("storageMonitor_colLines", "LINES")}}
+    elseif kind == "prodNeeds" then
+        local empty, low = warnCount(panel.empty), warnCount(panel.low, "warn")
+        return {label = T("storageMonitor_needEmptyCaps", "INPUTS EMPTY"), big = countText(panel.empty),
+            bigColor = panel.empty > 0 and "full" or "ok",
+            note = panel.first ~= nil and string.format(T("storageMonitor_needFirst", "First: %s"), panel.first) or nil,
+            noteColor = panel.empty > 0 and "full" or "warn",
+            cells = {{T("storageMonitor_productions", "Productions"), countText(panel.productions), "text"},
+                     {T("storageMonitor_needInputs", "Inputs"), countText(panel.count), "text"},
+                     {T("storageMonitor_needEmpty", "Empty"), empty[1], empty[2]},
+                     {T("storageMonitor_needLow", "Low"), low[1], low[2]},
+                     {T("storageMonitor_needToFill", "To fill up"), StorageMonitor.formatVolume(panel.toFill), "accent"}},
+            heads = {T("storageMonitor_colNeedInput", "PRODUCTION: INPUT"), T("storageMonitor_colStatus", "STATUS"), T("storageMonitor_colNeedRoom", "TO FILL UP")}}
     elseif kind == "sellPlan" then
         local gain = panel.valueBest - panel.valueNow
         return {label = T("storageMonitor_stockValue", "STOCK VALUE"), big = StorageMonitor.formatMoney(panel.valueNow), bigColor = "ok",
@@ -4608,6 +4821,13 @@ function StorageMonitor:drawRowList(f, snapshot, layout, first)
             rect(f, u, vc - half, u + half * 2, vc + half, colorOf(r.swatch))
         end
     end
+    -- a row to act on: a stripe in its colour left of it (blinking: urgent), its name in the colour too
+    local function flag(r, u1, vc)
+        if r.flag ~= nil and (not r.blink or StorageMonitor.clock % 1000 < 650) then
+            local half = layout.rowH * 0.38
+            rect(f, u1 - 0.010, vc - half, u1, vc + half, colorOf(r.flag))
+        end
+    end
 
     if layout.cols == 1 then
         local headSize = math.min(0.026, size * 0.75)
@@ -4622,7 +4842,8 @@ function StorageMonitor:drawRowList(f, snapshot, layout, first)
             local vc = L.listTopV + layout.rowH * (row - 0.5)
             local baseline = vc + size * 0.36
             mark(r, 0.066, vc, size * 0.95)
-            text(f, 0.120, baseline, size, fitted("t" .. r.id, tostring(r.title), size, 0.445, false), COLORS.text, RenderText.ALIGN_LEFT, false)
+            flag(r, 0.050, vc)
+            text(f, 0.120, baseline, size, fitted("t" .. r.id, tostring(r.title), size, 0.445, false), colorOf(r.titleColor or "text"), RenderText.ALIGN_LEFT, false)
             if r.sub ~= nil and r.sub ~= "" then
                 local subW = (r.ratio ~= nil and 1.005 or 1.240) - 0.585
                 text(f, 0.585, baseline, size * 0.85, fitted("s" .. r.id, tostring(r.sub), size * 0.85, subW, false),
@@ -4656,11 +4877,12 @@ function StorageMonitor:drawRowList(f, snapshot, layout, first)
             local baseline = vc + size * 0.22
             local side = size * 0.92
             mark(r, x0, baseline - size * 0.36, side)
+            flag(r, x0 - 0.010, vc)
             local nameX = x0 + side * 0.85 + size * 0.3
             local value = fitted("v" .. r.id .. c, tostring(r.value or ""), size * 0.92, (x1 - x0) * 0.45, true)
             local valueW = textWidth(f, size * 0.92, value, true)
             text(f, nameX, baseline, size, fitted("t" .. r.id .. c, tostring(r.title), size, x1 - valueW - size * 0.6 - nameX, false),
-                COLORS.text, RenderText.ALIGN_LEFT, false)
+                colorOf(r.titleColor or "text"), RenderText.ALIGN_LEFT, false)
             text(f, x1, baseline, size * 0.92, value, colorOf(r.valueColor), RenderText.ALIGN_RIGHT, true)
             if r.ratio ~= nil then
                 local b0 = vc + size * 0.55
@@ -5258,6 +5480,10 @@ function StorageMonitor.openSettings(monitor)
     if spec.mountNode ~= nil then
         table.insert(entries, {text = string.format(T("storageMonitor_menuSize", "Screen size (now: %.1f m wide)"), spec.mountWidth),
             run = function() StorageMonitor.openSize(monitor) end})
+        if spec.mountMode == "silo" then
+            table.insert(entries, {text = string.format(T("storageMonitor_menuHeight", "Height (now: %.1f m above the ground)"), spec.mountBottom),
+                run = function() StorageMonitor.openHeight(monitor) end})
+        end
     end
     local level = StorageMonitor.BRIGHTNESS[spec.brightness]
     table.insert(entries, {text = string.format(T("storageMonitor_menuBrightness", "Brightness (now: %s)"), T(level.key, level.fallback)),
@@ -5610,6 +5836,27 @@ function StorageMonitor.openSize(monitor)
         function(index)
             if widths[index] ~= nil then
                 change(monitor, "size", widths[index])
+            end
+        end)
+end
+
+-- a raised mount (silo mount, wall mount, hanging): how high its bottom edge is above the ground
+function StorageMonitor.openHeight(monitor)
+    local spec = monitor.spec_storageMonitor
+    local T = StorageMonitor.getText
+    local heights, options = StorageMonitor.HEIGHTS, {}
+    for _, h in ipairs(heights) do
+        local option = string.format(T("storageMonitor_heightOption", "%.1f m"), h)
+        if math.abs(h - (spec.mountBottomDefault or -1)) < 0.01 then
+            option = option .. " " .. T("storageMonitor_heightDefault", "(as bought)")
+        end
+        table.insert(options, option .. mark(math.abs(h - spec.mountBottom) < 0.01))
+    end
+    StorageMonitor.showOptions(T("storageMonitor_heightTitle", "Height"),
+        T("storageMonitor_heightText", "How high the bottom edge of the screen is above the ground. The screen grows upwards from it."), options,
+        function(index)
+            if heights[index] ~= nil then
+                change(monitor, "height", heights[index])
             end
         end)
 end

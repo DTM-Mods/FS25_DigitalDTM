@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="Visade produkter"/>
         <text name="storageMonitor_onlyText" text="Kryssa för produkterna som ska visas (upp till %d). En enda produkt visas stort:"/>
         <text name="storageMonitor_bestNext" text="Bäst nästa månad: +%d%%"/>
+        <text name="storageMonitor_menuHeight" text="Höjd (nu: %.1f m över marken)"/>
+        <text name="storageMonitor_heightTitle" text="Höjd"/>
+        <text name="storageMonitor_heightText" text="Hur högt skärmens nederkant är över marken. Skärmen växer uppåt därifrån."/>
+        <text name="storageMonitor_heightOption" text="%.1f m"/>
+        <text name="storageMonitor_heightDefault" text="(som köpt)"/>
+        <text name="storageMonitor_prodNeeds" text="Vad mina produktioner behöver"/>
+        <text name="storageMonitor_needUnused" text="Ingen linje använder det nu"/>
+        <text name="storageMonitor_needEmpty" text="Tom"/>
+        <text name="storageMonitor_needLow" text="Låg"/>
+        <text name="storageMonitor_needOk" text="Tillräckligt"/>
+        <text name="storageMonitor_needLasts" text="räcker %s"/>
+        <text name="storageMonitor_needInSilos" text="silor: %s"/>
+        <text name="storageMonitor_needFull" text="full"/>
+        <text name="storageMonitor_needEmptyCaps" text="INSATSER TOMMA"/>
+        <text name="storageMonitor_needFirst" text="Först: %s"/>
+        <text name="storageMonitor_needInputs" text="Insatser"/>
+        <text name="storageMonitor_needToFill" text="Att fylla på"/>
+        <text name="storageMonitor_colNeedInput" text="PRODUKTION: INSATS"/>
+        <text name="storageMonitor_colNeedRoom" text="ATT FYLLA PÅ"/>
     </texts>
 </l10n>

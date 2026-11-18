@@ -1,5 +1,17 @@
 # Patch notes
 
+## 1.4.1.0
+
+- New screen "What my productions need" (pick it like the other farm screens): a row for every input of every
+  production of the farm. Inputs a switched-on line needs that are empty are red with a blinking stripe and come
+  first, low ones (under 25 % or out within 3 in-game hours) are amber, then the ones with enough; inputs only an
+  off line uses are grey. Each row shows how much it takes to fill up, how long the stock lasts and how much of it
+  your silos hold; empty and low inputs are also alerts.
+- Silo Mount, Wall Mount and Hanging: the height can be set again in the monitor's settings ("Height", bottom
+  edge 0.5 to 12 m above the ground). The screen still grows upwards from it when you change its size.
+- Hitbox: the collisions are now switched only after the game has put the monitor into physics, every size's
+  collision counts for selecting it in construction mode, and they move with the height.
+
 ## 1.4.0.5
 
 - New name: Better Digital Display. The screens no longer show a name in the footer; the green theme is now just "Green".

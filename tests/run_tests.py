@@ -218,7 +218,7 @@ camera = newNode(0, 2, 6)
 
 -- a monitor at the origin, screen facing +z
 -- kind: "silo" (silo mount), "ground" (free-standing, resizable) or nil/false (no mount node)
-function newMonitor(withMount, back)
+function newMonitor(withMount, back, unplaced)
     -- like the game: the placeable only has the functions the specialization registers, nothing else
     local placeableType = {functions = {}}
     StorageMonitor.registerFunctions(placeableType)
@@ -260,9 +260,17 @@ function newMonitor(withMount, back)
         return v
     end}
     StorageMonitor.onLoad(m)
-    StorageMonitor.onPostFinalizePlacement(m)
+    -- like the game: once in physics, the pick objects are the bodies that are on (all of them, before finalize)
+    m.pickObjects = {}
+    for _, c in ipairs(m.spec_storageMonitor.collisions) do
+        if rigid[c.node] ~= "none" then table.insert(m.pickObjects, c.node) end
+    end
+    if not unplaced then
+        StorageMonitor.onPostFinalizePlacement(m)
+    end
     return m
 end
+function newMonitorUnplaced(withMount) return newMonitor(withMount, nil, true) end
 function frame()
     calls.text = {}
     calls.tris = 0
@@ -379,7 +387,7 @@ def test_world(lua):
     g = lua.globals()
     cands = g.cands
     names = [cands[i].name for i in range(1, len(cands) + 1)]
-    check(names == ["Multifruit Silo", "Bakery", "Multifruit Silo B", "Grain Silo", "All silos of my farm", "All my productions", "When to sell", "Production profit", "Message board"],
+    check(names == ["Multifruit Silo", "Bakery", "Multifruit Silo B", "Grain Silo", "All silos of my farm", "All my productions", "What my productions need", "When to sell", "Production profit", "Message board"],
           "one entry per building, nearest first, other farm and far ones left out, farm screens last: %s" % names)
 
     lua.execute("frame()")
@@ -493,7 +501,7 @@ def test_mount_size(lua):
     """)
     g = lua.globals()
     spec = g.m.spec_storageMonitor
-    check(len(list(g.menu.values())) == 12, "menu: pick, connected, size, brightness, colours, title, screen, products, alerts, full at, price alert, slideshow: %s" % list(g.menu.values()))
+    check(len(list(g.menu.values())) == 13, "menu: pick, connected, size, height, brightness, colours, title, screen, products, alerts, full at, price alert, slideshow: %s" % list(g.menu.values()))
     check(list(g.sizes.values())[8].startswith("4.8 m wide, 3.0 m high"), "size list: %s" % list(g.sizes.values())[:3])
     check(abs(spec.mountWidth - 4.8) < 1e-6 and abs(spec.sizeScale - 2.0) < 1e-6, "size chosen: %s" % spec.mountWidth)
     sc = g.scales[g.mountNode]
@@ -515,9 +523,153 @@ def test_mount_size(lua):
     sc = g.scales[s2.mountNode]
     check(abs(sc[1] - 0.5) < 1e-6 and abs(sc[3] - 0.5) < 1e-6 and abs(g.nodes[s2.mountNode][2]) < 1e-6,
           "free-standing scaled 0.5 x 0.5 x 0.5 from the ground")
-    check(len(list(g.menuG.values())) == 12, "free-standing monitors have the size entry too")
+    check(len(list(g.menuG.values())) == 12, "free-standing monitors have the size entry too, but no height")
+    check(not any(v.startswith("Height") for v in g.menuG.values()), "no height on a free-standing monitor")
     on = [g.names[c.node] for c in s2.collisions.values() if g.rigid[c.node] == "static"]
     check(on == ["collision_120"], "free-standing: only the 1.2 m collision is on: %s" % on)
+
+
+def test_mount_height_and_collisions(lua):
+    """Raised mounts: the height of the bottom edge is set in the menu, saved, synced; the collisions move with it.
+    Collisions are switched only once the monitor is in physics, and every size's collision is a pick object."""
+    lua.execute(WORLD)
+    lua.execute("""
+        pickAdded = {}
+        g_currentMission.addNodeObject = function(self, node, object) table.insert(pickAdded, node) end
+        m = newMonitor("silo")
+        spec = m.spec_storageMonitor
+        mountNode = spec.mountNode
+        group = spec.collisionGroup
+        StorageMonitor.openSettings(m)
+        StorageMonitor.openPendingDialog()
+        menu = dialogs[#dialogs].options
+        dialogs[#dialogs].callback(4)    -- height
+        StorageMonitor.openPendingDialog()
+        heights = dialogs[#dialogs].options
+        rigidCalls = {}
+        local realSet = setRigidBodyType
+        setRigidBodyType = function(n, t) table.insert(rigidCalls, {n, t}) realSet(n, t) end
+        dialogs[#dialogs].callback(10)   -- 5.0 m
+        setRigidBodyType = realSet
+    """)
+    g = lua.globals()
+    spec = g.spec
+    menu = list(g.menu.values())
+    check(menu[3] == "Height (now: 2.0 m above the ground)", "height entry after the size: %s" % menu[3])
+    hs = list(g.heights.values())
+    check(hs[0] == "0.5 m" and hs[3] == "2.0 m (as bought)  <" and len(hs) == 16, "height list: %s" % hs[:5])
+    check(abs(spec.mountBottom - 5.0) < 1e-6, "height chosen: %s" % spec.mountBottom)
+    check(abs(g.nodes[g.mountNode][2] - (5.0 + 0.846)) < 1e-6, "the screen moved up: %s" % g.nodes[g.mountNode][2])
+    check(abs(g.nodes[g.group][2] - 3.0) < 1e-6, "the collisions moved up 3 m with it: %s" % g.nodes[g.group][2])
+    calls = [(g.names[c[1]], c[2]) for c in g.rigidCalls.values()]
+    check(calls == [("collision_240", "none"), ("collision_240", "static")],
+          "the collision that is on is made again where it is now: %s" % calls)
+    # bigger: still from the new bottom edge
+    lua.execute("set(m, 'size', 4.8)")
+    check(abs(g.nodes[g.mountNode][2] - (5.0 + 0.846 * 2)) < 1e-6, "4.8 m grows up from 5 m")
+    on = [g.names[c.node] for c in spec.collisions.values() if g.rigid[c.node] == "static"]
+    check(on == ["collision_480"], "only the 4.8 m collision is on: %s" % on)
+    check(abs(g.nodes[g.group][2] - 3.0) < 1e-6, "a size change keeps the collisions' height")
+    lua.execute("set(m, 'height', 99)")
+    check(abs(spec.mountBottom - 12) < 1e-6, "height clamped to the highest")
+
+    # saved and loaded
+    lua.execute("""
+        set(m, 'height', 3.5)
+        saved = {}
+        xml = {setValue = function(self, k, v) saved[k] = v end,
+               getValue = function(self, k, d) if saved[k] ~= nil then return saved[k] end return d end,
+               hasProperty = function(self, k) return false end}
+        StorageMonitor.saveToXMLFile(m, xml, "k")
+        m2 = newMonitorUnplaced("silo")
+        StorageMonitor.loadFromXMLFile(m2, xml, "k")
+        loadedRigid = 0
+        for _, c in ipairs(m2.spec_storageMonitor.collisions) do if rigid[c.node] ~= nil then loadedRigid = loadedRigid + 1 end end
+        StorageMonitor.onPostFinalizePlacement(m2)
+    """)
+    s2 = g.m2.spec_storageMonitor
+    check(g.saved["k#height"] == 3.5, "height saved: %s" % g.saved["k#height"])
+    check(abs(s2.mountBottom - 3.5) < 1e-6 and abs(g.nodes[s2.collisionGroup][2] - 1.5) < 1e-6,
+          "height loaded, collisions moved before the game puts them into physics")
+    check(g.loadedRigid == 0, "no collision is switched before the monitor is in physics (%d)" % g.loadedRigid)
+    on = [g.names[c.node] for c in s2.collisions.values() if g.rigid[c.node] == "static"]
+    check(on == ["collision_480"], "after placing, only the saved size's collision is on: %s" % on)
+    check(len(list(g.m2.pickObjects.values())) == 10, "every size's collision is a pick object")
+
+    # a pick object the game did not collect is added to the mission
+    lua.execute("""
+        pickAdded = {}
+        m3 = newMonitorUnplaced("silo")
+        table.remove(m3.pickObjects, 1)
+        StorageMonitor.onPostFinalizePlacement(m3)
+    """)
+    check(len(list(g.pickAdded.values())) == 1 and len(list(g.m3.pickObjects.values())) == 10,
+          "a missing pick object is added (%d)" % len(list(g.pickAdded.values())))
+
+    # synced: the height goes over the network with the other settings
+    lua.execute("""
+        stream = {}
+        StorageMonitor.writeSettings(stream, m:getStorageMonitorSettings())
+        got = StorageMonitor.readSettings(stream)
+    """)
+    check(abs(g.got.height - 3.5) < 1e-6 and abs(g.got.size - 4.8) < 1e-6, "height and size synced")
+
+    # a free-standing monitor ignores a height
+    lua.execute("g3 = newMonitor('ground') set(g3, 'height', 6)")
+    s3 = g.g3.spec_storageMonitor
+    check(abs(g.nodes[s3.mountNode][2]) < 1e-6 and abs(g.nodes[s3.collisionGroup][2]) < 1e-6, "free-standing: no height")
+
+
+def test_prod_needs(lua):
+    """What my productions need: every input, empty ones red and first, low ones amber, how much to fill up."""
+    lua.execute(WORLD)
+    lua.execute(FARM)
+    lua.execute("""
+        addFillType(152, "WATER", "Water") addFillType(153, "SUGAR", "Sugar") addFillType(154, "CAKE", "Cake")
+        g_currentMission.environment.timeAdjustment = 1
+        -- a second production: a cake line running (sugar 100 l per cycle, 5 cycles per hour) and a line that is off
+        local cake = {id = "cake", name = "Cake", status = 1, cyclesPerHour = 5,
+                      inputs = {{type = 153, amount = 100}, {type = 152, amount = 10}}}
+        local off = {id = "x", name = "X", status = 0, cyclesPerHour = 5, inputs = {{type = 150, amount = 1}}}
+        confectionery = {rootNode = newNode(460, 0, 0), name = "Confectionery", farm = 1}
+        function confectionery:getName() return self.name end
+        function confectionery:getOwnerFarmId() return self.farm end
+        local st = makeStorage({[153] = 1000, [152] = 4000, [150] = 0, [154] = 0}, 100000, {[153] = 10000, [152] = 5000, [150] = 2000, [154] = 5000}, 460, 0)
+        confectionery.spec_productionPoint = {productionPoint = {storage = st, productions = {cake, off}, activeProductions = {cake},
+            sharedThroughputCapacity = false,
+            inputFillTypeIds = {[153] = true, [152] = true, [150] = true}, outputFillTypeIds = {[154] = true}}}
+        table.insert(g_currentMission.placeableSystem.placeables, confectionery)
+        -- the bakery's bread line uses flour (empty)
+        local bread = bakery.spec_productionPoint.productionPoint.productions[1]
+        bread.cyclesPerHour = 10
+        bread.inputs = {{type = 150, amount = 20}}
+        sNear.fillLevels[150] = 7000      -- flour in a silo of the farm
+    """)
+    lua.execute('showScreen("prodNeeds")')
+    g = lua.globals()
+    spec = g.spec
+    t = texts(lua)
+    panel = spec.snapshot.panel
+    rows = [panel.rows[i] for i in range(1, len(panel.rows) + 1)]
+    titles = [r.title for r in rows]
+    check(titles == ["Mill Bakery: Flour", "Confectionery: Sugar", "Confectionery: Water", "Confectionery: Flour", "Bakery: Chaff"],
+          "empty first, then low, then enough, then unused: %s" % titles)
+    r = {x.title: x for x in rows}
+    check(r["Mill Bakery: Flour"].swatch == "full" and r["Mill Bakery: Flour"].blink and r["Mill Bakery: Flour"].flag == "full",
+          "an empty input is red and blinks")
+    check(r["Mill Bakery: Flour"].sub == "Empty, silos: 7000 l", "empty flour, the silos hold some: %s" % r["Mill Bakery: Flour"].sub)
+    check(r["Mill Bakery: Flour"].value == "5000 l", "it takes 5,000 l to fill up: %s" % r["Mill Bakery: Flour"].value)
+    check(r["Confectionery: Sugar"].swatch == "warn" and r["Confectionery: Sugar"].sub == "Low, lasts 2.0 h",
+          "sugar: 1,000 l at 500 l/h lasts 2 h, low: %s" % r["Confectionery: Sugar"].sub)
+    check(r["Confectionery: Water"].swatch == "ok" and r["Confectionery: Water"].flag is None, "water: enough, not flagged")
+    check(r["Confectionery: Flour"].swatch == "dim" and r["Confectionery: Flour"].sub == "No line uses it now",
+          "flour at the confectionery: only an off line uses it, so it is not a problem")
+    check(panel.empty == 1 and panel.low == 1 and panel.count == 5 and panel.productions == 3, "counts: 1 empty, 1 low of 5 inputs at 3 productions")
+    check(abs(panel.toFill - (5000 + 9000 + 1000)) < 1e-6, "to fill up counts the used inputs only: %s" % panel.toFill)
+    check("INPUTS EMPTY" in t and any(x.startswith("First: Mill Bakery") for x in t), "top panel: %s" % t[:20])
+    ids = lua.eval("alertIds()")
+    check(ids.startswith("need") and ids.count(",") == 1, "empty and low inputs are alerts: %s" % ids)
+    check(lua.eval("overlappingBars()") == 0, "needs: no bar lies on another")
 
 
 def test_look_and_title(lua):
@@ -875,7 +1027,7 @@ def test_more_kinds(lua):
     g = lua.globals()
     spec = g.m.spec_storageMonitor
     names = [c.name for c in g.StorageMonitor.collectStorageCandidates(g.m).values()]
-    check(names == ["Manure Heap", "Greenhouse", "Beehives", "Cow Barn", "My farm's money", "All my animal pens", "All my productions", "Production profit", "Message board"],
+    check(names == ["Manure Heap", "Greenhouse", "Beehives", "Cow Barn", "My farm's money", "All my animal pens", "All my productions", "What my productions need", "Production profit", "Message board"],
           "candidates: heap, greenhouse, the beehives as one, barn, then money, all pens, all productions: %s" % names)
 
     lua.execute('show("Manure Heap")')
@@ -1053,7 +1205,7 @@ def test_farm_screens(lua):
     g = lua.globals()
     spec = g.spec
     kinds = [c.kind for c in g.StorageMonitor.collectStorageCandidates(g.m).values()]
-    check(kinds[-11:] == ["farm", "fields", "weather", "fleet", "contracts", "allPens", "allProductions", "sellPlan", "profit", "fieldMap", "message"],
+    check(kinds[-12:] == ["farm", "fields", "weather", "fleet", "contracts", "allPens", "allProductions", "prodNeeds", "sellPlan", "profit", "fieldMap", "message"],
           "farm screens at the end of the list: %s" % kinds)
     pick_nearest = lua.eval("StorageMonitor.choose(StorageMonitor.collectStorageCandidates(m), nil).kind")
     check(pick_nearest == "silo", "the nearest is never a farm screen (%s)" % pick_nearest)
@@ -1645,6 +1797,8 @@ def main():
     test_world(new_runtime())
     test_all_products_and_paging(new_runtime())
     test_mount_size(new_runtime())
+    test_mount_height_and_collisions(new_runtime())
+    test_prod_needs(new_runtime())
     test_look_and_title(new_runtime())
     test_kinds(new_runtime())
     test_rates(new_runtime())

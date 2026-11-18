@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="Getoonde producten"/>
         <text name="storageMonitor_onlyText" text="Vink de producten aan die getoond worden (tot %d). Eén product wordt groot getoond:"/>
         <text name="storageMonitor_bestNext" text="Best volgende maand: +%d%%"/>
+        <text name="storageMonitor_menuHeight" text="Hoogte (nu: %.1f m boven de grond)"/>
+        <text name="storageMonitor_heightTitle" text="Hoogte"/>
+        <text name="storageMonitor_heightText" text="Hoe hoog de onderrand van het scherm boven de grond is. Het scherm groeit daarvandaan omhoog."/>
+        <text name="storageMonitor_heightOption" text="%.1f m"/>
+        <text name="storageMonitor_heightDefault" text="(zoals gekocht)"/>
+        <text name="storageMonitor_prodNeeds" text="Wat mijn producties nodig hebben"/>
+        <text name="storageMonitor_needUnused" text="Geen lijn gebruikt het nu"/>
+        <text name="storageMonitor_needEmpty" text="Leeg"/>
+        <text name="storageMonitor_needLow" text="Laag"/>
+        <text name="storageMonitor_needOk" text="Genoeg"/>
+        <text name="storageMonitor_needLasts" text="nog %s"/>
+        <text name="storageMonitor_needInSilos" text="silo's: %s"/>
+        <text name="storageMonitor_needFull" text="vol"/>
+        <text name="storageMonitor_needEmptyCaps" text="INPUTS LEEG"/>
+        <text name="storageMonitor_needFirst" text="Eerst: %s"/>
+        <text name="storageMonitor_needInputs" text="Inputs"/>
+        <text name="storageMonitor_needToFill" text="Bij te vullen"/>
+        <text name="storageMonitor_colNeedInput" text="PRODUCTIE: INPUT"/>
+        <text name="storageMonitor_colNeedRoom" text="BIJ TE VULLEN"/>
     </texts>
 </l10n>

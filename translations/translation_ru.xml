@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="Показанные продукты"/>
         <text name="storageMonitor_onlyText" text="Отметьте продукты для показа (до %d). Один продукт показывается крупно:"/>
         <text name="storageMonitor_bestNext" text="Лучше в следующем месяце: +%d%%"/>
+        <text name="storageMonitor_menuHeight" text="Высота (сейчас: %.1f м над землёй)"/>
+        <text name="storageMonitor_heightTitle" text="Высота"/>
+        <text name="storageMonitor_heightText" text="На какой высоте над землёй нижний край экрана. Экран растёт от него вверх."/>
+        <text name="storageMonitor_heightOption" text="%.1f м"/>
+        <text name="storageMonitor_heightDefault" text="(как куплено)"/>
+        <text name="storageMonitor_prodNeeds" text="Что нужно моим производствам"/>
+        <text name="storageMonitor_needUnused" text="Сейчас не используется"/>
+        <text name="storageMonitor_needEmpty" text="Пусто"/>
+        <text name="storageMonitor_needLow" text="Мало"/>
+        <text name="storageMonitor_needOk" text="Достаточно"/>
+        <text name="storageMonitor_needLasts" text="хватит на %s"/>
+        <text name="storageMonitor_needInSilos" text="силосы: %s"/>
+        <text name="storageMonitor_needFull" text="полно"/>
+        <text name="storageMonitor_needEmptyCaps" text="НЕТ СЫРЬЯ"/>
+        <text name="storageMonitor_needFirst" text="Сначала: %s"/>
+        <text name="storageMonitor_needInputs" text="Сырьё"/>
+        <text name="storageMonitor_needToFill" text="До заполнения"/>
+        <text name="storageMonitor_colNeedInput" text="ПРОИЗВОДСТВО: СЫРЬЁ"/>
+        <text name="storageMonitor_colNeedRoom" text="ДО ЗАПОЛНЕНИЯ"/>
     </texts>
 </l10n>

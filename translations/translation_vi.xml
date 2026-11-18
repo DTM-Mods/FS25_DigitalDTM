@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="Sản phẩm hiển thị"/>
         <text name="storageMonitor_onlyText" text="Đánh dấu các sản phẩm cần hiển thị (tối đa %d). Một sản phẩm sẽ hiển thị lớn:"/>
         <text name="storageMonitor_bestNext" text="Tốt nhất tháng sau: +%d%%"/>
+        <text name="storageMonitor_menuHeight" text="Chiều cao (hiện tại: %.1f m trên mặt đất)"/>
+        <text name="storageMonitor_heightTitle" text="Chiều cao"/>
+        <text name="storageMonitor_heightText" text="Cạnh dưới của màn hình cao bao nhiêu so với mặt đất. Màn hình lớn dần lên trên từ đó."/>
+        <text name="storageMonitor_heightOption" text="%.1f m"/>
+        <text name="storageMonitor_heightDefault" text="(như khi mua)"/>
+        <text name="storageMonitor_prodNeeds" text="Cơ sở sản xuất của tôi cần gì"/>
+        <text name="storageMonitor_needUnused" text="Hiện không dây chuyền nào dùng"/>
+        <text name="storageMonitor_needEmpty" text="Hết"/>
+        <text name="storageMonitor_needLow" text="Sắp hết"/>
+        <text name="storageMonitor_needOk" text="Đủ"/>
+        <text name="storageMonitor_needLasts" text="còn %s"/>
+        <text name="storageMonitor_needInSilos" text="silo: %s"/>
+        <text name="storageMonitor_needFull" text="đầy"/>
+        <text name="storageMonitor_needEmptyCaps" text="NGUYÊN LIỆU HẾT"/>
+        <text name="storageMonitor_needFirst" text="Trước tiên: %s"/>
+        <text name="storageMonitor_needInputs" text="Nguyên liệu"/>
+        <text name="storageMonitor_needToFill" text="Cần để đầy"/>
+        <text name="storageMonitor_colNeedInput" text="SẢN XUẤT: NGUYÊN LIỆU"/>
+        <text name="storageMonitor_colNeedRoom" text="CẦN ĐỂ ĐẦY"/>
     </texts>
 </l10n>

@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="显示的产品"/>
         <text name="storageMonitor_onlyText" text="勾选要显示的产品（最多 %d 种）。只选一种时会放大显示："/>
         <text name="storageMonitor_bestNext" text="下个月最佳：+%d%%"/>
+        <text name="storageMonitor_menuHeight" text="高度（当前：离地 %.1f 米）"/>
+        <text name="storageMonitor_heightTitle" text="高度"/>
+        <text name="storageMonitor_heightText" text="屏幕底边离地面的高度。屏幕从底边向上扩展。"/>
+        <text name="storageMonitor_heightOption" text="%.1f 米"/>
+        <text name="storageMonitor_heightDefault" text="（购买时）"/>
+        <text name="storageMonitor_prodNeeds" text="我的生产设施需要什么"/>
+        <text name="storageMonitor_needUnused" text="当前没有生产线使用"/>
+        <text name="storageMonitor_needEmpty" text="空"/>
+        <text name="storageMonitor_needLow" text="偏低"/>
+        <text name="storageMonitor_needOk" text="充足"/>
+        <text name="storageMonitor_needLasts" text="可用 %s"/>
+        <text name="storageMonitor_needInSilos" text="筒仓：%s"/>
+        <text name="storageMonitor_needFull" text="已满"/>
+        <text name="storageMonitor_needEmptyCaps" text="原料已空"/>
+        <text name="storageMonitor_needFirst" text="优先：%s"/>
+        <text name="storageMonitor_needInputs" text="原料"/>
+        <text name="storageMonitor_needToFill" text="补满需要"/>
+        <text name="storageMonitor_colNeedInput" text="生产设施：原料"/>
+        <text name="storageMonitor_colNeedRoom" text="补满需要"/>
     </texts>
 </l10n>

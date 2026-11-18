@@ -50,6 +50,9 @@ pens, all productions, money), today's best prices, or the last in-game day as a
 - **My contracts:** every running contract with where, the reward and how far it is.
 - **All my animal pens / all my productions:** every pen or production on one screen, the lowest supply, missing
   inputs by name, full outputs, greenhouses without water.
+- **What my productions need:** every input of every production on one screen. Empty inputs a running line needs
+  are red with a blinking stripe and come first, low ones amber; each with how much it takes to fill up, how long
+  the stock lasts and how much of it your silos hold.
 - **History:** "Screen shows: History (24 h)" draws how full the storage was over the last in-game day, a column per half
   hour (the farm's money: the balance). The server keeps it and saves it with the game.
 - **One product big:** show only the products you pick; one alone fills the screen with its amount, rate and worth.
@@ -87,6 +90,7 @@ pens, all productions, money), today's best prices, or the last in-game day as a
 - **The in-game time** in the corner.
 - **Pick the silo** from a list of everything nearby, or let it show the nearest.
 - **Any size:** 0.8 to 6 m wide, on every model.
+- **Any height:** the Silo Mount, Wall Mount and Hanging models set their bottom edge 0.5 to 12 m above the ground.
 - **Readable at night:** the screen glows; five brightness levels.
 - **Four colour themes:** night blue, green, amber terminal and daylight.
 - **Your own title** on the screen.

@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="Produse afișate"/>
         <text name="storageMonitor_onlyText" text="Bifează produsele de afișat (până la %d). Un singur produs e afișat mare:"/>
         <text name="storageMonitor_bestNext" text="Cel mai bine luna viitoare: +%d%%"/>
+        <text name="storageMonitor_menuHeight" text="Înălțime (acum: %.1f m deasupra solului)"/>
+        <text name="storageMonitor_heightTitle" text="Înălțime"/>
+        <text name="storageMonitor_heightText" text="Cât de sus deasupra solului este marginea de jos a ecranului. Ecranul crește în sus de la ea."/>
+        <text name="storageMonitor_heightOption" text="%.1f m"/>
+        <text name="storageMonitor_heightDefault" text="(ca la cumpărare)"/>
+        <text name="storageMonitor_prodNeeds" text="De ce au nevoie producțiile mele"/>
+        <text name="storageMonitor_needUnused" text="Nicio linie nu îl folosește acum"/>
+        <text name="storageMonitor_needEmpty" text="Gol"/>
+        <text name="storageMonitor_needLow" text="Puțin"/>
+        <text name="storageMonitor_needOk" text="Suficient"/>
+        <text name="storageMonitor_needLasts" text="ajunge %s"/>
+        <text name="storageMonitor_needInSilos" text="silozuri: %s"/>
+        <text name="storageMonitor_needFull" text="plin"/>
+        <text name="storageMonitor_needEmptyCaps" text="INTRĂRI GOALE"/>
+        <text name="storageMonitor_needFirst" text="Întâi: %s"/>
+        <text name="storageMonitor_needInputs" text="Intrări"/>
+        <text name="storageMonitor_needToFill" text="De umplut"/>
+        <text name="storageMonitor_colNeedInput" text="PRODUCȚIE: INTRARE"/>
+        <text name="storageMonitor_colNeedRoom" text="DE UMPLUT"/>
     </texts>
 </l10n>

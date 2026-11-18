@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="Látható termékek"/>
         <text name="storageMonitor_onlyText" text="Jelöld be a megjelenítendő termékeket (legfeljebb %d). Egyetlen termék nagyban látszik:"/>
         <text name="storageMonitor_bestNext" text="Legjobb a jövő hónapban: +%d%%"/>
+        <text name="storageMonitor_menuHeight" text="Magasság (most: %.1f m a talaj felett)"/>
+        <text name="storageMonitor_heightTitle" text="Magasság"/>
+        <text name="storageMonitor_heightText" text="Milyen magasan van a képernyő alsó széle a talaj felett. A képernyő innen nő felfelé."/>
+        <text name="storageMonitor_heightOption" text="%.1f m"/>
+        <text name="storageMonitor_heightDefault" text="(vásárláskor)"/>
+        <text name="storageMonitor_prodNeeds" text="Mire van szükségük a termeléseimnek"/>
+        <text name="storageMonitor_needUnused" text="Most egy sor sem használja"/>
+        <text name="storageMonitor_needEmpty" text="Üres"/>
+        <text name="storageMonitor_needLow" text="Kevés"/>
+        <text name="storageMonitor_needOk" text="Elég"/>
+        <text name="storageMonitor_needLasts" text="kitart %s"/>
+        <text name="storageMonitor_needInSilos" text="silók: %s"/>
+        <text name="storageMonitor_needFull" text="tele"/>
+        <text name="storageMonitor_needEmptyCaps" text="ÜRES ALAPANYAGOK"/>
+        <text name="storageMonitor_needFirst" text="Először: %s"/>
+        <text name="storageMonitor_needInputs" text="Alapanyagok"/>
+        <text name="storageMonitor_needToFill" text="Feltöltéshez"/>
+        <text name="storageMonitor_colNeedInput" text="TERMELÉS: ALAPANYAG"/>
+        <text name="storageMonitor_colNeedRoom" text="FELTÖLTÉSHEZ"/>
     </texts>
 </l10n>

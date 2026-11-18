@@ -433,6 +433,42 @@ FARM_SCENES = {
     """ + BOARD_POST,
 }
 
+# 1.4.1: what the farm's productions need (empty inputs red and blinking, low ones amber)
+NEEDS_SCENES = {
+    "prodNeeds": """
+        ProductionPoint = {PROD_STATUS = {INACTIVE = 0, RUNNING = 1, MISSING_INPUTS = 2, NO_OUTPUT_SPACE = 3}}
+        sceneInfo = {}
+        local fts = {{"FLOUR", "Flour"}, {"SUGAR", "Sugar"}, {"EGG", "Eggs"}, {"MILK", "Milk"}, {"WATER", "Water"},
+                     {"GRAPE", "Grapes"}, {"WOOL", "Wool"}, {"BUTTER", "Butter"}, {"STRAWBERRY", "Strawberries"}}
+        g_fillTypeManager = {getFillTypeByIndex = function(self, i) return fts[i] and {name = fts[i][1], title = fts[i][2]} end}
+        g_currentMission.environment.timeAdjustment = 1
+        local function line(status, cycles, inputs)
+            local l = {status = status, cyclesPerHour = cycles, inputs = {}}
+            for _, e in ipairs(inputs) do table.insert(l.inputs, {type = e[1], amount = e[2]}) end
+            return l
+        end
+        local function prod(name, lines, levels, caps)
+            local inputs = {}
+            for _, l in ipairs(lines) do for _, e in ipairs(l.inputs) do inputs[e.type] = true end end
+            local act = {}
+            for _, l in ipairs(lines) do if l.status ~= 0 then table.insert(act, l) end end
+            return {name = name, pp = {productions = lines, activeProductions = act, inputFillTypeIds = inputs,
+                outputFillTypeIds = {}, sharedThroughputCapacity = false, storage = {capacities = caps,
+                getFillLevels = function() return levels end}}}
+        end
+        local silo = {getFillLevels = function() return {[1] = 42000, [2] = 3500} end}
+        sceneTarget = {name = "What my productions need", title = "What my productions need", kind = "prodNeeds", sources = {},
+            silos = {silo}, productions = {
+            prod("Bakery", {line(2, 60, {{1, 4}, {2, 1}, {3, 1}})}, {[1] = 0, [2] = 900, [3] = 2400},
+                {[1] = 20000, [2] = 10000, [3] = 10000}),
+            prod("Dairy", {line(1, 40, {{4, 10}})}, {[4] = 9200}, {[4] = 30000}),
+            prod("Cake Factory", {line(1, 30, {{2, 2}, {8, 1}, {9, 1}})}, {[2] = 0, [8] = 6000, [9] = 7500},
+                {[2] = 10000, [8] = 10000, [9] = 10000}),
+            prod("Winery", {line(1, 50, {{6, 4}, {5, 1}})}, {[6] = 48000, [5] = 21000}, {[6] = 60000, [5] = 25000}),
+            prod("Spinnery", {line(0, 20, {{7, 2}})}, {[7] = 0}, {[7] = 8000})}}
+    """ + BOARD_POST,
+}
+
 EXTRA_SCENES = {
     # a silo in "History (24 h)", in a slideshow (2 of 3) with a price alert in the footer
     "history": """
@@ -767,6 +803,10 @@ def contact_sheet(paths, out):
 def main():
     out_dir = os.path.join(ROOT, "src", "screens")
     os.makedirs(out_dir, exist_ok=True)
+    if "--needs" in sys.argv:           # 1.4.1: what my productions need
+        for name, scene in NEEDS_SCENES.items():
+            render(0, os.path.join(out_dir, "kind_%s.png" % name), 1, scene)
+        return
     if "--farm" in sys.argv or "--extra" in sys.argv or "--v14" in sys.argv:     # 1.3 / 1.4 screens
         scenes = FARM_SCENES if "--farm" in sys.argv else (EXTRA_SCENES if "--extra" in sys.argv else V14_SCENES)
         paths = []

@@ -331,5 +331,24 @@
         <text name="storageMonitor_onlyTitle" text="Pokazane produkty"/>
         <text name="storageMonitor_onlyText" text="Zaznacz produkty do pokazania (maks. %d). Pojedynczy produkt jest pokazywany w powiększeniu:"/>
         <text name="storageMonitor_bestNext" text="Najlepiej w przyszłym miesiącu: +%d%%"/>
+        <text name="storageMonitor_menuHeight" text="Wysokość (teraz: %.1f m nad ziemią)"/>
+        <text name="storageMonitor_heightTitle" text="Wysokość"/>
+        <text name="storageMonitor_heightText" text="Jak wysoko nad ziemią jest dolna krawędź ekranu. Ekran rośnie od niej w górę."/>
+        <text name="storageMonitor_heightOption" text="%.1f m"/>
+        <text name="storageMonitor_heightDefault" text="(jak kupiono)"/>
+        <text name="storageMonitor_prodNeeds" text="Czego potrzebują moje produkcje"/>
+        <text name="storageMonitor_needUnused" text="Żadna linia go teraz nie używa"/>
+        <text name="storageMonitor_needEmpty" text="Pusto"/>
+        <text name="storageMonitor_needLow" text="Mało"/>
+        <text name="storageMonitor_needOk" text="Wystarczy"/>
+        <text name="storageMonitor_needLasts" text="starczy na %s"/>
+        <text name="storageMonitor_needInSilos" text="silosy: %s"/>
+        <text name="storageMonitor_needFull" text="pełne"/>
+        <text name="storageMonitor_needEmptyCaps" text="PUSTE SUROWCE"/>
+        <text name="storageMonitor_needFirst" text="Najpierw: %s"/>
+        <text name="storageMonitor_needInputs" text="Surowce"/>
+        <text name="storageMonitor_needToFill" text="Do uzupełnienia"/>
+        <text name="storageMonitor_colNeedInput" text="PRODUKCJA: SUROWIEC"/>
+        <text name="storageMonitor_colNeedRoom" text="DO UZUPEŁNIENIA"/>
     </texts>
 </l10n>
