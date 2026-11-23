@@ -1,6 +1,6 @@
 # Patch notes
 
-## 1.4.1.1
+## 1.4.1.2
 
 - Productions are now taken from the game's own production list (the one in the in-game production menu), so the
   monitor sees productions it missed before: the biogas plants of the Pumps N' Hoses DLC and mods built on it,
