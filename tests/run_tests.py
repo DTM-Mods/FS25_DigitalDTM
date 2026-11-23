@@ -672,6 +672,80 @@ def test_prod_needs(lua):
     check(lua.eval("overlappingBars()") == 0, "needs: no bar lies on another")
 
 
+def test_biogas_plant(lua):
+    """Pumps N' Hoses biogas plants (issue #1): their productions come from the game's production list, where the
+    DLC puts one merged point per part type; the fermenters it merged away are not listed twice."""
+    lua.execute(WORLD)
+    lua.execute(FARM)
+    lua.execute("""
+        addFillType(160, "SILAGE", "Silage") addFillType(161, "METHANE", "Methane") addFillType(162, "ELECTRICCHARGE", "Electricity")
+        local function part(name, x, role)
+            local p = {rootNode = newNode(x, 0, 0), name = name, role = role}
+            function p:getName() return self.name end
+            function p:getOwnerFarmId() return 1 end
+            function p:isSandboxPlaceable() return true end
+            function p:getSandboxTypeName() return self.role end
+            return p
+        end
+        local function point(owner, title, input, output)
+            local line = {id = title, name = title, status = 1, cyclesPerHour = 1, inputs = {{type = input, amount = 100}}}
+            local pp = {owningPlaceable = owner, title = title,
+                storage = makeStorage({[input] = 5000, [output] = 0}, 100000, {[input] = 50000, [output] = 50000}, 20, 0),
+                productions = {line}, activeProductions = {line},
+                inputFillTypeIds = {[input] = true}, outputFillTypeIds = {[output] = true}}
+            function pp:getName() return self.title end
+            return pp
+        end
+        -- the merged fermenter: the DLC's own specialization, no spec_productionPoint for the walk to find
+        fermenter = part("PlanET Fermenter", 20, "FERMENTER")
+        fermenterPP = point(fermenter, "BGA (1) Fermenter", 160, 161)
+        -- a second fermenter the DLC merged into the first: it still has a point, but not in the list
+        absorbed = part("PlanET Fermenter B", 24, "FERMENTER")
+        absorbed.spec_productionPoint = {productionPoint = point(absorbed, "PlanET Fermenter B", 160, 161)}
+        bhkw = part("PlanET BHKW", 28, "POWERPLANT")
+        bhkwPP = point(bhkw, "BGA (1) Power plant", 161, 162)
+        for _, p in ipairs({fermenter, absorbed, bhkw}) do
+            table.insert(g_currentMission.placeableSystem.placeables, p)
+        end
+        local bakeryPP = bakery.spec_productionPoint.productionPoint
+        g_currentMission.productionChainManager = {getProductionPointsForFarmId = function(self, farmId)
+            return {bakeryPP, fermenterPP, bhkwPP}
+        end}
+        function prodNames(kind)
+            for _, c in ipairs(StorageMonitor.collectStorageCandidates(m)) do
+                if c.kind == kind then
+                    local names = {}
+                    for _, prod in ipairs(c.productions) do table.insert(names, prod.name) end
+                    return table.concat(names, "|")
+                end
+            end
+        end
+        function hasScreen(owner)
+            for _, c in ipairs(StorageMonitor.collectStorageCandidates(m)) do
+                if c.placeable == owner and c.kind == "production" and c.pp ~= nil then return true end
+            end
+            return false
+        end
+    """)
+    names = lua.eval('prodNames("allProductions")').split("|")
+    check(names[:3] == ["Mill Bakery", "BGA (1) Fermenter", "BGA (1) Power plant"],
+          "the game's list first, the biogas plant's merged points included: %s" % names)
+    check("PlanET Fermenter B" not in names, "a fermenter the DLC merged away is not listed: %s" % names)
+    check("Bakery" in names, "a production the walk found but the list does not have stays: %s" % names)
+    check(lua.eval("hasScreen(fermenter)") and lua.eval("hasScreen(bhkw)"), "the fermenter and power plant get their own screens")
+    lua.execute('showScreen("allProductions")')
+    t = texts(lua)
+    check(any("BGA (1) Fermenter" in x for x in t), "the all-productions screen shows the biogas plant: %s" % t[:20])
+    lua.execute('showScreen("prodNeeds")')
+    t = texts(lua)
+    check(any("Silage" in x for x in t), "what my productions need lists the fermenter's silage: %s" % t[:30])
+    # without the DLC's methods a silo is not a biogas part; without a manager the walk is all there is
+    check(not lua.eval("StorageMonitor.isBiogasPart(mainSilo)"), "a plain silo is no biogas part")
+    lua.execute("g_currentMission.productionChainManager = nil")
+    names = lua.eval('prodNames("allProductions")').split("|")
+    check("BGA (1) Fermenter" not in names and "PlanET Fermenter B" in names, "no manager: the walk's list as before: %s" % names)
+
+
 def test_look_and_title(lua):
     lua.execute(WORLD)
     lua.execute("""
@@ -1799,6 +1873,7 @@ def main():
     test_mount_size(new_runtime())
     test_mount_height_and_collisions(new_runtime())
     test_prod_needs(new_runtime())
+    test_biogas_plant(new_runtime())
     test_look_and_title(new_runtime())
     test_kinds(new_runtime())
     test_rates(new_runtime())

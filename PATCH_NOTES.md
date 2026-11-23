@@ -1,5 +1,13 @@
 # Patch notes
 
+## 1.4.1.1
+
+- Productions are now taken from the game's own production list (the one in the in-game production menu), so the
+  monitor sees productions it missed before: the biogas plants of the Pumps N' Hoses DLC and mods built on it,
+  such as PlanET PnH (#1). A plant shows the way the production menu shows it: one fermenter and one power plant
+  entry per plant, however many fermenters stand there. They are in "All my productions", "What my productions
+  need" and the profit screen, and each has its own screen.
+
 ## 1.4.1.0
 
 - New screen "What my productions need" (pick it like the other farm screens): a row for every input of every

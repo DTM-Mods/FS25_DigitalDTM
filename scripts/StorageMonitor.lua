@@ -1511,6 +1511,31 @@ function StorageMonitor.connectedStorages(own, farmId)
     return list
 end
 
+--- The farm's production points from the game's production chain manager, the list its production menu
+-- shows; nil when there is no manager or the call fails. Mods and DLCs change what it returns: Pumps N'
+-- Hoses gives one merged point per biogas plant part type instead of every fermenter.
+function StorageMonitor.farmProductionPoints(mission, farmId)
+    local manager = mission ~= nil and mission.productionChainManager or nil
+    if type(manager) ~= "table" or manager.getProductionPointsForFarmId == nil then
+        return nil
+    end
+    local ok, list = pcall(manager.getProductionPointsForFarmId, manager, farmId)
+    if not ok or type(list) ~= "table" then
+        return nil
+    end
+    return list
+end
+
+--- True for a part of a Pumps N' Hoses biogas plant. The DLC's SandboxPlaceable is on every silo placeable,
+-- so only its isSandboxPlaceable() says whether this one really is a part (its globals are not ours to see).
+function StorageMonitor.isBiogasPart(placeable)
+    if type(placeable) ~= "table" or placeable.isSandboxPlaceable == nil then
+        return false
+    end
+    local ok, isPart = pcall(placeable.isSandboxPlaceable, placeable)
+    return ok and isPart == true
+end
+
 --- Every storage this monitor could show, nearest first: {name, distance, storages, extra, roles, owner}.
 -- One entry per building: a silo, a silo extension, a production, an animal pen. Connected silos are
 -- separate entries; the "connected" setting adds them to the one shown.
@@ -1688,6 +1713,56 @@ function StorageMonitor:collectStorageCandidates()
         if storageSystem.getUnloadingStations ~= nil then
             addStations(storageSystem:getUnloadingStations(), "targetStorages")
         end
+    end
+
+    -- the farm's productions as the game's own production menu lists them. That list also has the ones
+    -- the placeable walk above cannot see: the Pumps N' Hoses biogas plants (and mods built on them, like
+    -- PlanET PnH), whose fermenters and power plants the DLC merges into one production per plant and
+    -- returns only the merged ones here. Without the list (no manager) the walk's result stays as it is.
+    local listed = StorageMonitor.farmProductionPoints(mission, farmId)
+    if listed ~= nil then
+        local scanned, inList = {}, {}
+        for _, prod in ipairs(productions) do
+            scanned[prod.pp] = prod
+        end
+        local merged = {}
+        for _, pp in ipairs(listed) do
+            if type(pp) == "table" and not inList[pp] then
+                inList[pp] = true
+                local prod = scanned[pp]
+                local p = pp.owningPlaceable
+                if prod == nil then
+                    local ppName = pp.getName ~= nil and pp:getName() or nil
+                    local name = (type(ppName) == "string" and ppName ~= "") and ppName
+                        or placeableName(p, "?")
+                    prod = {placeable = p, pp = pp, greenhouse = p ~= nil and p.spec_greenhouse or nil, name = name}
+                    -- its own screen too, like a production found by the walk
+                    if p ~= nil and p ~= self and type(pp.storage) == "table" and pp.storage.getFillLevels ~= nil
+                        and isAccessible(pp.storage, farmId) then
+                        local c = candidateFor(p, name)
+                        near(c, nodePosition(p.rootNode))
+                        c.placeable, c.kind, c.pp, c.greenhouse = p, "production", pp, p.spec_greenhouse
+                        addStorage(c, pp.storage)
+                        c.roles = c.roles or {}
+                        for fillType in pairs(pp.inputFillTypeIds or {}) do
+                            c.roles[fillType] = "in"
+                        end
+                        for fillType in pairs(pp.outputFillTypeIds or {}) do
+                            c.roles[fillType] = (c.roles[fillType] == "in") and "inout" or "out"
+                        end
+                    end
+                end
+                table.insert(merged, prod)
+            end
+        end
+        -- the walk's productions the list does not have stay, unless they are parts of a biogas plant:
+        -- those the DLC merged into another one of the plant, which is in the list
+        for _, prod in ipairs(productions) do
+            if not inList[prod.pp] and not StorageMonitor.isBiogasPart(prod.placeable) then
+                table.insert(merged, prod)
+            end
+        end
+        productions = merged
     end
 
     local result = {}
