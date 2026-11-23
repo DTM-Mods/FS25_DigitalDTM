@@ -1512,18 +1512,15 @@ function StorageMonitor.connectedStorages(own, farmId)
 end
 
 --- The farm's production points from the game's production chain manager, the list its production menu
--- shows; nil when there is no manager or the call fails. Mods and DLCs change what it returns: Pumps N'
--- Hoses gives one merged point per biogas plant part type instead of every fermenter.
+-- shows; nil when there is no manager. Mods and DLCs change what it returns: Pumps N' Hoses gives one
+-- merged point per biogas plant part type instead of every fermenter.
 function StorageMonitor.farmProductionPoints(mission, farmId)
     local manager = mission ~= nil and mission.productionChainManager or nil
     if type(manager) ~= "table" or manager.getProductionPointsForFarmId == nil then
         return nil
     end
-    local ok, list = pcall(manager.getProductionPointsForFarmId, manager, farmId)
-    if not ok or type(list) ~= "table" then
-        return nil
-    end
-    return list
+    local list = manager:getProductionPointsForFarmId(farmId)
+    return type(list) == "table" and list or nil
 end
 
 --- True for a part of a Pumps N' Hoses biogas plant. The DLC's SandboxPlaceable is on every silo placeable,
@@ -1532,8 +1529,7 @@ function StorageMonitor.isBiogasPart(placeable)
     if type(placeable) ~= "table" or placeable.isSandboxPlaceable == nil then
         return false
     end
-    local ok, isPart = pcall(placeable.isSandboxPlaceable, placeable)
-    return ok and isPart == true
+    return placeable:isSandboxPlaceable() == true
 end
 
 --- Every storage this monitor could show, nearest first: {name, distance, storages, extra, roles, owner}.
