@@ -1,5 +1,10 @@
 # Patch notes
 
+## 1.4.1.3
+
+- The changelog in the mod's in-game description (all languages) now covers the biogas plant fix of 1.4.1.2.
+  No other changes.
+
 ## 1.4.1.2
 
 - Productions are now taken from the game's own production list (the one in the in-game production menu), so the

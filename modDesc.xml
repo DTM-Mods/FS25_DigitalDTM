@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="116" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>DTM Mods, Fennell</author>
-    <version>1.4.1.2</version>
+    <version>1.4.1.3</version>
     <title>
         <en>Better Digital Display</en>
     </title>
@@ -80,10 +80,8 @@ Stand in front of it and press the activate key for its settings: the storage or
 
 Seven models (Buildings > Tools): Kiosk, Wall, Billboard, Two-Sided Billboard, Silo Mount, Wall Mount (flat on a building) and Hanging (on rods, for inside a shed).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></en>
+Changelog 1.4.1.3:
+- Biogas plants of the Pumps N' Hoses DLC (and mods built on it, such as PlanET PnH) now show in the production screens: one fermenter and one power plant per plant, as in the game's production menu.]]></en>
         <de><![CDATA[Better Digital Display (Kiosk)
 Kategorie: Gebäude > Werkzeuge
 Preis: 3.500 €
@@ -158,10 +156,8 @@ Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager o
 
 Sieben Modelle (Gebäude > Werkzeuge): Kiosk, Wand, Großanzeige, Großanzeige beidseitig, Silohalterung, Wandhalterung (flach an einem Gebäude) und Hängend (an Stangen, für in der Halle).
 
-Changelog 1.4.1.0:
-- Neuer Bildschirm "Was meine Produktionen brauchen": jeder Eingang jeder Produktion; leere rot und blinkend, knappe gelb, ganz oben, mit der Menge zum Auffüllen, wie lange der Bestand reicht und wie viel deine Silos davon haben.
-- Silohalterung, Wandhalterung und Hängend: die Höhe ist in den Einstellungen wieder einstellbar (0,5 bis 12 m).
-- Kollision behoben: die Monitore sind fest und im Baumodus in jeder Größe und Höhe auswählbar.]]></de>
+Changelog 1.4.1.3:
+- Biogasanlagen des Pumps N' Hoses DLC (und darauf aufbauender Mods wie PlanET PnH) erscheinen jetzt in den Produktionsbildschirmen: ein Fermenter und ein BHKW pro Anlage, wie im Produktionsmenü des Spiels.]]></de>
         <fr><![CDATA[Better Digital Display (Kiosque)
 Catégorie : Bâtiments > Outils
 Prix : 3 500 €
@@ -235,10 +231,8 @@ Placez-vous devant et appuyez sur la touche d'activation pour ses réglages : l'
 
 Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau, Panneau double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></fr>
+Changelog 1.4.1.3:
+- Les usines de biogaz du DLC Pumps N' Hoses (et des mods basés dessus, comme PlanET PnH) apparaissent maintenant dans les écrans de production : un fermenteur et une centrale électrique par usine, comme dans le menu de production du jeu.]]></fr>
         <es><![CDATA[Better Digital Display (Quiosco)
 Categoría: Edificios > Herramientas
 Precio: 3.500 €
@@ -312,10 +306,8 @@ Ponte delante y pulsa la tecla de activar para abrir sus ajustes: la pantalla de
 
 Siete modelos (Edificios > Herramientas): Quiosco, Pared, Valla publicitaria, Valla de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de una nave).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></es>
+Changelog 1.4.1.3:
+- Las plantas de biogás del DLC Pumps N' Hoses (y de los mods basados en él, como PlanET PnH) ahora aparecen en las pantallas de producción: un fermentador y una central eléctrica por planta, como en el menú de producción del juego.]]></es>
         <ea><![CDATA[Better Digital Display (Quiosco)
 Categoría: Edificios > Herramientas
 Precio: $3,500
@@ -389,10 +381,8 @@ Párate enfrente y presiona la tecla de activar para abrir su configuración: la
 
 Siete modelos (Edificios > Herramientas): Quiosco, Pared, Cartel publicitario, Cartel de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de un galpón).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></ea>
+Changelog 1.4.1.3:
+- Las plantas de biogás del DLC Pumps N' Hoses (y de los mods basados en él, como PlanET PnH) ahora aparecen en las pantallas de producción: un fermentador y una central eléctrica por planta, como en el menú de producción del juego.]]></ea>
         <pt><![CDATA[Better Digital Display (Quiosque)
 Categoria: Edifícios > Ferramentas
 Preço: 3 500 €
@@ -466,10 +456,8 @@ Coloque-se à frente dele e prima a tecla de ativar para abrir as definições: 
 
 Sete modelos (Edifícios > Ferramentas): Quiosque, Parede, Painel publicitário, Painel de dupla face, Suporte de silo, Suporte de parede (encostado a um edifício) e Suspenso (em varões, para o interior de um pavilhão).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></pt>
+Changelog 1.4.1.3:
+- As centrais de biogás do DLC Pumps N' Hoses (e dos mods baseados nele, como PlanET PnH) aparecem agora nos ecrãs de produção: um fermentador e uma central elétrica por central, como no menu de produção do jogo.]]></pt>
         <br><![CDATA[Better Digital Display (Quiosque)
 Categoria: Construções > Ferramentas
 Preço: $3.500
@@ -543,10 +531,8 @@ Fique na frente dela e aperte a tecla de ativar para abrir as configurações: a
 
 Sete modelos (Construções > Ferramentas): Quiosque, Parede, Outdoor, Outdoor dupla face, Suporte de silo, Suporte de parede (rente a um prédio) e Suspenso (em hastes, para dentro de um galpão).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></br>
+Changelog 1.4.1.3:
+- As usinas de biogás do DLC Pumps N' Hoses (e dos mods baseados nele, como PlanET PnH) agora aparecem nas telas de produção: um fermentador e uma usina elétrica por usina, como no menu de produção do jogo.]]></br>
         <it><![CDATA[Better Digital Display (Chiosco)
 Categoria: Edifici > Strumenti
 Prezzo: 3.500 €
@@ -620,10 +606,8 @@ Mettiti davanti e premi il tasto di attivazione per le sue impostazioni: la sche
 
 Sette modelli (Edifici > Strumenti): Chiosco, Parete, Cartellone, Cartellone bifacciale, Supporto per silo, Supporto a parete (aderente a un edificio) e Sospeso (su aste, per l'interno di un capannone).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></it>
+Changelog 1.4.1.3:
+- Gli impianti di biogas del DLC Pumps N' Hoses (e delle mod basate su di esso, come PlanET PnH) ora compaiono nelle schermate di produzione: un fermentatore e una centrale elettrica per impianto, come nel menu di produzione del gioco.]]></it>
         <fc><![CDATA[Better Digital Display (Kiosque)
 Catégorie : Bâtiments > Outils
 Prix : 3 500 $
@@ -697,10 +681,8 @@ Placez-vous devant et appuyez sur la touche d'activation pour ses paramètres : 
 
 Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau-réclame, Panneau-réclame double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></fc>
+Changelog 1.4.1.3:
+- Les usines de biogaz du DLC Pumps N' Hoses (et des mods basés dessus, comme PlanET PnH) s'affichent maintenant dans les écrans de production : un fermenteur et une centrale électrique par usine, comme dans le menu de production du jeu.]]></fc>
         <pl><![CDATA[Better Digital Display (kiosk)
 Kategoria: Budynki > Narzędzia
 Cena: 3 500 €
@@ -774,10 +756,8 @@ Stań przed nim i naciśnij klawisz aktywacji, aby otworzyć ustawienia: ekran m
 
 Siedem modeli (Budynki > Narzędzia): kiosk, ścienny, billboard, billboard dwustronny, na silos, na ścianę budynku (płasko na budynku) i wiszący (na prętach, do wnętrza magazynu).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></pl>
+Changelog 1.4.1.3:
+- Biogazownie z DLC Pumps N' Hoses (oraz modów na nim opartych, np. PlanET PnH) są teraz widoczne na ekranach produkcji: jeden fermentor i jedna elektrownia na biogazownię, tak jak w menu produkcji gry.]]></pl>
         <cz><![CDATA[Better Digital Display (kiosk)
 Kategorie: Budovy > Nástroje
 Cena: 3 500 €
@@ -851,10 +831,8 @@ Postavte se před něj a stiskněte klávesu aktivace pro nastavení: obrazovka 
 
 Sedm modelů (Budovy > Nástroje): kiosk, nástěnný, billboard, oboustranný billboard, na silo, na zeď budovy (naplocho na budovu) a závěsný (na tyčích, dovnitř skladu).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></cz>
+Changelog 1.4.1.3:
+- Bioplynové stanice z DLC Pumps N' Hoses (a z modů na něm založených, např. PlanET PnH) se nyní zobrazují na obrazovkách výroby: jeden fermentor a jedna elektrárna na stanici, stejně jako ve výrobním menu hry.]]></cz>
         <ru><![CDATA[Better Digital Display (киоск)
 Категория: Здания > Инструменты
 Цена: 3 500 €
@@ -928,10 +906,8 @@ Better Digital Display (подвесной)
 
 Семь моделей (Здания > Инструменты): киоск, стена, билборд, двусторонний билборд, на силос, на стену здания (вплотную к зданию) и подвесной (на штангах, для установки внутри склада).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></ru>
+Changelog 1.4.1.3:
+- Биогазовые установки из DLC Pumps N' Hoses (и модов на его основе, например PlanET PnH) теперь отображаются на экранах производств: один ферментер и одна электростанция на установку, как в меню производств игры.]]></ru>
         <uk><![CDATA[Better Digital Display (кіоск)
 Категорія: Будівлі > Інструменти
 Ціна: 3 500 €
@@ -1005,10 +981,8 @@ Better Digital Display (підвісний)
 
 Сім моделей (Будівлі > Інструменти): кіоск, стіна, білборд, двосторонній білборд, на силос, на стіну будівлі (впритул до будівлі) і підвісний (на штангах, для встановлення всередині складу).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></uk>
+Changelog 1.4.1.3:
+- Біогазові установки з DLC Pumps N' Hoses (і модів на його основі, наприклад PlanET PnH) тепер показуються на екранах виробництв: один ферментер і одна електростанція на установку, як у меню виробництв гри.]]></uk>
         <hu><![CDATA[Better Digital Display (kioszk)
 Kategória: Épületek > Eszközök
 Ár: 3 500 €
@@ -1082,10 +1056,8 @@ Riasztások: villogó piros csík és egy sor a láblécben, ha egy siló majdne
 
 Hét modell (Épületek > Eszközök): kioszk, fali, óriásplakát, kétoldalas óriásplakát, silóra szerelt, épületfalra szerelt (laposan az épületen) és függesztett (rudakon, tárolón belülre).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></hu>
+Changelog 1.4.1.3:
+- A Pumps N' Hoses DLC (és az erre épülő modok, például a PlanET PnH) biogázüzemei most megjelennek a termelési képernyőkön: üzemenként egy fermentor és egy erőmű, ahogy a játék termelési menüjében.]]></hu>
         <ro><![CDATA[Better Digital Display (chioșc)
 Categorie: Clădiri > Unelte
 Preț: 3.500 €
@@ -1159,10 +1131,8 @@ Stai în fața lui și apasă tasta de activare pentru setări: ecranul de depoz
 
 Șapte modele (Clădiri > Unelte): chioșc, perete, panou publicitar, panou publicitar dublu, pe siloz, pe peretele clădirii (lipit de clădire) și suspendat (pe tije, pentru interiorul unei magazii).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></ro>
+Changelog 1.4.1.3:
+- Centralele de biogaz din DLC-ul Pumps N' Hoses (și din modurile bazate pe el, precum PlanET PnH) apar acum în ecranele de producție: un fermentator și o centrală electrică pe instalație, ca în meniul de producție al jocului.]]></ro>
         <nl><![CDATA[Better Digital Display (Kiosk)
 Categorie: Gebouwen > Gereedschap
 Prijs: € 3.500
@@ -1236,10 +1206,8 @@ Ga ervoor staan en druk op de activeertoets voor de instellingen: de opslag of h
 
 Zeven modellen (Gebouwen > Gereedschap): Kiosk, Muur, Reclamebord, Dubbelzijdig reclamebord, Silohouder, Wandhouder (plat op een gebouw) en Hangend (aan stangen, voor in een loods).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></nl>
+Changelog 1.4.1.3:
+- Biogasinstallaties van de Pumps N' Hoses DLC (en mods die erop voortbouwen, zoals PlanET PnH) verschijnen nu in de productieschermen: één vergister en één energiecentrale per installatie, zoals in het productiemenu van het spel.]]></nl>
         <da><![CDATA[Better Digital Display (Kiosk)
 Kategori: Bygninger > Værktøj
 Pris: 3.500 €
@@ -1313,10 +1281,8 @@ Stil dig foran den, og tryk på aktiveringstasten for indstillingerne: lageret e
 
 Syv modeller (Bygninger > Værktøj): Kiosk, Væg, Reklameskilt, Dobbeltsidet reklameskilt, Siloholder, Vægbeslag (fladt på en bygning) og Hængende (på stænger, til inde i en hal).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></da>
+Changelog 1.4.1.3:
+- Biogasanlæg fra Pumps N' Hoses DLC'en (og mods bygget på den, f.eks. PlanET PnH) vises nu på produktionsskærmene: én reaktortank og ét kraftværk pr. anlæg, som i spillets produktionsmenu.]]></da>
         <sv><![CDATA[Better Digital Display (Kiosk)
 Kategori: Byggnader > Verktyg
 Pris: 3 500 €
@@ -1390,10 +1356,8 @@ Ställ dig framför den och tryck på aktiveringsknappen för inställningarna: 
 
 Sju modeller (Byggnader > Verktyg): Kiosk, Vägg, Reklamskylt, Dubbelsidig reklamskylt, Silofäste, Väggfäste (platt på en byggnad) och Hängande (i stänger, för inne i en hall).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></sv>
+Changelog 1.4.1.3:
+- Biogasanläggningar från Pumps N' Hoses DLC (och moddar byggda på den, som PlanET PnH) visas nu på produktionsskärmarna: en rötkammare och ett kraftverk per anläggning, som i spelets produktionsmeny.]]></sv>
         <no><![CDATA[Better Digital Display (Kiosk)
 Kategori: Bygninger > Verktøy
 Pris: 3 500 €
@@ -1467,10 +1431,8 @@ Stå foran den og trykk på aktiveringstasten for innstillingene: lageret eller 
 
 Sju modeller (Bygninger > Verktøy): Kiosk, Vegg, Reklametavle, Tosidig reklametavle, Siloholder, Veggfeste (flatt på en bygning) og Hengende (i stenger, for inne i en hall).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></no>
+Changelog 1.4.1.3:
+- Biogassanlegg fra Pumps N' Hoses DLC-en (og modder bygget på den, som PlanET PnH) vises nå på produksjonsskjermene: én råtnetank og ett kraftverk per anlegg, som i spillets produksjonsmeny.]]></no>
         <fi><![CDATA[Better Digital Display (Kioski)
 Kategoria: Rakennukset > Työkalut
 Hinta: 3 500 €
@@ -1544,10 +1506,8 @@ Seiso sen edessä ja paina aktivointinäppäintä avataksesi asetukset: varasto 
 
 Seitsemän mallia (Rakennukset > Työkalut): Kioski, Seinä, Mainostaulu, Kaksipuolinen mainostaulu, Siiloteline, Seinäteline (litteänä rakennuksen seinällä) ja Riippuva (tankojen varassa, hallin sisälle).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></fi>
+Changelog 1.4.1.3:
+- Pumps N' Hoses -DLC:n (ja sen päälle rakennettujen modien, kuten PlanET PnH) biokaasulaitokset näkyvät nyt tuotantonäytöillä: yksi mädätin ja yksi voimalaitos laitosta kohden, kuten pelin tuotantovalikossa.]]></fi>
         <tr><![CDATA[Better Digital Display (Kiosk)
 Kategori: Binalar > Aletler
 Fiyat: 3.500 €
@@ -1621,10 +1581,8 @@ Uyarılar: bir silo neredeyse dolduğunda (belirlediğin seviyeden itibaren), bi
 
 Yedi model (Binalar > Aletler): Kiosk, Duvar, Reklam Panosu, Çift Taraflı Reklam Panosu, Silo Montajlı, Duvar Montajlı (bir binaya düz olarak) ve Asılı (çubuklarla, bir sundurmanın içi için).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></tr>
+Changelog 1.4.1.3:
+- Pumps N' Hoses DLC'sinin (ve PlanET PnH gibi ona dayanan modların) biyogaz tesisleri artık üretim ekranlarında görünüyor: oyunun üretim menüsünde olduğu gibi tesis başına bir fermentör ve bir enerji santrali.]]></tr>
         <jp><![CDATA[Better Digital Display（キオスク）
 カテゴリー：建物 > ツール
 価格：$3,500
@@ -1698,10 +1656,8 @@ Better Digital Display（吊り下げ）
 
 7種類のモデル（建物 > ツール）：キオスク、ウォール、看板、両面看板、サイロ取付、壁掛け（建物に平らに取り付け）、吊り下げ（ロッドで吊るす、倉庫内向け）。
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></jp>
+Changelog 1.4.1.3:
+- Pumps N' Hoses DLC（およびPlanET PnHなどそれを基にしたMOD）のバイオガスプラントが生産画面に表示されるようになりました。ゲームの生産メニューと同じく、プラントごとに発酵槽1つと発電所1つです。]]></jp>
         <kr><![CDATA[Better Digital Display (키오스크)
 카테고리: 건물 > 도구
 가격: $3,500
@@ -1775,10 +1731,8 @@ Better Digital Display (천장걸이형)
 
 7가지 모델(건물 > 도구): 키오스크, 월, 빌보드, 양면 빌보드, 사일로 거치형, 벽걸이형(건물 벽에 평평하게 부착), 천장걸이형(봉에 매달아 창고 안에 설치).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></kr>
+Changelog 1.4.1.3:
+- Pumps N' Hoses DLC(및 PlanET PnH 등 이를 기반으로 한 모드)의 바이오가스 플랜트가 이제 생산 화면에 표시됩니다. 게임의 생산 메뉴처럼 플랜트마다 발효조 1개와 발전소 1개로 표시됩니다.]]></kr>
         <cs><![CDATA[Better Digital Display（信息亭）
 类别：建筑 > 工具
 价格：$3,500
@@ -1852,10 +1806,8 @@ Better Digital Display（悬挂）
 
 七种型号（建筑 > 工具）：信息亭、屏幕墙、广告牌、双面广告牌、筒仓挂装、壁挂（平贴在建筑上）和悬挂（用吊杆悬挂，适合棚屋内部）。
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></cs>
+Changelog 1.4.1.3:
+- Pumps N' Hoses DLC（以及基于它的模组，如 PlanET PnH）的沼气厂现在会显示在生产屏幕中：与游戏的生产菜单一样，每座沼气厂显示一个发酵罐和一个发电站。]]></cs>
         <ct><![CDATA[Better Digital Display（資訊亭）
 類別：建築 > 工具
 價格：$3,500
@@ -1929,10 +1881,8 @@ Better Digital Display（懸掛）
 
 七種型號（建築 > 工具）：資訊亭、螢幕牆、廣告看板、雙面廣告看板、筒倉掛裝、壁掛（平貼在建築上）和懸掛（以吊桿懸掛，適合棚屋內部）。
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></ct>
+Changelog 1.4.1.3:
+- Pumps N' Hoses DLC（以及以其為基礎的模組，如 PlanET PnH）的沼氣廠現在會顯示在生產螢幕中：與遊戲的生產選單一樣，每座沼氣廠顯示一個發酵槽和一個發電站。]]></ct>
         <id><![CDATA[Better Digital Display (Kios)
 Kategori: Bangunan > Alat
 Harga: $3.500
@@ -2006,10 +1956,8 @@ Berdirilah di depannya dan tekan tombol aktivasi untuk pengaturannya: layar peny
 
 Tujuh model (Bangunan > Alat): Kios, Dinding Layar, Papan Reklame, Papan Reklame Dua Sisi, Dudukan Silo, Dudukan Dinding (rata pada bangunan), dan Gantung (pada batang, untuk di dalam gudang).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></id>
+Changelog 1.4.1.3:
+- Pembangkit biogas dari DLC Pumps N' Hoses (dan mod yang dibangun di atasnya, seperti PlanET PnH) kini tampil di layar produksi: satu fermentor dan satu pembangkit listrik per pembangkit, seperti di menu produksi game.]]></id>
         <vi><![CDATA[Better Digital Display (Ki-ốt)
 Danh mục: Công trình > Công cụ
 Giá: $3.500
@@ -2083,10 +2031,8 @@ Cảnh báo: một dải đỏ nhấp nháy và một dòng ở chân màn hình
 
 Bảy mẫu (Công trình > Công cụ): Ki-ốt, Tường màn hình, Bảng quảng cáo, Bảng quảng cáo hai mặt, Gắn xi-lô, Gắn tường (áp phẳng lên công trình) và Treo (trên thanh treo, dùng trong nhà kho).
 
-Changelog 1.4.1.0:
-- New screen "What my productions need": every input of every production; empty ones red and blinking, low ones amber, at the top, with how much it takes to fill up, how long the stock lasts and how much of it your silos hold.
-- Silo Mount, Wall Mount and Hanging: the height can be set again in the settings (0.5 to 12 m).
-- Hitbox fixed: the monitors are solid and can be selected in construction mode at every size and height.]]></vi>
+Changelog 1.4.1.3:
+- Các nhà máy biogas của DLC Pumps N' Hoses (và các mod dựa trên nó, như PlanET PnH) giờ hiển thị trên các màn hình sản xuất: mỗi nhà máy một bể lên men và một nhà máy điện, giống như trong menu sản xuất của trò chơi.]]></vi>
     </description>
 
     <iconFilename>icon_storageMonitor.dds</iconFilename>
