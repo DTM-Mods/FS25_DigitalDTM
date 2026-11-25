@@ -70,7 +70,10 @@ def check_refs(shipped):
                 target = os.path.relpath(os.path.normpath(os.path.join(ROOT, os.path.dirname(i3d), ref)), ROOT).replace("\\", "/")
                 check(target in shipped, "%s: texture not shipped: %s" % (i3d, target))
         shapes = i3d_root.find("Shapes").get("externalShapesFile")
-        check(os.path.dirname(i3d) + "/" + shapes in shipped, "%s: shapes not shipped" % i3d)
+        if shapes is not None:      # an ASCII i3d has its shapes inline
+            check(os.path.dirname(i3d) + "/" + shapes in shipped, "%s: shapes not shipped" % i3d)
+        else:
+            check(i3d_root.find("Shapes").find("IndexedTriangleSet") is not None, "%s: no shapes" % i3d)
     for spec in mod.iter("specialization"):
         if spec.get("filename"):
             check(spec.get("filename") in shipped, "specialization file not shipped: " + spec.get("filename"))

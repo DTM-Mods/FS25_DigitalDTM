@@ -401,6 +401,12 @@ def export(path):
     for image in bpy.data.images:
         if image.filepath.startswith("//"):
             image.filepath = os.path.normpath(bpy.path.abspath(image.filepath))
+    # only the FS25 exporter (10.0.x) writes .shapes the game reads (format 10). io_export_i3d 10.5 is the
+    # Project Motor Racing exporter: its .shapes (format 12) fail TestRunner and do not load in FS25.
+    version = next((m.bl_info.get("version") for m in addon_utils.modules() if m.__name__ == EXPORTER), None)
+    if version is None or tuple(version[:2]) != (10, 0):
+        sys.exit("%s is version %s, not the FS25 exporter 10.0.x (GDN: GIANTS I3D Exporter Tools for FS25)"
+                 % (EXPORTER, version))
     addon_utils.enable(EXPORTER, default_set=False, persistent=False)
     exp = importlib.import_module(EXPORTER + ".i3d_export")
     dccb = importlib.import_module(EXPORTER + ".dcc.dccBlender")
