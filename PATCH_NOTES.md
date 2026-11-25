@@ -1,11 +1,15 @@
 # Patch notes
 
-## 1.4.2.0
+## 1.4.2.1
 
 - Bigger screens: the size setting now goes up to 12 m wide (7.2, 8.4, 9.6 and 12 m are new). The Kiosk
   goes up to 3 m and the Wall up to 6 m, so a pedestal or two posts do not hold a giant screen. Every size has
-  its own collision, as before.
-- Models rebuilt with the GIANTS exporter 10.5 (Blender 5.3); they look the same.
+  its own collision, as before. A Kiosk or Wall saved at a bigger size comes back at its largest size.
+
+## 1.4.2.0
+
+- Test build only, do not use: its models came from the wrong exporter and the game cannot load them
+  (GIANTS TestRunner failed). 1.4.2.1 is the same version with working models.
 
 ## 1.4.1.3
 

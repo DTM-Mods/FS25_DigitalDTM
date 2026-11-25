@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="116" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>DTM Mods, Fennell</author>
-    <version>1.4.2.0</version>
+    <version>1.4.2.1</version>
     <title>
         <en>Better Digital Display</en>
     </title>
@@ -80,7 +80,7 @@ Stand in front of it and press the activate key for its settings: the storage or
 
 Seven models (Buildings > Tools): Kiosk, Wall, Billboard, Two-Sided Billboard, Silo Mount, Wall Mount (flat on a building) and Hanging (on rods, for inside a shed).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Bigger screens: up to 12 m wide (Kiosk up to 3 m, Wall up to 6 m).]]></en>
         <de><![CDATA[Better Digital Display (Kiosk)
 Kategorie: Gebäude > Werkzeuge
@@ -156,7 +156,7 @@ Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager o
 
 Sieben Modelle (Gebäude > Werkzeuge): Kiosk, Wand, Großanzeige, Großanzeige beidseitig, Silohalterung, Wandhalterung (flach an einem Gebäude) und Hängend (an Stangen, für in der Halle).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Größere Bildschirme: bis 12 m breit (Kiosk bis 3 m, Wand bis 6 m).]]></de>
         <fr><![CDATA[Better Digital Display (Kiosque)
 Catégorie : Bâtiments > Outils
@@ -231,7 +231,7 @@ Placez-vous devant et appuyez sur la touche d'activation pour ses réglages : l'
 
 Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau, Panneau double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Écrans plus grands : jusqu'à 12 m de large (Kiosque jusqu'à 3 m, Mural jusqu'à 6 m).]]></fr>
         <es><![CDATA[Better Digital Display (Quiosco)
 Categoría: Edificios > Herramientas
@@ -306,7 +306,7 @@ Ponte delante y pulsa la tecla de activar para abrir sus ajustes: la pantalla de
 
 Siete modelos (Edificios > Herramientas): Quiosco, Pared, Valla publicitaria, Valla de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de una nave).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Pantallas más grandes: hasta 12 m de ancho (Quiosco hasta 3 m, Pared hasta 6 m).]]></es>
         <ea><![CDATA[Better Digital Display (Quiosco)
 Categoría: Edificios > Herramientas
@@ -381,7 +381,7 @@ Párate enfrente y presiona la tecla de activar para abrir su configuración: la
 
 Siete modelos (Edificios > Herramientas): Quiosco, Pared, Cartel publicitario, Cartel de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de un galpón).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Pantallas más grandes: hasta 12 m de ancho (Quiosco hasta 3 m, Pared hasta 6 m).]]></ea>
         <pt><![CDATA[Better Digital Display (Quiosque)
 Categoria: Edifícios > Ferramentas
@@ -456,7 +456,7 @@ Coloque-se à frente dele e prima a tecla de ativar para abrir as definições: 
 
 Sete modelos (Edifícios > Ferramentas): Quiosque, Parede, Painel publicitário, Painel de dupla face, Suporte de silo, Suporte de parede (encostado a um edifício) e Suspenso (em varões, para o interior de um pavilhão).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Ecrãs maiores: até 12 m de largura (Quiosque até 3 m, Parede até 6 m).]]></pt>
         <br><![CDATA[Better Digital Display (Quiosque)
 Categoria: Construções > Ferramentas
@@ -531,7 +531,7 @@ Fique na frente dela e aperte a tecla de ativar para abrir as configurações: a
 
 Sete modelos (Construções > Ferramentas): Quiosque, Parede, Outdoor, Outdoor dupla face, Suporte de silo, Suporte de parede (rente a um prédio) e Suspenso (em hastes, para dentro de um galpão).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Telas maiores: até 12 m de largura (Quiosque até 3 m, Parede até 6 m).]]></br>
         <it><![CDATA[Better Digital Display (Chiosco)
 Categoria: Edifici > Strumenti
@@ -606,7 +606,7 @@ Mettiti davanti e premi il tasto di attivazione per le sue impostazioni: la sche
 
 Sette modelli (Edifici > Strumenti): Chiosco, Parete, Cartellone, Cartellone bifacciale, Supporto per silo, Supporto a parete (aderente a un edificio) e Sospeso (su aste, per l'interno di un capannone).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Schermi più grandi: fino a 12 m di larghezza (Chiosco fino a 3 m, Parete fino a 6 m).]]></it>
         <fc><![CDATA[Better Digital Display (Kiosque)
 Catégorie : Bâtiments > Outils
@@ -681,7 +681,7 @@ Placez-vous devant et appuyez sur la touche d'activation pour ses paramètres : 
 
 Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau-réclame, Panneau-réclame double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Écrans plus grands : jusqu'à 12 m de large (Kiosque jusqu'à 3 m, Mural jusqu'à 6 m).]]></fc>
         <pl><![CDATA[Better Digital Display (kiosk)
 Kategoria: Budynki > Narzędzia
@@ -756,7 +756,7 @@ Stań przed nim i naciśnij klawisz aktywacji, aby otworzyć ustawienia: ekran m
 
 Siedem modeli (Budynki > Narzędzia): kiosk, ścienny, billboard, billboard dwustronny, na silos, na ścianę budynku (płasko na budynku) i wiszący (na prętach, do wnętrza magazynu).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Większe ekrany: do 12 m szerokości (kiosk do 3 m, ścienny do 6 m).]]></pl>
         <cz><![CDATA[Better Digital Display (kiosk)
 Kategorie: Budovy > Nástroje
@@ -831,7 +831,7 @@ Postavte se před něj a stiskněte klávesu aktivace pro nastavení: obrazovka 
 
 Sedm modelů (Budovy > Nástroje): kiosk, nástěnný, billboard, oboustranný billboard, na silo, na zeď budovy (naplocho na budovu) a závěsný (na tyčích, dovnitř skladu).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Větší obrazovky: šířka až 12 m (kiosk až 3 m, nástěnný až 6 m).]]></cz>
         <ru><![CDATA[Better Digital Display (киоск)
 Категория: Здания > Инструменты
@@ -906,7 +906,7 @@ Better Digital Display (подвесной)
 
 Семь моделей (Здания > Инструменты): киоск, стена, билборд, двусторонний билборд, на силос, на стену здания (вплотную к зданию) и подвесной (на штангах, для установки внутри склада).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Экраны больше: ширина до 12 м (киоск до 3 м, стена до 6 м).]]></ru>
         <uk><![CDATA[Better Digital Display (кіоск)
 Категорія: Будівлі > Інструменти
@@ -981,7 +981,7 @@ Better Digital Display (підвісний)
 
 Сім моделей (Будівлі > Інструменти): кіоск, стіна, білборд, двосторонній білборд, на силос, на стіну будівлі (впритул до будівлі) і підвісний (на штангах, для встановлення всередині складу).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Більші екрани: ширина до 12 м (кіоск до 3 м, стіна до 6 м).]]></uk>
         <hu><![CDATA[Better Digital Display (kioszk)
 Kategória: Épületek > Eszközök
@@ -1056,7 +1056,7 @@ Riasztások: villogó piros csík és egy sor a láblécben, ha egy siló majdne
 
 Hét modell (Épületek > Eszközök): kioszk, fali, óriásplakát, kétoldalas óriásplakát, silóra szerelt, épületfalra szerelt (laposan az épületen) és függesztett (rudakon, tárolón belülre).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Nagyobb képernyők: legfeljebb 12 m szélesek (kioszk legfeljebb 3 m, fali legfeljebb 6 m).]]></hu>
         <ro><![CDATA[Better Digital Display (chioșc)
 Categorie: Clădiri > Unelte
@@ -1131,7 +1131,7 @@ Stai în fața lui și apasă tasta de activare pentru setări: ecranul de depoz
 
 Șapte modele (Clădiri > Unelte): chioșc, perete, panou publicitar, panou publicitar dublu, pe siloz, pe peretele clădirii (lipit de clădire) și suspendat (pe tije, pentru interiorul unei magazii).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Ecrane mai mari: până la 12 m lățime (chioșc până la 3 m, perete până la 6 m).]]></ro>
         <nl><![CDATA[Better Digital Display (Kiosk)
 Categorie: Gebouwen > Gereedschap
@@ -1206,7 +1206,7 @@ Ga ervoor staan en druk op de activeertoets voor de instellingen: de opslag of h
 
 Zeven modellen (Gebouwen > Gereedschap): Kiosk, Muur, Reclamebord, Dubbelzijdig reclamebord, Silohouder, Wandhouder (plat op een gebouw) en Hangend (aan stangen, voor in een loods).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Grotere schermen: tot 12 m breed (Kiosk tot 3 m, Muur tot 6 m).]]></nl>
         <da><![CDATA[Better Digital Display (Kiosk)
 Kategori: Bygninger > Værktøj
@@ -1281,7 +1281,7 @@ Stil dig foran den, og tryk på aktiveringstasten for indstillingerne: lageret e
 
 Syv modeller (Bygninger > Værktøj): Kiosk, Væg, Reklameskilt, Dobbeltsidet reklameskilt, Siloholder, Vægbeslag (fladt på en bygning) og Hængende (på stænger, til inde i en hal).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Større skærme: op til 12 m brede (Kiosk op til 3 m, Væg op til 6 m).]]></da>
         <sv><![CDATA[Better Digital Display (Kiosk)
 Kategori: Byggnader > Verktyg
@@ -1356,7 +1356,7 @@ Ställ dig framför den och tryck på aktiveringsknappen för inställningarna: 
 
 Sju modeller (Byggnader > Verktyg): Kiosk, Vägg, Reklamskylt, Dubbelsidig reklamskylt, Silofäste, Väggfäste (platt på en byggnad) och Hängande (i stänger, för inne i en hall).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Större skärmar: upp till 12 m breda (Kiosk upp till 3 m, Vägg upp till 6 m).]]></sv>
         <no><![CDATA[Better Digital Display (Kiosk)
 Kategori: Bygninger > Verktøy
@@ -1431,7 +1431,7 @@ Stå foran den og trykk på aktiveringstasten for innstillingene: lageret eller 
 
 Sju modeller (Bygninger > Verktøy): Kiosk, Vegg, Reklametavle, Tosidig reklametavle, Siloholder, Veggfeste (flatt på en bygning) og Hengende (i stenger, for inne i en hall).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Større skjermer: opptil 12 m brede (Kiosk opptil 3 m, Vegg opptil 6 m).]]></no>
         <fi><![CDATA[Better Digital Display (Kioski)
 Kategoria: Rakennukset > Työkalut
@@ -1506,7 +1506,7 @@ Seiso sen edessä ja paina aktivointinäppäintä avataksesi asetukset: varasto 
 
 Seitsemän mallia (Rakennukset > Työkalut): Kioski, Seinä, Mainostaulu, Kaksipuolinen mainostaulu, Siiloteline, Seinäteline (litteänä rakennuksen seinällä) ja Riippuva (tankojen varassa, hallin sisälle).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Isommat näytöt: jopa 12 m leveät (Kioski enintään 3 m, Seinä enintään 6 m).]]></fi>
         <tr><![CDATA[Better Digital Display (Kiosk)
 Kategori: Binalar > Aletler
@@ -1581,7 +1581,7 @@ Uyarılar: bir silo neredeyse dolduğunda (belirlediğin seviyeden itibaren), bi
 
 Yedi model (Binalar > Aletler): Kiosk, Duvar, Reklam Panosu, Çift Taraflı Reklam Panosu, Silo Montajlı, Duvar Montajlı (bir binaya düz olarak) ve Asılı (çubuklarla, bir sundurmanın içi için).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Daha büyük ekranlar: 12 m genişliğe kadar (Kiosk 3 m'ye, Duvar 6 m'ye kadar).]]></tr>
         <jp><![CDATA[Better Digital Display（キオスク）
 カテゴリー：建物 > ツール
@@ -1656,7 +1656,7 @@ Better Digital Display（吊り下げ）
 
 7種類のモデル（建物 > ツール）：キオスク、ウォール、看板、両面看板、サイロ取付、壁掛け（建物に平らに取り付け）、吊り下げ（ロッドで吊るす、倉庫内向け）。
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - より大きな画面：幅12 mまで（キオスクは3 mまで、ウォールは6 mまで）。]]></jp>
         <kr><![CDATA[Better Digital Display (키오스크)
 카테고리: 건물 > 도구
@@ -1731,7 +1731,7 @@ Better Digital Display (천장걸이형)
 
 7가지 모델(건물 > 도구): 키오스크, 월, 빌보드, 양면 빌보드, 사일로 거치형, 벽걸이형(건물 벽에 평평하게 부착), 천장걸이형(봉에 매달아 창고 안에 설치).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - 더 큰 화면: 너비 최대 12 m(키오스크는 최대 3 m, 월은 최대 6 m).]]></kr>
         <cs><![CDATA[Better Digital Display（信息亭）
 类别：建筑 > 工具
@@ -1806,7 +1806,7 @@ Better Digital Display（悬挂）
 
 七种型号（建筑 > 工具）：信息亭、屏幕墙、广告牌、双面广告牌、筒仓挂装、壁挂（平贴在建筑上）和悬挂（用吊杆悬挂，适合棚屋内部）。
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - 更大的屏幕：宽度最高 12 米（信息亭最高 3 米，屏幕墙最高 6 米）。]]></cs>
         <ct><![CDATA[Better Digital Display（資訊亭）
 類別：建築 > 工具
@@ -1881,7 +1881,7 @@ Better Digital Display（懸掛）
 
 七種型號（建築 > 工具）：資訊亭、螢幕牆、廣告看板、雙面廣告看板、筒倉掛裝、壁掛（平貼在建築上）和懸掛（以吊桿懸掛，適合棚屋內部）。
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - 更大的螢幕：寬度最高 12 公尺（資訊亭最高 3 公尺，螢幕牆最高 6 公尺）。]]></ct>
         <id><![CDATA[Better Digital Display (Kios)
 Kategori: Bangunan > Alat
@@ -1956,7 +1956,7 @@ Berdirilah di depannya dan tekan tombol aktivasi untuk pengaturannya: layar peny
 
 Tujuh model (Bangunan > Alat): Kios, Dinding Layar, Papan Reklame, Papan Reklame Dua Sisi, Dudukan Silo, Dudukan Dinding (rata pada bangunan), dan Gantung (pada batang, untuk di dalam gudang).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Layar lebih besar: hingga 12 m lebarnya (Kios hingga 3 m, Dinding Layar hingga 6 m).]]></id>
         <vi><![CDATA[Better Digital Display (Ki-ốt)
 Danh mục: Công trình > Công cụ
@@ -2031,7 +2031,7 @@ Cảnh báo: một dải đỏ nhấp nháy và một dòng ở chân màn hình
 
 Bảy mẫu (Công trình > Công cụ): Ki-ốt, Tường màn hình, Bảng quảng cáo, Bảng quảng cáo hai mặt, Gắn xi-lô, Gắn tường (áp phẳng lên công trình) và Treo (trên thanh treo, dùng trong nhà kho).
 
-Changelog 1.4.2.0:
+Changelog 1.4.2.1:
 - Màn hình lớn hơn: rộng tới 12 m (Ki-ốt tới 3 m, Tường màn hình tới 6 m).]]></vi>
     </description>
 
