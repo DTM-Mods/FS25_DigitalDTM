@@ -42,7 +42,10 @@ except Exception:
 
 COL_BUILDING = ("0x1034", "0xfffffbff")
 COL_PLAYER_TRIGGER = ("0x20000000", "0x100000")
-SIZE_WIDTHS = [0.8, 1.2, 1.6, 2.0, 2.4, 3.0, 3.6, 4.2, 4.8, 6.0]     # = StorageMonitor.SIZE_WIDTHS
+SIZE_WIDTHS = [0.8, 1.2, 1.6, 2.0, 2.4, 3.0, 3.6, 4.2, 4.8, 6.0, 7.2, 8.4, 9.6, 12.0]   # = StorageMonitor.SIZE_WIDTHS
+# the largest size of each model (= maxWidth in its placeable XML; tools/gen_placeables.py): collisions only up to it
+MAX_WIDTHS = {"kiosk": 3.0, "wall": 6.0}
+MAX_WIDTH = SIZE_WIDTHS[-1]
 SILO_BOTTOM = 2.0                                                  # silo mount: screen bottom edge above ground
 
 VARIANTS = {
@@ -93,6 +96,7 @@ def make_materials(screen_image):
         if emission:
             bsdf.inputs["Emission Strength"].default_value = 1.0
         mat.diffuse_color = color + (1.0,)
+        mat.use_backface_culling = True
     # the screen: glowShader "staticLight" without emitColor glows with its own texture, so the panels can be
     # read at night; the script sets the glow (lightControl, brightness setting) and swaps the texture (theme)
     mat = bpy.data.materials.new("monitor_screen")
@@ -109,6 +113,7 @@ def make_materials(screen_image):
     mat["customShaderVariation"] = "staticLight"
     mat["customParameter_lightControl"] = "0.25"
     mat.diffuse_color = (0.05, 0.08, 0.13, 1.0)
+    mat.use_backface_culling = True
 
     # live bars: the game's glowShader in "staticLight" mode, whose glow colour the script sets per copy
     # (emitColor), like vehicle dashboard lights; a plain white texture, the colour comes from emitColor
@@ -128,6 +133,7 @@ def make_materials(screen_image):
     mat["customParameter_lightControl"] = "1"
     mat["customParameter_emitColor"] = "1 1 1 1"
     mat.diffuse_color = (0.2, 0.8, 0.9, 1.0)
+    mat.use_backface_culling = True
 
 
 class Mesh:
@@ -201,9 +207,20 @@ def node(name, parent=None, location=(0.0, 0.0, 0.0), rot_x=0.0, rot_y=0.0):
     return obj
 
 
+FILTERS = {}     # node name -> {attribute: hex string}: written back after export (see fix_i3d)
+
+
 def attrs(obj, **kw):
+    # exporter 10.0 reads i3D_*, 10.5 I3D_* (and wants the collision filters as integers)
     for k, v in kw.items():
         obj["i3D_" + k] = v
+        if k in ("collisionFilterGroup", "collisionFilterMask"):
+            FILTERS.setdefault(obj.name, {})[k] = v
+        if k in ("collisionFilterGroup", "collisionFilterMask") and isinstance(v, str):
+            v = int(v, 16)
+            if v >= 2 ** 31:        # Blender's int properties are signed 32-bit
+                v -= 2 ** 32
+        obj["I3D_" + k] = v
     return obj
 
 
@@ -289,7 +306,7 @@ def build(name, v):
     bpy.ops.wm.read_factory_settings(use_empty=True)
     blend = os.path.join(ROOT, "build", "monitor_%s.blend" % name)
     os.makedirs(os.path.dirname(blend), exist_ok=True)
-    bpy.ops.wm.save_as_mainfile(filepath=blend)
+    bpy.ops.wm.save_as_mainfile(filepath=blend, relative_remap=False)
 
     img = bpy.data.images.new("screen_night", 4, 4)
     img.source = "FILE"
@@ -325,7 +342,7 @@ def build(name, v):
     # scaled, so the script switches on the one that fits the chosen size and the others off. Without it the
     # monitor cannot be selected (to sell it) in construction mode. Named by width in cm.
     collisions = node("collisions", root)
-    for width in SIZE_WIDTHS:
+    for width in [w for w in SIZE_WIDTHS if w <= MAX_WIDTHS.get(name, MAX_WIDTH) + 1e-6]:
         s = width / v["width"]
         if silo:     # grows upwards from its bottom edge, depth kept (as setStorageMonitorSize does)
             lift = v.get("bottom", SILO_BOTTOM) + v["lower_extent"] * s
@@ -369,15 +386,41 @@ def build(name, v):
         attrs(t.to_object(tname, root), trigger=True, nonRenderable=True, static=True, castsShadows=False,
               receiveShadows=False, collisionFilterGroup=COL_PLAYER_TRIGGER[0],
               collisionFilterMask=COL_PLAYER_TRIGGER[1])
-    bpy.ops.wm.save_as_mainfile(filepath=blend)
+    bpy.ops.wm.save_as_mainfile(filepath=blend, relative_remap=False)
     return root
 
 
 def export(path):
+    # the GIANTS exporter (10.x) is written for Blender 3.6; Blender 4.1+ has split normals always and
+    # dropped Mesh.calc_normals_split, which the exporter still calls first
+    if not hasattr(bpy.types.Mesh, "calc_normals_split"):
+        bpy.types.Mesh.calc_normals_split = lambda self: None
+    # 10.5 cannot follow blend-relative paths ("//../textures/..."): give it absolute ones, and keep Blender
+    # from making them relative again when something saves the file
+    bpy.context.preferences.filepaths.use_relative_paths = False
+    for image in bpy.data.images:
+        if image.filepath.startswith("//"):
+            image.filepath = os.path.normpath(bpy.path.abspath(image.filepath))
     addon_utils.enable(EXPORTER, default_set=False, persistent=False)
     exp = importlib.import_module(EXPORTER + ".i3d_export")
     dccb = importlib.import_module(EXPORTER + ".dcc.dccBlender")
     dccb.isNodeVisible = lambda name: not bpy.data.objects[name].get("i3d_hidden", False)
+    # 10.5 turns the texture of a custom-shader material into a blend-relative path ("//../textures/...") and
+    # then fails on it; hand it back absolute (the export writes it relative to the i3d anyway)
+    try:
+        shader_util = importlib.import_module(EXPORTER + ".util.i3d_shaderUtil")
+    except ImportError:
+        shader_util = None
+    for fn_name in ("getMaterialShaderTextureParamFromLinkInputNames", "getMaterialShaderTextureParamFromNodeName"):
+        fn = getattr(shader_util, fn_name, None)
+        if fn is not None and not getattr(fn, "_absolute", False):
+            def absolute(*args, _fn=fn):
+                result = _fn(*args)
+                if isinstance(result, str) and result.startswith("//"):
+                    result = os.path.normpath(bpy.path.abspath(result))
+                return result
+            absolute._absolute = True
+            setattr(shader_util, fn_name, absolute)
     log = importlib.import_module(EXPORTER + ".util.logUtil").ActionLog
     orig = log.addMessage.__func__
     problems = []
@@ -390,12 +433,17 @@ def export(path):
     log.addMessage = classmethod(show)
 
     st = bpy.context.scene.I3D_UIexportSettings
-    st.i3D_exportUseSoftwareFileName = False
-    st.i3D_exportFileLocation = path
-    st.i3D_gameLocationDisplay = GAME_DIR
-    st.i3D_exportRelativePaths = True
-    st.i3D_exportGameRelativePath = False
-    st.i3D_exportVerbose = True
+    # exporter 10.0 names its settings i3D_*, 10.5 I3D_*; set whichever this one has (an unknown name on the
+    # settings would be silently ignored, and 10.5 would then write c:/tmp/untitled.i3d)
+    settings = {"ExportUseSoftwareFileName": False, "ExportFileLocation": path, "GameLocationDisplay": GAME_DIR,
+                "GameLocation": GAME_DIR, "ExportRelativePaths": True, "ExportGameRelativePath": False,
+                "ExportVerbose": True, "BinaryFiles": True, "UpdateXMLOnExport": False}
+    for key, value in settings.items():
+        for name in ("i3D_" + key[0].lower() + key[1:], "I3D_" + key[0].lower() + key[1:]):
+            if hasattr(st, name):
+                setattr(st, name, value)
+    if hasattr(st, "I3D_UIexportCopyFiles"):      # 10.5: the textures are in the mod already, nothing to copy
+        st.I3D_UIexportCopyFiles = False
     if os.path.exists(path):
         os.remove(path)
     exp.I3DExportAll()
@@ -491,6 +539,40 @@ def render_store(name, v, out_png):
     bpy.ops.render.render(write_still=True)
 
 
+def fix_i3d(path):
+    """Puts back what exporter 10.5 loses or writes differently: a material's glow (it reads the Principled
+    BSDF input 'Emission' of Blender 3; Blender 4+ calls it 'Emission Color') and hex collision filters."""
+    import xml.etree.ElementTree as ET
+    text = open(path, encoding="iso-8859-1").read()
+    for name, (_, emission, _) in MATERIALS.items():
+        if emission is None:
+            continue
+        value = " ".join("%g" % (round(c * 255) / 255) for c in emission) + " 1"
+        tag = '<Material name="%s" ' % name
+        start = text.find(tag)
+        if start < 0 or 'emissiveColor="' in text[start:text.find(">", start)]:
+            continue
+        end = text.find(">", start)
+        attrs = text[start:end]
+        cut = attrs.find(' specularColor="')
+        attrs = (attrs[:cut] + ' emissiveColor="%s"' % value + attrs[cut:]) if cut > 0 else attrs + ' emissiveColor="%s"' % value
+        text = text[:start] + attrs + text[end:]
+    # the collision filters as set, in hex as the GIANTS Editor writes them (10.5 writes them in decimal, and
+    # its binary converter turns a mask above 0x7fffffff into 0)
+    import re
+
+    def filters(m):
+        tag = m.group(0)
+        name = re.search(r' name="([^"]*)"', tag).group(1)
+        for attr, value in FILTERS.get(name, {}).items():
+            tag = re.sub(r' %s="[^"]*"' % attr, ' %s="%s"' % (attr, value), tag)
+        return tag
+    text = re.sub(r'<Shape [^>]*collisionFilter[^>]*>', filters, text)
+    ET.fromstring(text.encode("iso-8859-1"))      # still well-formed
+    with open(path, "w", encoding="iso-8859-1", newline="") as f:
+        f.write(text)
+
+
 def main():
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
     names = argv or list(VARIANTS)
@@ -500,6 +582,7 @@ def main():
         out = os.path.join(ROOT, "i3d", "monitor_%s.i3d" % name)
         os.makedirs(os.path.dirname(out), exist_ok=True)
         problems = export(out)
+        fix_i3d(out)
         print("EXPORTED", out, os.path.getsize(out), os.path.getsize(out + ".shapes"), "problems:", len(problems))
         os.makedirs(os.path.join(SRC, "store"), exist_ok=True)
         render_store(name, v, os.path.join(SRC, "store", "store_%s.png" % name))

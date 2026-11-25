@@ -1,5 +1,12 @@
 # Patch notes
 
+## 1.4.2.0
+
+- Bigger screens: the size setting now goes up to 12 m wide (7.2, 8.4, 9.6 and 12 m are new). The Kiosk
+  goes up to 3 m and the Wall up to 6 m, so a pedestal or two posts do not hold a giant screen. Every size has
+  its own collision, as before.
+- Models rebuilt with the GIANTS exporter 10.5 (Blender 5.3); they look the same.
+
 ## 1.4.1.3
 
 - The changelog in the mod's in-game description (all languages) now covers the biogas plant fix of 1.4.1.2.

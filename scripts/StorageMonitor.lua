@@ -23,7 +23,8 @@ StorageMonitor.SCAN_INTERVAL = 15000        -- ms between looks for the storages
 StorageMonitor.SEARCH_RADIUS = 40           -- m; storages further away are not offered
 StorageMonitor.PICK_TOLERANCE = 5           -- m a picked building may be from the remembered spot
 StorageMonitor.MAX_PICK = 20                -- storages offered in the pick list
-StorageMonitor.SIZE_WIDTHS = {0.8, 1.2, 1.6, 2.0, 2.4, 3.0, 3.6, 4.2, 4.8, 6.0}  -- m; screen sizes to choose from
+StorageMonitor.SIZE_WIDTHS = {0.8, 1.2, 1.6, 2.0, 2.4, 3.0, 3.6, 4.2, 4.8, 6.0, 7.2, 8.4, 9.6, 12.0}  -- m; screen sizes to choose from
+-- (a model offers the ones up to its maxWidth: a kiosk does not grow to 12 m)
 -- m; heights of a raised mount's bottom edge above the ground (silo mount, wall mount, hanging) to choose from
 StorageMonitor.HEIGHTS = {0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 7.0, 8.0, 10.0, 12.0}
 -- what my productions need: an input counts as low below PROD_LOW of its room or when it lasts less than
@@ -716,6 +717,7 @@ function StorageMonitor.registerXMLPaths(schema, basePath)
     schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor#screenNode", "Centre of the screen glass, z towards the viewer")
     schema:register(XMLValueType.FLOAT, basePath .. ".storageMonitor#width", "Screen width in metres (height is width / 1.6)", 2.4)
     schema:register(XMLValueType.FLOAT, basePath .. ".storageMonitor#drawDistance", "Distance up to which the screen is drawn", 45)
+    schema:register(XMLValueType.FLOAT, basePath .. ".storageMonitor#maxWidth", "Largest screen size offered, in metres (default: the largest there is)")
     schema:register(XMLValueType.FLOAT, basePath .. ".storageMonitor#searchRadius", "Storages further away are not shown", StorageMonitor.SEARCH_RADIUS)
     schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor#playerTrigger", "Trigger for the monitor's actions")
     schema:register(XMLValueType.NODE_INDEX, basePath .. ".storageMonitor#barTemplate", "Hidden 1 x 1 m glowing rectangle, copied for every bar")
@@ -771,6 +773,8 @@ function StorageMonitor:onLoad(savegame)
     spec.width = xmlFile:getValue("placeable.storageMonitor#width", 2.4)
     spec.height = spec.width / StorageMonitor.DESIGN_W
     spec.drawDistance = xmlFile:getValue("placeable.storageMonitor#drawDistance", 45)
+    spec.maxWidth = math.max(spec.width, xmlFile:getValue("placeable.storageMonitor#maxWidth",
+        StorageMonitor.SIZE_WIDTHS[#StorageMonitor.SIZE_WIDTHS]))
     spec.searchRadius = xmlFile:getValue("placeable.storageMonitor#searchRadius", StorageMonitor.SEARCH_RADIUS)
     spec.playerTrigger = xmlFile:getValue("placeable.storageMonitor#playerTrigger", nil, self.components, self.i3dMappings)
     spec.barTemplate = xmlFile:getValue("placeable.storageMonitor#barTemplate", nil, self.components, self.i3dMappings)
@@ -1186,7 +1190,21 @@ function StorageMonitor:onReadStream(streamId, connection)
     end
 end
 
--- resizes the screen to the given width in metres (clamped to SIZE_WIDTHS) and, on a raised mount (silo
+--- The screen sizes this model offers: SIZE_WIDTHS up to its maxWidth.
+function StorageMonitor.allowedWidths(spec)
+    local list = {}
+    for _, w in ipairs(StorageMonitor.SIZE_WIDTHS) do
+        if w <= (spec.maxWidth or math.huge) + 1e-6 then
+            table.insert(list, w)
+        end
+    end
+    if #list == 0 then
+        list[1] = StorageMonitor.SIZE_WIDTHS[1]
+    end
+    return list
+end
+
+-- resizes the screen to the given width in metres (clamped to the model's sizes) and, on a raised mount (silo
 -- mount, wall mount, hanging), puts its bottom edge at the given height in metres (clamped to HEIGHTS; nil
 -- keeps it). A raised mount grows upwards from its bottom edge and keeps its depth; a free-standing monitor
 -- grows from the ground, posts and all. Each size has its own collision; the collisions move with the height.
@@ -1195,7 +1213,7 @@ function StorageMonitor:setStorageMonitorSize(width, bottom)
     if spec.mountNode == nil or width == nil or width <= 0 then
         return
     end
-    local widths = StorageMonitor.SIZE_WIDTHS
+    local widths = StorageMonitor.allowedWidths(spec)
     spec.mountWidth = math.max(widths[1], math.min(widths[#widths], width))
     spec.sizeScale = spec.mountWidth / spec.width
     local s = spec.sizeScale
@@ -5896,7 +5914,7 @@ end
 
 function StorageMonitor.openSize(monitor)
     local spec = monitor.spec_storageMonitor
-    local widths, options = StorageMonitor.SIZE_WIDTHS, {}
+    local widths, options = StorageMonitor.allowedWidths(spec), {}
     for _, w in ipairs(widths) do
         table.insert(options, string.format(StorageMonitor.getText("storageMonitor_sizeOption", "%.1f m wide, %.1f m high"),
             w, w / StorageMonitor.DESIGN_W) .. mark(math.abs(w - spec.mountWidth) < 0.01))

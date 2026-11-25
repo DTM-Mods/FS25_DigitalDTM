@@ -41,7 +41,7 @@
 
     <infoTrigger triggerNode="infoTrigger"/>
 
-    <storageMonitor screenNode="screen" width="2.40" drawDistance="50" searchRadius="40" playerTrigger="playerTrigger"
+    <storageMonitor screenNode="screen" width="2.40" maxWidth="12.00" drawDistance="50" searchRadius="40" playerTrigger="playerTrigger"
                     barTemplate="barTemplate" iconTemplate="iconTemplate" glassNode="screenGlass" collisions="collisions">
         <mount node="mount" mode="silo" bottom="2.00" lowerExtent="0.846"/>
     </storageMonitor>

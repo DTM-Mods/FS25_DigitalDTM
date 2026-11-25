@@ -89,7 +89,7 @@ pens, all productions, money), today's best prices, or the last in-game day as a
   product.
 - **The in-game time** in the corner.
 - **Pick the silo** from a list of everything nearby, or let it show the nearest.
-- **Any size:** 0.8 to 6 m wide, on every model.
+- **Any size:** 0.8 to 12 m wide (the Kiosk up to 3 m, the Wall up to 6 m).
 - **Any height:** the Silo Mount, Wall Mount and Hanging models set their bottom edge 0.5 to 12 m above the ground.
 - **Readable at night:** the screen glows; five brightness levels.
 - **Four colour themes:** night blue, green, amber terminal and daylight.
@@ -106,8 +106,8 @@ pens, all productions, money), today's best prices, or the last in-game day as a
 | Wall Mount | 2.4 m flat against a building wall | 5,500 | 50 m |
 | Hanging | 2.4 m on two rods, for inside a shed | 5,500 | 50 m |
 
-The sizes are what you buy; every model can then be set from 0.8 to 6 m wide, and it is read from further away when
-bigger.
+The sizes are what you buy; every model can then be set from 0.8 to 12 m wide (the Kiosk up to 3 m, the Wall up
+to 6 m), and it is read from further away when bigger.
 
 <p align="center">
   <img src="src/store/store_kiosk.png" alt="Kiosk" width="32%">
@@ -186,7 +186,7 @@ bigger.
      picked when something nearer is built.
    - **Also show the silos connected to it**: a silo together with its extensions, as the game counts them when you
      load or unload.
-   - **Screen size**: 0.8 to 6 m wide. The Silo Mount and Wall Mount keep their bottom edge 2 m above the ground
+   - **Screen size**: 0.8 to 12 m wide (Kiosk up to 3 m, Wall up to 6 m). The Silo Mount and Wall Mount keep their bottom edge 2 m above the ground
      (Hanging: 2.5 m) and grow upwards; the others grow from the ground, posts and all.
    - **Brightness**: very dim to very bright (screen glow, bars and text).
    - **Colours**: night blue, green, amber terminal, daylight.

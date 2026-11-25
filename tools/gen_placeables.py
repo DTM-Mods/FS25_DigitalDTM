@@ -25,6 +25,9 @@ VARIANTS = [
     ("hanging", 2.40, 50, 5500, 3, (2.5, 0.846), False),
     ("billboard2", 4.00, 90, 18000, 7, None, True),
 ]
+# the largest screen size of each model (= MAX_WIDTHS in tools/build_model.py, which builds collisions up to it)
+MAX_WIDTHS = {"kiosk": 3.0, "wall": 6.0}
+MAX_WIDTH = 12.0
 NODES = ("body", "screenGlass", "screen", "barTemplate", "iconTemplate", "collisions", "mount", "infoTrigger",
          "playerTrigger")
 BACK_NODES = ("screenBack", "screenGlassBack", "barTemplateBack", "iconTemplateBack")
@@ -72,7 +75,7 @@ TEMPLATE = """<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 
     <infoTrigger triggerNode="infoTrigger"/>
 
-    <storageMonitor screenNode="screen" width="{width}" drawDistance="{draw}" searchRadius="40" playerTrigger="playerTrigger"
+    <storageMonitor screenNode="screen" width="{width}" maxWidth="{maxWidth}" drawDistance="{draw}" searchRadius="40" playerTrigger="playerTrigger"
                     barTemplate="barTemplate" iconTemplate="iconTemplate" glassNode="screenGlass" collisions="collisions">{mount}
     </storageMonitor>
 
@@ -153,6 +156,7 @@ def main():
             mount += ('\n        <back screenNode="screenBack" barTemplate="barTemplateBack" iconTemplate="iconTemplateBack"'
                       ' glassNode="screenGlassBack"/>')
         xml = TEMPLATE.format(name=name, price=price, upkeep=upkeep, width="%.2f" % width, draw=draw, mappings=lines,
+                              maxWidth="%.2f" % MAX_WIDTHS.get(name, MAX_WIDTH),
                               mount=mount)
         path = os.path.join(ROOT, "placeables", "monitor_%s.xml" % name)
         with open(path, "w", encoding="utf-8", newline="\n") as f:

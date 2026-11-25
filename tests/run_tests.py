@@ -511,7 +511,12 @@ def test_mount_size(lua):
     on = [g.names[c.node] for c in spec.collisions.values() if g.rigid[c.node] == "static"]
     check(on == ["collision_480"], "only the 4.8 m collision is on: %s" % on)
     lua.execute("set(m, 'size', 50)")
-    check(abs(spec.mountWidth - 6) < 1e-6, "size clamped to the largest")
+    check(abs(spec.mountWidth - 12) < 1e-6, "size clamped to the largest: %s" % spec.mountWidth)
+    # a model with a maxWidth (the kiosk: 3 m) offers and takes only the sizes up to it
+    lua.execute("m.spec_storageMonitor.maxWidth = 3.0 set(m, 'size', 50)")
+    check(abs(spec.mountWidth - 3) < 1e-6, "size clamped to the model's maxWidth: %s" % spec.mountWidth)
+    check(len(list(g.StorageMonitor.allowedWidths(spec).values())) == 6, "a 3 m model offers 6 sizes")
+    lua.execute("m.spec_storageMonitor.maxWidth = nil set(m, 'size', 50)")
 
     # free-standing: grows from the ground, uniformly
     lua.execute("""
@@ -594,7 +599,7 @@ def test_mount_height_and_collisions(lua):
     check(g.loadedRigid == 0, "no collision is switched before the monitor is in physics (%d)" % g.loadedRigid)
     on = [g.names[c.node] for c in s2.collisions.values() if g.rigid[c.node] == "static"]
     check(on == ["collision_480"], "after placing, only the saved size's collision is on: %s" % on)
-    check(len(list(g.m2.pickObjects.values())) == 10, "every size's collision is a pick object")
+    check(len(list(g.m2.pickObjects.values())) == 14, "every size's collision is a pick object")
 
     # a pick object the game did not collect is added to the mission
     lua.execute("""
@@ -603,7 +608,7 @@ def test_mount_height_and_collisions(lua):
         table.remove(m3.pickObjects, 1)
         StorageMonitor.onPostFinalizePlacement(m3)
     """)
-    check(len(list(g.pickAdded.values())) == 1 and len(list(g.m3.pickObjects.values())) == 10,
+    check(len(list(g.pickAdded.values())) == 1 and len(list(g.m3.pickObjects.values())) == 14,
           "a missing pick object is added (%d)" % len(list(g.pickAdded.values())))
 
     # synced: the height goes over the network with the other settings

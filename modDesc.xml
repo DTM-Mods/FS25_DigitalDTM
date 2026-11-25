@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="116" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
     <author>DTM Mods, Fennell</author>
-    <version>1.4.1.3</version>
+    <version>1.4.2.0</version>
     <title>
         <en>Better Digital Display</en>
     </title>
@@ -76,12 +76,12 @@ Slideshow: tick several screens and the monitor shows them in turn (10 to 60 sec
 
 Alerts: a blinking red stripe and a line in the footer when a silo is nearly full (from the level you set), an input is empty, animals run low on food or water, a tank is full, fields are ready to harvest (and rain is coming), a helper runs out of fuel, or a product sells for the price you wait for. Optionally also as a game message for everyone on the farm.
 
-Stand in front of it and press the activate key for its settings: the storage or farm screen, connected silos, screen size (0.8 to 6 m wide), height (Silo Mount, Wall Mount, Hanging: 0.5 to 12 m), brightness (5 levels, readable at night), colours (night blue, green, amber terminal, daylight), your own title, storage, prices or history, the products shown, alerts, the nearly full level, a price alert and the slideshow. Everyone on the server sees the same settings and they are saved with the game.
+Stand in front of it and press the activate key for its settings: the storage or farm screen, connected silos, screen size (0.8 to 12 m wide), height (Silo Mount, Wall Mount, Hanging: 0.5 to 12 m), brightness (5 levels, readable at night), colours (night blue, green, amber terminal, daylight), your own title, storage, prices or history, the products shown, alerts, the nearly full level, a price alert and the slideshow. Everyone on the server sees the same settings and they are saved with the game.
 
 Seven models (Buildings > Tools): Kiosk, Wall, Billboard, Two-Sided Billboard, Silo Mount, Wall Mount (flat on a building) and Hanging (on rods, for inside a shed).
 
-Changelog 1.4.1.3:
-- Biogas plants of the Pumps N' Hoses DLC (and mods built on it, such as PlanET PnH) now show in the production screens: one fermenter and one power plant per plant, as in the game's production menu.]]></en>
+Changelog 1.4.2.0:
+- Bigger screens: up to 12 m wide (Kiosk up to 3 m, Wall up to 6 m).]]></en>
         <de><![CDATA[Better Digital Display (Kiosk)
 Kategorie: Gebäude > Werkzeuge
 Preis: 3.500 €
@@ -152,12 +152,12 @@ Diashow: mehrere Bildschirme ankreuzen, und der Monitor zeigt sie abwechselnd (j
 
 Warnungen: ein blinkender roter Streifen und eine Zeile unten, wenn ein Silo fast voll ist (ab dem eingestellten Füllstand), ein Rohstoff fehlt, den Tieren Futter oder Wasser ausgeht, ein Tank voll ist, Felder erntereif sind (und Regen kommt), einem Helfer der Kraftstoff ausgeht oder ein Produkt den Preis bringt, auf den du wartest. Auf Wunsch auch als Meldung im Spiel für alle Spieler des Hofes.
 
-Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager oder der Hof-Bildschirm, verbundene Silos, Bildschirmgröße (0,8 bis 6 m breit), Höhe (Silohalterung, Wandhalterung, Hängend: 0,5 bis 12 m), Helligkeit (5 Stufen, nachts lesbar), Farben (Nachtblau, Grün, Bernstein-Terminal, Tageslicht), ein eigener Titel, Lager, Preise oder Verlauf, die gezeigten Produkte, Warnungen, der Füllstand für "fast voll", eine Preiswarnung und die Diashow. Alle Spieler auf dem Server sehen dieselben Einstellungen, und sie werden mit dem Spielstand gespeichert.
+Vor dem Bildschirm öffnet die Aktivieren-Taste seine Einstellungen: das Lager oder der Hof-Bildschirm, verbundene Silos, Bildschirmgröße (0,8 bis 12 m breit), Höhe (Silohalterung, Wandhalterung, Hängend: 0,5 bis 12 m), Helligkeit (5 Stufen, nachts lesbar), Farben (Nachtblau, Grün, Bernstein-Terminal, Tageslicht), ein eigener Titel, Lager, Preise oder Verlauf, die gezeigten Produkte, Warnungen, der Füllstand für "fast voll", eine Preiswarnung und die Diashow. Alle Spieler auf dem Server sehen dieselben Einstellungen, und sie werden mit dem Spielstand gespeichert.
 
 Sieben Modelle (Gebäude > Werkzeuge): Kiosk, Wand, Großanzeige, Großanzeige beidseitig, Silohalterung, Wandhalterung (flach an einem Gebäude) und Hängend (an Stangen, für in der Halle).
 
-Changelog 1.4.1.3:
-- Biogasanlagen des Pumps N' Hoses DLC (und darauf aufbauender Mods wie PlanET PnH) erscheinen jetzt in den Produktionsbildschirmen: ein Fermenter und ein BHKW pro Anlage, wie im Produktionsmenü des Spiels.]]></de>
+Changelog 1.4.2.0:
+- Größere Bildschirme: bis 12 m breit (Kiosk bis 3 m, Wand bis 6 m).]]></de>
         <fr><![CDATA[Better Digital Display (Kiosque)
 Catégorie : Bâtiments > Outils
 Prix : 3 500 €
@@ -227,12 +227,12 @@ Diaporama : cochez plusieurs écrans et le moniteur les affiche à tour de rôle
 
 Alertes : une bande rouge clignotante et une ligne en bas de l'écran quand un silo est presque plein (à partir du niveau choisi), qu'un intrant manque, que les animaux manquent de nourriture ou d'eau, qu'un réservoir est plein, que des champs sont prêts à récolter (et que la pluie arrive), qu'un ouvrier va tomber en panne de carburant ou qu'un produit se vend au prix que vous attendez. En option, aussi comme message du jeu pour tous les membres de la ferme.
 
-Placez-vous devant et appuyez sur la touche d'activation pour ses réglages : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 6 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les produits affichés, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes réglages, et ils sont sauvegardés avec la partie.
+Placez-vous devant et appuyez sur la touche d'activation pour ses réglages : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 12 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les produits affichés, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes réglages, et ils sont sauvegardés avec la partie.
 
 Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau, Panneau double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.1.3:
-- Les usines de biogaz du DLC Pumps N' Hoses (et des mods basés dessus, comme PlanET PnH) apparaissent maintenant dans les écrans de production : un fermenteur et une centrale électrique par usine, comme dans le menu de production du jeu.]]></fr>
+Changelog 1.4.2.0:
+- Écrans plus grands : jusqu'à 12 m de large (Kiosque jusqu'à 3 m, Mural jusqu'à 6 m).]]></fr>
         <es><![CDATA[Better Digital Display (Quiosco)
 Categoría: Edificios > Herramientas
 Precio: 3.500 €
@@ -302,12 +302,12 @@ Presentación: marca varias pantallas y el monitor las muestra por turnos (de 10
 
 Alertas: una franja roja parpadeante y una línea en el pie de la pantalla cuando un silo está casi lleno (desde el nivel que elijas), falta un insumo, a los animales les falta comida o agua, un tanque está lleno, hay campos listos para cosechar (y viene lluvia), un ayudante se queda sin combustible o un producto se vende al precio que esperas. Opcionalmente también como mensaje del juego para todos los de la granja.
 
-Ponte delante y pulsa la tecla de activar para abrir sus ajustes: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0,8 a 6 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, los productos mostrados, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven los mismos ajustes y se guardan con la partida.
+Ponte delante y pulsa la tecla de activar para abrir sus ajustes: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0,8 a 12 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, los productos mostrados, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven los mismos ajustes y se guardan con la partida.
 
 Siete modelos (Edificios > Herramientas): Quiosco, Pared, Valla publicitaria, Valla de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de una nave).
 
-Changelog 1.4.1.3:
-- Las plantas de biogás del DLC Pumps N' Hoses (y de los mods basados en él, como PlanET PnH) ahora aparecen en las pantallas de producción: un fermentador y una central eléctrica por planta, como en el menú de producción del juego.]]></es>
+Changelog 1.4.2.0:
+- Pantallas más grandes: hasta 12 m de ancho (Quiosco hasta 3 m, Pared hasta 6 m).]]></es>
         <ea><![CDATA[Better Digital Display (Quiosco)
 Categoría: Edificios > Herramientas
 Precio: $3,500
@@ -377,12 +377,12 @@ Presentación: marca varias pantallas y el monitor las muestra por turnos (de 10
 
 Alertas: una franja roja parpadeante y una línea en la parte inferior de la pantalla cuando un silo está casi lleno (desde el nivel que elijas), falta un insumo, a los animales les falta comida o agua, un tanque está lleno, hay campos listos para cosechar (y viene lluvia), un ayudante se queda sin combustible o un producto se vende al precio que esperas. Opcionalmente también como mensaje del juego para todos los de la granja.
 
-Párate enfrente y presiona la tecla de activar para abrir su configuración: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0.8 a 6 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, los productos mostrados, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven la misma configuración y se guarda con la partida.
+Párate enfrente y presiona la tecla de activar para abrir su configuración: la pantalla de almacén o de granja, silos conectados, tamaño de pantalla (de 0.8 a 12 m de ancho), brillo (5 niveles, legible de noche), colores (azul noche, verde, terminal ámbar, luz de día), tu propio título, almacén, precios o historial, los productos mostrados, alertas, el nivel de casi lleno, una alerta de precio y la presentación. Todos en el servidor ven la misma configuración y se guarda con la partida.
 
 Siete modelos (Edificios > Herramientas): Quiosco, Pared, Cartel publicitario, Cartel de dos caras, Soporte de silo, Soporte de pared (plano sobre un edificio) y Colgante (con varillas, para el interior de un galpón).
 
-Changelog 1.4.1.3:
-- Las plantas de biogás del DLC Pumps N' Hoses (y de los mods basados en él, como PlanET PnH) ahora aparecen en las pantallas de producción: un fermentador y una central eléctrica por planta, como en el menú de producción del juego.]]></ea>
+Changelog 1.4.2.0:
+- Pantallas más grandes: hasta 12 m de ancho (Quiosco hasta 3 m, Pared hasta 6 m).]]></ea>
         <pt><![CDATA[Better Digital Display (Quiosque)
 Categoria: Edifícios > Ferramentas
 Preço: 3 500 €
@@ -452,12 +452,12 @@ Apresentação: marque vários ecrãs e o monitor mostra-os alternadamente (de 1
 
 Alertas: uma faixa vermelha a piscar e uma linha no rodapé quando um silo está quase cheio (a partir do nível que definir), falta uma matéria-prima, os animais têm pouca ração ou água, um tanque está cheio, há campos prontos a colher (e vem aí chuva), um ajudante está a ficar sem combustível ou um produto se vende ao preço que espera. Opcionalmente também como mensagem do jogo para todos na quinta.
 
-Coloque-se à frente dele e prima a tecla de ativar para abrir as definições: o ecrã de armazém ou da quinta, silos ligados, tamanho do ecrã (de 0,8 a 6 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde, terminal âmbar, luz do dia), o seu próprio título, armazém, preços ou histórico, os produtos mostrados, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas definições, e estas são guardadas com o jogo.
+Coloque-se à frente dele e prima a tecla de ativar para abrir as definições: o ecrã de armazém ou da quinta, silos ligados, tamanho do ecrã (de 0,8 a 12 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde, terminal âmbar, luz do dia), o seu próprio título, armazém, preços ou histórico, os produtos mostrados, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas definições, e estas são guardadas com o jogo.
 
 Sete modelos (Edifícios > Ferramentas): Quiosque, Parede, Painel publicitário, Painel de dupla face, Suporte de silo, Suporte de parede (encostado a um edifício) e Suspenso (em varões, para o interior de um pavilhão).
 
-Changelog 1.4.1.3:
-- As centrais de biogás do DLC Pumps N' Hoses (e dos mods baseados nele, como PlanET PnH) aparecem agora nos ecrãs de produção: um fermentador e uma central elétrica por central, como no menu de produção do jogo.]]></pt>
+Changelog 1.4.2.0:
+- Ecrãs maiores: até 12 m de largura (Quiosque até 3 m, Parede até 6 m).]]></pt>
         <br><![CDATA[Better Digital Display (Quiosque)
 Categoria: Construções > Ferramentas
 Preço: $3.500
@@ -527,12 +527,12 @@ Apresentação: marque várias telas e o monitor as mostra alternadamente (de 10
 
 Alertas: uma faixa vermelha piscando e uma linha no rodapé quando um silo está quase cheio (a partir do nível que você definir), falta um insumo, os animais estão com pouca ração ou água, um tanque está cheio, há campos prontos para colher (e vem chuva), um ajudante está ficando sem combustível ou um produto é vendido pelo preço que você espera. Opcionalmente também como mensagem do jogo para todos da fazenda.
 
-Fique na frente dela e aperte a tecla de ativar para abrir as configurações: a tela de armazém ou da fazenda, silos conectados, tamanho da tela (de 0,8 a 6 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde, terminal âmbar, luz do dia), seu próprio título, armazém, preços ou histórico, os produtos exibidos, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas configurações, e elas são salvas com o jogo.
+Fique na frente dela e aperte a tecla de ativar para abrir as configurações: a tela de armazém ou da fazenda, silos conectados, tamanho da tela (de 0,8 a 12 m de largura), brilho (5 níveis, legível à noite), cores (azul noite, verde, terminal âmbar, luz do dia), seu próprio título, armazém, preços ou histórico, os produtos exibidos, alertas, o nível de quase cheio, um alerta de preço e a apresentação. Todos no servidor veem as mesmas configurações, e elas são salvas com o jogo.
 
 Sete modelos (Construções > Ferramentas): Quiosque, Parede, Outdoor, Outdoor dupla face, Suporte de silo, Suporte de parede (rente a um prédio) e Suspenso (em hastes, para dentro de um galpão).
 
-Changelog 1.4.1.3:
-- As usinas de biogás do DLC Pumps N' Hoses (e dos mods baseados nele, como PlanET PnH) agora aparecem nas telas de produção: um fermentador e uma usina elétrica por usina, como no menu de produção do jogo.]]></br>
+Changelog 1.4.2.0:
+- Telas maiores: até 12 m de largura (Quiosque até 3 m, Parede até 6 m).]]></br>
         <it><![CDATA[Better Digital Display (Chiosco)
 Categoria: Edifici > Strumenti
 Prezzo: 3.500 €
@@ -602,12 +602,12 @@ Presentazione: spunta più schermate e il monitor le mostra a turno (da 10 a 60 
 
 Avvisi: una striscia rossa lampeggiante e una riga in fondo allo schermo quando un silo è quasi pieno (dal livello che imposti), una materia prima è finita, gli animali hanno poco cibo o acqua, un serbatoio è pieno, ci sono campi pronti da raccogliere (e arriva la pioggia), un aiutante sta finendo il carburante o un prodotto si vende al prezzo che aspetti. Facoltativamente anche come messaggio di gioco per tutti nella fattoria.
 
-Mettiti davanti e premi il tasto di attivazione per le sue impostazioni: la schermata del deposito o della fattoria, silos collegati, dimensione dello schermo (da 0,8 a 6 m di larghezza), luminosità (5 livelli, leggibile di notte), colori (blu notte, verde, terminale ambra, luce del giorno), il tuo titolo, deposito, prezzi o cronologia, i prodotti mostrati, avvisi, il livello di quasi pieno, un avviso prezzo e la presentazione. Tutti sul server vedono le stesse impostazioni, che vengono salvate con la partita.
+Mettiti davanti e premi il tasto di attivazione per le sue impostazioni: la schermata del deposito o della fattoria, silos collegati, dimensione dello schermo (da 0,8 a 12 m di larghezza), luminosità (5 livelli, leggibile di notte), colori (blu notte, verde, terminale ambra, luce del giorno), il tuo titolo, deposito, prezzi o cronologia, i prodotti mostrati, avvisi, il livello di quasi pieno, un avviso prezzo e la presentazione. Tutti sul server vedono le stesse impostazioni, che vengono salvate con la partita.
 
 Sette modelli (Edifici > Strumenti): Chiosco, Parete, Cartellone, Cartellone bifacciale, Supporto per silo, Supporto a parete (aderente a un edificio) e Sospeso (su aste, per l'interno di un capannone).
 
-Changelog 1.4.1.3:
-- Gli impianti di biogas del DLC Pumps N' Hoses (e delle mod basate su di esso, come PlanET PnH) ora compaiono nelle schermate di produzione: un fermentatore e una centrale elettrica per impianto, come nel menu di produzione del gioco.]]></it>
+Changelog 1.4.2.0:
+- Schermi più grandi: fino a 12 m di larghezza (Chiosco fino a 3 m, Parete fino a 6 m).]]></it>
         <fc><![CDATA[Better Digital Display (Kiosque)
 Catégorie : Bâtiments > Outils
 Prix : 3 500 $
@@ -677,12 +677,12 @@ Diaporama : cochez plusieurs écrans et le moniteur les affiche à tour de rôle
 
 Alertes : une bande rouge clignotante et une ligne en bas de l'écran quand un silo est presque plein (à partir du niveau choisi), qu'un intrant manque, que les animaux manquent de nourriture ou d'eau, qu'un réservoir est plein, que des champs sont prêts à récolter (et que la pluie arrive), qu'un ouvrier va manquer d'essence ou qu'un produit se vend au prix que vous attendez. En option, aussi comme message du jeu pour tous les membres de la ferme.
 
-Placez-vous devant et appuyez sur la touche d'activation pour ses paramètres : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 6 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les produits affichés, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes paramètres, et ils sont sauvegardés avec la partie.
+Placez-vous devant et appuyez sur la touche d'activation pour ses paramètres : l'écran de stockage ou de ferme, les silos reliés, la taille de l'écran (de 0,8 à 12 m de large), la luminosité (5 niveaux, lisible la nuit), les couleurs (bleu nuit, vert, terminal ambre, plein jour), votre propre titre, stockage, prix ou historique, les produits affichés, les alertes, le niveau « presque plein », une alerte de prix et le diaporama. Tous les joueurs du serveur voient les mêmes paramètres, et ils sont sauvegardés avec la partie.
 
 Sept modèles (Bâtiments > Outils) : Kiosque, Mural, Panneau-réclame, Panneau-réclame double face, Fixation silo, Fixation murale (à plat sur un bâtiment) et Suspendu (sur tiges, pour l'intérieur d'un hangar).
 
-Changelog 1.4.1.3:
-- Les usines de biogaz du DLC Pumps N' Hoses (et des mods basés dessus, comme PlanET PnH) s'affichent maintenant dans les écrans de production : un fermenteur et une centrale électrique par usine, comme dans le menu de production du jeu.]]></fc>
+Changelog 1.4.2.0:
+- Écrans plus grands : jusqu'à 12 m de large (Kiosque jusqu'à 3 m, Mural jusqu'à 6 m).]]></fc>
         <pl><![CDATA[Better Digital Display (kiosk)
 Kategoria: Budynki > Narzędzia
 Cena: 3 500 €
@@ -752,12 +752,12 @@ Pokaz slajdów: zaznacz kilka ekranów, a monitor pokaże je po kolei (od 10 do 
 
 Alerty: migający czerwony pasek i linia w stopce, gdy silos jest prawie pełny (od ustawionego poziomu), brakuje surowca, zwierzętom kończy się pasza lub woda, zbiornik jest pełny, pola są gotowe do zbioru (i nadchodzi deszcz), pomocnikowi kończy się paliwo lub produkt sprzedaje się po cenie, na którą czekasz. Opcjonalnie także jako wiadomość w grze dla wszystkich w gospodarstwie.
 
-Stań przed nim i naciśnij klawisz aktywacji, aby otworzyć ustawienia: ekran magazynu lub gospodarstwa, połączone silosy, rozmiar ekranu (od 0,8 do 6 m szerokości), jasność (5 poziomów, czytelna w nocy), kolory (nocny niebieski, zielony, bursztynowy terminal, dzienny), własny tytuł, magazyn, ceny lub historia, pokazane produkty, alerty, poziom prawie pełny, alert cenowy i pokaz slajdów. Wszyscy na serwerze widzą te same ustawienia, a są one zapisywane razem z grą.
+Stań przed nim i naciśnij klawisz aktywacji, aby otworzyć ustawienia: ekran magazynu lub gospodarstwa, połączone silosy, rozmiar ekranu (od 0,8 do 12 m szerokości), jasność (5 poziomów, czytelna w nocy), kolory (nocny niebieski, zielony, bursztynowy terminal, dzienny), własny tytuł, magazyn, ceny lub historia, pokazane produkty, alerty, poziom prawie pełny, alert cenowy i pokaz slajdów. Wszyscy na serwerze widzą te same ustawienia, a są one zapisywane razem z grą.
 
 Siedem modeli (Budynki > Narzędzia): kiosk, ścienny, billboard, billboard dwustronny, na silos, na ścianę budynku (płasko na budynku) i wiszący (na prętach, do wnętrza magazynu).
 
-Changelog 1.4.1.3:
-- Biogazownie z DLC Pumps N' Hoses (oraz modów na nim opartych, np. PlanET PnH) są teraz widoczne na ekranach produkcji: jeden fermentor i jedna elektrownia na biogazownię, tak jak w menu produkcji gry.]]></pl>
+Changelog 1.4.2.0:
+- Większe ekrany: do 12 m szerokości (kiosk do 3 m, ścienny do 6 m).]]></pl>
         <cz><![CDATA[Better Digital Display (kiosk)
 Kategorie: Budovy > Nástroje
 Cena: 3 500 €
@@ -827,12 +827,12 @@ Prezentace: zaškrtněte několik obrazovek a monitor je bude ukazovat postupně
 
 Upozornění: blikající červený pruh a řádek v zápatí, když je silo téměř plné (od nastavené úrovně), chybí surovina, zvířatům dochází krmivo nebo voda, nádrž je plná, pole jsou připravená ke sklizni (a blíží se déšť), pomocníkovi dochází palivo nebo se produkt prodává za cenu, na kterou čekáte. Volitelně i jako herní zpráva pro všechny na farmě.
 
-Postavte se před něj a stiskněte klávesu aktivace pro nastavení: obrazovka skladu nebo farmy, připojená sila, velikost obrazovky (šířka 0,8 až 6 m), jas (5 úrovní, čitelné i v noci), barvy (noční modrá, zelená, jantarový terminál, denní světlo), vlastní nadpis, sklad, ceny nebo historie, zobrazené produkty, upozornění, úroveň téměř plno, cenové upozornění a prezentace. Všichni na serveru vidí stejná nastavení a ukládají se spolu s hrou.
+Postavte se před něj a stiskněte klávesu aktivace pro nastavení: obrazovka skladu nebo farmy, připojená sila, velikost obrazovky (šířka 0,8 až 12 m), jas (5 úrovní, čitelné i v noci), barvy (noční modrá, zelená, jantarový terminál, denní světlo), vlastní nadpis, sklad, ceny nebo historie, zobrazené produkty, upozornění, úroveň téměř plno, cenové upozornění a prezentace. Všichni na serveru vidí stejná nastavení a ukládají se spolu s hrou.
 
 Sedm modelů (Budovy > Nástroje): kiosk, nástěnný, billboard, oboustranný billboard, na silo, na zeď budovy (naplocho na budovu) a závěsný (na tyčích, dovnitř skladu).
 
-Changelog 1.4.1.3:
-- Bioplynové stanice z DLC Pumps N' Hoses (a z modů na něm založených, např. PlanET PnH) se nyní zobrazují na obrazovkách výroby: jeden fermentor a jedna elektrárna na stanici, stejně jako ve výrobním menu hry.]]></cz>
+Changelog 1.4.2.0:
+- Větší obrazovky: šířka až 12 m (kiosk až 3 m, nástěnný až 6 m).]]></cz>
         <ru><![CDATA[Better Digital Display (киоск)
 Категория: Здания > Инструменты
 Цена: 3 500 €
@@ -902,12 +902,12 @@ Better Digital Display (подвесной)
 
 Оповещения: мигающая красная полоса и строка внизу экрана, когда силос почти полон (от заданного уровня), закончилось сырьё, у животных мало корма или воды, бак полон, поля готовы к уборке (и приближается дождь), у работника кончается топливо или продукт продаётся по цене, которую вы ждёте. По желанию также игровым сообщением для всех на ферме.
 
-Встаньте перед ним и нажмите клавишу действия, чтобы открыть настройки: экран хранилища или фермы, подключённые силосы, размер экрана (ширина от 0,8 до 6 м), яркость (5 уровней, читается ночью), цвета (ночной синий, зелёный, янтарный терминал, дневной свет), свой заголовок, хранилище, цены или история, показанные продукты, оповещения, уровень «почти полно», ценовое оповещение и слайд-шоу. Все на сервере видят одни и те же настройки, и они сохраняются вместе с игрой.
+Встаньте перед ним и нажмите клавишу действия, чтобы открыть настройки: экран хранилища или фермы, подключённые силосы, размер экрана (ширина от 0,8 до 12 м), яркость (5 уровней, читается ночью), цвета (ночной синий, зелёный, янтарный терминал, дневной свет), свой заголовок, хранилище, цены или история, показанные продукты, оповещения, уровень «почти полно», ценовое оповещение и слайд-шоу. Все на сервере видят одни и те же настройки, и они сохраняются вместе с игрой.
 
 Семь моделей (Здания > Инструменты): киоск, стена, билборд, двусторонний билборд, на силос, на стену здания (вплотную к зданию) и подвесной (на штангах, для установки внутри склада).
 
-Changelog 1.4.1.3:
-- Биогазовые установки из DLC Pumps N' Hoses (и модов на его основе, например PlanET PnH) теперь отображаются на экранах производств: один ферментер и одна электростанция на установку, как в меню производств игры.]]></ru>
+Changelog 1.4.2.0:
+- Экраны больше: ширина до 12 м (киоск до 3 м, стена до 6 м).]]></ru>
         <uk><![CDATA[Better Digital Display (кіоск)
 Категорія: Будівлі > Інструменти
 Ціна: 3 500 €
@@ -977,12 +977,12 @@ Better Digital Display (підвісний)
 
 Сповіщення: блимаюча червона смуга й рядок унизу екрана, коли силос майже повний (від заданого рівня), скінчилася сировина, тваринам бракує корму чи води, бак повний, поля готові до збирання (і наближається дощ), у працівника закінчується пальне або продукт продається за ціною, на яку ви чекаєте. За бажанням також ігровим повідомленням для всіх на фермі.
 
-Станьте перед ним і натисніть клавішу дії, щоб відкрити налаштування: екран сховища чи ферми, під'єднані силоси, розмір екрана (ширина від 0,8 до 6 м), яскравість (5 рівнів, читається вночі), кольори (нічний синій, зелений, бурштиновий термінал, денне світло), власний заголовок, сховище, ціни чи історія, показані продукти, сповіщення, рівень «майже повно», цінове сповіщення та слайд-шоу. Усі на сервері бачать однакові налаштування, і вони зберігаються разом із грою.
+Станьте перед ним і натисніть клавішу дії, щоб відкрити налаштування: екран сховища чи ферми, під'єднані силоси, розмір екрана (ширина від 0,8 до 12 м), яскравість (5 рівнів, читається вночі), кольори (нічний синій, зелений, бурштиновий термінал, денне світло), власний заголовок, сховище, ціни чи історія, показані продукти, сповіщення, рівень «майже повно», цінове сповіщення та слайд-шоу. Усі на сервері бачать однакові налаштування, і вони зберігаються разом із грою.
 
 Сім моделей (Будівлі > Інструменти): кіоск, стіна, білборд, двосторонній білборд, на силос, на стіну будівлі (впритул до будівлі) і підвісний (на штангах, для встановлення всередині складу).
 
-Changelog 1.4.1.3:
-- Біогазові установки з DLC Pumps N' Hoses (і модів на його основі, наприклад PlanET PnH) тепер показуються на екранах виробництв: один ферментер і одна електростанція на установку, як у меню виробництв гри.]]></uk>
+Changelog 1.4.2.0:
+- Більші екрани: ширина до 12 м (кіоск до 3 м, стіна до 6 м).]]></uk>
         <hu><![CDATA[Better Digital Display (kioszk)
 Kategória: Épületek > Eszközök
 Ár: 3 500 €
@@ -1052,12 +1052,12 @@ Diavetítés: jelölj be több képernyőt, és a monitor felváltva mutatja ők
 
 Riasztások: villogó piros csík és egy sor a láblécben, ha egy siló majdnem tele van (a beállított szinttől), egy alapanyag elfogyott, az állatoknak fogy a takarmánya vagy a vize, egy tartály tele van, földek arathatók (és eső közeleg), egy segítőnek fogy az üzemanyaga, vagy egy termék azon az áron kel el, amire vársz. Kérésre játékbeli üzenetként is a farm minden tagjának.
 
-Állj elé, és nyomd meg az aktiválás gombot a beállításokhoz: tároló- vagy farmképernyő, csatlakoztatott silók, képernyőméret (0,8-6 m széles), fényerő (5 fokozat, éjjel is olvasható), színek (éjkék, zöld, borostyán terminál, nappali fény), saját cím, tároló, árak vagy előzmények, a látható termékek, riasztások, a majdnem tele szint, árriasztás és a diavetítés. A szerveren mindenki ugyanazokat a beállításokat látja, és ezek a játékkal együtt mentődnek.
+Állj elé, és nyomd meg az aktiválás gombot a beállításokhoz: tároló- vagy farmképernyő, csatlakoztatott silók, képernyőméret (0,8-12 m széles), fényerő (5 fokozat, éjjel is olvasható), színek (éjkék, zöld, borostyán terminál, nappali fény), saját cím, tároló, árak vagy előzmények, a látható termékek, riasztások, a majdnem tele szint, árriasztás és a diavetítés. A szerveren mindenki ugyanazokat a beállításokat látja, és ezek a játékkal együtt mentődnek.
 
 Hét modell (Épületek > Eszközök): kioszk, fali, óriásplakát, kétoldalas óriásplakát, silóra szerelt, épületfalra szerelt (laposan az épületen) és függesztett (rudakon, tárolón belülre).
 
-Changelog 1.4.1.3:
-- A Pumps N' Hoses DLC (és az erre épülő modok, például a PlanET PnH) biogázüzemei most megjelennek a termelési képernyőkön: üzemenként egy fermentor és egy erőmű, ahogy a játék termelési menüjében.]]></hu>
+Changelog 1.4.2.0:
+- Nagyobb képernyők: legfeljebb 12 m szélesek (kioszk legfeljebb 3 m, fali legfeljebb 6 m).]]></hu>
         <ro><![CDATA[Better Digital Display (chioșc)
 Categorie: Clădiri > Unelte
 Preț: 3.500 €
@@ -1127,12 +1127,12 @@ Prezentare: bifează mai multe ecrane și monitorul le arată pe rând (câte 10
 
 Alerte: o bandă roșie care clipește și un rând în subsol când un siloz e aproape plin (de la nivelul ales), o materie primă s-a terminat, animalele rămân fără hrană sau apă, un rezervor e plin, câmpurile sunt gata de recoltat (și vine ploaia), unui muncitor i se termină combustibilul sau un produs se vinde la prețul pe care îl aștepți. Opțional și ca mesaj în joc pentru toți cei din fermă.
 
-Stai în fața lui și apasă tasta de activare pentru setări: ecranul de depozit sau de fermă, silozurile conectate, mărimea ecranului (0,8 până la 6 m lățime), luminozitatea (5 niveluri, lizibil noaptea), culorile (albastru de noapte, verde, terminal chihlimbar, lumina zilei), propriul titlu, depozit, prețuri sau istoric, produsele afișate, alerte, nivelul aproape plin, o alertă de preț și prezentarea. Toți cei de pe server văd aceleași setări și ele se salvează odată cu jocul.
+Stai în fața lui și apasă tasta de activare pentru setări: ecranul de depozit sau de fermă, silozurile conectate, mărimea ecranului (0,8 până la 12 m lățime), luminozitatea (5 niveluri, lizibil noaptea), culorile (albastru de noapte, verde, terminal chihlimbar, lumina zilei), propriul titlu, depozit, prețuri sau istoric, produsele afișate, alerte, nivelul aproape plin, o alertă de preț și prezentarea. Toți cei de pe server văd aceleași setări și ele se salvează odată cu jocul.
 
 Șapte modele (Clădiri > Unelte): chioșc, perete, panou publicitar, panou publicitar dublu, pe siloz, pe peretele clădirii (lipit de clădire) și suspendat (pe tije, pentru interiorul unei magazii).
 
-Changelog 1.4.1.3:
-- Centralele de biogaz din DLC-ul Pumps N' Hoses (și din modurile bazate pe el, precum PlanET PnH) apar acum în ecranele de producție: un fermentator și o centrală electrică pe instalație, ca în meniul de producție al jocului.]]></ro>
+Changelog 1.4.2.0:
+- Ecrane mai mari: până la 12 m lățime (chioșc până la 3 m, perete până la 6 m).]]></ro>
         <nl><![CDATA[Better Digital Display (Kiosk)
 Categorie: Gebouwen > Gereedschap
 Prijs: € 3.500
@@ -1202,12 +1202,12 @@ Diavoorstelling: vink meerdere schermen aan en de monitor toont ze om de beurt (
 
 Meldingen: een knipperende rode streep en een regel onderaan als een silo bijna vol is (vanaf het ingestelde niveau), een grondstof op is, dieren bijna geen voer of water meer hebben, een tank vol is, velden oogstklaar zijn (en er regen aankomt), een helper zonder brandstof komt te staan, of een product de prijs oplevert waarop je wacht. Desgewenst ook als spelbericht voor iedereen op de boerderij.
 
-Ga ervoor staan en druk op de activeertoets voor de instellingen: de opslag of het boerderijscherm, gekoppelde silo's, schermgrootte (0,8 tot 6 m breed), helderheid (5 standen, 's nachts leesbaar), kleuren (nachtblauw, groen, amber terminal, daglicht), je eigen titel, opslag, prijzen of verloop, de getoonde producten, meldingen, het niveau voor bijna vol, een prijsmelding en de diavoorstelling. Iedereen op de server ziet dezelfde instellingen en ze worden met het spel opgeslagen.
+Ga ervoor staan en druk op de activeertoets voor de instellingen: de opslag of het boerderijscherm, gekoppelde silo's, schermgrootte (0,8 tot 12 m breed), helderheid (5 standen, 's nachts leesbaar), kleuren (nachtblauw, groen, amber terminal, daglicht), je eigen titel, opslag, prijzen of verloop, de getoonde producten, meldingen, het niveau voor bijna vol, een prijsmelding en de diavoorstelling. Iedereen op de server ziet dezelfde instellingen en ze worden met het spel opgeslagen.
 
 Zeven modellen (Gebouwen > Gereedschap): Kiosk, Muur, Reclamebord, Dubbelzijdig reclamebord, Silohouder, Wandhouder (plat op een gebouw) en Hangend (aan stangen, voor in een loods).
 
-Changelog 1.4.1.3:
-- Biogasinstallaties van de Pumps N' Hoses DLC (en mods die erop voortbouwen, zoals PlanET PnH) verschijnen nu in de productieschermen: één vergister en één energiecentrale per installatie, zoals in het productiemenu van het spel.]]></nl>
+Changelog 1.4.2.0:
+- Grotere schermen: tot 12 m breed (Kiosk tot 3 m, Muur tot 6 m).]]></nl>
         <da><![CDATA[Better Digital Display (Kiosk)
 Kategori: Bygninger > Værktøj
 Pris: 3.500 €
@@ -1277,12 +1277,12 @@ Diasshow: sæt hak ved flere skærme, og monitoren viser dem på skift (10 til 6
 
 Advarsler: en blinkende rød stribe og en linje i bunden, når en silo er næsten fuld (fra det niveau, du vælger), en råvare er tom, dyrene mangler foder eller vand, en tank er fuld, marker er klar til høst (og der kommer regn), en medhjælper løber tør for brændstof, eller et produkt sælges for den pris, du venter på. Hvis ønsket også som spilbesked til alle på gården.
 
-Stil dig foran den, og tryk på aktiveringstasten for indstillingerne: lageret eller gårdskærmen, forbundne siloer, skærmstørrelse (0,8 til 6 m bred), lysstyrke (5 niveauer, læsbar om natten), farver (natteblå, grøn, ravgul terminal, dagslys), din egen titel, lager, priser eller historik, de viste produkter, advarsler, niveauet for næsten fuld, en prisadvarsel og diasshowet. Alle på serveren ser de samme indstillinger, og de gemmes med spillet.
+Stil dig foran den, og tryk på aktiveringstasten for indstillingerne: lageret eller gårdskærmen, forbundne siloer, skærmstørrelse (0,8 til 12 m bred), lysstyrke (5 niveauer, læsbar om natten), farver (natteblå, grøn, ravgul terminal, dagslys), din egen titel, lager, priser eller historik, de viste produkter, advarsler, niveauet for næsten fuld, en prisadvarsel og diasshowet. Alle på serveren ser de samme indstillinger, og de gemmes med spillet.
 
 Syv modeller (Bygninger > Værktøj): Kiosk, Væg, Reklameskilt, Dobbeltsidet reklameskilt, Siloholder, Vægbeslag (fladt på en bygning) og Hængende (på stænger, til inde i en hal).
 
-Changelog 1.4.1.3:
-- Biogasanlæg fra Pumps N' Hoses DLC'en (og mods bygget på den, f.eks. PlanET PnH) vises nu på produktionsskærmene: én reaktortank og ét kraftværk pr. anlæg, som i spillets produktionsmenu.]]></da>
+Changelog 1.4.2.0:
+- Større skærme: op til 12 m brede (Kiosk op til 3 m, Væg op til 6 m).]]></da>
         <sv><![CDATA[Better Digital Display (Kiosk)
 Kategori: Byggnader > Verktyg
 Pris: 3 500 €
@@ -1352,12 +1352,12 @@ Bildspel: kryssa för flera skärmar så visar monitorn dem i tur och ordning (1
 
 Varningar: en blinkande röd rand och en rad längst ner när en silo är nästan full (från den nivå du väljer), en råvara är slut, djuren har ont om foder eller vatten, en tank är full, fält är redo för skörd (och regn är på väg), en medhjälpare får slut på bränsle, eller en produkt säljs för det pris du väntar på. Vid önskemål även som spelmeddelande till alla på gården.
 
-Ställ dig framför den och tryck på aktiveringsknappen för inställningarna: lagret eller gårdsskärmen, anslutna silor, skärmstorlek (0,8 till 6 m bred), ljusstyrka (5 nivåer, läsbar på natten), färger (nattblå, grön, bärnstensterminal, dagsljus), din egen titel, lager, priser eller historik, de visade produkterna, varningar, nivån för nästan full, en prisvarning och bildspelet. Alla på servern ser samma inställningar och de sparas med spelet.
+Ställ dig framför den och tryck på aktiveringsknappen för inställningarna: lagret eller gårdsskärmen, anslutna silor, skärmstorlek (0,8 till 12 m bred), ljusstyrka (5 nivåer, läsbar på natten), färger (nattblå, grön, bärnstensterminal, dagsljus), din egen titel, lager, priser eller historik, de visade produkterna, varningar, nivån för nästan full, en prisvarning och bildspelet. Alla på servern ser samma inställningar och de sparas med spelet.
 
 Sju modeller (Byggnader > Verktyg): Kiosk, Vägg, Reklamskylt, Dubbelsidig reklamskylt, Silofäste, Väggfäste (platt på en byggnad) och Hängande (i stänger, för inne i en hall).
 
-Changelog 1.4.1.3:
-- Biogasanläggningar från Pumps N' Hoses DLC (och moddar byggda på den, som PlanET PnH) visas nu på produktionsskärmarna: en rötkammare och ett kraftverk per anläggning, som i spelets produktionsmeny.]]></sv>
+Changelog 1.4.2.0:
+- Större skärmar: upp till 12 m breda (Kiosk upp till 3 m, Vägg upp till 6 m).]]></sv>
         <no><![CDATA[Better Digital Display (Kiosk)
 Kategori: Bygninger > Verktøy
 Pris: 3 500 €
@@ -1427,12 +1427,12 @@ Bildeserie: kryss av flere skjermbilder, så viser skjermen dem etter tur (10 ti
 
 Varsler: en blinkende rød stripe og en linje nederst når en silo er nesten full (fra nivået du velger), en råvare er tom, dyrene har lite fôr eller vann, en tank er full, jorder er klare til høsting (og det kommer regn), en medhjelper går tom for drivstoff, eller et produkt selges for prisen du venter på. Om ønskelig også som spillmelding til alle på gården.
 
-Stå foran den og trykk på aktiveringstasten for innstillingene: lageret eller gårdsskjermbildet, tilkoblede siloer, skjermstørrelse (0,8 til 6 m bred), lysstyrke (5 nivåer, lesbar om natten), farger (nattblå, grønn, ravgul terminal, dagslys), din egen tittel, lager, priser eller historikk, de viste produktene, varsler, nivået for nesten full, et prisvarsel og bildeserien. Alle på serveren ser de samme innstillingene, og de lagres med spillet.
+Stå foran den og trykk på aktiveringstasten for innstillingene: lageret eller gårdsskjermbildet, tilkoblede siloer, skjermstørrelse (0,8 til 12 m bred), lysstyrke (5 nivåer, lesbar om natten), farger (nattblå, grønn, ravgul terminal, dagslys), din egen tittel, lager, priser eller historikk, de viste produktene, varsler, nivået for nesten full, et prisvarsel og bildeserien. Alle på serveren ser de samme innstillingene, og de lagres med spillet.
 
 Sju modeller (Bygninger > Verktøy): Kiosk, Vegg, Reklametavle, Tosidig reklametavle, Siloholder, Veggfeste (flatt på en bygning) og Hengende (i stenger, for inne i en hall).
 
-Changelog 1.4.1.3:
-- Biogassanlegg fra Pumps N' Hoses DLC-en (og modder bygget på den, som PlanET PnH) vises nå på produksjonsskjermene: én råtnetank og ett kraftverk per anlegg, som i spillets produksjonsmeny.]]></no>
+Changelog 1.4.2.0:
+- Større skjermer: opptil 12 m brede (Kiosk opptil 3 m, Vegg opptil 6 m).]]></no>
         <fi><![CDATA[Better Digital Display (Kioski)
 Kategoria: Rakennukset > Työkalut
 Hinta: 3 500 €
@@ -1502,12 +1502,12 @@ Diaesitys: valitse useita näkymiä, niin näyttö näyttää ne vuorotellen (ku
 
 Hälytykset: vilkkuva punainen raita ja rivi alareunassa, kun siilo on lähes täynnä (asettamastasi rajasta alkaen), raaka-aine on lopussa, eläimiltä on loppumassa rehu tai vesi, säiliö on täynnä, peltoja on korjuuvalmiina (ja sadetta on tulossa), apulaiselta loppuu polttoaine tai tuotteesta maksetaan odottamasi hinta. Halutessasi myös pelin viestinä kaikille tilan pelaajille.
 
-Seiso sen edessä ja paina aktivointinäppäintä avataksesi asetukset: varasto tai tilan näkymä, yhdistetyt siilot, näytön koko (0,8–6 m leveä), kirkkaus (5 tasoa, luettavissa yölläkin), värit (yönsininen, vihreä, meripihkapääte, päivänvalo), oma otsikko, varasto, hinnat tai historia, näytettävät tuotteet, hälytykset, lähes täynnä -raja, hintahälytys ja diaesitys. Kaikki palvelimella näkevät samat asetukset, ja ne tallentuvat pelin mukana.
+Seiso sen edessä ja paina aktivointinäppäintä avataksesi asetukset: varasto tai tilan näkymä, yhdistetyt siilot, näytön koko (0,8–12 m leveä), kirkkaus (5 tasoa, luettavissa yölläkin), värit (yönsininen, vihreä, meripihkapääte, päivänvalo), oma otsikko, varasto, hinnat tai historia, näytettävät tuotteet, hälytykset, lähes täynnä -raja, hintahälytys ja diaesitys. Kaikki palvelimella näkevät samat asetukset, ja ne tallentuvat pelin mukana.
 
 Seitsemän mallia (Rakennukset > Työkalut): Kioski, Seinä, Mainostaulu, Kaksipuolinen mainostaulu, Siiloteline, Seinäteline (litteänä rakennuksen seinällä) ja Riippuva (tankojen varassa, hallin sisälle).
 
-Changelog 1.4.1.3:
-- Pumps N' Hoses -DLC:n (ja sen päälle rakennettujen modien, kuten PlanET PnH) biokaasulaitokset näkyvät nyt tuotantonäytöillä: yksi mädätin ja yksi voimalaitos laitosta kohden, kuten pelin tuotantovalikossa.]]></fi>
+Changelog 1.4.2.0:
+- Isommat näytöt: jopa 12 m leveät (Kioski enintään 3 m, Seinä enintään 6 m).]]></fi>
         <tr><![CDATA[Better Digital Display (Kiosk)
 Kategori: Binalar > Aletler
 Fiyat: 3.500 €
@@ -1577,12 +1577,12 @@ Slayt gösterisi: birkaç ekranı işaretle, monitör onları sırayla gösterir
 
 Uyarılar: bir silo neredeyse dolduğunda (belirlediğin seviyeden itibaren), bir girdi bittiğinde, hayvanların yemi veya suyu azaldığında, bir tank dolduğunda, tarlalar hasada hazır olduğunda (ve yağmur yaklaşırken), bir yardımcının yakıtı bittiğinde ya da bir ürün beklediğin fiyata satıldığında yanıp sönen kırmızı bir şerit ve altta bir satır. İstersen çiftlikteki herkes için oyun mesajı olarak da.
 
-Önünde dur ve ayarlar için etkinleştirme tuşuna bas: depo ya da çiftlik ekranı, bağlı silolar, ekran boyutu (0,8 ila 6 m genişlik), parlaklık (5 seviye, gece okunabilir), renkler (gece mavisi, yeşil, kehribar terminal, gün ışığı), kendi başlığın, depo, fiyatlar ya da geçmiş, gösterilen ürünler, uyarılar, neredeyse dolu eşiği, fiyat uyarısı ve slayt gösterisi. Sunucudaki herkes aynı ayarları görür ve ayarlar oyunla birlikte kaydedilir.
+Önünde dur ve ayarlar için etkinleştirme tuşuna bas: depo ya da çiftlik ekranı, bağlı silolar, ekran boyutu (0,8 ila 12 m genişlik), parlaklık (5 seviye, gece okunabilir), renkler (gece mavisi, yeşil, kehribar terminal, gün ışığı), kendi başlığın, depo, fiyatlar ya da geçmiş, gösterilen ürünler, uyarılar, neredeyse dolu eşiği, fiyat uyarısı ve slayt gösterisi. Sunucudaki herkes aynı ayarları görür ve ayarlar oyunla birlikte kaydedilir.
 
 Yedi model (Binalar > Aletler): Kiosk, Duvar, Reklam Panosu, Çift Taraflı Reklam Panosu, Silo Montajlı, Duvar Montajlı (bir binaya düz olarak) ve Asılı (çubuklarla, bir sundurmanın içi için).
 
-Changelog 1.4.1.3:
-- Pumps N' Hoses DLC'sinin (ve PlanET PnH gibi ona dayanan modların) biyogaz tesisleri artık üretim ekranlarında görünüyor: oyunun üretim menüsünde olduğu gibi tesis başına bir fermentör ve bir enerji santrali.]]></tr>
+Changelog 1.4.2.0:
+- Daha büyük ekranlar: 12 m genişliğe kadar (Kiosk 3 m'ye, Duvar 6 m'ye kadar).]]></tr>
         <jp><![CDATA[Better Digital Display（キオスク）
 カテゴリー：建物 > ツール
 価格：$3,500
@@ -1652,12 +1652,12 @@ Better Digital Display（吊り下げ）
 
 警告：サイロがほぼ満杯（設定した基準から）、原料が空、動物の飼料や水が不足、タンクが満杯、畑が収穫可能（雨が近いときも）、ヘルパーの燃料切れ、または製品が待っていた価格で売れるとき、赤いストライプが点滅し、フッターに1行表示されます。オプションで、農場の全員にゲーム内メッセージとしても通知できます。
 
-モニターの前に立って起動キーを押すと設定を開けます：保管庫または農場画面、接続されたサイロ、画面サイズ（幅0.8～6 m）、明るさ（5段階、夜間も見やすい）、配色（ナイトブルー、グリーン、アンバー端末、デイライト）、独自のタイトル、保管庫・価格・履歴の表示切替、表示する製品、警告、ほぼ満杯の基準、価格アラート、スライドショー。サーバー上の全員が同じ設定を見ることができ、設定はゲームと一緒に保存されます。
+モニターの前に立って起動キーを押すと設定を開けます：保管庫または農場画面、接続されたサイロ、画面サイズ（幅0.8～12 m）、明るさ（5段階、夜間も見やすい）、配色（ナイトブルー、グリーン、アンバー端末、デイライト）、独自のタイトル、保管庫・価格・履歴の表示切替、表示する製品、警告、ほぼ満杯の基準、価格アラート、スライドショー。サーバー上の全員が同じ設定を見ることができ、設定はゲームと一緒に保存されます。
 
 7種類のモデル（建物 > ツール）：キオスク、ウォール、看板、両面看板、サイロ取付、壁掛け（建物に平らに取り付け）、吊り下げ（ロッドで吊るす、倉庫内向け）。
 
-Changelog 1.4.1.3:
-- Pumps N' Hoses DLC（およびPlanET PnHなどそれを基にしたMOD）のバイオガスプラントが生産画面に表示されるようになりました。ゲームの生産メニューと同じく、プラントごとに発酵槽1つと発電所1つです。]]></jp>
+Changelog 1.4.2.0:
+- より大きな画面：幅12 mまで（キオスクは3 mまで、ウォールは6 mまで）。]]></jp>
         <kr><![CDATA[Better Digital Display (키오스크)
 카테고리: 건물 > 도구
 가격: $3,500
@@ -1727,12 +1727,12 @@ Better Digital Display (천장걸이형)
 
 경고: 사일로가 거의 가득 찼을 때(설정한 기준부터), 투입물이 비었을 때, 동물의 사료나 물이 부족할 때, 탱크가 가득 찼을 때, 밭을 수확할 수 있을 때(비가 올 때도), 일꾼의 연료가 떨어질 때, 또는 기다리던 가격에 제품이 팔릴 때 빨간 줄이 깜박이고 하단에 한 줄이 표시됩니다. 선택하면 농장의 모든 사람에게 게임 메시지로도 알립니다.
 
-모니터 앞에 서서 활성화 키를 누르면 설정이 열립니다: 저장소 또는 농장 화면, 연결된 사일로, 화면 크기(너비 0.8~6 m), 밝기(5단계, 밤에도 잘 보임), 색상(나이트 블루, 그린, 앰버 터미널, 주광), 직접 정하는 제목, 저장소·가격·기록 표시, 표시할 제품, 경고, 거의 가득 참 기준, 가격 알림, 슬라이드쇼. 서버의 모든 사람이 같은 설정을 보며, 설정은 게임과 함께 저장됩니다.
+모니터 앞에 서서 활성화 키를 누르면 설정이 열립니다: 저장소 또는 농장 화면, 연결된 사일로, 화면 크기(너비 0.8~12 m), 밝기(5단계, 밤에도 잘 보임), 색상(나이트 블루, 그린, 앰버 터미널, 주광), 직접 정하는 제목, 저장소·가격·기록 표시, 표시할 제품, 경고, 거의 가득 참 기준, 가격 알림, 슬라이드쇼. 서버의 모든 사람이 같은 설정을 보며, 설정은 게임과 함께 저장됩니다.
 
 7가지 모델(건물 > 도구): 키오스크, 월, 빌보드, 양면 빌보드, 사일로 거치형, 벽걸이형(건물 벽에 평평하게 부착), 천장걸이형(봉에 매달아 창고 안에 설치).
 
-Changelog 1.4.1.3:
-- Pumps N' Hoses DLC(및 PlanET PnH 등 이를 기반으로 한 모드)의 바이오가스 플랜트가 이제 생산 화면에 표시됩니다. 게임의 생산 메뉴처럼 플랜트마다 발효조 1개와 발전소 1개로 표시됩니다.]]></kr>
+Changelog 1.4.2.0:
+- 더 큰 화면: 너비 최대 12 m(키오스크는 최대 3 m, 월은 최대 6 m).]]></kr>
         <cs><![CDATA[Better Digital Display（信息亭）
 类别：建筑 > 工具
 价格：$3,500
@@ -1802,12 +1802,12 @@ Better Digital Display（悬挂）
 
 警报：当筒仓快满（从你设定的阈值起）、原料耗尽、动物饲料或水不足、储罐已满、田地可收获（以及即将下雨）、雇工燃料耗尽，或产品达到你等待的价格时，会出现闪烁的红色条纹，并在底部显示一行提示。也可选择以游戏消息的形式通知农场中的所有人。
 
-站在它面前按下激活键即可打开设置：仓储或农场画面、相连的筒仓、屏幕尺寸（宽 0.8 到 6 米）、亮度（5 档，夜间也清晰可读）、配色（夜蓝、绿色、琥珀终端、日光）、自定义标题、仓储/价格/历史、显示的产品、警报、快满阈值、价格提醒和轮播。服务器上的所有人看到的设置都相同，并随游戏一起保存。
+站在它面前按下激活键即可打开设置：仓储或农场画面、相连的筒仓、屏幕尺寸（宽 0.8 到 12 米）、亮度（5 档，夜间也清晰可读）、配色（夜蓝、绿色、琥珀终端、日光）、自定义标题、仓储/价格/历史、显示的产品、警报、快满阈值、价格提醒和轮播。服务器上的所有人看到的设置都相同，并随游戏一起保存。
 
 七种型号（建筑 > 工具）：信息亭、屏幕墙、广告牌、双面广告牌、筒仓挂装、壁挂（平贴在建筑上）和悬挂（用吊杆悬挂，适合棚屋内部）。
 
-Changelog 1.4.1.3:
-- Pumps N' Hoses DLC（以及基于它的模组，如 PlanET PnH）的沼气厂现在会显示在生产屏幕中：与游戏的生产菜单一样，每座沼气厂显示一个发酵罐和一个发电站。]]></cs>
+Changelog 1.4.2.0:
+- 更大的屏幕：宽度最高 12 米（信息亭最高 3 米，屏幕墙最高 6 米）。]]></cs>
         <ct><![CDATA[Better Digital Display（資訊亭）
 類別：建築 > 工具
 價格：$3,500
@@ -1877,12 +1877,12 @@ Better Digital Display（懸掛）
 
 警報：當筒倉快滿（從你設定的門檻起）、原料耗盡、動物飼料或水不足、儲槽已滿、田地可收穫（以及即將下雨）、雇工燃料耗盡，或產品達到你等待的價格時，會出現閃爍的紅色條紋，並在底部顯示一行提示。也可選擇以遊戲訊息的形式通知農場中的所有人。
 
-站在它面前按下啟動鍵即可開啟設定：倉儲或農場畫面、相連的筒倉、螢幕尺寸（寬 0.8 到 6 公尺）、亮度（5 段，夜間也清晰可讀）、配色（夜藍、綠色、琥珀終端、日光）、自訂標題、倉儲／價格／歷史、顯示的產品、警報、快滿門檻、價格提醒和輪播。伺服器上的所有人看到的設定都相同，並隨遊戲一起儲存。
+站在它面前按下啟動鍵即可開啟設定：倉儲或農場畫面、相連的筒倉、螢幕尺寸（寬 0.8 到 12 公尺）、亮度（5 段，夜間也清晰可讀）、配色（夜藍、綠色、琥珀終端、日光）、自訂標題、倉儲／價格／歷史、顯示的產品、警報、快滿門檻、價格提醒和輪播。伺服器上的所有人看到的設定都相同，並隨遊戲一起儲存。
 
 七種型號（建築 > 工具）：資訊亭、螢幕牆、廣告看板、雙面廣告看板、筒倉掛裝、壁掛（平貼在建築上）和懸掛（以吊桿懸掛，適合棚屋內部）。
 
-Changelog 1.4.1.3:
-- Pumps N' Hoses DLC（以及以其為基礎的模組，如 PlanET PnH）的沼氣廠現在會顯示在生產螢幕中：與遊戲的生產選單一樣，每座沼氣廠顯示一個發酵槽和一個發電站。]]></ct>
+Changelog 1.4.2.0:
+- 更大的螢幕：寬度最高 12 公尺（資訊亭最高 3 公尺，螢幕牆最高 6 公尺）。]]></ct>
         <id><![CDATA[Better Digital Display (Kios)
 Kategori: Bangunan > Alat
 Harga: $3.500
@@ -1952,12 +1952,12 @@ Tayangan slide: centang beberapa layar dan monitor menampilkannya secara bergant
 
 Peringatan: garis merah berkedip dan satu baris di bagian bawah saat silo hampir penuh (mulai dari tingkat yang Anda atur), bahan masuk kosong, hewan kekurangan pakan atau air, tangki penuh, ladang siap panen (dan hujan akan turun), pekerja kehabisan bahan bakar, atau produk terjual dengan harga yang Anda tunggu. Opsional juga sebagai pesan game untuk semua orang di pertanian.
 
-Berdirilah di depannya dan tekan tombol aktivasi untuk pengaturannya: layar penyimpanan atau pertanian, silo yang terhubung, ukuran layar (lebar 0,8 sampai 6 m), kecerahan (5 tingkat, terbaca di malam hari), warna (biru malam, hijau, terminal amber, siang hari), judul Anda sendiri, penyimpanan, harga atau riwayat, produk yang ditampilkan, peringatan, tingkat hampir penuh, peringatan harga, dan tayangan slide. Semua orang di server melihat pengaturan yang sama dan pengaturan disimpan bersama game.
+Berdirilah di depannya dan tekan tombol aktivasi untuk pengaturannya: layar penyimpanan atau pertanian, silo yang terhubung, ukuran layar (lebar 0,8 sampai 12 m), kecerahan (5 tingkat, terbaca di malam hari), warna (biru malam, hijau, terminal amber, siang hari), judul Anda sendiri, penyimpanan, harga atau riwayat, produk yang ditampilkan, peringatan, tingkat hampir penuh, peringatan harga, dan tayangan slide. Semua orang di server melihat pengaturan yang sama dan pengaturan disimpan bersama game.
 
 Tujuh model (Bangunan > Alat): Kios, Dinding Layar, Papan Reklame, Papan Reklame Dua Sisi, Dudukan Silo, Dudukan Dinding (rata pada bangunan), dan Gantung (pada batang, untuk di dalam gudang).
 
-Changelog 1.4.1.3:
-- Pembangkit biogas dari DLC Pumps N' Hoses (dan mod yang dibangun di atasnya, seperti PlanET PnH) kini tampil di layar produksi: satu fermentor dan satu pembangkit listrik per pembangkit, seperti di menu produksi game.]]></id>
+Changelog 1.4.2.0:
+- Layar lebih besar: hingga 12 m lebarnya (Kios hingga 3 m, Dinding Layar hingga 6 m).]]></id>
         <vi><![CDATA[Better Digital Display (Ki-ốt)
 Danh mục: Công trình > Công cụ
 Giá: $3.500
@@ -2027,12 +2027,12 @@ Trình chiếu: đánh dấu nhiều màn hình và màn hình sẽ lần lượ
 
 Cảnh báo: một dải đỏ nhấp nháy và một dòng ở chân màn hình khi xi-lô gần đầy (từ mức bạn đặt), một nguyên liệu đã hết, vật nuôi sắp thiếu thức ăn hoặc nước, một bồn đã đầy, ruộng sẵn sàng thu hoạch (và trời sắp mưa), nhân công sắp hết nhiên liệu, hoặc một sản phẩm bán được giá bạn đang chờ. Tùy chọn gửi thêm tin nhắn trong game cho mọi người trong trang trại.
 
-Đứng trước nó và nhấn phím kích hoạt để mở cài đặt: màn hình kho hoặc trang trại, các xi-lô được kết nối, kích thước màn hình (rộng 0,8 đến 6 m), độ sáng (5 mức, đọc được vào ban đêm), màu sắc (xanh đêm, xanh lá, màn hình hổ phách, ánh sáng ban ngày), tiêu đề riêng của bạn, kho, giá hoặc lịch sử, sản phẩm hiển thị, cảnh báo, mức gần đầy, cảnh báo giá và trình chiếu. Mọi người trên máy chủ đều thấy cùng cài đặt và cài đặt được lưu cùng trò chơi.
+Đứng trước nó và nhấn phím kích hoạt để mở cài đặt: màn hình kho hoặc trang trại, các xi-lô được kết nối, kích thước màn hình (rộng 0,8 đến 12 m), độ sáng (5 mức, đọc được vào ban đêm), màu sắc (xanh đêm, xanh lá, màn hình hổ phách, ánh sáng ban ngày), tiêu đề riêng của bạn, kho, giá hoặc lịch sử, sản phẩm hiển thị, cảnh báo, mức gần đầy, cảnh báo giá và trình chiếu. Mọi người trên máy chủ đều thấy cùng cài đặt và cài đặt được lưu cùng trò chơi.
 
 Bảy mẫu (Công trình > Công cụ): Ki-ốt, Tường màn hình, Bảng quảng cáo, Bảng quảng cáo hai mặt, Gắn xi-lô, Gắn tường (áp phẳng lên công trình) và Treo (trên thanh treo, dùng trong nhà kho).
 
-Changelog 1.4.1.3:
-- Các nhà máy biogas của DLC Pumps N' Hoses (và các mod dựa trên nó, như PlanET PnH) giờ hiển thị trên các màn hình sản xuất: mỗi nhà máy một bể lên men và một nhà máy điện, giống như trong menu sản xuất của trò chơi.]]></vi>
+Changelog 1.4.2.0:
+- Màn hình lớn hơn: rộng tới 12 m (Ki-ốt tới 3 m, Tường màn hình tới 6 m).]]></vi>
     </description>
 
     <iconFilename>icon_storageMonitor.dds</iconFilename>

@@ -6,17 +6,17 @@
   </Asset>
 
   <Files>
-    <File fileId="13" filename="$data/shaders/glowShader.xml"/>
-    <File fileId="11" filename="../textures/monitor_white_diffuse.dds"/>
-    <File fileId="14" filename="../textures/screen_night.dds"/>
+    <File fileId="12" filename="$data/shaders/glowShader.xml"/>
+    <File fileId="10" filename="../textures/monitor_white_diffuse.dds"/>
+    <File fileId="13" filename="../textures/screen_night.dds"/>
   </Files>
 
 
   <Materials>
     <Material name="monitor_accent" materialId="3" diffuseColor="0.129412 0.8 0.929412 1" emissiveColor="0.0705882 0.45098 0.521569 1" specularColor="0.701961 1 0">
     </Material>
-    <Material name="monitor_bar" materialId="6" specularColor="0.501961 1 0" customShaderId="13" customShaderVariation="staticLight">
-      <Texture fileId="11"/>
+    <Material name="monitor_bar" materialId="6" specularColor="0.501961 1 0" customShaderId="12" customShaderVariation="staticLight">
+      <Texture fileId="10"/>
       <CustomParameter name="emitColor" value="1 1 1 1"/>
     </Material>
     <Material name="monitor_base" materialId="4" diffuseColor="0.101961 0.109804 0.121569 1" specularColor="0.4 1 0">
@@ -27,8 +27,8 @@
     </Material>
     <Material name="monitor_metal" materialId="5" diffuseColor="0.301961 0.321569 0.34902 1" specularColor="0.65098 1 0">
     </Material>
-    <Material name="monitor_screen" materialId="7" specularColor="0.74902 1 0" customShaderId="13" customShaderVariation="staticLight">
-      <Texture fileId="14"/>
+    <Material name="monitor_screen" materialId="7" specularColor="0.74902 1 0" customShaderId="12" customShaderVariation="staticLight">
+      <Texture fileId="13"/>
       <CustomParameter name="lightControl" value="0.25"/>
     </Material>
   </Materials>
@@ -38,29 +38,25 @@
   </Shapes>
 
   <Scene>
-    <TransformGroup name="storageMonitor_kiosk" clipDistance="200" nodeId="25">
-      <TransformGroup name="collisions" nodeId="26">
-        <Shape name="collision_080" shapeId="1" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="27" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
-        <Shape name="collision_120" shapeId="2" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="28" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
-        <Shape name="collision_160" shapeId="3" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="29" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
-        <Shape name="collision_200" shapeId="4" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="30" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
-        <Shape name="collision_240" shapeId="5" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="31" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
-        <Shape name="collision_300" shapeId="6" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="32" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
-        <Shape name="collision_360" shapeId="7" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="33" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
-        <Shape name="collision_420" shapeId="8" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="34" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
-        <Shape name="collision_480" shapeId="9" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="35" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
-        <Shape name="collision_600" shapeId="10" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="36" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
+    <TransformGroup name="storageMonitor_kiosk" clipDistance="200" nodeId="21">
+      <TransformGroup name="collisions" nodeId="22">
+        <Shape name="collision_080" shapeId="1" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="23" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
+        <Shape name="collision_120" shapeId="2" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="24" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
+        <Shape name="collision_160" shapeId="3" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="25" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
+        <Shape name="collision_200" shapeId="4" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="26" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
+        <Shape name="collision_240" shapeId="5" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="27" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
+        <Shape name="collision_300" shapeId="6" static="true" collisionFilterGroup="0x1034" collisionFilterMask="0xfffffbff" nodeId="28" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" nonRenderable="true" materialIds="1,2,3,4,5"/>
       </TransformGroup>
-      <Shape name="infoTrigger" shapeId="11" static="true" trigger="true" collisionFilterGroup="0x20000000" collisionFilterMask="0x100000" nodeId="37" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1"/>
-      <TransformGroup name="mount" nodeId="38">
-        <Shape name="body" shapeId="2" clipDistance="200" nodeId="39" castsShadows="true" receiveShadows="true" materialIds="1,2,3,4,5"/>
-        <TransformGroup name="screen" translation="0 1.40382 0.0216658" rotation="-10 -0 0" nodeId="40">
-          <Shape name="barTemplate" translation="0 1.42492e-07 -9.31323e-09" rotation="-8.53774e-07 -0 0" shapeId="12" visibility="false" clipDistance="200" nodeId="41" castsShadows="false" receiveShadows="false" materialIds="6"/>
-          <Shape name="iconTemplate" translation="0 1.42492e-07 -9.31323e-09" rotation="-8.53774e-07 -0 0" shapeId="13" visibility="false" clipDistance="200" nodeId="42" castsShadows="false" receiveShadows="false" materialIds="6"/>
+      <Shape name="infoTrigger" shapeId="7" static="true" trigger="true" collisionFilterGroup="0x20000000" collisionFilterMask="0x100000" nodeId="29" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" nonRenderable="true" materialIds="1"/>
+      <TransformGroup name="mount" nodeId="30">
+        <Shape name="body" shapeId="2" clipDistance="200" nodeId="31" castsShadows="true" receiveShadows="true" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" materialIds="1,2,3,4,5"/>
+        <TransformGroup name="screen" translation="0 1.40382 0.0216658" rotation="-10 -0 0" nodeId="32">
+          <Shape name="barTemplate" translation="0 1.42492e-07 -9.31323e-09" rotation="-8.53774e-07 -0 0" shapeId="8" visibility="false" clipDistance="200" nodeId="33" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" materialIds="6"/>
+          <Shape name="iconTemplate" translation="0 1.42492e-07 -9.31323e-09" rotation="-8.53774e-07 -0 0" shapeId="9" visibility="false" clipDistance="200" nodeId="34" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" materialIds="6"/>
         </TransformGroup>
-        <Shape name="screenGlass" shapeId="14" clipDistance="200" nodeId="43" castsShadows="false" receiveShadows="true" materialIds="7"/>
+        <Shape name="screenGlass" shapeId="10" clipDistance="200" nodeId="35" castsShadows="false" receiveShadows="true" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" materialIds="7"/>
       </TransformGroup>
-      <Shape name="playerTrigger" shapeId="11" static="true" trigger="true" collisionFilterGroup="0x20000000" collisionFilterMask="0x100000" nodeId="44" castsShadows="false" receiveShadows="false" nonRenderable="true" materialIds="1"/>
+      <Shape name="playerTrigger" shapeId="7" static="true" trigger="true" collisionFilterGroup="0x20000000" collisionFilterMask="0x100000" nodeId="36" castsShadows="false" receiveShadows="false" renderedInEnvmap="false" grassMetaDataProvider="false" grassMesh="false" highdetailMesh="false" nonRenderable="true" materialIds="1"/>
     </TransformGroup>
   </Scene>
 
